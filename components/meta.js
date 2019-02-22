@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { tukan } from './style/tukan'
-import { grid } from './style/grid';
+import { grid } from './style/binary-grid';
 
 const Meta = () => {
 
@@ -11,8 +11,8 @@ const Meta = () => {
                 <meta charSet="utf-8" />
                 <link rel="stylesheet" href="/static/css/normalize.css" />
             </Head>
-            {tukan}
             {grid}
+            {tukan}
         </div>
     )
 }

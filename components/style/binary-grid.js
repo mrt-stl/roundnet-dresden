@@ -1,15 +1,12 @@
 export const grid = <style jsx global>{`
 
 .grid {
+    display: flex;
+    flex-direction: row;
     max-width: 1024px;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
 }
 
 .col, 

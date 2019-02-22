@@ -3,11 +3,13 @@ import { loremIpsum, loremIpsum50 } from "../components/example/example-text"
 import Meta from "../components/meta"
 import CardDeck2 from "../components/pattern/card-deck-2"
 import Preview from "../components/pattern/preview"
+import Nav from "../components/navigation/nav"
 
 const Index = (props) => (
     <div>
         <Meta />
-        <div>
+        <Nav />
+        <div className="page-container">
             <div className="grid">
                 <div className="col">
                     <h1>Beispiel Projekt</h1>

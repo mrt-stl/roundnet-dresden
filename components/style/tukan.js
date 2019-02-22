@@ -75,7 +75,11 @@ hr {
 	box-sizing: content-box;
 }
 
-.call-to-action-link {
+.page-container {
+	margin-top: 50px;
+}
+
+.call-to-action {
 	font-size: 1.25em;
 }
 

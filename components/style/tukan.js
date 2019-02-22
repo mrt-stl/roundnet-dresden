@@ -14,21 +14,32 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1 {
-	font-size: 2.6em;
+	font-size: 3em;
+    color: var(--primary);
+    letter-spacing: -0.2px;
+  	line-height: 1.2;
+    margin-top: 0.333em;
+    margin-bottom: 0.333em;
 }
 
 h2 {
 	font-size: 2.5em;
-	line-height: 1.2;
-	margin-bottom: 0.4em;
+    color: var(--primary);
+    font-weight: bold;
+	letter-spacing: 0.2px;
+    line-height: 1.2;
+    margin-bottom: 0.4em;
 	margin-top: 0.4em;
 }
 
 h3 {
-	font-size: 2em;
-	line-height: 1.2;
-	margin-bottom: 0.5em;
-	margin-top: 0.5em;
+	color: var(--primary);
+	font-size: 1.75em;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+    margin-bottom: 0.5714285714em;
+    margin-top: 0.5714285714em;
 }
 
 h4 {
@@ -38,17 +49,17 @@ h4 {
 }
 
 p {
+	color: var(--primary);
 	font-size: 1em;
-	color: #3c3e40;
-	margin-bottom: 1em;
-	margin-top: 1em;
-	letter-spacing: 0.1px;
-	line-height: 1.5;
+	letter-spacing: 0.5px;
+    line-height: 1.5;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
 a {
-    color: var(--accent);
-    font-size: 16px;
+	color: var(--accent);
+	text-decoration: none;
 	font-weight: regular;
     letter-spacing: 0.5px;
     line-height: 1.2;
@@ -62,6 +73,10 @@ hr {
 	width: 90%;
 	border: 0px;
 	box-sizing: content-box;
+}
+
+.call-to-action-link {
+	font-size: 1.25em;
 }
 
 `}</style>

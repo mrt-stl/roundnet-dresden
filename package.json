@@ -12,6 +12,7 @@
     "compression": "^1.7.3",
     "express": "^4.16.4",
     "helmet": "^3.15.1",
+    "isomorphic-unfetch": "^3.0.0",
     "lru-cache": "^5.1.1",
     "next": "^8.0.1",
     "react": "^16.8.3",

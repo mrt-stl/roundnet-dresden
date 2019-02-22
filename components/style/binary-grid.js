@@ -18,10 +18,8 @@ export const grid = <style jsx global>{`
 .col-4,
 .col-8 {
     padding: 8px;
-    box-sizing:border-box;
+    box-sizing: border-box;
     height: 128px;
-    color: var(--white);
-    background-color: var(--secondary);
 }
 
 .col {

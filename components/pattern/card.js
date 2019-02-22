@@ -8,18 +8,16 @@ const Card = (props) => {
             <p>{props.content}</p>
             <a href={props.link}>{props.linkContent}</a>
 
-            {cardStyle}
+            <style jsx>{`
+            img {
+                width: 100%;
+                height: auto;
+            }
+            `}</style>
         </div>
 
     )
 }
-
-const cardStyle = <style jsx>{`
-img {
-    width: 100%;
-    height: auto;
-}
-`}</style>
 
 Card.propTypes = {
     title: string,

@@ -26,8 +26,14 @@ const CardDeck2 = (props) => {
                         linkContent={props.card2.linkContent} />
                 </div>
             </div>
-        </div>
 
+            <style jsx>{`
+            .card-deck-2-container {
+                margin-top: 5em;
+                margin-bottom: 5em;
+            }
+            `}</style>
+        </div>
     )
 }
 

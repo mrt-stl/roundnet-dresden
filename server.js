@@ -3,7 +3,7 @@ const next = require("next")
 
 const compression = require("compression")
 const helmet = require("helmet")
-const LRUCache = require("lru-cache")
+//const LRUCache = require("lru-cache")
 
 const PORT = 3000
 
@@ -12,10 +12,10 @@ const app = next({dev})
 const handle = app.getRequestHandler()
 
 // This is where we cache our rendered HTML pages
-const ssrCache = new LRUCache({
+/*const ssrCache = new LRUCache({
     max: 100,
     maxAge: 1000 * 1 * 1
-})
+})*/
 
 app.prepare()
     .then(() => {
@@ -43,9 +43,11 @@ app.prepare()
         process.exit(1)
     })
 
+/*
 function getCacheKey(req) {
     return `${req.url}`
 }
+
 
 async function renderAndCache(req, res, pagePath, queryParams) {
     const key = getCacheKey(req)
@@ -77,3 +79,4 @@ async function renderAndCache(req, res, pagePath, queryParams) {
         app.renderError(err, req, res, pagePath, queryParams)
     }
 }
+*/

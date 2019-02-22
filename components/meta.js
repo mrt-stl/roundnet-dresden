@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import { tukan } from './style/tukan'
-import { grid } from './style/binary-grid';
+import Head from "next/head"
+import { tukan } from "./style/tukan"
+import { grid } from "./style/binary-grid"
 
 const Meta = () => {
 

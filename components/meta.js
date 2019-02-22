@@ -5,9 +5,9 @@ import { colors } from "./style/colors"
 import { string } from "prop-types"
 
 const Meta = (props) => {
-    const primary = props.primary !== undefined ? "#" + props.primary : "#000000"
-    const secondary = props.secondary !== undefined ? "#" + props.secondary : "#ff3c3c"
-    const accent = props.accent !== undefined ? "#" + props.accent : "#ff3c3c"
+    const primary = props.primary !== undefined ? "#" + props.primary : defaultColors.primary
+    const secondary = props.secondary !== undefined ? "#" + props.secondary : defaultColors.secondary
+    const accent = props.accent !== undefined ? "#" + props.accent : defaultColors.accent
 
     return (
         <div>
@@ -21,6 +21,12 @@ const Meta = (props) => {
             {tukan}
         </div>
     )
+}
+
+const defaultColors = {
+    primary: "#000000",
+    secondary: "#ff3c3c",
+    accent: "#ff3c3c"
 }
 
 Meta.propTypes = {

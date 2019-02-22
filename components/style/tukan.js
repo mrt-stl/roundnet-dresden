@@ -48,11 +48,10 @@ p {
 
 a {
     color: var(--accent);
-    text-decoration: none;
-	font-size: 1.125;
-	line-height: 1.2;
-	margin-top: 0.8888888889em;
-	margin-bottom: 0.8888888889em;
+    font-size: 16px;
+	font-weight: regular;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
 }
 
 hr {

@@ -1,7 +1,7 @@
 import Meta from "../components/meta"
 import ExampleColContent from "../components/example/example-col-element"
 
-const ColorProject = (props) => (
+const ColorGrid = (props) => (
     <div>
         <Meta
             primary={props.primary}
@@ -86,7 +86,7 @@ const ColorProject = (props) => (
     </div>
 )
 
-ColorProject.getInitialProps = async (context) => {
+ColorGrid.getInitialProps = async (context) => {
 
     return {
         primary: context.query.primary,
@@ -95,4 +95,4 @@ ColorProject.getInitialProps = async (context) => {
     }
 }
 
-export default ColorProject
+export default ColorGrid

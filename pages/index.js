@@ -7,10 +7,15 @@ const Index = () => (
         <div>
             <div className="grid">
                 <div className="col">
-                    <h1>Example Project</h1>
+                    <h1>Beispiel Projekt</h1>
                 </div>
             </div>
 
+            <div className="grid">
+                <div className="col">
+                    <h2>Karten Element</h2>
+                </div>
+            </div>
             <CardDeck2 />
         </div>
     </div>

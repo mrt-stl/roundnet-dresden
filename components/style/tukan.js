@@ -46,7 +46,9 @@ p {
 	line-height: 1.5;
 }
 
-p.link {
+a {
+    color: var(--accent);
+    text-decoration: none;
 	font-size: 1.125;
 	line-height: 1.2;
 	margin-top: 0.8888888889em;

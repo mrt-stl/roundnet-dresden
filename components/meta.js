@@ -5,9 +5,9 @@ import { colors } from "./style/colors"
 import { string } from "prop-types"
 
 const Meta = (props) => {
-    const primary = props.primary !== undefined ? "#" + props.primary : "#1e323c"
-    const secondary = props.secondary !== undefined ? "#" + props.secondary : "#30a5ce"
-    const accent = props.accent !== undefined ? "#" + props.accent : "#d3b982"
+    const primary = props.primary !== undefined ? "#" + props.primary : "#000000"
+    const secondary = props.secondary !== undefined ? "#" + props.secondary : "#ff3c3c"
+    const accent = props.accent !== undefined ? "#" + props.accent : "#ff3c3c"
 
     return (
         <div>

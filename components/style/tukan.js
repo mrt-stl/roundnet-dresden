@@ -1,12 +1,5 @@
 export const tukan = <style jsx global>{`
 
-:root {
-    --primary: #1e323c;
-    --secondary: #30a5ce;
-    --accent: #d3b982;
-    --white: #ffffff;
-}
-
 html, body {
 	height: 100%;
 	margin: 0 auto;

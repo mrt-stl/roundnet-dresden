@@ -1,8 +1,16 @@
 import Head from "next/head"
 import { tukan } from "./style/tukan"
 import { grid } from "./style/binary-grid"
+import { colors } from "./style/colors"
+import { string } from "prop-types"
 
-const Meta = () => {
+const Meta = (props) => {
+    console.log(props)
+    const primary = props.primary !== undefined ? "#" + props.primary : "#1e323c"
+    const secondary = props.secondary !== undefined ? "#" + props.secondary : "#30a5ce"
+    const accent = props.accent !== undefined ? "#" + props.accent : "#d3b982"
+
+    console.log(primary)
 
     return (
         <div>
@@ -12,9 +20,16 @@ const Meta = () => {
                 <link rel="stylesheet" href="/static/css/normalize.css" />
             </Head>
             {grid}
+            {colors(primary, secondary, accent)}
             {tukan}
         </div>
     )
+}
+
+Meta.propTypes = {
+    primary: string,
+    secondary: string,
+    accent: string
 }
 
 export default Meta

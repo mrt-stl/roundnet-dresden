@@ -19,7 +19,6 @@ const Meta = (props) => {
             {grid}
             {colors(primary, secondary, accent)}
             {tukan}
-            
         </div>
     )
 }

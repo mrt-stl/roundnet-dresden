@@ -1,5 +1,5 @@
 import Link from "next/link"
-
+import { string } from "prop-types"
 
 const NavLink = (props) => (
     <div className="nav-link">
@@ -15,5 +15,9 @@ const NavLink = (props) => (
 
 )
 
+NavLink.propTypes = {
+    href: string,
+    linkContent: string
+}
 
 export default NavLink

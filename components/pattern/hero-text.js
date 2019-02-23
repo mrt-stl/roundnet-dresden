@@ -2,7 +2,7 @@ import { object } from "prop-types"
 
 const HeroText = (props) => {
     return (
-        <div className="hero-container">
+        <div id="hero-text" className="hero-container">
             <div className="grid justify-content-center">
                 <div className="col-6 text-center">{props.content}</div>
             </div>

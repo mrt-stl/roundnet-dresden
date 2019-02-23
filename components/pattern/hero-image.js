@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const HeroImage = (props) => {
     return (
-        <div className="hero-image-container">
+        <div id="hero-image" className="hero-image-container">
             <div className="hero-image-content-container text-center">
                 <h1>{props.title}</h1>
                 <Link href={props.link}>

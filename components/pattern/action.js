@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const Action = (props) => {
     return (
-        <div className="action-container">
+        <div id="action" className="action-container">
             <div className="grid">
                 <div className="col-4">
                     <p>{props.content}</p>

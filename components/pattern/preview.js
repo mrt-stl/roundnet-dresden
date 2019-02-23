@@ -2,7 +2,7 @@ import { string } from "prop-types"
 
 const Preview = (props) => {
     return (
-        <div className="preview-container">
+        <div id="preview" className="preview-container">
             <div className="grid">
                 <div className="col-4">
                     <h2>{props.title}</h2>

@@ -5,7 +5,7 @@ import { object } from "prop-types"
 const CardDeck2 = (props) => {
 
     return (
-        <div className="card-deck-2-container">
+        <div id="card-deck" className="card-deck-2-container">
             <div className="grid">
                 <div className="col-4">
                     <Card

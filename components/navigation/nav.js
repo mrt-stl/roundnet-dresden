@@ -5,18 +5,28 @@ const Nav = () => (
         <div className="grid h-100">
             <div className="col-1 align-items-center">
                 <NavLink
-                    href="/"
-                    linkContent="Startseite" />
+                    href="#hero-image"
+                    linkContent="Titelbild" />
             </div>
             <div className="col-1 align-items-center">
                 <NavLink
-                    href="/"
-                    linkContent="Kontakt" />
+                    href="#hero-text"
+                    linkContent="Text" />
             </div>
             <div className="col-1 align-items-center">
                 <NavLink
-                    href="/"
-                    linkContent="Impressum" />
+                    href="#card-deck"
+                    linkContent="Karten" />
+            </div>
+            <div className="col-1 align-items-center">
+                <NavLink
+                    href="#preview"
+                    linkContent="Preview" />
+            </div>
+            <div className="col-1 align-items-center">
+                <NavLink
+                    href="#action"
+                    linkContent="Action" />
             </div>
         </div>
 

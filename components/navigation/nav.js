@@ -1,15 +1,22 @@
-import Link from "next/link"
-
+import NavLink from "./nav-link"
 
 const Nav = () => (
     <div className="nav">
-        <div className="nav-content">
-            <div className="nav-element">
-                <Link href="/">
-                    <a>
-                        <p>Home</p>
-                    </a>
-                </Link>
+        <div className="grid h-100">
+            <div className="col-1 align-items-center">
+                <NavLink
+                    href="/"
+                    linkContent="Startseite" />
+            </div>
+            <div className="col-1 align-items-center">
+                <NavLink
+                    href="/"
+                    linkContent="Kontakt" />
+            </div>
+            <div className="col-1 align-items-center">
+                <NavLink
+                    href="/"
+                    linkContent="Impressum" />
             </div>
         </div>
 
@@ -21,27 +28,11 @@ const Nav = () => (
                 top: 0;
                 width: 100%;
                 height: 50px;
-                background: #ffffff;
+                background-color: var(--white);
             }
-            
-            .nav-content {
-                margin-left: 5%;
-                margin-right: 5%;
-            }
-            
-            .nav-element {
-                padding-right: 20px;
-            }
-            
-            @media (max-width: 768px) {
-                .nav {
-                    overflow: hidden;
-                    background: #ffffff;
-                }
-                .nav-content {
-                    margin-left: 20px;
-                    margin-right: 20px;
-                }
+
+            .nav-link {
+                color: var(--primary);
             }
             `}</style>
 

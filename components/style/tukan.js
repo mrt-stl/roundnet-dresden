@@ -75,6 +75,10 @@ hr {
 	box-sizing: content-box;
 }
 
+.h-100 {
+	height: 100%;
+}
+
 .page-container {
 	margin-top: 50px;
 }

@@ -1,5 +1,4 @@
 import { loremIpsum, loremIpsum50 } from "../components/example/example-text"
-
 import Meta from "../components/meta"
 import CardDeck2 from "../components/pattern/card-deck-2"
 import Preview from "../components/pattern/preview"

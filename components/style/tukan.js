@@ -79,6 +79,10 @@ hr {
 	height: 100%;
 }
 
+.text-center {
+	text-align: center;
+}
+
 .page-container {
 	margin-top: 50px;
 }

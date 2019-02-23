@@ -4,6 +4,7 @@ import CardDeck2 from "../components/pattern/card-deck-2"
 import Preview from "../components/pattern/preview"
 import Nav from "../components/navigation/nav"
 import Action from "../components/pattern/action"
+import HeroText from "../components/pattern/hero-text"
 
 const Index = (props) => (
     <div>
@@ -15,6 +16,9 @@ const Index = (props) => (
                     <h1>Beispiel Projekt</h1>
                 </div>
             </div>
+
+            <HeroText
+                content={<p>{loremIpsum50}</p>} />
 
             <CardDeck2
                 card1={props.card}

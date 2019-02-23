@@ -13,6 +13,7 @@ export const grid = <style jsx global>{`
 .col-1,
 .col-2,
 .col-4,
+.col-6,
 .col-8 {
     padding: 8px;
     box-sizing: border-box;
@@ -37,6 +38,11 @@ export const grid = <style jsx global>{`
 .col-4 {
     flex-basis: 50%;
     max-width: 50%;
+}
+
+.col-6 {
+    flex-basis: 75%;
+    max-width: 75%;
 }
 
 .col-8 {

@@ -1,4 +1,5 @@
 import { string } from "prop-types"
+import Link from "next/link"
 
 const Card = (props) => {
     return (
@@ -6,9 +7,11 @@ const Card = (props) => {
             <img src={props.img} alt={props.imgDescription}></img>
             <h3>{props.title}</h3>
             <p>{props.content}</p>
-            <a className="call-to-action" href={props.link}>{
+            <Link href={props.link}>
+                <a className="call-to-action">{
                     props.linkContent}
-            </a>
+                </a>
+            </Link>
 
             <style jsx>{`
             img {

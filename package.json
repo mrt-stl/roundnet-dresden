@@ -5,7 +5,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
-    "deploy": "now",
+    "now": "now",
     "lint": "eslint ."
   },
   "dependencies": {

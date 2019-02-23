@@ -5,17 +5,20 @@ import Preview from "../components/pattern/preview"
 import Nav from "../components/navigation/nav"
 import Action from "../components/pattern/action"
 import HeroText from "../components/pattern/hero-text"
+import HeroImage from "../components/pattern/hero-image"
 
 const Index = (props) => (
     <div>
         <Meta />
         <Nav />
         <div className="page-container">
-            <div className="grid">
-                <div className="col">
-                    <h1>Beispiel Projekt</h1>
-                </div>
-            </div>
+            <HeroImage
+                backgroundImg="https://images.unsplash.com/photo-1518733057094-95b53143d2a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=915&q=80" 
+                imgDescription="Hero Image"
+                title="Beispiel Projekt"
+                linkContent="Projekt anfragen"
+                link="/"
+                 />
 
             <HeroText
                 content={<p>{loremIpsum50}</p>} />
@@ -27,7 +30,7 @@ const Index = (props) => (
             <Preview
                 title="Preview"
                 content={loremIpsum50}
-                img="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2702&q=80"
+                img="/static/img/preview.jpg"
                 imgDescription={loremIpsum} />
 
             <Action

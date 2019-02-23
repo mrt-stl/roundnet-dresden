@@ -4,11 +4,10 @@ html, body {
 	height: 100%;
 	margin: 0 auto;
 	width: 100%;
-	font-family: neue-haas-unica, sans-serif;
+	font-family: 'Gothic A1', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p {
-	font-family: neue-haas-unica, sans-serif;
 	font-style: normal;
 	margin: 0px;
 }

@@ -3,27 +3,27 @@ import NavLink from "./nav-link"
 const Nav = () => (
     <div className="nav">
         <div className="grid h-100">
-            <div className="col-1 align-items-center">
+            <div className="align-items-center">
                 <NavLink
                     href="#hero-image"
                     linkContent="Titelbild" />
             </div>
-            <div className="col-1 align-items-center">
+            <div className="align-items-center">
                 <NavLink
                     href="#hero-text"
                     linkContent="Text" />
             </div>
-            <div className="col-1 align-items-center">
+            <div className="align-items-center">
                 <NavLink
                     href="#card-deck"
                     linkContent="Karten" />
             </div>
-            <div className="col-1 align-items-center">
+            <div className="align-items-center">
                 <NavLink
                     href="#preview"
                     linkContent="Preview" />
             </div>
-            <div className="col-1 align-items-center">
+            <div className="align-items-center">
                 <NavLink
                     href="#action"
                     linkContent="Action" />

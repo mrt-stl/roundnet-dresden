@@ -7,6 +7,10 @@ const NavLink = (props) => (
             <a>{props.linkContent}</a>
         </Link>
         <style jsx>{`
+            .nav-link {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
             .nav-link a {
                 color: var(--primary);
             }

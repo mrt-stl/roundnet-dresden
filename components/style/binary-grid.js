@@ -68,6 +68,7 @@ export const grid = <style jsx global>{`
     .col-1,
     .col-2,
     .col-4,
+    .col-6,
     .col-8 {
         flex-basis: 100%;
         max-width: 100%;

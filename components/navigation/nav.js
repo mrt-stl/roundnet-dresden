@@ -2,7 +2,7 @@ import NavLink from "./nav-link"
 
 const Nav = () => (
     <div className="nav">
-        <div className="grid h-100">
+        <div className="grid-nav h-100">
             <div className="align-items-center">
                 <NavLink
                     href="#hero-image"
@@ -39,6 +39,15 @@ const Nav = () => (
                 width: 100%;
                 height: 50px;
                 background-color: var(--white);
+            }
+
+            .grid-nav {
+                display: flex;
+                flex-direction: row;
+                max-width: 1024px;
+                width: 100%;
+                margin-right: auto;
+                margin-left: auto;
             }
 
             .nav-link {

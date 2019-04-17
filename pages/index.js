@@ -17,8 +17,7 @@ const Index = (props) => (
                 imgDescription="Hero Image"
                 title="Beispiel Projekt"
                 linkContent="Projekt anfragen"
-                link="/"
-                 />
+                link="/" />
 
             <HeroText
                 content={<p>{loremIpsum50}</p>} />

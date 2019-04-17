@@ -1,11 +1,11 @@
 import Card from "./card"
-import { object } from "prop-types"
-
+import { object, string } from "prop-types"
 
 const CardDeck2 = (props) => {
+    const cardDeckColor = props.cardDeckColor !== undefined ? props.cardDeckColor : "var(--white)"
 
     return (
-        <div id="card-deck" className="card-deck-2-container">
+        <div className="card-deck-2-container" style={{ backgroundColor: cardDeckColor }}>
             <div className="grid">
                 <div className="col-4">
                     <Card
@@ -28,16 +28,17 @@ const CardDeck2 = (props) => {
             </div>
 
             <style jsx>{`
-            .card-deck-2-container {
-                margin-top: 5em;
-                margin-bottom: 5em;
-            }
+                .card-deck-2-container {
+                    margin-top: 5em;
+                    margin-bottom: 5em;
+                }
             `}</style>
         </div>
     )
 }
 
 CardDeck2.propTypes = {
+    cardDeckColor: string,
     card1: object,
     card2: object
 }

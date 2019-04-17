@@ -1,4 +1,5 @@
 import { string } from "prop-types"
+import LazyLoad from "react-lazyload"
 
 const Preview = (props) => {
     return (
@@ -12,14 +13,17 @@ const Preview = (props) => {
 
             <div className="grid">
                 <div className="col">
-                    <img src={props.img} alt={props.imgDescription}></img>
+                    <LazyLoad height={"512px"} offset={200}>
+                        <img src={props.img} alt={props.imgDescription}></img>
+                    </LazyLoad>
                 </div>
             </div>
 
             <style jsx>{`
             img {
                 width: 100%;
-                height: auto;
+                height: 512px;
+                object-fit: cover;
             }
             .preview-container {
                 padding-top: 5em;

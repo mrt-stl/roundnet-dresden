@@ -2,8 +2,10 @@ import { string } from "prop-types"
 import Link from "next/link"
 
 const Action = (props) => {
+    const backgroundColor = props.color !== undefined ? props.color : "var(--secondary)"
+
     return (
-        <div id="action" className="action-container">
+        <div className="action-container" style={{ backgroundColor: backgroundColor}}>
             <div className="grid">
                 <div className="col-4">
                     <p>{props.content}</p>
@@ -12,7 +14,7 @@ const Action = (props) => {
 
             <div className="grid">
                 <div className="col-4">
-                    <Link href={props.link}>
+                    <Link href={props.link !== undefined ? props.link : ""}>
                         <a>{props.linkContent}</a>
                     </Link>
                 </div>
@@ -22,7 +24,6 @@ const Action = (props) => {
                 .action-container {
                     padding-top: 5em;
                     padding-bottom: 5em;
-                    background-color: var(--secondary);
                     color: var(--white);
                 }
                 a {
@@ -30,11 +31,11 @@ const Action = (props) => {
                 }
                 p {
                     color: var(--white);
-                    font-size: 1.75em;
+                    font-size: 1.5em;
                     letter-spacing: 0.2px;
                     line-height: 1.3;
-                    margin-bottom: 0.5714285714em;
-                    margin-top: 0.5714285714em;
+                    margin-bottom: 0.6666666667em;
+                    margin-top: 0.6666666667em;
                 }
             `}</style>
         </div>
@@ -44,7 +45,8 @@ const Action = (props) => {
 Action.propTypes = {
     content: string,
     link: string,
-    linkContent: string
+    linkContent: string,
+    color: string
 }
 
 export default Action

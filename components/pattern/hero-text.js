@@ -4,7 +4,7 @@ const HeroText = (props) => {
     return (
         <div id="hero-text" className="hero-container">
             <div className="grid justify-content-center">
-                <div className="col-6 text-center">{props.content}</div>
+                <div className="col-6">{props.content}</div>
             </div>
 
             <style jsx>{`

@@ -1,17 +1,19 @@
 import { string } from "prop-types"
 import Link from "next/link"
+import LazyLoad from "react-lazyload"
 
 const HeroImage = (props) => {
     return (
         <div id="hero-image" className="hero-image-container">
             <div className="hero-image-content-container text-center">
                 <h1>{props.title}</h1>
-                <Link href={props.link}>
+                <Link href={props.link !== undefined ? props.link : ""}>
                     <a>{props.linkContent}</a>
                 </Link>
             </div>
-            
-            <img src={props.backgroundImg} alt={props.imgDescription}></img>
+            <LazyLoad height={"90vh"} offset={200}>
+                <img src={props.backgroundImg} alt={props.imgDescription}></img>
+            </LazyLoad>
             <style jsx>{`
                 .hero-image-container {
                     position: relative;

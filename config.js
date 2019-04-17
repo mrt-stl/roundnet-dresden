@@ -1,4 +1,4 @@
 export const config = {
-    PRISMIC_ENDPOINT: "https://stadtteilliebe.cdn.prismic.io/api/v2",
-    ACCESS_TOKEN: "MC5YSEFXZHhJQUFDSUFXbVY0.ASIWY--_vVrvv73vv70s77-977-977-977-9X--_ve-_ve-_ve-_vWrvv73vv73vv70iVwBD77-977-9Q0Tvv70E"
+    PRISMIC_ENDPOINT: "https://lederpflege-nawrot.cdn.prismic.io/api/v2",
+    ACCESS_TOKEN: "MC5YTGIyYXhBQUFQQWp1Qy1q.aApoS--_ve-_vUvvv73vv71bb0zvv70Y77-977-977-977-9JO-_vV_vv73vv70zPHnvv71NAe-_ve-_ve-_vQ"
 }

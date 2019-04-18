@@ -1,6 +1,9 @@
 import { array } from "prop-types"
 import HeroImage from "./pattern/hero-image"
-
+import InfiniteCards from "./pattern/infinite-cards"
+import AtmosphericImage from "./pattern/atmospheric-image"
+import Details from "./pattern/details"
+import Action from "./pattern/action"
 
 const PatternWrapper = ({ body }) => {
     const pattern = body.map((slice, index) => {
@@ -18,12 +21,40 @@ const createPattern = (slice, index) => {
     var pattern
     switch (slice.slice_type) {
         case "startbild":
-            pattern = 
-                <HeroImage 
+            pattern =
+                <HeroImage
                     key={index}
                     data={slice.primary} />
             break
-    
+
+        case "karte":
+            pattern =
+                <InfiniteCards
+                    key={index}
+                    data={slice.items} />
+            break
+
+        case "atmospheric":
+            pattern =
+                <AtmosphericImage
+                    key={index}
+                    data={slice.primary} />
+            break
+
+        case "details":
+            pattern = 
+                <Details
+                    key={index}
+                    data={slice.items} />
+            break
+
+        case "action":
+            pattern =
+                <Action
+                    key={index}
+                    data={slice.primary} />
+            break
+
         default:
             break
     }

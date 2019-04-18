@@ -1,21 +1,25 @@
-import { string } from "prop-types"
+import { object } from "prop-types"
 import Link from "next/link"
+import { asText, linkResolver } from "../../utils/prismic-utils"
 
-const Action = (props) => {
-    const backgroundColor = props.color !== undefined ? props.color : "var(--secondary)"
+const Action = ({ data }) => {
+    const backgroundColor = data.action_color ? data.action_color : "var(--secondary)"
+    const content = asText(data.action_content)
+    const link = linkResolver(data.action_link)
+    const linkContent = asText(data.action_link_text)
 
     return (
-        <div className="action-container" style={{ backgroundColor: backgroundColor}}>
+        <div className="action-container" style={{ backgroundColor: backgroundColor }}>
             <div className="grid">
                 <div className="col-4">
-                    <p>{props.content}</p>
+                    <p>{content}</p>
                 </div>
             </div>
 
             <div className="grid">
                 <div className="col-4">
-                    <Link href={props.link !== undefined ? props.link : ""}>
-                        <a>{props.linkContent}</a>
+                    <Link href={link? link : ""}>
+                        <a>{linkContent}</a>
                     </Link>
                 </div>
             </div>
@@ -43,10 +47,7 @@ const Action = (props) => {
 }
 
 Action.propTypes = {
-    content: string,
-    link: string,
-    linkContent: string,
-    color: string
+    data: object
 }
 
 export default Action

@@ -15,7 +15,7 @@ const Index = (props) => (
 Index.getInitialProps = async () => {
     const docs = await getPages("standard")
     const pageData = docs.results[0].data
-
+    
     return {
         body: pageData.body
     }

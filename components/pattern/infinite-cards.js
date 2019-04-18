@@ -1,19 +1,27 @@
 import Card from "./card"
 import { array } from "prop-types"
+import { asHtml, linkResolver, asText } from "../../utils/prismic-utils"
 
 
 const InfiniteCards = (props) => {
 
-    const cards = props.cards.map((card, index) => {
+    const cards = props.data.map((card, index) => {
+        const img = card.card_img.url
+        const imgAlt = card.card_img.alt
+        const title = asHtml(card.card_title)
+        const content = asHtml(card.card_content)
+        const link = linkResolver(card.card_link)
+        const linkContent = asText(card.card_link_content)
+
         return (
             <div key={index} className="col-4">
                 <Card
-                    img={card.img}
-                    imgDescription={card.imgDescription}
-                    title={card.title}
-                    content={card.content}
-                    link={card.link}
-                    linkContent={card.linkContent} />
+                    img={img}
+                    imgDescription={imgAlt}
+                    title={title}
+                    content={content}
+                    link={link}
+                    linkContent={linkContent} />
             </div>
         )
     })
@@ -35,7 +43,7 @@ const InfiniteCards = (props) => {
 }
 
 InfiniteCards.propTypes = {
-    cards: array
+    data: array
 }
 
 export default InfiniteCards

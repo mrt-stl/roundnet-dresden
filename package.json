@@ -16,6 +16,7 @@
     "isomorphic-unfetch": "^3.0.0",
     "lru-cache": "^5.1.1",
     "next": "^8.1.0",
+    "now": "^15.0.5",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.0.1",
     "prismic-reactjs": "^0.3.2",

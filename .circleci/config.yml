@@ -37,8 +37,8 @@ jobs:
       enabled: true
     steps:
     - run:
-        name: Deploy Over SSH
-        command: ssh root@sm-dev.stlb.me "cd /home/development/seedmatch-frontend && ./dev.sh"
+        name: Deploy to Now
+        command: yarn now
 
 workflows:
   version: 2

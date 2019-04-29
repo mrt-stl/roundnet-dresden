@@ -1,9 +1,23 @@
 {
     "version": 2,
-    "name": "lederpflege-nawrot",
-    "regions": ["all"],
+    "name": "standard",
+    "regions": [
+        "all"
+    ],
     "builds": [
-        { "src": "next.config.js", "use": "@now/next" },
-        { "src": "static/*", "use": "@now/static" }
+        {
+            "src": "next.config.js",
+            "use": "@now/next"
+        },
+        {
+            "src": "static/*",
+            "use": "@now/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(?<id>[^/]+)$",
+            "dest": "/index?id=$id"
+        }
     ]
-  }
+}

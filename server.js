@@ -30,6 +30,13 @@ app.prepare()
         // important if behind a proxy to ensure client IP is passed to req.ip
         server.enable("trust proxy")
 
+        server.get("/:id", (req, res) => {
+            const actualPage = "/index"
+            const queryParams = { id: req.params.id }
+            
+            app.render(req, res, actualPage, queryParams)
+        })
+
         server.get("*", (req, res) => {
             return handle(req, res)
         })

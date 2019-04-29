@@ -1,6 +1,6 @@
 import Meta from "../components/meta"
 import Nav from "../components/navigation/nav"
-import { getPages } from "../networking/prismic-api"
+import { getByUid } from "../networking/prismic-api"
 import PatternWrapper from "../components/pattern-wrapper"
 
 const Index = (props) => (
@@ -12,12 +12,22 @@ const Index = (props) => (
     </div>
 )
 
-Index.getInitialProps = async () => {
-    const docs = await getPages("standard")
-    const pageData = docs.results[0].data
-    
-    return {
-        body: pageData.body
+Index.getInitialProps = async ({ query }) => {
+    if (!query.id) {
+        const docs = await getByUid("standard", "home")
+        const body = docs.data.body
+
+        return {
+            body
+        }
+        
+    } else {
+        const docs = await getByUid("standard", query.id)
+        const body = docs.data.body
+
+        return {
+            body
+        }
     }
 }
 

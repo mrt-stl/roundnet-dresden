@@ -20,17 +20,16 @@ const Preview = (props) => {
             </div>
 
             <style jsx>{`
-            img {
-                width: 100%;
-                height: 512px;
-                object-fit: cover;
-            }
-            .preview-container {
-                padding-top: 5em;
-                padding-bottom: 5em;
-                background-color: #f7f7f7;
-            }
-
+                img {
+                    width: 100%;
+                    height: 512px;
+                    object-fit: cover;
+                }
+                .preview-container {
+                    padding-top: 5em;
+                    padding-bottom: 5em;
+                    background-color: #f7f7f7;
+                }
             `}</style>
         </div>
 

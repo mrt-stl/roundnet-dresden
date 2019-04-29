@@ -10,8 +10,10 @@ export const getPages = async(type) => {
 }
 
 export const getByUid = async (type, uid) => {
-    const accessToken = process.env.ACCESS_TOKEN
-    const api = await Prismic.api(process.env.PRISMIC_ENDPOINT, { accessToken })
+    const endpoint = process.env.PRISMIC_ENDPOINT ? process.env.PRISMIC_ENDPOINT : config.PRISMIC_ENDPOINT
+    const accessToken = process.env.ACCESS_TOKEN ? process.env.ACCESS_TOKEN : config.ACCESS_TOKEN
+
+    const api = await Prismic.api(endpoint, { accessToken })
 
     const res = await api.getByUID(type, uid)
     return res

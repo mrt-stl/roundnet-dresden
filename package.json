@@ -2,11 +2,11 @@
   "name": "create-next-project",
   "version": "0.0.1",
   "scripts": {
-    "dev": "now dev -A deployment/standard-now.json -e PRISMIC_ENDPOINT=https://kranich.cdn.prismic.io/api/v2",
+    "dev": "now dev -A deployment/standard-now.json",
     "build": "next build",
     "start": "next start -p $PORT",
-    "deploy-test": "now --target production -A deployment/standard-now.json",
-    "deploy-all": "now --target production -A deployment/kranich-now.json",
+    "deploy-test": "now -A deployment/standard-now.json",
+    "deploy-all": "next build && now --target production -A deployment/kranich-now.json && now --target production -A deployment/lederpflege-nawrot-now.json",
     "now-build": "next build",
     "lint": "eslint ."
   },
@@ -27,6 +27,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-security": "^1.4.0",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "now-env": "^3.1.0"
   }
 }

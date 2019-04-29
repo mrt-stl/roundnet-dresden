@@ -1,0 +1,30 @@
+{
+    "version": 2,
+    "name": "lederpflege-nawrot",
+    "alias": "lederpflege-nawrot",
+    "regions": [
+        "all"
+    ],
+    "builds": [
+        {
+            "src": "next.config.js",
+            "use": "@now/next"
+        },
+        {
+            "src": "static/*",
+            "use": "@now/static"
+        }
+    ],
+    "build": {
+        "env": {
+            "PRISMIC_ENDPOINT": "https://lederpflege-nawrot.cdn.prismic.io/api/v2",
+            "ACCESS_TOKEN": "MC5YTGIyYXhBQUFQQWp1Qy1q.aApoS--_ve-_vUvvv73vv71bb0zvv70Y77-977-977-977-9JO-_vV_vv73vv70zPHnvv71NAe-_ve-_ve-_vQ"
+        }
+    },
+    "routes": [
+        {
+            "src": "/(?<id>[^/]+)$",
+            "dest": "/index?id=$id"
+        }
+    ]
+}

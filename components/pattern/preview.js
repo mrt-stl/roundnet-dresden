@@ -1,11 +1,11 @@
 import { object } from "prop-types"
 import LazyLoad from "react-lazyload"
-import { asText } from "../../utils/prismic-utils"
+import { asText, asHtml } from "../../utils/prismic-utils"
 import Parser from "html-react-parser"
 
 const Preview = ({ data }) => {
     const title = asText(data.preview_title)
-    const content = asText(data.preview_content)
+    const content = asHtml(data.preview_content)
     const img = data.preview_image.url
     const alt = data.preview_image.alt
 

@@ -5,7 +5,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start -p $PORT",
-    "now": "now --target production --build-env NODE_ENV=production",
+    "now": "now --target production",
+    "now-build": "next build",
     "lint": "eslint ."
   },
   "dependencies": {

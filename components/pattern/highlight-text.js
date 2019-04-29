@@ -1,14 +1,14 @@
 import { object } from "prop-types"
 
-const HeroText = (props) => {
+const HighlightText = (props) => {
     return (
-        <div id="hero-text" className="hero-container">
+        <div className="highlight-container">
             <div className="grid justify-content-center">
                 <div className="col-6">{props.content}</div>
             </div>
 
             <style jsx>{`
-                .hero-container {
+                .highlight-container {
                     padding-top: 5em;
                     padding-bottom: 5em;
                 }
@@ -17,8 +17,8 @@ const HeroText = (props) => {
     )
 }
 
-HeroText.propTypes = {
+HighlightText.propTypes = {
     content: object
 }
 
-export default HeroText
+export default HighlightText

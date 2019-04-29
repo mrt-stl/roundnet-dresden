@@ -2,20 +2,17 @@
   "name": "create-next-project",
   "version": "0.0.1",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "now dev -A deployment/standard-now.json -e PRISMIC_ENDPOINT=https://kranich.cdn.prismic.io/api/v2",
     "build": "next build",
     "start": "next start -p $PORT",
-    "now": "now",
+    "deploy-test": "now --target production -A deployment/standard-now.json",
+    "deploy-all": "now --target production -A deployment/kranich-now.json",
     "now-build": "next build",
     "lint": "eslint ."
   },
   "dependencies": {
-    "compression": "^1.7.3",
-    "express": "^4.16.4",
-    "helmet": "^3.15.1",
     "html-react-parser": "^0.7.0",
     "isomorphic-unfetch": "^3.0.0",
-    "lru-cache": "^5.1.1",
     "next": "^8.1.0",
     "now": "^15.0.5",
     "prismic-dom": "^2.1.0",
@@ -29,6 +26,7 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-security": "^1.4.0"
+    "eslint-plugin-security": "^1.4.0",
+    "express": "^4.16.4"
   }
 }

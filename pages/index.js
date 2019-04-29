@@ -13,6 +13,8 @@ const Index = (props) => (
 )
 
 Index.getInitialProps = async ({ query }) => {
+    const ACCESS_TOKEN = process.env.ACCESS_TOKEN
+
     if (!query.id) {
         const docs = await getByUid("standard", "home")
         const body = docs.data.body
@@ -22,7 +24,7 @@ Index.getInitialProps = async ({ query }) => {
         }
         
     } else {
-        const docs = await getByUid("standard", query.id)
+        const docs = await getByUid(ACCESS_TOKEN, "standard", query.id)
         const body = docs.data.body
 
         return {

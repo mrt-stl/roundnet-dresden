@@ -2,6 +2,7 @@
     "version": 2,
     "name": "kranich-stl",
     "alias": "kranich.stadtteilliebe.de",
+    "public": false,
     "regions": [
         "all"
     ],

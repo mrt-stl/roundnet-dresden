@@ -4,6 +4,10 @@ import InfiniteCards from "./pattern/infinite-cards"
 import AtmosphericImage from "./pattern/atmospheric-image"
 import Details from "./pattern/details"
 import Action from "./pattern/action"
+import Preview from "./pattern/preview"
+import HighlightText from "./pattern/highlight-text"
+import Richtext from "./pattern/richtext"
+
 
 const PatternWrapper = ({ body }) => {
     const pattern = body.map((slice, index) => {
@@ -42,7 +46,7 @@ const createPattern = (slice, index) => {
             break
 
         case "details":
-            pattern = 
+            pattern =
                 <Details
                     key={index}
                     data={slice.items} />
@@ -51,6 +55,27 @@ const createPattern = (slice, index) => {
         case "action":
             pattern =
                 <Action
+                    key={index}
+                    data={slice.primary} />
+            break
+
+        case "preview":
+            pattern =
+                <Preview
+                    key={index}
+                    data={slice.primary} />
+            break
+
+        case "highlight":
+            pattern =
+                <HighlightText
+                    key={index}
+                    data={slice.primary} />
+            break
+
+        case "richtext":
+            pattern =
+                <Richtext
                     key={index}
                     data={slice.primary} />
             break

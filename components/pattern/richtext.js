@@ -1,10 +1,14 @@
 import { object } from "prop-types"
+import { asHtml } from "../../utils/prismic-utils"
+import Parser from "html-react-parser"
 
-const Richtext = (props) => {
+const Richtext = ({ data }) => {
+    const content = asHtml(data.richtext_content)
+
     return (
         <div className="grid">
             <div className="col">
-                {props.content}
+                {Parser(content)}
             </div>
 
 
@@ -16,7 +20,7 @@ const Richtext = (props) => {
 }
 
 Richtext.propTypes = {
-    content: object
+    data: object
 }
 
 export default Richtext

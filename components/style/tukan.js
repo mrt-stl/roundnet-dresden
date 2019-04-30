@@ -4,7 +4,7 @@ html, body {
 	height: 100%;
 	margin: 0 auto;
 	width: 100%;
-	font-family: 'Gothic A1', sans-serif;
+	font-family: "Roboto", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p {

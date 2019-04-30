@@ -9,7 +9,8 @@
     "deploy-all": "next build && now --target production -A deployment/kranich-now.json && now --target production -A deployment/lederpflege-nawrot-now.json",
     "now-build": "next build",
     "lint": "eslint .",
-    "test": "jest"
+    "test": "jest",
+    "export": "next export"
   },
   "dependencies": {
     "html-react-parser": "^0.7.0",

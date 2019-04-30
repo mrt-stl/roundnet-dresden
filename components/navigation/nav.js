@@ -1,62 +1,50 @@
 import NavLink from "./nav-link"
 
-const Nav = () => (
-    <div className="nav">
-        <div className="grid-nav h-100">
-            <div className="align-items-center">
-                <NavLink
-                    href="#hero-image"
-                    linkContent="Titelbild" />
+const Nav = () => {
+    const navLinks = process.env.NAV
+    const navArray = JSON.parse(navLinks)
+
+    return (
+        <div className="nav">
+            <div className="grid-nav h-100">
+                {navArray.map((element, index) => {
+                    return (<div className="align-items-center" key={index}>
+                        <NavLink
+                            href={element.link}
+                            linkContent={element.name} />
+                    </div>)
+                })}
+
             </div>
-            <div className="align-items-center">
-                <NavLink
-                    href="#hero-text"
-                    linkContent="Text" />
-            </div>
-            <div className="align-items-center">
-                <NavLink
-                    href="#card-deck"
-                    linkContent="Karten" />
-            </div>
-            <div className="align-items-center">
-                <NavLink
-                    href="#preview"
-                    linkContent="Preview" />
-            </div>
-            <div className="align-items-center">
-                <NavLink
-                    href="#action"
-                    linkContent="Action" />
-            </div>
+
+            <style jsx>{`
+                .nav {
+                    z-index: 100;
+                    overflow: hidden;
+                    position: fixed;
+                    top: 0;
+                    width: 100%;
+                    height: 48px;
+                    background-color: var(--white);
+                }
+
+                .grid-nav {
+                    display: flex;
+                    flex-direction: row;
+                    max-width: 1024px;
+                    width: 100%;
+                    margin-right: auto;
+                    margin-left: auto;
+                }
+
+                .nav-link {
+                    color: var(--primary);
+                }
+        `}</style>
+
         </div>
-
-        <style jsx>{`
-            .nav {
-                z-index: 100;
-                overflow: hidden;
-                position: fixed;
-                top: 0;
-                width: 100%;
-                height: 50px;
-                background-color: var(--white);
-            }
-
-            .grid-nav {
-                display: flex;
-                flex-direction: row;
-                max-width: 1024px;
-                width: 100%;
-                margin-right: auto;
-                margin-left: auto;
-            }
-
-            .nav-link {
-                color: var(--primary);
-            }
-            `}</style>
-
-    </div>
-)
+    )
+}
 
 
 export default Nav

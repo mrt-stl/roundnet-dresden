@@ -83,7 +83,7 @@ hr {
 }
 
 .page-container {
-	margin-top: 50px;
+	margin-top: 48px;
 }
 
 .call-to-action {

@@ -9,7 +9,7 @@ const Details = (props) => {
         const content = asHtml(detail.detail_content)
 
         return (
-            <div key={index} className="col-4">
+            <div key={index} className="col-2">
                 <Card
                     title={title}
                     content={content} />

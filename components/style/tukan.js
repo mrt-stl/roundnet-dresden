@@ -1,10 +1,11 @@
-export const tukan = <style jsx global>{`
+export const tukan = (fontName) => {
+	return <style jsx global>{`
 
 html, body {
 	height: 100%;
 	margin: 0 auto;
 	width: 100%;
-	font-family: "Roboto", sans-serif;
+	font-family: ${fontName}, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -91,3 +92,4 @@ hr {
 }
 
 `}</style>
+}

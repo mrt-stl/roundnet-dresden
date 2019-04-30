@@ -9,17 +9,28 @@ const Meta = (props) => {
     const secondary = props.secondary !== undefined ? "#" + props.secondary : defaultColors.secondary
     const accent = props.accent !== undefined ? "#" + props.accent : defaultColors.accent
 
+    var fontUrl, fontName
+    if (process.env.FONT) {
+        const fontJson = JSON.parse(process.env.FONT)
+        fontUrl = fontJson.url
+        fontName = fontJson.name
+
+    } else {
+        fontUrl = "https://fonts.googleapis.com/css?family=Roboto:400,700"
+        fontName = "Roboto"
+    }
+
     return (
         <div>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta charSet="utf-8" />
-                <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"></link>
+                <link href={fontUrl} rel="stylesheet"></link>
                 <link rel="stylesheet" href="/static/css/normalize.css" />
             </Head>
             {grid}
             {colors(primary, secondary, accent)}
-            {tukan}
+            {tukan(fontName)}
         </div>
     )
 }

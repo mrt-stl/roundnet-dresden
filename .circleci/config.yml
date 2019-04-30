@@ -83,11 +83,12 @@ workflows:
   build-and-deploy:
     jobs:
     - dev-build-and-deploy
-    filters:
-      branches:
-        only: development
+      filters:
+        branches:
+          only: development
+  
     - prod-build-and-deploy
-    filters:
-      branches:
-        only: master
+      filters:
+        branches:
+          only: master
 

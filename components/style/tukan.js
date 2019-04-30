@@ -23,38 +23,41 @@ h1 {
 }
 
 h2 {
-	font-size: 2.5em;
+	font-size: 2.25em;
     color: var(--primary);
     font-weight: bold;
 	letter-spacing: 0.2px;
     line-height: 1.2;
-    margin-bottom: 0.4em;
-	margin-top: 0.4em;
+    margin-bottom: 0.4444444444em;
+	margin-top: 0.4444444444em;
 }
 
 h3 {
 	color: var(--primary);
-	font-size: 1.75em;
+	font-size: 1.5em;
     font-weight: bold;
     letter-spacing: 0.2px;
     line-height: 1.2;
-    margin-bottom: 0.5714285714em;
-    margin-top: 0.5714285714em;
+    margin-bottom: 0.6666666666em;
+	margin-top: 0.6666666666em;
 }
 
 h4 {
-	font-size: 0.9375em;
-	letter-spacing: 0.5px;
-	font-weight: 400;
+	color: var(--primary);
+	font-size: 1.25em;
+	letter-spacing: 0.2px;
+	line-height: 1.2;
+    margin-bottom: 0.4em;
+    margin-top: 0.4em;
 }
 
 p {
-	color: var(--primary);
+	color: var(--all-gray-40);
 	font-size: 1em;
-	letter-spacing: 0.5px;
+	letter-spacing: 0.2px;
     line-height: 1.5;
-    margin-bottom: 1em;
-    margin-top: 1em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 }
 
 a {
@@ -73,6 +76,12 @@ hr {
 	width: 90%;
 	border: 0px;
 	box-sizing: content-box;
+}
+
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
 }
 
 .h-100 {

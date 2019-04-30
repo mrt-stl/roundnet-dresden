@@ -2,7 +2,7 @@
   "name": "create-next-project",
   "version": "0.0.1",
   "scripts": {
-    "dev": "now dev -A deployment/standard-now.json",
+    "dev": "node server.js",
     "build": "next build",
     "start": "next start -p $PORT",
     "deploy-test": "now -A deployment/standard-now.json",

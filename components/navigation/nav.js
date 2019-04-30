@@ -1,8 +1,7 @@
 import NavLink from "./nav-link"
 
 const Nav = () => {
-    const navLinks = process.env.NAV
-    const navArray = JSON.parse(navLinks)
+    const navArray = process.env.NAV ? JSON.parse(process.env.NAV) : []
 
     return (
         <div className="nav">

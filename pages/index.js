@@ -2,15 +2,23 @@ import Meta from "../components/meta"
 import Nav from "../components/navigation/nav"
 import { getByUid } from "../networking/prismic-api"
 import PatternWrapper from "../components/pattern-wrapper"
+import CookieNotification from "../components/pattern/cookie-notification"
 
-const Index = (props) => (
-    <div>
-        <Meta />
-        <Nav />
-        <PatternWrapper
-            body={props.body} />
-    </div>
-)
+const Index = (props) => {
+    const cookieLink = process.env.COOKIE ? JSON.parse(process.env.COOKIE) : undefined
+
+    return (
+        <div>
+            <Meta />
+            <Nav />
+            <PatternWrapper
+                body={props.body} />
+            {cookieLink ? 
+                <CookieNotification /> : 
+                <div />}
+        </div>
+    )
+}
 
 Index.getInitialProps = async ({ query }) => {
     if (!query.id) {
@@ -20,7 +28,7 @@ Index.getInitialProps = async ({ query }) => {
         return {
             body
         }
-        
+
     } else {
         const docs = await getByUid("standard", query.id)
         const body = docs.data.body

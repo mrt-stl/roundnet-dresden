@@ -1,5 +1,6 @@
 import { Component } from "react"
 import CookieUtils from "../../utils/cookie-utils"
+import { string } from "prop-types"
 
 class CookieNotification extends Component {
 
@@ -50,7 +51,7 @@ class CookieNotification extends Component {
                 <div className="grid align-items-center h-100">
                     <div className="cookie-content-container">
                         <div className="text-left">
-                            Diese Webseite verwendet Cookies. <a href="/datenschutz">Hier</a> erfährst du mehr
+                            Diese Webseite verwendet Cookies. <a href={this.props.link}>Hier</a> erfährst du mehr
                         </div>
                         <div className="text-right" onClick={this.onAcceptCookie}>
                             Alles klar
@@ -110,10 +111,12 @@ class CookieNotification extends Component {
                     
                 `}</style>
             </div>
-
         )
     }
+}
 
+CookieNotification.propTypes = {
+    link: string
 }
 
 export default CookieNotification

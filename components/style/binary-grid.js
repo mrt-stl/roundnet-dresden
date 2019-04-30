@@ -3,6 +3,7 @@ export const grid = <style jsx global>{`
 .grid {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     max-width: 1024px;
     width: 100%;
     margin-right: auto;
@@ -70,6 +71,8 @@ export const grid = <style jsx global>{`
     .col-4,
     .col-6,
     .col-8 {
+        padding-left: 24px;
+        padding-right: 24px;
         flex-basis: 100%;
         max-width: 100%;
     }

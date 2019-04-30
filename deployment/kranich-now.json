@@ -22,7 +22,7 @@
             "ACCESS_TOKEN": "MC5YTWJ4d2hFQUFDa0F6RXJZ.PA3vv73vv712K--_vUpxUO-_ve-_ve-_ve-_ve-_ve-_vTXvv70RCXkqHe-_vWPvv71-77-9Fe-_ve-_vX0",
             "NAV": "[ {\"name\": \"Projekte\", \"link\": \"https://stadtteilliebe.de/projekte\"}, {\"name\": \"Leistungen\", \"link\": \"https://stadtteilliebe.de/leistungen\"}, {\"name\": \"Stadtteilliebe\", \"link\": \"https://stadtteilliebe.de/\"}, {\"name\": \"Kontakt\", \"link\": \"https://stadtteilliebe.de/kontakt\"}, {\"name\": \"Blog\", \"link\": \"https://stadtteilliebe.de/blog\"}, {\"name\": \"Projekt anfragen\", \"link\": \"https://stadtteilliebe.typeform.com/to/bS708b\"} ]",
             "FONT": "{\"url\": \"https://use.typekit.net/zvs7feh.css\", \"name\": \"neue-haas-unica\" }",
-            "COOKIE_NOTIFICATION": ""
+            "COOKIE": "{\"link\": \"https://stadtteilliebe.de/datenschutz\"}"
         }
     },
     "routes": [

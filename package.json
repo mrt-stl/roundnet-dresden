@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "deploy-test": "now -A deployment/standard-now.json",
-    "deploy-all": "next build && now --target production -A deployment/kranich-now.json && now --target production -A deployment/lederpflege-nawrot-now.json",
+    "deploy-all": "node deployment/deploy.js",
     "now-build": "next build",
     "lint": "eslint .",
     "test": "jest",

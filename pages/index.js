@@ -8,7 +8,7 @@ const Index = (props) => {
     const cookieLink = process.env.COOKIE ? JSON.parse(process.env.COOKIE) : undefined
 
     return (
-        <div>
+        <div className="gemacht-mit-stadtteilliebe">
             <Meta />
             <Nav />
             <PatternWrapper

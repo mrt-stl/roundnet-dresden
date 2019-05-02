@@ -39,9 +39,12 @@ const Nav = () => {
                 .nav-link {
                     color: var(--primary);
                 }
-                
-                @media only screen and (max-width: 768px) {
 
+                @media only screen and (max-width: 768px) {
+                    .grid-nav {
+                        padding-left: 24px;
+                        padding-right: 24px;
+                    }
                 }
         `}</style>
 

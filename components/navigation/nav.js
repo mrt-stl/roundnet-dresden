@@ -42,8 +42,8 @@ const Nav = () => {
 
                 @media only screen and (max-width: 768px) {
                     .grid-nav {
-                        padding-left: 24px;
-                        padding-right: 24px;
+                        padding-left: 16px;
+                        padding-right: 16px;
                     }
                 }
         `}</style>

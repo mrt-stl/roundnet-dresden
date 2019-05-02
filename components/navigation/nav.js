@@ -39,6 +39,10 @@ const Nav = () => {
                 .nav-link {
                     color: var(--primary);
                 }
+                
+                @media only screen and (max-width: 768px) {
+
+                }
         `}</style>
 
         </div>

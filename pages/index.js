@@ -4,6 +4,7 @@ import { getByUid } from "../networking/prismic-api"
 import PatternWrapper from "../components/pattern-wrapper"
 import CookieNotification from "../components/pattern/cookie-notification"
 import { asText } from "../utils/prismic-utils"
+import Love from "../components/pattern/love"
 
 const Index = (props) => {
     const cookieLink = process.env.COOKIE ? JSON.parse(process.env.COOKIE) : undefined
@@ -18,6 +19,7 @@ const Index = (props) => {
             {cookieLink ?
                 <CookieNotification /> :
                 <div />}
+            <Love />
         </div>
     )
 }

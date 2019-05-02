@@ -6,7 +6,7 @@ const Love = () => {
         <div className="love-container">
             <Link href="https://stadtteilliebe.de">
                 <a>
-                    <div className="love-content grid">
+                    <div className="love-content grid h-100">
                         <div className="col align-items-center h-100">
                             <div>Gemacht mit Stadtteilliebe</div>
                         </div>

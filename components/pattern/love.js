@@ -6,19 +6,20 @@ const Love = () => {
         <div className="love-container">
             <Link href="https://stadtteilliebe.de">
                 <a>
-                    <div className="love-content grid align-items-center">
-                        <p>Gemacht mit Stadtteilliebe</p>
+                    <div className="love-content grid">
+                        <div className="col align-items-center h-100">
+                            <div>Gemacht mit Stadtteilliebe</div>
+                        </div>
                     </div>
                 </a>
             </Link>
 
             <style jsx>{`
                 .love-container {
+                    position: relative;
+                    bottom: 0;
                     height: 48px;
                     background-color: var(--secondary);
-                }
-                .love-content {
-                    height: 100%;
                 }
                 a {
                     color: var(--white);

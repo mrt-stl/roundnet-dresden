@@ -54,3 +54,15 @@ exec("now --target production -A deployment/onecrowd-now.json --token " + token,
     console.log(stdout)
     console.error(stderr)
 })
+
+exec("now --target production -A deployment/annetteborck-now.json --token " + token, (err, stdout, stderr) => {
+    if (err) {
+        console.error(err)
+        // node couldn't execute the command
+        return
+    }
+
+    // the *entire* stdout and stderr (buffered)
+    console.log(stdout)
+    console.error(stderr)
+})

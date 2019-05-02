@@ -1,0 +1,32 @@
+{
+    "version": 2,
+    "name": "annetteborck",
+    "alias": "annetteborck",
+    "public": false,
+    "regions": [
+        "all"
+    ],
+    "builds": [
+        {
+            "src": "next.config.js",
+            "use": "@now/next"
+        },
+        {
+            "src": "static/*",
+            "use": "@now/static"
+        }
+    ],
+    "build": {
+        "env": {
+            "PRISMIC_ENDPOINT": "https://annetteborck.cdn.prismic.io/api/v2",
+            "ACCESS_TOKEN": "MC5YTXNURGhFQUFCWS1lSGo5.KO-_vW9r77-977-9Zhjvv70Nc--_vSx4Fgbvv71WMe-_ve-_vR7vv71A77-9Uz9KZu-_vX05",
+            "NAV": "[ {\"name\": \"Home\", \"link\": \"/\"} ]"
+        }
+    },
+    "routes": [
+        {
+            "src": "/(?<id>[^/]+)$",
+            "dest": "/index?id=$id"
+        }
+    ]
+}

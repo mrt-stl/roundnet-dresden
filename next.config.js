@@ -6,7 +6,8 @@ module.exports = {
     ACCESS_TOKEN: process.env.ACCESS_TOKEN,
     NAV: process.env.NAV,
     FONT: process.env.FONT,
-    COOKIE: process.env.COOKIE
+    COOKIE: process.env.COOKIE,
+    GA: process.env.GA
   },
   webpack: config => {
       // Fixes npm packages that depend on `fs` module

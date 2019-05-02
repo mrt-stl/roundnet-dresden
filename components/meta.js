@@ -25,6 +25,9 @@ const Meta = (props) => {
         fontName = "Roboto"
     }
 
+    // Google Analytics ID
+    const gaId = process.env.GA
+
     return (
         <div>
             <Head>
@@ -34,6 +37,9 @@ const Meta = (props) => {
                 <link rel="stylesheet" href="/static/css/normalize.css" />
 
                 <title>{props.data.metaTitle}</title>
+
+                <meta name="author" content={props.data.metaAuthor}></meta>
+                <meta name="description" content={props.data.metaDescription}></meta>
 
                 <link rel="apple-touch-icon" sizes="57x57" href={iconCDN + "apple-icon-57x57.png"}></link>
                 <link rel="apple-touch-icon" sizes="60x60" href={iconCDN + "apple-icon-60x60.png"}></link>
@@ -49,8 +55,21 @@ const Meta = (props) => {
                 <link rel="icon" type="image/png" sizes="96x96" href={iconCDN + "favicon-96x96.png"}></link>
                 <link rel="icon" type="image/png" sizes="16x16" href={iconCDN + "favicon-16x16.png"}></link>
 
-                <meta name="author" content={props.data.metaAuthor}></meta>
-                <meta name="description" content={props.data.metaDescription}></meta>
+                {
+                    gaId ?
+                        <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaId} async></script> :
+                        <script />
+                }
+
+                {gaId ?
+                    <script dangerouslySetInnerHTML={{
+                        __html: `
+                    window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${gaId}');
+                    `}} /> :
+                    <script />}
+
+
+
             </Head>
             {grid}
             {colors(primary, secondary, accent)}

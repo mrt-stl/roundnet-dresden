@@ -48,7 +48,6 @@ const Meta = (props) => {
                 <link rel="icon" type="image/png" sizes="32x32" href={iconCDN + "favicon-32x32.png"}></link>
                 <link rel="icon" type="image/png" sizes="96x96" href={iconCDN + "favicon-96x96.png"}></link>
                 <link rel="icon" type="image/png" sizes="16x16" href={iconCDN + "favicon-16x16.png"}></link>
-                <link rel="manifest" href="/static/icon/manifest.json"></link>
 
                 <meta name="author" content={props.data.metaAuthor}></meta>
                 <meta name="description" content={props.data.metaDescription}></meta>

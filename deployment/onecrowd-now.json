@@ -1,0 +1,32 @@
+{
+    "version": 2,
+    "name": "onecrowd",
+    "alias": "onecrowd",
+    "public": false,
+    "regions": [
+        "all"
+    ],
+    "builds": [
+        {
+            "src": "next.config.js",
+            "use": "@now/next"
+        },
+        {
+            "src": "static/*",
+            "use": "@now/static"
+        }
+    ],
+    "build": {
+        "env": {
+            "PRISMIC_ENDPOINT": "https://onecrowd.cdn.prismic.io/api/v2",
+            "ACCESS_TOKEN": "MC5YTXJuSXhBQUFOQ1gyNHJ3.PApXIu-_ve-_ve-_ve-_vSBW77-9b--_ve-_ve-_ve-_vWIp77-977-977-977-977-9ZysH77-977-9E--_ve-_vWI",
+            "NAV": "[ {\"name\": \"Home\", \"link\": \"/\"} ]"
+        }
+    },
+    "routes": [
+        {
+            "src": "/(?<id>[^/]+)$",
+            "dest": "/index?id=$id"
+        }
+    ]
+}

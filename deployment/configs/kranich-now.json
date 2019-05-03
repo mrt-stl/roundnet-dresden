@@ -23,7 +23,8 @@
             "NAV": "[ {\"name\": \"Übersicht\", \"link\": \"/\"}, {\"name\": \"Vorteile\", \"link\": \"/vorteile\"} ]",
             "FONT": "{\"url\": \"https://use.typekit.net/zvs7feh.css\", \"name\": \"neue-haas-unica\" }",
             "COOKIE": "{\"link\": \"https://stadtteilliebe.de/datenschutz\"}",
-            "GA": "UA-137430078-2"
+            "GA": "UA-137430078-2",
+            "COLORS": "{ \"primary\": \"#333333\", \"secondary\": \"#00807a\", \"accent\": \"#80b480\" }"
         }
     },
     "routes": [

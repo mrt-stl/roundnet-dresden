@@ -7,7 +7,8 @@ module.exports = {
     NAV: process.env.NAV,
     FONT: process.env.FONT,
     COOKIE: process.env.COOKIE,
-    GA: process.env.GA
+    GA: process.env.GA,
+    COLORS: process.env.COLORS
   },
   webpack: config => {
       // Fixes npm packages that depend on `fs` module

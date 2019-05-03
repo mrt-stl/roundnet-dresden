@@ -9,9 +9,10 @@ const Meta = (props) => {
     const iconCDN = "https://s3.eu-central-1.amazonaws.com/kranich/icons/kranich-stl/"
 
     // Set colors
-    const primary = props.primary ? "#" + props.primary : defaultColors.primary
-    const secondary = props.secondary ? "#" + props.secondary : defaultColors.secondary
-    const accent = props.accent ? "#" + props.accent : defaultColors.accent
+    const definedColors = process.env.COLORS ? JSON.parse(process.env.COLORS) : undefined
+    const primary = definedColors ? definedColors.primary : defaultColors.primary
+    const secondary = definedColors ? definedColors.secondary : defaultColors.secondary
+    const accent = definedColors ? definedColors.accent : defaultColors.accent
 
     // Set font or go to default font
     var fontUrl, fontName
@@ -21,8 +22,8 @@ const Meta = (props) => {
         fontName = fontJson.name
 
     } else {
-        fontUrl = "https://fonts.googleapis.com/css?family=Roboto:400,700"
-        fontName = "Roboto"
+        fontUrl = "https://fonts.googleapis.com/css?family=Muli:400,700"
+        fontName = "Muli"
     }
 
     // Google Analytics ID

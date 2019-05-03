@@ -20,7 +20,8 @@
         "env": {
             "PRISMIC_ENDPOINT": "https://annetteborck.cdn.prismic.io/api/v2",
             "ACCESS_TOKEN": "MC5YTXNURGhFQUFCWS1lSGo5.KO-_vW9r77-977-9Zhjvv70Nc--_vSx4Fgbvv71WMe-_ve-_vR7vv71A77-9Uz9KZu-_vX05",
-            "NAV": "[ {\"name\": \"Aktuelles\", \"link\": \"/\"}, {\"name\": \"Angebote\", \"link\": \"/angebote\"}, {\"name\": \"Vita\", \"link\": \"/vita\"}, {\"name\": \"Gedanken und Empfehlungen\", \"link\": \"/gedanken-und-empfehlungen\"}, {\"name\": \"Kontakt\", \"link\": \"/kontakt\"} ]"
+            "NAV": "[ {\"name\": \"Aktuelles\", \"link\": \"/\"}, {\"name\": \"Angebote\", \"link\": \"/angebote\"}, {\"name\": \"Vita\", \"link\": \"/vita\"}, {\"name\": \"Gedanken und Empfehlungen\", \"link\": \"/gedanken-und-empfehlungen\"}, {\"name\": \"Kontakt\", \"link\": \"/kontakt\"} ]",
+            "COLORS": "{ \"primary\": \"#333333\", \"secondary\": \"#00807a\", \"accent\": \"#80b480\" }"
         }
     },
     "routes": [

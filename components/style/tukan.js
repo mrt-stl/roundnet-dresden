@@ -3,6 +3,7 @@ export const tukan = (fontName) => {
 
 html, body {
 	height: 100%;
+	background-color: var(--background);
 	margin: 0 auto;
 	width: 100%;
 	font-family: ${fontName}, sans-serif;

@@ -2,10 +2,10 @@
   "name": "create-next-project",
   "version": "0.0.1",
   "scripts": {
-    "dev": "now dev -A deployment/standard-now.json",
+    "dev": "now dev -A deployment/configs/standard-now.json",
     "build": "next build",
     "start": "next start -p $PORT",
-    "deploy-test": "now -A deployment/standard-now.json",
+    "deploy-test": "now -A deployment/configs/standard-now.json",
     "deploy-all": "node deployment/deploy.js",
     "now-build": "next build",
     "lint": "eslint .",

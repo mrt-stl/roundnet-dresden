@@ -74,7 +74,7 @@ jobs:
 
     - run:
         name: Deploy to production
-        command: yarn deploy-all --token ${NOW_TOKEN}
+        command: yarn deploy-all --token ${NOW_TOKEN} --alex ${NOW_TOKEN_ALEXFI}
 
 workflows:
   version: 2

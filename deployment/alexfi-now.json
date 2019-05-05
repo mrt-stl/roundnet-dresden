@@ -1,0 +1,33 @@
+{
+    "version": 2,
+    "name": "alexfi",
+    "alias": "alexfi.dev",
+    "public": false,
+    "regions": [
+        "all"
+    ],
+    "builds": [
+        {
+            "src": "next.config.js",
+            "use": "@now/next"
+        },
+        {
+            "src": "static/*",
+            "use": "@now/static"
+        }
+    ],
+    "build": {
+        "env": {
+            "PRISMIC_ENDPOINT": "https://alexfi.cdn.prismic.io/api/v2",
+            "ACCESS_TOKEN": "MC5YTTZ1RkJFQUFNYllpRFZZ.EQdh77-977-9cTvvv71P77-9KS_vv73vv73vv73vv73vv73vv71Ba2Z9RO-_ve-_vVrvv73vv70877-9Su-_vQ",
+            "NAV": "[ {\"name\": \"Aktuelles\", \"link\": \"/\"} ]",
+            "COLORS": "{ \"primary\": \"#333333\", \"secondary\": \"#00807a\", \"accent\": \"#80b480\" }"
+        }
+    },
+    "routes": [
+        {
+            "src": "/(?<id>[^/]+)$",
+            "dest": "/index?id=$id"
+        }
+    ]
+}

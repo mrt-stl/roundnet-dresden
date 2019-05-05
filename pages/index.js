@@ -36,7 +36,11 @@ const createMeta = (docs) => {
     }
 }
 
-Index.getInitialProps = async ({ query }) => {
+Index.getInitialProps = async ({ query, res }) => {
+    if (res) {
+        res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate")
+    }
+
     var meta, body
     if (!query.id) {
         const docs = await getByUid("standard", "home")

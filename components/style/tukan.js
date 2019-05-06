@@ -1,5 +1,18 @@
-export const tukan = (fontName) => {
+export const tukan = (fontName, primary, secondary, accent) => {
 	return <style jsx global>{`
+
+:root {
+    --primary: ${primary};
+    --secondary: ${secondary};
+    --accent: ${accent};
+    --white: #ffffff;
+	--background: #ffffff;
+	--font-color: #7E8082;
+    --all-gray-10: #f5f5f5;
+    --all-gray-20: #ECEDEE;
+    --all-gray-30: #C8CBCE;
+    --all-gray-40: #7E8082;
+}
 
 html, body {
 	height: 100%;
@@ -15,7 +28,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1 {
-	font-size: 3em;
+	font-size: 2.5em;
     color: var(--primary);
     letter-spacing: -0.2px;
   	line-height: 1.2;
@@ -53,7 +66,7 @@ h4 {
 }
 
 p {
-	color: var(--all-gray-40);
+	color: var(--font-color);
 	font-size: 1em;
 	letter-spacing: 0.2px;
     line-height: 1.5;
@@ -63,7 +76,7 @@ p {
 
 ul {
 	line-height: 1.5;
-	color: var(--all-gray-40);
+	color: var(--font-color);
 }
 
 a {

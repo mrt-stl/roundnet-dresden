@@ -1,7 +1,6 @@
 import Head from "next/head"
 import { tukan } from "./style/tukan"
 import { grid } from "./style/binary-grid"
-import { colors } from "./style/colors"
 import { string, object } from "prop-types"
 
 const Meta = (props) => {
@@ -9,7 +8,7 @@ const Meta = (props) => {
     const iconCDN = "https://s3.eu-central-1.amazonaws.com/kranich/icons/kranich-stl/"
 
     // Set colors
-    const definedColors = process.env.COLORS ? JSON.parse(process.env.COLORS) : undefined
+    const definedColors = process.env.COLORS ? JSON.parse(process.env.COLORS) : process.env.COLORS
     const primary = definedColors ? definedColors.primary : defaultColors.primary
     const secondary = definedColors ? definedColors.secondary : defaultColors.secondary
     const accent = definedColors ? definedColors.accent : defaultColors.accent
@@ -73,16 +72,15 @@ const Meta = (props) => {
 
             </Head>
             {grid}
-            {colors(primary, secondary, accent)}
-            {tukan(fontName)}
+            {tukan(fontName, primary, secondary, accent)}
         </div>
     )
 }
 
 const defaultColors = {
-    primary: "#000000",
-    secondary: "#ff3c3c",
-    accent: "#ff3c3c"
+    primary: "#3C4044",
+    secondary: "#3C4B5A",
+    accent: "#FF5050"
 }
 
 Meta.propTypes = {

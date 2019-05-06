@@ -35,7 +35,7 @@ const Preview = ({ data }) => {
                 .preview-container {
                     padding-top: 5em;
                     padding-bottom: 5em;
-                    background-color: #f7f7f7;
+                    background-color: var(--all-gray-10);
                 }
             `}</style>
         </div>

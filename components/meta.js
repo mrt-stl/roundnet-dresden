@@ -83,6 +83,18 @@ const defaultColors = {
     accent: "#FF5050"
 }
 
+/*
+const darkModeColors = {
+    primary: "#f0f0f0",
+    secondary: "#d0d0d0"
+    background: #202428;
+	font-color: #ffffff;
+    all-gray-10: #404040;
+    all-gray-20: #808080;
+    all-gray-30: #d0d0d0;
+    all-gray-40: #f0f0f0;
+}*/
+
 Meta.propTypes = {
     primary: string,
     secondary: string,

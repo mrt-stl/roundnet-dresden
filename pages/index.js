@@ -5,6 +5,7 @@ import PatternWrapper from "../components/pattern-wrapper"
 import CookieNotification from "../components/pattern/cookie-notification"
 import { asText } from "../utils/prismic-utils"
 import Love from "../components/pattern/love"
+import crypto from "crypto"
 
 const Index = (props) => {
     const cookieLink = process.env.COOKIE ? JSON.parse(process.env.COOKIE) : undefined
@@ -37,27 +38,27 @@ const createMeta = (docs) => {
 }
 
 Index.getInitialProps = async ({ query, res }) => {
+    const queryId = query.id ? query.id : "home"
+    const docs = await getByUid("standard", queryId)
+    const meta = createMeta(docs)
+    const body = docs.data.body
+
     if (res) {
-        res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate")
-    }
-
-    var meta, body
-    if (!query.id) {
-        const docs = await getByUid("standard", "home")
-        meta = createMeta(docs)
-        body = docs.data.body
-
-    } else {
-        const docs = await getByUid("standard", query.id)
-        meta = createMeta(docs)
-        body = docs.data.body
-        
+        const etag = createEtag(body)
+        res.setHeader("X-version", etag)
+        res.setHeader("Cache-Control", "s-maxage=900, stale-while-revalidate")
     }
 
     return {
         meta,
         body
     }
+}
+
+const createEtag = (str) => {
+    return crypto.createHash("md5")
+        .update(JSON.stringify(str))
+        .digest("hex")
 }
 
 export default Index

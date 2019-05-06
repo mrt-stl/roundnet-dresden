@@ -6,16 +6,21 @@ const Richtext = ({ data }) => {
     const content = asHtml(data.richtext_content)
 
     return (
-        <div className="grid">
-            <div className="col">
-                {Parser(content)}
+        <div className="richtext-container">
+            <div className="grid">
+                <div className="col">
+                    {Parser(content)}
+                </div>
+
             </div>
-
-
             <style jsx>{`
-                
+                .richtext-container {
+                    padding-top: 5em;
+                    padding-bottom: 5em;
+                }
             `}</style>
         </div>
+
     )
 }
 

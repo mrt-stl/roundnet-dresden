@@ -25,18 +25,6 @@ const Index = (props) => {
     )
 }
 
-const createMeta = (docs) => {
-    const metaTitle = asText(docs.data.meta_title)
-    const metaDescription = asText(docs.data.meta_description)
-    const metaAuthor = asText(docs.data.meta_author)
-
-    return {
-        metaTitle,
-        metaDescription,
-        metaAuthor
-    }
-}
-
 Index.getInitialProps = async ({ query, res }) => {
     const queryId = query.id ? query.id : "home"
     const docs = await getByUid("standard", queryId)
@@ -55,9 +43,23 @@ Index.getInitialProps = async ({ query, res }) => {
     }
 }
 
-const createEtag = (str) => {
+// Get meta data
+const createMeta = (docs) => {
+    const metaTitle = asText(docs.data.meta_title)
+    const metaDescription = asText(docs.data.meta_description)
+    const metaAuthor = asText(docs.data.meta_author)
+
+    return {
+        metaTitle,
+        metaDescription,
+        metaAuthor
+    }
+}
+
+// Create etag from json
+const createEtag = (json) => {
     return crypto.createHash("md5")
-        .update(JSON.stringify(str))
+        .update(JSON.stringify(json))
         .digest("hex")
 }
 

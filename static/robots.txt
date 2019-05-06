@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /*.md$
+Disallow: /*.json$
+
+Noindex: /sitemap.xml
+Noindex: /robots.txt
+Noindex: /index

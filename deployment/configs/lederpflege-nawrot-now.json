@@ -25,6 +25,10 @@
     },
     "routes": [
         {
+            "src": "^/robots.txt",
+            "dest": "/static/robots.txt"
+        },
+        {
             "src": "/(?<id>[^/]+)$",
             "dest": "/index?id=$id"
         }

@@ -61,6 +61,11 @@ p {
     margin-top: 0.5em;
 }
 
+ul {
+	line-height: 1.5;
+	color: var(--all-gray-40);
+}
+
 a {
 	color: var(--accent);
 	text-decoration: none;

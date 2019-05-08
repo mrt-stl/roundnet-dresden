@@ -120,6 +120,10 @@ workflows:
           filters:
             branches:
               only: development
+      - beta-build-and-deploy:
+          filters:
+            branches:
+              only: beta
       - prod-build-and-deploy:
           filters:
             branches:

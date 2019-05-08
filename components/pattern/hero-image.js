@@ -11,7 +11,7 @@ const HeroImage = ({ data }) => {
     const imgDescription = data.hero_image_img.alt
 
     return (
-        <div id="hero-image" className="hero-image-container">
+        <div className="hero-image-container">
             <div className="hero-image-content-container text-center">
                 <h1>{title}</h1>
                 <Link href={link? link : ""}>

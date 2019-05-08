@@ -10,7 +10,7 @@ const Preview = ({ data }) => {
     const alt = data.preview_image.alt
 
     return (
-        <div id="preview" className="preview-container">
+        <div className="preview-container">
             <div className="grid">
                 <div className="col-4">
                     <h2>{title}</h2>

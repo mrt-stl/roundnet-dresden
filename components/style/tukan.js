@@ -1,17 +1,32 @@
-export const tukan = (fontName, primary, secondary, accent) => {
+export const tukan = (fontName, colors, darkModeColors) => {
 	return <style jsx global>{`
 
 :root {
-    --primary: ${primary};
-    --secondary: ${secondary};
-    --accent: ${accent};
+    --primary: ${colors.primary};
+    --secondary: ${colors.secondary};
+    --accent: ${colors.accent};
     --white: #ffffff;
-	--background: #ffffff;
-	--font-color: #7E8082;
-    --all-gray-10: #f5f5f5;
-    --all-gray-20: #ECEDEE;
-    --all-gray-30: #C8CBCE;
-    --all-gray-40: #7E8082;
+	--background: ${colors.background};
+	--font-color: ${colors.font};
+    --all-gray-10: ${colors.allGray10};
+    --all-gray-20: ${colors.allGray20};
+    --all-gray-30: ${colors.allGray30};
+    --all-gray-40: ${colors.allGray40};
+}
+
+@media (prefers-color-scheme: dark) { 
+	:root {
+		--primary: ${darkModeColors.primary};
+		--secondary: ${darkModeColors.secondary};
+		--accent: ${colors.accent};
+		--white: #ffffff;
+		--background: ${darkModeColors.background};
+		--font-color: ${darkModeColors.font};
+		--all-gray-10: ${darkModeColors.allGray10};
+		--all-gray-20: ${darkModeColors.allGray20};
+		--all-gray-30: ${darkModeColors.allGray30};
+		--all-gray-40: ${darkModeColors.allGray40};
+	}
 }
 
 html, body {

@@ -1,36 +1,8 @@
 /* eslint-disable no-console */
-const { exec, execSync } = require("child_process")
+const { exec } = require("child_process")
 const fs = require("fs")
 
-const buildCmd = "next build"
-console.log(buildCmd)
-
-execSync(buildCmd, (err, stdout, stderr) => {
-    if (err) {
-        console.error(err)
-        // node couldn't execute the command
-        return
-    }
-
-    // the *entire* stdout and stderr (buffered)
-    console.log(stdout)
-    console.error(stderr)
-})
-
 console.log("Deploy to production")
-
-const alexfiToken = process.argv[5]
-exec("now --target production -A deployment/beta/alexfi-now.json --token " + alexfiToken, (err, stdout, stderr) => {
-    if (err) {
-        console.error(err)
-        // node couldn't execute the command
-        return
-    }
-
-    // the *entire* stdout and stderr (buffered)
-    console.log(stdout)
-    console.error(stderr)
-})
 
 const token = process.argv[3]
 const configFolder = "./deployment/configs/"

@@ -8,10 +8,14 @@ const Meta = (props) => {
     const iconCDN = "https://s3.eu-central-1.amazonaws.com/kranich/icons/kranich-stl/"
 
     // Set colors
+    const colors = defaultColors
     const definedColors = process.env.COLORS ? JSON.parse(process.env.COLORS) : process.env.COLORS
-    const primary = definedColors ? definedColors.primary : defaultColors.primary
-    const secondary = definedColors ? definedColors.secondary : defaultColors.secondary
-    const accent = definedColors ? definedColors.accent : defaultColors.accent
+
+    if (definedColors) {
+        colors.primary = definedColors.primary
+        colors.secondary = definedColors.secondary
+        colors.accent = definedColors.accent
+    }
 
     // Set font or go to default font
     var fontUrl, fontName
@@ -72,7 +76,7 @@ const Meta = (props) => {
 
             </Head>
             {grid}
-            {tukan(fontName, primary, secondary, accent)}
+            {tukan(fontName, colors, darkModeColors)}
         </div>
     )
 }
@@ -80,20 +84,26 @@ const Meta = (props) => {
 const defaultColors = {
     primary: "#3C4044",
     secondary: "#3C4B5A",
-    accent: "#FF5050"
+    accent: "#FF5050",
+    background: "#FFFFFF",
+    font: "#7E8082",
+    allGray10: "#F5F5F5",
+    allGray20: "#ECEDEE",
+    allGray30: "#C8CBCE",
+    allGray40: "#7E8082"
 }
 
-/*
+
 const darkModeColors = {
     primary: "#f0f0f0",
-    secondary: "#d0d0d0"
-    background: #202428;
-	font-color: #ffffff;
-    all-gray-10: #404040;
-    all-gray-20: #808080;
-    all-gray-30: #d0d0d0;
-    all-gray-40: #f0f0f0;
-}*/
+    secondary: "#d0d0d0",
+    background: "#202428",
+	font: "#ffffff",
+    allGray10: "#404040",
+    allGray20: "#808080",
+    allGray30: "#d0d0d0",
+    allGray40: "#f0f0f0"
+}
 
 Meta.propTypes = {
     primary: string,

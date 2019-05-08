@@ -5,7 +5,7 @@ const fs = require("fs")
 console.log("Deploy to beta")
 
 const alexfiToken = process.argv[5]
-exec("now --target production -A deployment/beta/alexfi-now.json --token " + alexfiToken, (err, stdout, stderr) => {
+exec("now --target production -A deployment/alexfi-now.json --token " + alexfiToken, (err, stdout, stderr) => {
     if (err) {
         console.error(err)
         // node couldn't execute the command

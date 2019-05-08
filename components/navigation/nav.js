@@ -1,20 +1,25 @@
 import NavLink from "./nav-link"
+import MobileMenu from "./mobile-menu"
 
 const Nav = () => {
-    const navArray = process.env.NAV ? JSON.parse(process.env.NAV) : []
+    const navArray = process.env.NAV ? JSON.parse(process.env.NAV) : [{ "name": "Home", "link": "/" }]
 
     return (
-        <div className="nav">
-            <div className="grid-nav h-100">
-                {navArray.map((element, index) => {
-                    return (<div className="align-items-center" key={index}>
-                        <NavLink
-                            href={element.link}
-                            linkContent={element.name} />
-                    </div>)
-                })}
-
+        <div>
+            <div className="nav">
+                <div className="grid-nav h-100">
+                    {navArray.map((element, index) => {
+                        return (<div className="align-items-center" key={index}>
+                            <NavLink
+                                href={element.link}
+                                linkContent={element.name} />
+                        </div>)
+                    })}
+                </div>
             </div>
+
+            <MobileMenu
+                links={navArray} />
 
             <style jsx>{`
                 .nav {
@@ -42,8 +47,7 @@ const Nav = () => {
 
                 @media only screen and (max-width: 768px) {
                     .grid-nav {
-                        padding-left: 16px;
-                        padding-right: 16px;
+                        display: none;
                     }
                 }
         `}</style>

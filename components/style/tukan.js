@@ -119,5 +119,57 @@ img {
 	font-size: 1.25em;
 }
 
+/* Burger menu */
+.bm-burger-button {
+    position: fixed;
+    width: 48px;
+    height: 48px;
+    top: 0;
+    right: 0;
+}
+
+.bm-cross-button {
+    position: fixed;
+    width: 48px !important;
+    height: 48px !important;
+    top: 0 !important;
+    right: 0 !important;
+}
+  
+.bm-burger-bars {
+    background: #373a47;
+}
+  
+.bm-morph-shape {
+    fill: #373a47;
+}
+  
+.bm-menu {
+    background: var(--primary);
+    padding-top: 128px;
+    padding-left: 64px;
+}
+  
+.bm-menu a {
+    color: #b8b7ad;
+}
+  
+.bm-item-list a {
+    padding: 0.8em;
+}
+  
+.bm-item-list a span {
+    margin-left: 10px;
+    font-weight: 700;
+}
+  
+.bm-item:focus {
+    outline: none;
+}
+  
+.bm-menu-wrap {
+      top: 0;
+}
+
 `}</style>
 }

@@ -8,14 +8,39 @@ const Meta = (props) => {
     const iconCDN = "https://s3.eu-central-1.amazonaws.com/kranich/icons/kranich-stl/"
 
     // Set colors
-    const colors = defaultColors
     const definedColors = process.env.COLORS ? JSON.parse(process.env.COLORS) : process.env.COLORS
 
-    if (definedColors) {
-        colors.primary = definedColors.primary
-        colors.secondary = definedColors.secondary
-        colors.accent = definedColors.accent
+    const darkMode = process.env.DARK_MODE ? process.env.DARK_MODE : "off"
+
+    var colors, darkModeColors
+    switch (darkMode) {
+        case "on":
+            colors = defaultDarkModeColors
+            darkModeColors = defaultDarkModeColors
+            break
+        
+        case "auto":
+            colors = defaultColors
+            if (definedColors) {
+                colors.primary = definedColors.primary
+                colors.secondary = definedColors.secondary
+                colors.accent = definedColors.accent
+            }
+            darkModeColors = defaultDarkModeColors
+            break
+    
+        default:
+            colors = defaultColors
+            if (definedColors) {
+                colors.primary = definedColors.primary
+                colors.secondary = definedColors.secondary
+                colors.accent = definedColors.accent
+            }
+            darkModeColors = colors
+            break
     }
+    
+    
 
     // Set font or go to default font
     var fontUrl, fontName
@@ -81,6 +106,7 @@ const Meta = (props) => {
     )
 }
 
+// Default colors
 const defaultColors = {
     primary: "#3C4044",
     secondary: "#3C4B5A",
@@ -93,10 +119,11 @@ const defaultColors = {
     allGray40: "#7E8082"
 }
 
-
-const darkModeColors = {
+// Colors for dark mode
+const defaultDarkModeColors = {
     primary: "#f0f0f0",
     secondary: "#d0d0d0",
+    accent: "#FF5050",
     background: "#202428",
 	font: "#ffffff",
     allGray10: "#404040",

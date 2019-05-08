@@ -8,7 +8,8 @@ module.exports = {
     FONT: process.env.FONT,
     COOKIE: process.env.COOKIE,
     GA: process.env.GA,
-    COLORS: process.env.COLORS
+    COLORS: process.env.COLORS,
+    DARK_MODE: process.env.DARK_MODE
   },
   webpack: config => {
       // Fixes npm packages that depend on `fs` module

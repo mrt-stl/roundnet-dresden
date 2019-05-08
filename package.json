@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "node server.js",
-    "now_dev": "now dev -A deployment/beta/standard-now.json",
+    "now_dev": "now dev -A deployment/standard-now.json",
     "build": "next build",
     "start": "next start -p $PORT",
-    "deploy-test": "now -A deployment/beta/standard-now.json",
+    "deploy-test": "now -A deployment/standard-now.json",
     "deploy-beta": "node deployment/beta.js",
     "deploy-all": "node deployment/prod.js",
     "now-build": "next build",

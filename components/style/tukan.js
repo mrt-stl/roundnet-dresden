@@ -140,7 +140,7 @@ img {
     width: 48px;
     height: 48px;
     top: 0;
-    right: 0;
+    right: 12px;
 }
 
 .bm-cross-button {
@@ -148,7 +148,7 @@ img {
     width: 48px !important;
     height: 48px !important;
     top: 0 !important;
-    right: 0 !important;
+    right: 12x !important;
 }
   
 .bm-burger-bars {
@@ -160,7 +160,7 @@ img {
 }
   
 .bm-menu {
-    background: var(--primary);
+    background: var(--all-gray-10);
     padding-top: 128px;
     padding-left: 64px;
 }

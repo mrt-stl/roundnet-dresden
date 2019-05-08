@@ -24,7 +24,7 @@ const MobileMenu = (props) => (
             }
             .menu-item {
                 padding-top: 1em;
-                color: var(--white);
+                color: var(--font-color);
             }
 
             a {

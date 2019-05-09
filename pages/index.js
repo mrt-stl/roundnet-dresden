@@ -50,14 +50,17 @@ Index.getInitialProps = async ({ query, req, res }) => {
 
 // Filter docs by language
 const filterByLanguage = (req, results) => {
+    // Languages that are available from prismic
     const docLangs = []
     for (const result of results) {
         docLangs.push(result.lang)
     }
-    
+
+    // Pick best language from browser settings
     var langFilter = parser.pick(docLangs, req.headers["accept-language"], { loose: true })
     langFilter = langFilter ? langFilter : "de-de"
 
+    // Filter result for best fitting lang
     var filteredResult = results.filter(result => result.lang === langFilter)
     filteredResult = filteredResult.length > 0 ? filteredResult[0] : results[0]
     return filteredResult

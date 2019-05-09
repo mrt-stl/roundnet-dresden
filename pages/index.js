@@ -37,7 +37,7 @@ Index.getInitialProps = async ({ query, req, res }) => {
     const body = docByLang.data.body
 
     if (res) {
-        const etag = createEtag(docByLang.data)
+        const etag = createEtag(docs.results)
         res.setHeader("X-version", etag)
         res.setHeader("Cache-Control", "s-maxage=900, stale-while-revalidate")
     }

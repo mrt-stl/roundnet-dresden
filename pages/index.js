@@ -6,6 +6,7 @@ import CookieNotification from "../components/pattern/cookie-notification"
 import { asText } from "../utils/prismic-utils"
 import Love from "../components/pattern/love"
 import crypto from "crypto"
+import parser from "accept-language-parser"
 
 const Index = (props) => {
     const cookieLink = process.env.COOKIE ? JSON.parse(process.env.COOKIE) : undefined
@@ -25,16 +26,18 @@ const Index = (props) => {
     )
 }
 
-Index.getInitialProps = async ({ query, res }) => {
+Index.getInitialProps = async ({ query, req, res }) => {
     const queryId = query.id ? query.id : "home"
     const docType = query.type ? query.type : "standard"
 
     const docs = await getByUid(docType, queryId)
-    const meta = createMeta(docs)
-    const body = docs.data.body
+    const docByLang = filterByLanguage(req, docs.results)
+
+    const meta = createMeta(docByLang)
+    const body = docByLang.data.body
 
     if (res) {
-        const etag = createEtag(body)
+        const etag = createEtag(docByLang.data)
         res.setHeader("X-version", etag)
         res.setHeader("Cache-Control", "s-maxage=900, stale-while-revalidate")
     }
@@ -43,6 +46,21 @@ Index.getInitialProps = async ({ query, res }) => {
         meta,
         body
     }
+}
+
+// Filter docs by language
+const filterByLanguage = (req, results) => {
+    const docLangs = []
+    for (const result of results) {
+        docLangs.push(result.lang)
+    }
+    
+    var langFilter = parser.pick(docLangs, req.headers["accept-language"], { loose: true })
+    langFilter = langFilter ? langFilter : "de-de"
+
+    var filteredResult = results.filter(result => result.lang === langFilter)
+    filteredResult = filteredResult.length > 0 ? filteredResult[0] : results[0]
+    return filteredResult
 }
 
 // Get meta data

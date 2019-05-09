@@ -27,7 +27,9 @@ const Index = (props) => {
 
 Index.getInitialProps = async ({ query, res }) => {
     const queryId = query.id ? query.id : "home"
-    const docs = await getByUid("standard", queryId)
+    const docType = query.type ? query.type : "standard"
+
+    const docs = await getByUid(docType, queryId)
     const meta = createMeta(docs)
     const body = docs.data.body
 

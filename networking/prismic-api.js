@@ -15,6 +15,7 @@ export const getByUid = async (type, uid) => {
 
     const api = await Prismic.api(endpoint, { accessToken })
 
-    const res = await api.query(Prismic.Predicates.at("my.standard.uid", uid), { lang: "*" })
+    const prismicFragment = "my." + type + ".uid"
+    const res = await api.query(Prismic.Predicates.at(prismicFragment, uid), { lang: "*" })
     return res
 }

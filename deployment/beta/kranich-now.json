@@ -1,7 +1,7 @@
 {
     "version": 2,
     "name": "kranich-stl",
-    "alias": "kranich.stadtteilliebe.de",
+    "alias": "tukan.stadtteilliebe.de",
     "public": false,
     "regions": [
         "all"

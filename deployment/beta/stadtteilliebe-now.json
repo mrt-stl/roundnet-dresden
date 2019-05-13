@@ -1,7 +1,7 @@
 {
     "version": 2,
     "name": "stadtteilliebe",
-    "alias": "gemacht-mit",
+    "alias": "stadtteilliebe.de",
     "public": false,
     "regions": [
         "all"
@@ -22,7 +22,7 @@
             "ACCESS_TOKEN": "MC5YTkFjbnhFQUFGOElqbjNx.FH7vv71m77-977-9CWvvv73vv71-U2bvv73vv71uOe-_vUjvv73vv73vv70G77-9Ue-_ve-_ve-_ve-_vW_vv71U",
             "NAV": "[ {\"name\": \"Stadtteilliebe\", \"link\": \"/\"}, {\"name\": \"Leistungen\", \"link\": \"/leistungen\"}, {\"name\": \"Projekte\", \"link\": \"/projekte\"}, {\"name\": \"Blog\", \"link\": \"/blog\"}, {\"name\": \"Kontakt\", \"link\": \"/kontakt\"}, {\"name\": \"Projekte anfragen\", \"link\": \"https://stadtteilliebe.typeform.com/to/bS708b\"} ]",
             "FONT": "{\"url\": \"https://use.typekit.net/zvs7feh.css\", \"name\": \"neue-haas-unica\" }",
-            "COOKIE": "{\"link\": \"https://stadtteilliebe.de/datenschutz\"}",
+            "COOKIE": "{\"link\": \"/datenschutz\"}",
             "GA": "UA-137430078-1",
             "DARK_MODE": "auto"
         }

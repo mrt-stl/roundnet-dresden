@@ -9,15 +9,27 @@ import crypto from "crypto"
 import parser from "accept-language-parser"
 
 const Index = (props) => {
-    const cookieLink = process.env.COOKIE ? JSON.parse(process.env.COOKIE) : undefined
+    const cookieLink = process.env.COOKIE ? JSON.parse(process.env.COOKIE) : process.env.COOKIE
+
+    // Get language
+    var languageFilter = "de-de"
+    try {
+        languageFilter = navigator.language
+    } catch (e) {
+        // do nothing here
+    }
+
+    const docByLang = filterByLanguage(languageFilter, props.results)
+    const meta = createMeta(docByLang)
+    const body = docByLang.data.body
 
     return (
         <div className="gemacht-mit-stadtteilliebe">
             <Meta
-                data={props.meta} />
+                data={meta} />
             <Nav />
             <PatternWrapper
-                body={props.body} />
+                body={body} />
             {cookieLink ?
                 <CookieNotification /> :
                 <div />}
@@ -26,15 +38,12 @@ const Index = (props) => {
     )
 }
 
-Index.getInitialProps = async ({ query, req, res }) => {
+Index.getInitialProps = async ({ query, res }) => {
     const queryId = query.id ? query.id : "home"
     const docType = query.type ? query.type : "standard"
 
     const docs = await getByUid(docType, queryId)
-    const docByLang = filterByLanguage(req, docs.results)
-
-    const meta = createMeta(docByLang)
-    const body = docByLang.data.body
+    const results = docs.results
 
     if (res) {
         const etag = createEtag(docs.results)
@@ -43,26 +52,20 @@ Index.getInitialProps = async ({ query, req, res }) => {
     }
 
     return {
-        meta,
-        body
+        results
     }
 }
 
 // Filter docs by language
-const filterByLanguage = (req, results) => {
-    var langFilter = "de-de"
-
+const filterByLanguage = (langFilter, results) => {
     // Languages that are available from prismic
     const docLangs = []
     for (const result of results) {
         docLangs.push(result.lang)
     }
 
-    // Pick best language from browser settings
-    if (req) {
-        langFilter = parser.pick(docLangs, req.headers["accept-language"], { loose: true })
-        langFilter = langFilter ? langFilter : "de-de"
-    }
+    langFilter = parser.pick(docLangs, langFilter, { loose: true })
+    langFilter = langFilter ? langFilter : "de-de"
 
     // Filter result for best fitting lang
     var filteredResult = results.filter(result => result.lang === langFilter)

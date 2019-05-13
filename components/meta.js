@@ -5,7 +5,8 @@ import { string, object } from "prop-types"
 
 const Meta = (props) => {
     // Icon urls
-    const iconCDN = "https://s3.eu-central-1.amazonaws.com/kranich/icons/kranich-stl/"
+    const projectName = process.env.NAME ? process.env.NAME : "kranich-stl"
+    const iconCDN = "https://s3.eu-central-1.amazonaws.com/kranich/icons/" + projectName + "/"
 
     // Set colors
     const definedColors = process.env.COLORS ? JSON.parse(process.env.COLORS) : process.env.COLORS

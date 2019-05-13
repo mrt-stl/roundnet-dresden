@@ -2,6 +2,7 @@ module.exports = {
   poweredByHeader: false,
   target: "serverless",
   env: {
+    NAME: process.env.NAME,
     PRISMIC_ENDPOINT: process.env.PRISMIC_ENDPOINT,
     ACCESS_TOKEN: process.env.ACCESS_TOKEN,
     NAV: process.env.NAV,

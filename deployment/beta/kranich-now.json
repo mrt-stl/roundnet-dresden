@@ -18,6 +18,7 @@
     ],
     "build": {
         "env": {
+            "NAME": "kranich-stl",
             "PRISMIC_ENDPOINT": "https://kranich.cdn.prismic.io/api/v2",
             "ACCESS_TOKEN": "MC5YTWJ4d2hFQUFDa0F6RXJZ.PA3vv73vv712K--_vUpxUO-_ve-_ve-_ve-_ve-_ve-_vTXvv70RCXkqHe-_vWPvv71-77-9Fe-_ve-_vX0",
             "NAV": "[ {\"name\": \"Übersicht\", \"link\": \"/\"}, {\"name\": \"Vorteile\", \"link\": \"/vorteile\"}, {\"name\": \"Kontakt\", \"link\": \"/kontakt\"} ]",

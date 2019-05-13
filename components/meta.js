@@ -71,6 +71,10 @@ const Meta = (props) => {
                 <meta name="author" content={props.data.metaAuthor}></meta>
                 <meta name="description" content={props.data.metaDescription}></meta>
 
+                <meta property="og:title" content={props.data.metaTitle}></meta>
+                <meta property="og:description" content={props.data.metaDescription}></meta>
+                <meta name="twitter:card" content="summary_large_image"></meta>
+
                 <link rel="apple-touch-icon" sizes="57x57" href={iconCDN + "apple-icon-57x57.png"}></link>
                 <link rel="apple-touch-icon" sizes="60x60" href={iconCDN + "apple-icon-60x60.png"}></link>
                 <link rel="apple-touch-icon" sizes="72x72" href={iconCDN + "apple-icon-72x72.png"}></link>

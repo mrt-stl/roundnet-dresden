@@ -73,6 +73,7 @@ const Meta = (props) => {
 
                 <meta property="og:title" content={props.data.metaTitle}></meta>
                 <meta property="og:description" content={props.data.metaDescription}></meta>
+                <meta property="og:image" content={props.data.metaOgImg}></meta>
                 <meta name="twitter:card" content="summary_large_image"></meta>
 
                 <link rel="apple-touch-icon" sizes="57x57" href={iconCDN + "apple-icon-57x57.png"}></link>

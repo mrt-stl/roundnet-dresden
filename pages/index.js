@@ -78,11 +78,13 @@ const createMeta = (docs) => {
     const metaTitle = asText(docs.data.meta_title)
     const metaDescription = asText(docs.data.meta_description)
     const metaAuthor = asText(docs.data.meta_author)
+    const metaOgImg = docs.data.meta_og_img ? docs.data.meta_og_img.url : docs.data.meta_og_img
 
     return {
         metaTitle,
         metaDescription,
-        metaAuthor
+        metaAuthor,
+        metaOgImg
     }
 }
 

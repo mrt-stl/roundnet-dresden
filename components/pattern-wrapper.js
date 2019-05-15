@@ -7,6 +7,7 @@ import Action from "./pattern/action"
 import Preview from "./pattern/preview"
 import HighlightText from "./pattern/highlight-text"
 import Richtext from "./pattern/richtext"
+import Location from "./pattern/location"
 
 
 const PatternWrapper = ({ body }) => {
@@ -76,6 +77,13 @@ const createPattern = (slice, index) => {
         case "richtext":
             pattern =
                 <Richtext
+                    key={index}
+                    data={slice.primary} />
+            break
+
+        case "location":
+            pattern =
+                <Location
                     key={index}
                     data={slice.primary} />
             break

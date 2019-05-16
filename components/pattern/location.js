@@ -1,7 +1,7 @@
 import GoogleMapReact from "google-map-react"
 import { object } from "prop-types"
+import Marker from "../elements/marker"
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>
 
 const Location = ({ data }) => {
     const zoom = 15
@@ -16,10 +16,9 @@ const Location = ({ data }) => {
                 bootstrapURLKeys={{ key: "AIzaSyBg2SZDYXK6Zv_UXZdVJJr5J8eRlSAVUKQ" }}
                 defaultCenter={center}
                 defaultZoom={zoom}>
-                <AnyReactComponent
+                <Marker
                     lat={center.lat}
-                    lng={center.lng}
-                    text="My Marker" />
+                    lng={center.lng} />
             </GoogleMapReact>
 
             <style jsx>{`

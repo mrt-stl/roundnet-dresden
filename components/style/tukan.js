@@ -11,7 +11,11 @@ export const tukan = (fontName, colors, darkModeColors) => {
     --all-gray-10: ${colors.allGray10};
     --all-gray-20: ${colors.allGray20};
     --all-gray-30: ${colors.allGray30};
-    --all-gray-40: ${colors.allGray40};
+	--all-gray-40: ${colors.allGray40};
+	
+	--regular: 400;
+    --medium: 500;
+    --bold: 600;
 }
 
 @media (prefers-color-scheme: dark) { 
@@ -43,41 +47,53 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1 {
-	font-size: 2.5em;
-    color: var(--primary);
-    letter-spacing: -0.2px;
-  	line-height: 1.2;
-    margin-top: 0.333em;
-    margin-bottom: 0.333em;
+	font-size: 4em;
+    color: var(--font-color);
+    letter-spacing: 0.1px;
+    line-height: 1.25;
+    margin-bottom: 0.25em;
+    margin-top: 0.25em;
+    font-weight: var(--medium);
 }
 
 h2 {
-	font-size: 2.25em;
-    color: var(--primary);
-    font-weight: bold;
-	letter-spacing: 0.2px;
+	font-size: 2.5em;
+    color: var(--font-color);
+    letter-spacing: 0;
     line-height: 1.2;
-    margin-bottom: 0.4444444444em;
-	margin-top: 0.4444444444em;
+    font-weight: var(--medium);
+    margin-bottom: 0.4em;
+    margin-top: 0.4em;
 }
 
 h3 {
-	color: var(--primary);
-	font-size: 1.5em;
-    font-weight: bold;
-    letter-spacing: 0.2px;
-    line-height: 1.2;
-    margin-bottom: 0.6666666666em;
-	margin-top: 0.6666666666em;
+	font-size: 2em;
+    color: var(--font-color);
+    letter-spacing: 0.1px;
+    line-height: 1.25px;
+    font-weight: var(--regular);
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 }
 
 h4 {
-	color: var(--primary);
+	font-size: 1.5em;
+    color: var(--font-color);
+    letter-spacing: 0.1px;
+    font-weight: var(--medium);
+    line-height: 1.25em;
+    margin-bottom: 0.75em;
+    margin-top: 0.75em;
+}
+
+h5 {
 	font-size: 1.25em;
-	letter-spacing: 0.2px;
-	line-height: 1.2;
-    margin-bottom: 0.4em;
-    margin-top: 0.4em;
+	font-weight: var(--regular);
+	letter-spacing: 0.1px;
+	color: var(--all-gray-30);
+	line-height: 1.5em;
+	margin-bottom: 1em;
+	margin-top: 1em;
 }
 
 p {

@@ -114,11 +114,11 @@ const Meta = (props) => {
 
 // Default colors
 const defaultColors = {
-    primary: "#3C4044",
-    secondary: "#3C4B5A",
-    accent: "#FF5050",
+    primary: "#121212",
+    secondary: "#303030",
+    accent: "#F83850",
     background: "#FFFFFF",
-    font: "#7E8082",
+    font: "#121212",
     allGray10: "#F5F5F5",
     allGray20: "#ECEDEE",
     allGray30: "#C8CBCE",

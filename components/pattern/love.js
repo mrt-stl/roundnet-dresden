@@ -1,7 +1,12 @@
 import Link from "next/link"
 
 const Love = () => {
-
+    if (process.env.HAS_BANNER === 0) {
+        return (
+            <div />
+        )
+    }
+    
     return (
         <div className="love-container">
             <Link href="https://stadtteilliebe.de">

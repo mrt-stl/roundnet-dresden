@@ -1,7 +1,9 @@
 import Link from "next/link"
 
 const Love = () => {
-    if (process.env.HAS_BANNER === 0) {
+    const noBanner = process.env.HAS_BANNER && Number(process.env.HAS_BANNER) === 0
+
+    if (noBanner) {
         return (
             <div />
         )
@@ -20,18 +22,19 @@ const Love = () => {
             </Link>
 
             <style jsx>{`
-                .love-container {
-                    position: relative;
-                    bottom: 0;
-                    height: 48px;
-                    background-color: var(--secondary);
-                }
-                a {
-                    color: var(--white);
-                }
-            `}</style>
+                    .love-container {
+                        position: relative;
+                        bottom: 0;
+                        height: 48px;
+                        background-color: var(--secondary);
+                    }
+                    a {
+                        color: var(--white);
+                    }
+                `}</style>
         </div>
     )
+
 }
 
 export default Love

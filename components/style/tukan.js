@@ -70,7 +70,7 @@ h3 {
 	font-size: 2em;
     color: var(--font-color);
     letter-spacing: 0.1px;
-    line-height: 1.25px;
+    line-height: 1.25;
     font-weight: var(--regular);
     margin-bottom: 0.5em;
     margin-top: 0.5em;

@@ -13,7 +13,6 @@ const Focus = ({ data }) => {
                 </div>
             </div>
         </div>
-
     )
 }
 

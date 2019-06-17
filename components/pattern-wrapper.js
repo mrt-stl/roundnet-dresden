@@ -8,6 +8,7 @@ import Preview from "./pattern/preview"
 import HighlightText from "./pattern/highlight-text"
 import Richtext from "./pattern/richtext"
 import Location from "./pattern/location"
+import Focus from "./pattern/focus"
 
 
 const PatternWrapper = ({ body }) => {
@@ -77,6 +78,13 @@ const createPattern = (slice, index) => {
         case "richtext":
             pattern =
                 <Richtext
+                    key={index}
+                    data={slice.primary} />
+            break
+
+        case "focus":
+            pattern =
+                <Focus
                     key={index}
                     data={slice.primary} />
             break

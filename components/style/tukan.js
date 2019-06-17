@@ -1,5 +1,5 @@
 export const tukan = (fontName, colors, darkModeColors) => {
-	return <style jsx global>{`
+    return <style jsx global>{`
 
 :root {
     --primary: ${colors.primary};
@@ -200,6 +200,36 @@ img {
   
 .bm-menu-wrap {
       top: 0;
+}
+
+.right-align {
+    display: block;
+    text-align: right;
+}
+
+.center-align {
+    display: block;
+    text-align: center;
+}
+
+.small-text {
+  font-size: 0.875em;
+  font-weight: var(--regular);
+  color: var(--all-gray-30);
+  letter-spacing: 0.2px;
+  line-height: 1.5;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+.large-text {
+  font-weight: var(--medium);
+  font-size: 1.25em;
+  color: var(--font-color);
+  letter-spacing: 0.1px;
+  line-height: 1.3;
+  margin-bottom: 0.8em;
+  margin-top: 0.8em;
 }
 
 `}</style>

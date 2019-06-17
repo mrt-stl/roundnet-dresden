@@ -7,6 +7,7 @@ import { asText } from "../utils/prismic-utils"
 import Love from "../components/pattern/love"
 import crypto from "crypto"
 import parser from "accept-language-parser"
+import { cacheControlHeader } from "../utils/cache-utils"
 
 const Index = (props) => {
     const cookieLink = process.env.COOKIE ? JSON.parse(process.env.COOKIE) : process.env.COOKIE
@@ -48,7 +49,7 @@ Index.getInitialProps = async ({ query, res }) => {
     if (res) {
         const etag = createEtag(docs.results)
         res.setHeader("X-version", etag)
-        res.setHeader("Cache-Control", "s-maxage=900, stale-while-revalidate")
+        res.setHeader("Cache-Control", cacheControlHeader())
     }
 
     return {

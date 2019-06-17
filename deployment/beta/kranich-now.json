@@ -26,7 +26,8 @@
             "COOKIE": "{\"link\": \"https://stadtteilliebe.de/datenschutz\"}",
             "GA": "UA-137430078-2",
             "COLORS": "{ \"primary\": \"#3c3c3c\", \"secondary\": \"#8caaaa\", \"accent\": \"#ea918c\" }",
-            "DARK_MODE": "auto"
+            "DARK_MODE": "auto",
+            "CACHING_TIME": "1"
         }
     },
     "routes": [

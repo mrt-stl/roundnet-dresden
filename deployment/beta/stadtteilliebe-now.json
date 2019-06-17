@@ -26,7 +26,8 @@
             "COOKIE": "{\"link\": \"/datenschutz\"}",
             "GA": "UA-137430078-1",
             "HAS_BANNER": "0",
-            "DARK_MODE": "auto"
+            "DARK_MODE": "auto",
+            "CACHING_TIME": "1"
         }
     },
     "routes": [

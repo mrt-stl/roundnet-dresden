@@ -11,7 +11,8 @@ module.exports = {
     GA: process.env.GA,
     COLORS: process.env.COLORS,
     DARK_MODE: process.env.DARK_MODE,
-    HAS_BANNER: process.env.HAS_BANNER
+    HAS_BANNER: process.env.HAS_BANNER,
+    CACHING_TIME: process.env.CACHING_TIME
   },
   webpack: config => {
       // Fixes npm packages that depend on `fs` module

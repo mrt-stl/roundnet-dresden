@@ -8,9 +8,7 @@ const Preview = ({ data }) => {
     const content = asHtml(data.preview_content)
     const img = data.preview_image.url
     const alt = data.preview_image.alt
-
-    console.log(img)
-
+    
     return (
         <div className="preview-container">
             <div className="grid">

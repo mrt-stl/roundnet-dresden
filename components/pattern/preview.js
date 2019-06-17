@@ -9,6 +9,8 @@ const Preview = ({ data }) => {
     const img = data.preview_image.url
     const alt = data.preview_image.alt
 
+    console.log(img)
+
     return (
         <div className="preview-container">
             <div className="grid">
@@ -18,6 +20,7 @@ const Preview = ({ data }) => {
                 </div>
             </div>
 
+            {img !== undefined ?
             <div className="grid">
                 <div className="col">
                     <LazyLoad height={"512px"} offset={200}>
@@ -25,6 +28,9 @@ const Preview = ({ data }) => {
                     </LazyLoad>
                 </div>
             </div>
+            :
+            <div/>
+            }
 
             <style jsx>{`
                 img {

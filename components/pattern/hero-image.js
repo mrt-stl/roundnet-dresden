@@ -14,9 +14,13 @@ const HeroImage = ({ data }) => {
         <div className="hero-image-container">
             <div className="hero-image-content-container text-center">
                 <h1>{title}</h1>
-                <Link href={link? link : ""}>
-                    <a>{linkContent}</a>
-                </Link>
+                {link !== "/undefined" ? 
+                    <Link href={link}>
+                        <a className="link-content">{linkContent}</a>
+                    </Link>
+                    :
+                    <p className="link-content">{linkContent}</p>
+                }
             </div>
             <LazyLoad height={"90vh"} offset={200}>
                 <img src={img} alt={imgDescription}></img>
@@ -34,6 +38,9 @@ const HeroImage = ({ data }) => {
                     left: 50%;
                     transform: translate(-50%, -50%); 
                 }
+                .link-content {
+                    color: var(--white);
+                }
                 h1 {
                     color: var(--white);
                 }
@@ -41,9 +48,6 @@ const HeroImage = ({ data }) => {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                }
-                a {
-                    color: var(--white);
                 }
             `}</style>
         </div>

@@ -26,8 +26,8 @@ const Action = ({ data }) => {
 
             <style jsx>{`
                 .action-container {
-                    padding-top: 5em;
-                    padding-bottom: 5em;
+                    padding-top: var(--standard-spacing);
+                    padding-bottom: var(--standard-spacing);
                     color: var(--white);
                 }
                 a {

@@ -8,7 +8,7 @@ const Preview = ({ data }) => {
     const content = asHtml(data.preview_content)
     const img = data.preview_image.url
     const alt = data.preview_image.alt
-
+    
     return (
         <div className="preview-container">
             <div className="grid">
@@ -33,8 +33,8 @@ const Preview = ({ data }) => {
                     object-fit: cover;
                 }
                 .preview-container {
-                    padding-top: 5em;
-                    padding-bottom: 5em;
+                    padding-top: var(--standard-spacing);
+                    padding-bottom: var(--standard-spacing);
                     background-color: var(--all-gray-10);
                 }
             `}</style>

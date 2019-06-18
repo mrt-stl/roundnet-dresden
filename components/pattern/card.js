@@ -9,9 +9,19 @@ const Card = (props) => {
             {/* Image */}
             {props.img !== undefined ?
                 <LazyLoad height={"256px"} offset={200}>
-                    <img src={props.img} alt={props.imgDescription}></img>
-                </LazyLoad> :
-                <div />}
+                    {props.link !== undefined ?
+                        <Link href={props.link}>
+                            <a target="_blank" rel="noopener">
+                                <img src={props.img} alt={props.imgDescription}></img>
+                            </a>
+                        </Link>
+                        :
+                        <img src={props.img} alt={props.imgDescription}></img>
+                    }
+                </LazyLoad> 
+                :
+                <div />
+            }
 
             {/* Title */}
             {Parser(props.title)}
@@ -19,15 +29,6 @@ const Card = (props) => {
             {/* Content */}
             {Parser(props.content)}
 
-            {/* Link */}
-            {props.link !== undefined ?
-                <Link href={props.link}>
-                    <a className="call-to-action">
-                        {props.linkContent}
-                    </a>
-                </Link> :
-                <div />
-            }
 
             <style jsx>{`
                 img {
@@ -50,8 +51,7 @@ Card.propTypes = {
     content: string,
     img: string,
     imgDescription: string,
-    link: string,
-    linkContent: string
+    link: string
 }
 
 export default Card

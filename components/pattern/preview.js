@@ -8,7 +8,7 @@ const Preview = ({ data }) => {
     const content = asHtml(data.preview_content)
     const img = data.preview_image.url
     const alt = data.preview_image.alt
-    
+
     return (
         <div className="preview-container">
             <div className="grid">
@@ -18,16 +18,15 @@ const Preview = ({ data }) => {
                 </div>
             </div>
 
-            {img !== undefined ?
-            <div className="grid">
-                <div className="col">
-                    <LazyLoad height={"512px"} offset={200}>
-                        <img src={img} alt={alt}></img>
-                    </LazyLoad>
-                </div>
-            </div>
-            :
-            <div/>
+            {!img ?
+                <div className="grid">
+                    <div className="col">
+                        <LazyLoad height={"512px"} offset={200}>
+                            <img src={img} alt={alt}></img>
+                        </LazyLoad>
+                    </div>
+                </div> :
+                <div />
             }
 
             <style jsx>{`

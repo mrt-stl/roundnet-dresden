@@ -6,28 +6,41 @@ import LazyLoad from "react-lazyload"
 const Card = (props) => {
     return (
         <div className="card-container">
-            {/* Image */}
-            {props.img !== undefined ?
-                <LazyLoad height={"256px"} offset={200}>
-                    <img src={props.img} alt={props.imgDescription}></img>
-                </LazyLoad> :
-                <div />}
-
-            {/* Title */}
-            {Parser(props.title)}
-
-            {/* Content */}
-            {Parser(props.content)}
-
-            {/* Link */}
-            {props.link !== undefined ?
+            {props.link ?
                 <Link href={props.link}>
-                    <a className="call-to-action">
-                        {props.linkContent}
+                    <a target="_blank" rel="noopener">
+                        {/* Image */}
+                        {props.img ?
+                            <LazyLoad height={"256px"} offset={200}>
+                                <img src={props.img} alt={props.imgDescription}></img>
+                            </LazyLoad> :
+                            <div />
+                        }
+
+                        {/* Title */}
+                        {Parser(props.title)}
+
+                        {/* Content */}
+                        {Parser(props.content)}
                     </a>
                 </Link> :
-                <div />
+                <div>
+                    {/* Image */}
+                    {props.img ?
+                        <LazyLoad height={"256px"} offset={200}>
+                            <img src={props.img} alt={props.imgDescription}></img>
+                        </LazyLoad> :
+                        <div />
+                    }
+
+                    {/* Title */}
+                    {Parser(props.title)}
+
+                    {/* Content */}
+                    {Parser(props.content)}
+                </div>
             }
+
 
             <style jsx>{`
                 img {
@@ -50,8 +63,7 @@ Card.propTypes = {
     content: string,
     img: string,
     imgDescription: string,
-    link: string,
-    linkContent: string
+    link: string
 }
 
 export default Card

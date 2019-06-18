@@ -11,7 +11,6 @@ const InfiniteCards = (props) => {
         const title = asHtml(card.card_title)
         const content = asHtml(card.card_content)
         const link = linkResolver(card.card_link)
-        const linkContent = asText(card.card_link_content)
 
         return (
             <div key={index} className="col-4">
@@ -20,8 +19,7 @@ const InfiniteCards = (props) => {
                     imgDescription={imgAlt}
                     title={title}
                     content={content}
-                    link={link}
-                    linkContent={linkContent} />
+                    link={link} />
             </div>
         )
     })

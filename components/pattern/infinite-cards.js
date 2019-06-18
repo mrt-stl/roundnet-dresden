@@ -19,8 +19,7 @@ const InfiniteCards = (props) => {
                     imgDescription={imgAlt}
                     title={title}
                     content={content}
-                    link={link}
-                    linkContent={linkContent} />
+                    link={link} />
             </div>
         )
     })

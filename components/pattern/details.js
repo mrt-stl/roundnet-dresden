@@ -25,8 +25,8 @@ const Details = (props) => {
 
             <style jsx>{`
                 .infinite-cards-container {
-                    margin-top: 5em;
-                    margin-bottom: 5em;
+                    margin-top: var(--standard-spacing);
+                    margin-bottom: var(--standard-spacing);
                 }
             `}</style>
         </div>

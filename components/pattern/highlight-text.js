@@ -13,8 +13,8 @@ const HighlightText = ({ data }) => {
 
             <style jsx>{`
                 .highlight-container {
-                    padding-top: 5em;
-                    padding-bottom: 5em;
+                    padding-top: var(--standard-spacing);
+                    padding-bottom: var(--standard-spacing);
                 }
             `}</style>
         </div>

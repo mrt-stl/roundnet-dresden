@@ -16,6 +16,8 @@ export const tukan = (fontName, colors, darkModeColors) => {
 	--regular: 400;
     --medium: 500;
     --bold: 600;
+
+    --standard-spacing: 5em;
 }
 
 @media (prefers-color-scheme: dark) { 
@@ -31,6 +33,12 @@ export const tukan = (fontName, colors, darkModeColors) => {
 		--all-gray-30: ${darkModeColors.allGray30};
 		--all-gray-40: ${darkModeColors.allGray40};
 	}
+}
+
+@media (max-width: 768px) {
+    :root {
+        --standard-spacing: 3em;
+    }
 }
 
 html, body {

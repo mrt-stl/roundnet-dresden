@@ -14,12 +14,10 @@ const Card = (props) => {
                             <a target="_blank" rel="noopener">
                                 <img src={props.img} alt={props.imgDescription}></img>
                             </a>
-                        </Link>
-                        :
+                        </Link> :
                         <img src={props.img} alt={props.imgDescription}></img>
                     }
-                </LazyLoad> 
-                :
+                </LazyLoad> :
                 <div />
             }
 

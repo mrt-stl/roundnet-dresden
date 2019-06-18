@@ -6,7 +6,7 @@ import LazyLoad from "react-lazyload"
 const Card = (props) => {
     return (
         <div className="card-container">
-            {props.link ?
+            {props.link && props.link !== "/undefined" ?
                 <Link href={props.link}>
                     <a target="_blank" rel="noopener">
                         {/* Image */}

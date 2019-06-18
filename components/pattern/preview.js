@@ -18,13 +18,16 @@ const Preview = ({ data }) => {
                 </div>
             </div>
 
-            <div className="grid">
-                <div className="col">
-                    <LazyLoad height={"512px"} offset={200}>
-                        <img src={img} alt={alt}></img>
-                    </LazyLoad>
-                </div>
-            </div>
+            {!img ?
+                <div className="grid">
+                    <div className="col">
+                        <LazyLoad height={"512px"} offset={200}>
+                            <img src={img} alt={alt}></img>
+                        </LazyLoad>
+                    </div>
+                </div> :
+                <div />
+            }
 
             <style jsx>{`
                 img {

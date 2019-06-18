@@ -18,7 +18,7 @@ const Preview = ({ data }) => {
                 </div>
             </div>
 
-            {!img ?
+            {img ?
                 <div className="grid">
                     <div className="col">
                         <LazyLoad height={"512px"} offset={200}>

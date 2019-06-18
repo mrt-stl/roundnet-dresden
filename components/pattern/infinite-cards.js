@@ -1,6 +1,6 @@
 import Card from "./card"
 import { array } from "prop-types"
-import { asHtml, linkResolver, asText } from "../../utils/prismic-utils"
+import { asHtml, linkResolver } from "../../utils/prismic-utils"
 
 
 const InfiniteCards = (props) => {

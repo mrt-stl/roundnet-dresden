@@ -6,26 +6,40 @@ import LazyLoad from "react-lazyload"
 const Card = (props) => {
     return (
         <div className="card-container">
-            {/* Image */}
-            {props.img !== undefined ?
-                <LazyLoad height={"256px"} offset={200}>
-                    {props.link !== undefined ?
-                        <Link href={props.link}>
-                            <a target="_blank" rel="noopener">
+            {props.link ?
+                <Link href={props.link}>
+                    <a target="_blank" rel="noopener">
+                        {/* Image */}
+                        {props.img ?
+                            <LazyLoad height={"256px"} offset={200}>
                                 <img src={props.img} alt={props.imgDescription}></img>
-                            </a>
-                        </Link> :
-                        <img src={props.img} alt={props.imgDescription}></img>
+                            </LazyLoad> :
+                            <div />
+                        }
+
+                        {/* Title */}
+                        {Parser(props.title)}
+
+                        {/* Content */}
+                        {Parser(props.content)}
+                    </a>
+                </Link> :
+                <div>
+                    {/* Image */}
+                    {props.img ?
+                        <LazyLoad height={"256px"} offset={200}>
+                            <img src={props.img} alt={props.imgDescription}></img>
+                        </LazyLoad> :
+                        <div />
                     }
-                </LazyLoad> :
-                <div />
+
+                    {/* Title */}
+                    {Parser(props.title)}
+
+                    {/* Content */}
+                    {Parser(props.content)}
+                </div>
             }
-
-            {/* Title */}
-            {Parser(props.title)}
-
-            {/* Content */}
-            {Parser(props.content)}
 
 
             <style jsx>{`

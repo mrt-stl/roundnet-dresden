@@ -9,7 +9,7 @@ const HeroImage = ({ data }) => {
     const linkContent = asText(data.hero_image_link_content)
     const img = data.hero_image_img.url
     const imgDescription = data.hero_image_img.alt
-    const linkIsBlank = data.hero_image_link.target == "_blank" ? true : false
+    const linkIsBlank = data.hero_image_link.target === "_blank"
 
     return (
         <div className="hero-image-container">

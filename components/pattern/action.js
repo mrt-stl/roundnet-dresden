@@ -7,7 +7,7 @@ const Action = ({ data }) => {
     const content = asText(data.action_content)
     const link = linkResolver(data.action_link)
     const linkContent = asText(data.action_link_text)
-    const linkIsBlank = data.action_link.target == "_blank" ? true : false
+    const linkIsBlank = data.action_link.target === "_blank"
 
     return (
         <div className="action-container" style={{ backgroundColor: backgroundColor }}>
@@ -19,14 +19,13 @@ const Action = ({ data }) => {
 
             <div className="grid">
                 <div className="col-4">
-                    {link !== "/undefined" ?
+                    {link && link !== "/undefined" ?
                         <Link href={link ? link : ""}>
                             {linkIsBlank ?
                                 <a className="link-content" target="blank" rel="noopener">{linkContent}</a> :
                                 <a className="link-content">{linkContent}</a>
                             }
-                        </Link>
-                        :
+                        </Link> :
                         <p className="link-content">{linkContent}</p>
                     }
                 </div>

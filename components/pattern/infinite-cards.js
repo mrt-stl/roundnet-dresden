@@ -10,7 +10,7 @@ const InfiniteCards = (props) => {
         const title = asHtml(card.card_title)
         const content = asHtml(card.card_content)
         const link = linkResolver(card.card_link)
-        const linkIsBlank = card.card_link.target == "_blank" ? true : false
+        const linkIsBlank = card.card_link.target === "_blank"
 
         return (
             <div key={index} className="col-4">

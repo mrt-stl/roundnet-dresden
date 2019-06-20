@@ -9,6 +9,7 @@ const HeroImage = ({ data }) => {
     const linkContent = asText(data.hero_image_link_content)
     const img = data.hero_image_img.url
     const imgDescription = data.hero_image_img.alt
+    const linkIsBlank = data.hero_image_link.target === "_blank"
 
     return (
         <div className="hero-image-container">
@@ -16,7 +17,10 @@ const HeroImage = ({ data }) => {
                 <h1>{title}</h1>
                 {link !== "/undefined" ? 
                     <Link href={link}>
-                        <a className="link-content">{linkContent}</a>
+                        {linkIsBlank ?
+                            <a className="link-content" target="blank" rel="noopener">{linkContent}</a> :
+                            <a className="link-content">{linkContent}</a>
+                        }
                     </Link>
                     :
                     <p className="link-content">{linkContent}</p>

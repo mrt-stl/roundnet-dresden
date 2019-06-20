@@ -8,21 +8,38 @@ const Card = (props) => {
         <div className="card-container">
             {props.link && props.link !== "/undefined" ?
                 <Link href={props.link}>
-                    <a target="_blank" rel="noopener">
-                        {/* Image */}
-                        {props.img ?
-                            <LazyLoad height={"256px"} offset={200}>
-                                <img src={props.img} alt={props.imgDescription}></img>
-                            </LazyLoad> :
-                            <div />
-                        }
+                    {props.linkIsBlank ?
+                        <a target="_blank" rel="noopener">
+                            {/* Image */}
+                            {props.img ?
+                                <LazyLoad height={"256px"} offset={200}>
+                                    <img src={props.img} alt={props.imgDescription}></img>
+                                </LazyLoad> :
+                                <div />
+                            }
 
-                        {/* Title */}
-                        {Parser(props.title)}
+                            {/* Title */}
+                            {Parser(props.title)}
 
-                        {/* Content */}
-                        {Parser(props.content)}
-                    </a>
+                            {/* Content */}
+                            {Parser(props.content)}
+                        </a> :
+                        <a>
+                            {/* Image */}
+                            {props.img ?
+                                <LazyLoad height={"256px"} offset={200}>
+                                    <img src={props.img} alt={props.imgDescription}></img>
+                                </LazyLoad> :
+                                <div />
+                            }
+
+                            {/* Title */}
+                            {Parser(props.title)}
+
+                            {/* Content */}
+                            {Parser(props.content)}
+                        </a>
+                    }
                 </Link> :
                 <div>
                     {/* Image */}

@@ -45,6 +45,7 @@ class CookieNotification extends Component {
         if (this.state.acceptedCookie) {
             return (<div />)
         }
+        console.log(this.props.link)
 
         return (
             <div className="cookie-container">

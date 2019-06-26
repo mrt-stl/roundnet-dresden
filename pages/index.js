@@ -32,7 +32,8 @@ const Index = (props) => {
             <PatternWrapper
                 body={body} />
             {cookieLink ?
-                <CookieNotification /> :
+                <CookieNotification
+                    link={cookieLink.link} /> :
                 <div />}
             <Love />
         </div>

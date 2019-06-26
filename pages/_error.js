@@ -1,47 +1,32 @@
-import React from "react"
-import Head from "next/head"
 import Link from "next/link"
+import Meta from "../components/meta"
+import Nav from "../components/navigation/nav"
 
-class Error extends React.Component {
-    static getInitialProps({ res, err }) {
-        const statusCode = res ? res.statusCode : err ? err.statusCode : null
-        return { statusCode }
+const Error = () => {
+
+    const meta = {
+        metaTitle: "Seite nicht verfügbar",
+        metaDescription: "Seite nicht verfügbar",
     }
+    
+    return (
+        <div >
+            <Meta
+                data={meta} />
+            <Nav />
 
-    render() {
-        return (
-            <div>
-                <div >
-                    <Head>
-                        <meta name="viewport" content="width=device-width, initial-scale=1" />
-                        <meta charSet="utf-8" />
-                        <link rel="stylesheet" href="/static/css/normalize.css" />
-                        <link href="https://fonts.googleapis.com/css?family=Muli:400,700" rel="stylesheet" />
-
-                        <title>Fehlerseite</title>
-
-                        <meta name="author" content="Stadtteilliebe.de" />
-                        <meta name="description" content="Fehlerseite" />
-                    </Head>
+            <div className="hero-image-container">
+                <img src="../static/img/error-bild.jpg" />
+                <div className="hero-image-content-container text-center">
+                    <h1>
+                        Seite nicht verfügbar
+                        </h1>
+                    <Link href="/">
+                        <a className="link-content">Zurück zur Startseite</a>
+                    </Link>
                 </div>
-
-                <div className="gemacht-mit-stadtteilliebe">
-                    <div className="hero-image-container">
-                    <img src="../static/img/error-bild.jpg"/>
-                        <div className="hero-image-content-container text-center">
-                            <h1>
-                                Seite nicht verfügbar
-                            </h1>
-                            <Link href="/">
-                                <a className="link-content">Zurück zur Startseite</a>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <style jsx>{`
-                    .gemacht-mit-stadtteilliebe{
-	                    font-family: "Muli", sans-serif;
-                    }       
+            </div>
+            <style jsx>{`    
                     .hero-image-container {
                         position: relative;
                         height: 100vh;
@@ -77,9 +62,8 @@ class Error extends React.Component {
                         object-fit: cover;
                     }
                 `}</style>
-            </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default Error

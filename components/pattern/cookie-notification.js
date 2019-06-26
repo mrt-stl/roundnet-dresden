@@ -45,7 +45,6 @@ class CookieNotification extends Component {
         if (this.state.acceptedCookie) {
             return (<div />)
         }
-        console.log(this.props.link)
 
         return (
             <div className="cookie-container">
@@ -70,7 +69,7 @@ class CookieNotification extends Component {
                         height: 48px;
                         background-color: #121212; 
                         color: var(--white);
-                    } 
+                    }
 
                     a {
                         color: var(--white);
@@ -107,6 +106,9 @@ class CookieNotification extends Component {
                         .text-right {
                             position: static;
                             margin-left: 5px;
+                        }
+                        .cookie-container {
+                            height: 80px;
                         }
                     }
                     

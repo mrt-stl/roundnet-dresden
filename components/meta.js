@@ -129,7 +129,6 @@ const defaultColors = {
 const defaultDarkModeColors = {
     primary: "#f0f0f0",
     secondary: "#d0d0d0",
-    accent: "#FF5050",
     background: "#202428",
 	font: "#ffffff",
     allGray10: "#404040",

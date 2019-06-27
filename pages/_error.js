@@ -16,7 +16,7 @@ const Error = () => {
             <Nav />
 
             <div className="hero-image-container">
-                <img src="../static/img/error-bild.jpg" />
+                <img src="../static/img/error.jpg" />
                 <div className="hero-image-content-container text-center">
                     <h1>
                         Seite nicht verfügbar

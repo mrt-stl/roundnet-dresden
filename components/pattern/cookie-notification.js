@@ -67,7 +67,7 @@ class CookieNotification extends Component {
                         z-index: 100;
                         width: 100%;
                         height: 48px;
-                        background-color: #121212; 
+                        background-color: var(--dark); 
                         color: var(--white);
                     }
 

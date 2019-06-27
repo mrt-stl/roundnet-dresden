@@ -59,7 +59,6 @@ class CookieNotification extends Component {
                     </div>
                 </div>
 
-                {/*background-color: #121212; is the primary light mode color  */}
                 <style jsx>{`
                     .cookie-container {
                         position: fixed;

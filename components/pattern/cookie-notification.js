@@ -59,7 +59,6 @@ class CookieNotification extends Component {
                     </div>
                 </div>
 
-
                 <style jsx>{`
                     .cookie-container {
                         position: fixed;
@@ -67,7 +66,7 @@ class CookieNotification extends Component {
                         z-index: 100;
                         width: 100%;
                         height: 48px;
-                        background-color: var(--primary);
+                        background-color: var(--dark); 
                         color: var(--white);
                     }
 
@@ -106,6 +105,9 @@ class CookieNotification extends Component {
                         .text-right {
                             position: static;
                             margin-left: 5px;
+                        }
+                        .cookie-container {
+                            height: 80px;
                         }
                     }
                     

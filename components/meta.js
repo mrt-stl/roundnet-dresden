@@ -117,6 +117,7 @@ const defaultColors = {
     primary: "#121212",
     secondary: "#303030",
     accent: "#F83850",
+    dark: "#121212",
     background: "#FFFFFF",
     font: "#121212",
     allGray10: "#F5F5F5",

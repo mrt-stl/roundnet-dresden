@@ -31,9 +31,6 @@ const HeroImage = ({ data }) => {
             </LazyLoad>
             
             <style jsx>{`
-                h1 {
-                    font-size: 3em;
-                }
                 .hero-image-container {
                     position: relative;
                     height: 90vh;
@@ -50,6 +47,7 @@ const HeroImage = ({ data }) => {
                 }
                 h1 {
                     color: var(--white);
+                    font-size: 3em;
                 }
                 img {
                     width: 100%;

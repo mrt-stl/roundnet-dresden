@@ -1,2 +1,1 @@
 # create-next-project
-test

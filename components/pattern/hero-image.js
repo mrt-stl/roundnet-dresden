@@ -47,6 +47,7 @@ const HeroImage = ({ data }) => {
                 }
                 h1 {
                     color: var(--white);
+                    font-size: 3em;
                 }
                 img {
                     width: 100%;

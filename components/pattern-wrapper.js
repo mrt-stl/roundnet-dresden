@@ -9,6 +9,7 @@ import HighlightText from "./pattern/highlight-text"
 import Richtext from "./pattern/richtext"
 import Location from "./pattern/location"
 import Focus from "./pattern/focus"
+import ImageAndText from "./pattern/image-and-text"
 
 
 const PatternWrapper = ({ body }) => {
@@ -24,7 +25,7 @@ const PatternWrapper = ({ body }) => {
 }
 
 const createPattern = (slice, index) => {
-    var pattern
+    let pattern
     switch (slice.slice_type) {
         case "startbild":
             pattern =
@@ -92,6 +93,13 @@ const createPattern = (slice, index) => {
         case "location":
             pattern =
                 <Location
+                    key={index}
+                    data={slice.primary} />
+            break
+
+        case "image_and_text":
+            pattern =
+                <ImageAndText
                     key={index}
                     data={slice.primary} />
             break

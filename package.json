@@ -1,5 +1,5 @@
 {
-  "name": "create-next-project",
+  "name": "tukan-platform",
   "version": "0.0.1",
   "scripts": {
     "dev": "now dev -A deployment/standard-now.json",

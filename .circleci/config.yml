@@ -37,7 +37,7 @@ jobs:
         command: yarn test
 
     - run:
-        name: Test deployment to now
+        name: Deploy to Development
         command: yarn deploy-test --token ${NOW_TOKEN}
 
   beta-build-and-deploy:
@@ -73,7 +73,7 @@ jobs:
         command: yarn test
 
     - run:
-        name: Test deployment to now
+        name: Deploy to Beta
         command: yarn deploy-beta --token ${NOW_TOKEN} --alex ${NOW_TOKEN_ALEXFI}
 
   prod-build-and-deploy:
@@ -109,7 +109,7 @@ jobs:
         command: yarn test
 
     - run:
-        name: Deploy to production
+        name: Deploy to Production
         command: yarn deploy-all --token ${NOW_TOKEN}
 
 workflows:

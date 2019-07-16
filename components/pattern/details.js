@@ -2,9 +2,10 @@ import Card from "./card"
 import { array } from "prop-types"
 import { asHtml } from "../../utils/prismic-utils"
 
-const Details = (props) => {
+const Details = ({ primary, items }) => {
+    const backgroundColor = primary && primary.detail_background ? primary.detail_background : "var(--white)"
 
-    const details = props.data.map((detail, index) => {
+    const details = items.map((detail, index) => {
         const title = asHtml(detail.detail_title)
         const content = asHtml(detail.detail_content)
 
@@ -18,15 +19,15 @@ const Details = (props) => {
     })
 
     return (
-        <div className="infinite-cards-container">
+        <div className="infinite-cards-container" style={{ backgroundColor: backgroundColor }}>
             <div className="grid">
                 {details}
             </div>
 
             <style jsx>{`
                 .infinite-cards-container {
-                    margin-top: var(--standard-spacing);
-                    margin-bottom: var(--standard-spacing);
+                    padding-top: var(--standard-spacing);
+                    padding-bottom: var(--standard-spacing);
                 }
             `}</style>
         </div>

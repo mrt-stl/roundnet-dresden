@@ -52,7 +52,8 @@ const createPattern = (slice, index) => {
             pattern =
                 <Details
                     key={index}
-                    data={slice.items} />
+                    primary={slice.primary}
+                    items={slice.items} />
             break
 
         case "action":

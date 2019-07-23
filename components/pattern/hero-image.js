@@ -14,7 +14,7 @@ const HeroImage = ({ data }) => {
     return (
         <div className="hero-image-container">
             <div className="hero-image-content-container text-center">
-                <h1>{title}</h1>
+                <h1 className="fadeInUp">{title}</h1>
                 {link !== "/undefined" ? 
                     <Link href={link}>
                         {linkIsBlank ?
@@ -53,6 +53,40 @@ const HeroImage = ({ data }) => {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                }
+                @-webkit-keyframes fadeInUp {
+                    from {
+                    opacity: 0;
+                    -webkit-transform: translate3d(0, 100%, 0);
+                    transform: translate3d(0, 100%, 0);
+                    }
+                
+                    to {
+                    opacity: 1;
+                    -webkit-transform: translate3d(0, 0, 0);
+                    transform: translate3d(0, 0, 0);
+                    }
+                }
+                
+                @keyframes fadeInUp {
+                    from {
+                    opacity: 0;
+                    -webkit-transform: translate3d(0, 100%, 0);
+                    transform: translate3d(0, 100%, 0);
+                    }
+                
+                    to {
+                    opacity: 1;
+                    -webkit-transform: translate3d(0, 0, 0);
+                    transform: translate3d(0, 0, 0);
+                    }
+                }
+                
+                .fadeInUp {
+                    animation-name: fadeInUp;
+                    animation-duration: 1.5s;
+                    animation-fill-mode: both;
+                    animation-delay: 0.6s;
                 }
             `}</style>
         </div>

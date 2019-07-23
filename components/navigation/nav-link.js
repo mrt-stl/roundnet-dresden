@@ -1,11 +1,8 @@
-import Link from "next/link"
 import { string } from "prop-types"
 
 const NavLink = (props) => (
     <div className="nav-link">
-        <Link href={props.href}>
-            <a>{props.linkContent}</a>
-        </Link>
+        <a href={props.href}>{props.linkContent}</a>
         <style jsx>{`
             .nav-link {
                 padding-left: 8px;

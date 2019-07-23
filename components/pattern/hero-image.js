@@ -1,5 +1,4 @@
 import { object } from "prop-types"
-import Link from "next/link"
 import LazyLoad from "react-lazyload"
 import { asText, linkResolver } from "../../utils/prismic-utils"
 
@@ -17,12 +16,12 @@ const HeroImage = ({ data }) => {
                 <div className="fadeInUp">
                     <h1>{title}</h1>
                     {link !== "/undefined" ?
-                        <Link href={link}>
+                        <div>
                             {linkIsBlank ?
-                                <a className="link-content" target="blank" rel="noopener">{linkContent}</a> :
-                                <a className="link-content">{linkContent}</a>
+                                <a href={link} className="link-content" target="blank" rel="noopener">{linkContent}</a> :
+                                <a href={link} className="link-content">{linkContent}</a>
                             }
-                        </Link> :
+                        </div> :
                         <p className="link-content">{linkContent}</p>
                     }
                 </div>

@@ -1,5 +1,4 @@
 import { slide as Menu } from "react-burger-menu"
-import Link from "next/link"
 
 const MobileMenu = (props) => (
     <div className="mobile-menu">
@@ -9,11 +8,11 @@ const MobileMenu = (props) => (
             right>
 
             {props.links.map((element, index) => {
-                return (<div className="align-items-center" key={index}>
-                    <Link href={element.link}>
-                        <a className="menu-item">{element.name}</a>
-                    </Link>
-                </div>)
+                return (
+                    <div className="align-items-center" key={index}>
+                        <a className="menu-item" href={element.link}>{element.name}</a>
+                    </div>
+                )
             })}
 
         </Menu>

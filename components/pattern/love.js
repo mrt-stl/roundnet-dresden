@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 const Love = () => {
     const noBanner = process.env.HAS_BANNER && Number(process.env.HAS_BANNER) === 0
 
@@ -8,18 +6,16 @@ const Love = () => {
             <div />
         )
     }
-    
+
     return (
         <div className="love-container">
-            <Link href="https://stadtteilliebe.de">
-                <a>
-                    <div className="love-content grid h-100">
-                        <div className="col align-items-center h-100">
-                            <div>Gemacht mit Stadtteilliebe</div>
-                        </div>
+            <a href="https://stadtteilliebe.de">
+                <div className="love-content grid h-100">
+                    <div className="col align-items-center h-100">
+                        <div>Gemacht mit Stadtteilliebe</div>
                     </div>
-                </a>
-            </Link>
+                </div>
+            </a>
 
             <style jsx>{`
                     .love-container {

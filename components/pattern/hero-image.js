@@ -14,22 +14,24 @@ const HeroImage = ({ data }) => {
     return (
         <div className="hero-image-container">
             <div className="hero-image-content-container text-center">
-                <h1 className="fadeInUp">{title}</h1>
-                {link !== "/undefined" ? 
-                    <Link href={link}>
-                        {linkIsBlank ?
-                            <a className="link-content" target="blank" rel="noopener">{linkContent}</a> :
-                            <a className="link-content">{linkContent}</a>
-                        }
-                    </Link>
-                    :
-                    <p className="link-content">{linkContent}</p>
-                }
+                <div className="fadeInUp">
+                    <h1>{title}</h1>
+                    {link !== "/undefined" ?
+                        <Link href={link}>
+                            {linkIsBlank ?
+                                <a className="link-content" target="blank" rel="noopener">{linkContent}</a> :
+                                <a className="link-content">{linkContent}</a>
+                            }
+                        </Link> :
+                        <p className="link-content">{linkContent}</p>
+                    }
+                </div>
+
             </div>
             <LazyLoad height={"90vh"} offset={200}>
                 <img src={img} alt={imgDescription}></img>
             </LazyLoad>
-            
+
             <style jsx>{`
                 .hero-image-container {
                     position: relative;

@@ -48,7 +48,8 @@ html, body {
 	background-color: var(--background);
 	margin: 0 auto;
 	width: 100%;
-	font-family: ${fontName}, sans-serif;
+    font-family: ${fontName}, sans-serif;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, p {

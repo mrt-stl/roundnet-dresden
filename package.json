@@ -2,7 +2,7 @@
   "name": "tukan-platform",
   "version": "0.0.1",
   "scripts": {
-    "dev": "now dev -A deployment/standard-now.json",
+    "local": "now dev -A deployment/standard-now.json",
     "build": "next build",
     "start": "next start -p $PORT",
     "deploy-test": "now -A deployment/standard-now.json",

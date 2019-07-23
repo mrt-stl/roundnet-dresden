@@ -51,7 +51,7 @@ const Meta = (props) => {
         fontName = fontJson.name
 
     } else {
-        fontUrl = "https://fonts.googleapis.com/css?family=Muli:400,700"
+        fontUrl = "https://fonts.googleapis.com/css?family=Muli:400,700&display=swap"
         fontName = "Muli"
     }
 

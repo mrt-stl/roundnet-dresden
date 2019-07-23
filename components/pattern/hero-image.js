@@ -1,5 +1,4 @@
 import { object } from "prop-types"
-import Link from "next/link"
 import LazyLoad from "react-lazyload"
 import { asText, linkResolver } from "../../utils/prismic-utils"
 
@@ -14,22 +13,24 @@ const HeroImage = ({ data }) => {
     return (
         <div className="hero-image-container">
             <div className="hero-image-content-container text-center">
-                <h1>{title}</h1>
-                {link !== "/undefined" ? 
-                    <Link href={link}>
-                        {linkIsBlank ?
-                            <a className="link-content" target="blank" rel="noopener">{linkContent}</a> :
-                            <a className="link-content">{linkContent}</a>
-                        }
-                    </Link>
-                    :
-                    <p className="link-content">{linkContent}</p>
-                }
+                <div className="fadeInUp">
+                    <h1>{title}</h1>
+                    {link !== "/undefined" ?
+                        <div>
+                            {linkIsBlank ?
+                                <a href={link} className="link-content" target="blank" rel="noopener">{linkContent}</a> :
+                                <a href={link} className="link-content">{linkContent}</a>
+                            }
+                        </div> :
+                        <p className="link-content">{linkContent}</p>
+                    }
+                </div>
+
             </div>
             <LazyLoad height={"90vh"} offset={200}>
                 <img src={img} alt={imgDescription}></img>
             </LazyLoad>
-            
+
             <style jsx>{`
                 .hero-image-container {
                     position: relative;
@@ -53,6 +54,40 @@ const HeroImage = ({ data }) => {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                }
+                @-webkit-keyframes fadeInUp {
+                    from {
+                    opacity: 0;
+                    -webkit-transform: translate3d(0, 100%, 0);
+                    transform: translate3d(0, 100%, 0);
+                    }
+                
+                    to {
+                    opacity: 1;
+                    -webkit-transform: translate3d(0, 0, 0);
+                    transform: translate3d(0, 0, 0);
+                    }
+                }
+                
+                @keyframes fadeInUp {
+                    from {
+                    opacity: 0;
+                    -webkit-transform: translate3d(0, 100%, 0);
+                    transform: translate3d(0, 100%, 0);
+                    }
+                
+                    to {
+                    opacity: 1;
+                    -webkit-transform: translate3d(0, 0, 0);
+                    transform: translate3d(0, 0, 0);
+                    }
+                }
+                
+                .fadeInUp {
+                    animation-name: fadeInUp;
+                    animation-duration: 1.5s;
+                    animation-fill-mode: both;
+                    animation-delay: 0.6s;
                 }
             `}</style>
         </div>

@@ -1,0 +1,37 @@
+{
+    "version": 2,
+    "name": "stl-068",
+    "alias": "stl-068",
+    "public": false,
+    "regions": [
+        "all"
+    ],
+    "builds": [
+        {
+            "src": "next.config.js",
+            "use": "@now/next"
+        },
+        {
+            "src": "static/*",
+            "use": "@now/static"
+        }
+    ],
+    "build": {
+        "env": {
+            "PRISMIC_ENDPOINT": "https://stl-068.cdn.prismic.io/api/v2",
+            "ACCESS_TOKEN": "MC5YUzMwVnhBQUFDSUFFdm5y.LEjvv73vv73vv70x77-9fFjvv71z77-977-977-9bO-_vXLvv73vv73vv73vv73vv73vv73vv73vv71777-9H--_ve-_ve-_ve-_vQ",
+            "NAV": "[ {\"name\": \"Home\", \"link\": \"/\"} ]",
+            "CACHING_TIME": "0"
+        }
+    },
+    "routes": [
+        {
+            "src": "^/robots.txt",
+            "dest": "/static/robots.txt"
+        },
+        {
+            "src": "/(?<id>[^/]+)$",
+            "dest": "/index?id=$id"
+        }
+    ]
+}

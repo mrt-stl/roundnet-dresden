@@ -1,8 +1,8 @@
 {
-  "name": "create-next-project",
+  "name": "tukan-platform",
   "version": "0.0.1",
   "scripts": {
-    "dev": "now dev -A deployment/standard-now.json",
+    "local": "now dev -A deployment/standard-now.json",
     "build": "next build",
     "start": "next start -p $PORT",
     "deploy-test": "now -A deployment/standard-now.json",
@@ -19,7 +19,7 @@
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.0.2",
     "nodemailer": "^6.3.0",
-    "now": "^15.7.0",
+    "now": "^15.8.5",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.0.1",
     "prismic-reactjs": "^0.3.2",

@@ -1,5 +1,4 @@
 import { object } from "prop-types"
-import Link from "next/link"
 import { asText, linkResolver } from "../../utils/prismic-utils"
 
 const Action = ({ data }) => {
@@ -20,12 +19,12 @@ const Action = ({ data }) => {
             <div className="grid">
                 <div className="col-4">
                     {link && link !== "/undefined" ?
-                        <Link href={link ? link : ""}>
+                        <div>
                             {linkIsBlank ?
-                                <a className="link-content" target="blank" rel="noopener">{linkContent}</a> :
-                                <a className="link-content">{linkContent}</a>
+                                <a href={link ? link : ""} className="link-content" target="blank" rel="noopener">{linkContent}</a> :
+                                <a href={link ? link : ""} className="link-content">{linkContent}</a>
                             }
-                        </Link> :
+                        </div> :
                         <p className="link-content">{linkContent}</p>
                     }
                 </div>

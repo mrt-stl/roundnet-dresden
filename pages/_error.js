@@ -1,4 +1,3 @@
-import Link from "next/link"
 import Meta from "../components/meta"
 import Nav from "../components/navigation/nav"
 
@@ -8,7 +7,7 @@ const Error = () => {
         metaTitle: "Seite nicht verfügbar",
         metaDescription: "Seite nicht verfügbar",
     }
-    
+
     return (
         <div >
             <Meta
@@ -18,12 +17,8 @@ const Error = () => {
             <div className="hero-image-container">
                 <img src="../static/img/error.jpg" />
                 <div className="hero-image-content-container text-center">
-                    <h1>
-                        Seite nicht verfügbar
-                        </h1>
-                    <Link href="/">
-                        <a className="link-content">Zurück zur Startseite</a>
-                    </Link>
+                    <h1>Seite nicht verfügbar</h1>
+                    <a href="/" className="link-content">Zurück zur Startseite</a>
                 </div>
             </div>
             <style jsx>{`    

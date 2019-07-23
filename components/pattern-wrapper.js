@@ -9,6 +9,7 @@ import HighlightText from "./pattern/highlight-text"
 import Richtext from "./pattern/richtext"
 import Location from "./pattern/location"
 import Focus from "./pattern/focus"
+import Contact from "./pattern/contact"
 
 
 const PatternWrapper = ({ body }) => {
@@ -92,6 +93,13 @@ const createPattern = (slice, index) => {
         case "location":
             pattern =
                 <Location
+                    key={index}
+                    data={slice.primary} />
+            break
+
+        case "contact":
+            pattern =
+                <Contact
                     key={index}
                     data={slice.primary} />
             break

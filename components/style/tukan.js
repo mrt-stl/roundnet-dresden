@@ -242,5 +242,21 @@ img {
   margin-top: 0.8em;
 }
 
+textarea {
+    box-shadow: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+textarea::placeholder {
+    color: var(--all-gray-30);
+}
+
+textarea::-ms-input-placeholder {
+    color: var(--all-gray-30);
+}
+
 `}</style>
 }

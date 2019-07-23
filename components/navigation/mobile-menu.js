@@ -3,8 +3,8 @@ import { slide as Menu } from "react-burger-menu"
 const MobileMenu = (props) => (
     <div className="mobile-menu">
         <Menu width={"80%"}
-            customBurgerIcon={<img src="/static/icon/icon-menu-open.svg" />}
-            customCrossIcon={<img src="/static/icon/icon-menu-close.svg" />}
+            customBurgerIcon={<img src="/static/icon/icon-menu-open.svg" alt="Open menu" />}
+            customCrossIcon={<img src="/static/icon/icon-menu-close.svg" alt="Close menu" />}
             right>
 
             {props.links.map((element, index) => {

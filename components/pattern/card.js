@@ -51,6 +51,11 @@ const Card = (props) => {
                 a {
                     color: var(--primary);
                 }
+                
+                a:hover {
+                    opacity: 0.4; 
+                    transition: .3s ease-out;
+                }
             `}</style>
         </div>
 

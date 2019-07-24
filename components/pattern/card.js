@@ -36,11 +36,13 @@ const Card = (props) => {
     return (
         <div className="card-container">
             {href !== "" ?
-                <a href={href} target={target} rel={rel}>
-                    {imgContainer}
-                    {titleContainer}
-                    {contentContainer}
-                </a> :
+                <div className="link-container">
+                    <a href={href} target={target} rel={rel}>
+                        {imgContainer}
+                        {titleContainer}
+                        {contentContainer}
+                    </a>
+                </div> :
                 <div>
                     {imgContainer}
                     {titleContainer}
@@ -49,13 +51,13 @@ const Card = (props) => {
             }
 
             <style jsx>{`
-                a {
-                    color: var(--primary);
-                }
-                
-                a:hover {
+                .link-container:hover {
                     opacity: 0.4; 
                     transition: .3s ease-out;
+                }
+
+                a {
+                    color: var(--primary);
                 }
             `}</style>
         </div>

@@ -12,6 +12,13 @@ const Card = (props) => {
     const imgContainer = img ?
         <LazyLoad height={"256px"} offset={200}>
             <img src={img} alt={imgDescription} />
+            <style jsx>{`
+                img {
+                    height: 256px;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            `}</style>
         </LazyLoad> :
         <div />
 
@@ -42,12 +49,6 @@ const Card = (props) => {
             }
 
             <style jsx>{`
-                img {
-                    height: 256px;
-                    width: 100%;
-                    object-fit: cover;
-                }
-
                 a {
                     color: var(--primary);
                 }

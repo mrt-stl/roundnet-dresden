@@ -43,7 +43,7 @@ jobs:
   beta-build-and-deploy:
     docker:
 
-    - image: circleci/node:11.0.0
+    - image: circleci/node:11.15.0
 
     working_directory: ~/repo
 
@@ -79,7 +79,7 @@ jobs:
   prod-build-and-deploy:
     docker:
 
-    - image: circleci/node:11.0.0
+    - image: circleci/node:11.15.0
 
     working_directory: ~/repo
 

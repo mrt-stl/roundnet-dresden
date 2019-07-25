@@ -7,7 +7,8 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 })
 
-const deployCmd = "now --target production -A [FILE] --token huhwXduidTwnFIaZwRiipPoc"
+const token = process.argv[3]
+const deployCmd = "now --target production -A [FILE] --token " + token
 
 const db = admin.firestore()
 
@@ -15,7 +16,6 @@ const projectsRef = db.collection("projects")
 projectsRef.where("branch", "=", "development").get()
     .then((snapshot) => {
         snapshot.forEach((doc) => {
-            console.log(doc.data())
             deployToNow(doc.data())
         })
     })
@@ -24,11 +24,8 @@ projectsRef.where("branch", "=", "development").get()
     })
 
 function deployToNow(project) {
-    console.log(project)
-    console.log("\n")
     const cmd = createCmd(project)
 
-    console.log(cmd)
     exec(cmd, (err, stdout, stderr) => {
         if (err) {
             console.error(err)

@@ -110,7 +110,7 @@ const Meta = (props) => {
                     };`
                 }} />
 
-                <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" async />
+                <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" />
 
             </Head>
             {grid}

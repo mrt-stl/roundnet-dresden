@@ -258,5 +258,19 @@ textarea::-ms-input-placeholder {
     color: var(--all-gray-30);
 }
 
+.edit-button a {
+    z-index: 1000;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 17px;
+    padding-left: 17px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,.25);
+}
+
 `}</style>
 }

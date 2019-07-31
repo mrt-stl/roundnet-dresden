@@ -13,13 +13,13 @@ const Meta = (props) => {
 
     const darkMode = process.env.DARK_MODE ? process.env.DARK_MODE : "off"
 
-    var colors, darkModeColors
+    let colors, darkModeColors
     switch (darkMode) {
         case "on":
             colors = defaultDarkModeColors
             darkModeColors = defaultDarkModeColors
             break
-        
+
         case "auto":
             colors = defaultColors
             if (definedColors) {
@@ -29,7 +29,7 @@ const Meta = (props) => {
             }
             darkModeColors = defaultDarkModeColors
             break
-    
+
         default:
             colors = defaultColors
             if (definedColors) {
@@ -40,11 +40,11 @@ const Meta = (props) => {
             darkModeColors = colors
             break
     }
-    
-    
+
+
 
     // Set font or go to default font
-    var fontUrl, fontName
+    let fontUrl, fontName
     if (process.env.FONT) {
         const fontJson = JSON.parse(process.env.FONT)
         fontUrl = fontJson.url
@@ -90,10 +90,9 @@ const Meta = (props) => {
                 <link rel="icon" type="image/png" sizes="96x96" href={iconCDN + "favicon-96x96.png"}></link>
                 <link rel="icon" type="image/png" sizes="16x16" href={iconCDN + "favicon-16x16.png"}></link>
 
-                {
-                    gaId ?
-                        <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaId} async></script> :
-                        <script />
+                {gaId ?
+                    <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaId} async></script> :
+                    <script />
                 }
 
                 {gaId ?
@@ -101,9 +100,17 @@ const Meta = (props) => {
                         __html: `
                     window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${gaId}');
                     `}} /> :
-                    <script />}
+                    <script />
+                }
 
+                <script dangerouslySetInnerHTML={{
+                    __html: `
+                    window.prismic = {
+                        endpoint: "${process.env.PRISMIC_ENDPOINT}"
+                    };`
+                }} />
 
+                <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" async />
 
             </Head>
             {grid}
@@ -131,7 +138,7 @@ const defaultDarkModeColors = {
     primary: "#f0f0f0",
     secondary: "#d0d0d0",
     background: "#202428",
-	font: "#ffffff",
+    font: "#ffffff",
     allGray10: "#404040",
     allGray20: "#808080",
     allGray30: "#d0d0d0",

@@ -15,7 +15,6 @@ module.exports = {
     CACHING_TIME: process.env.CACHING_TIME
   },
   webpack: config => {
-      // Fixes npm packages that depend on `fs` module
       config.node = {
           fs: "empty"
       }

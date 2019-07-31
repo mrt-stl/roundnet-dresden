@@ -35,7 +35,7 @@ const HeroImage = ({ data }) => {
                 .hero-image-container {
                     position: relative;
                     height: 90vh;
-                    width: 100vw;
+                    width: 100%;
                 }
                 .hero-image-content-container {
                     position: absolute;

@@ -15,7 +15,7 @@ const AtmosphericImage = ({ data }) => {
                 .atmo-image-container {
                     position: relative;
                     height: 60vh;
-                    width: 100vw;
+                    width: 100%;
                 }
                 img {
                     width: 100%;

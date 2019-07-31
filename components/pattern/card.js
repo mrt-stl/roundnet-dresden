@@ -1,69 +1,59 @@
-import { string } from "prop-types"
-import Link from "next/link"
+import { string, bool } from "prop-types"
 import Parser from "html-react-parser"
 import LazyLoad from "react-lazyload"
 
 const Card = (props) => {
-    return (
-        <div className="card-container">
-            {props.link && props.link !== "/undefined" ?
-                <Link href={props.link}>
-                    {props.linkIsBlank ?
-                        <a target="_blank" rel="noopener">
-                            {/* Image */}
-                            {props.img ?
-                                <LazyLoad height={"256px"} offset={200}>
-                                    <img src={props.img} alt={props.imgDescription}></img>
-                                </LazyLoad> :
-                                <div />
-                            }
+    const { title, content, img, imgDescription, link } = props
 
-                            {/* Title */}
-                            {Parser(props.title)}
+    const href = link && link !== "/undefined" ? link : ""
+    const { target, rel } = props.linkIsBlank ? { target: "_blank", rel: "noopener" } : { target: "", rel: "" }
 
-                            {/* Content */}
-                            {Parser(props.content)}
-                        </a> :
-                        <a>
-                            {/* Image */}
-                            {props.img ?
-                                <LazyLoad height={"256px"} offset={200}>
-                                    <img src={props.img} alt={props.imgDescription}></img>
-                                </LazyLoad> :
-                                <div />
-                            }
-
-                            {/* Title */}
-                            {Parser(props.title)}
-
-                            {/* Content */}
-                            {Parser(props.content)}
-                        </a>
-                    }
-                </Link> :
-                <div>
-                    {/* Image */}
-                    {props.img ?
-                        <LazyLoad height={"256px"} offset={200}>
-                            <img src={props.img} alt={props.imgDescription}></img>
-                        </LazyLoad> :
-                        <div />
-                    }
-
-                    {/* Title */}
-                    {Parser(props.title)}
-
-                    {/* Content */}
-                    {Parser(props.content)}
-                </div>
-            }
-
-
+    // Image
+    const imgContainer = img ?
+        <LazyLoad height={"256px"} offset={200}>
+            <img src={img} alt={imgDescription} />
             <style jsx>{`
                 img {
                     height: 256px;
                     width: 100%;
                     object-fit: cover;
+                }
+            `}</style>
+        </LazyLoad> :
+        <div />
+
+    // Title
+    const titleContainer = title !== "" ?
+        Parser(title) :
+        <div />
+
+    // Content
+    const contentContainer = content !== "" ?
+        Parser(content) :
+        <div />
+
+
+    return (
+        <div className="card-container">
+            {href !== "" ?
+                <div className="link-container">
+                    <a href={href} target={target} rel={rel}>
+                        {imgContainer}
+                        {titleContainer}
+                        {contentContainer}
+                    </a>
+                </div> :
+                <div>
+                    {imgContainer}
+                    {titleContainer}
+                    {contentContainer}
+                </div>
+            }
+
+            <style jsx>{`
+                .link-container:hover {
+                    opacity: 0.4; 
+                    transition: .3s ease-out;
                 }
 
                 a {
@@ -80,7 +70,8 @@ Card.propTypes = {
     content: string,
     img: string,
     imgDescription: string,
-    link: string
+    link: string,
+    linkIsBlank: bool
 }
 
 export default Card

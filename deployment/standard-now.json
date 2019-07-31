@@ -36,10 +36,6 @@
             "dest": "/index?id=$id&type=blog"
         },
         {
-            "src": "/api/mailer",
-            "dest": "/api/mailer"
-        },
-        {
             "src": "/(?<id>[^/]+)$",
             "dest": "/index?id=$id"
         }

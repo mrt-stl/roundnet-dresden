@@ -9,6 +9,7 @@ import HighlightText from "./pattern/highlight-text"
 import Richtext from "./pattern/richtext"
 import Location from "./pattern/location"
 import Focus from "./pattern/focus"
+import Contact from "./pattern/contact"
 import ImageAndText from "./pattern/image-and-text"
 
 
@@ -98,6 +99,13 @@ const createPattern = (slice, index) => {
                     data={slice.primary} />
             break
 
+        case "contact":
+            pattern =
+                <Contact
+                    key={index}
+                    data={slice.primary} />
+            break
+            
         case "image_and_text":
             pattern =
                 <ImageAndText

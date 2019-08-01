@@ -1,6 +1,6 @@
 import Meta from "../components/meta"
 import Nav from "../components/navigation/nav"
-import { getByUid } from "../networking/prismic-api"
+import { getByUid, getAll } from "../networking/prismic-api"
 import PatternWrapper from "../components/pattern-wrapper"
 import CookieNotification from "../components/pattern/cookie-notification"
 import { asText } from "../utils/prismic-utils"
@@ -51,6 +51,8 @@ Index.getInitialProps = async ({ query, res }) => {
 
     const docs = await getByUid(docType, queryId)
     const results = docs.results
+
+    getAll()
 
     if (res) {
         const etag = createEtag(docs.results)

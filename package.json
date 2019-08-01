@@ -28,7 +28,8 @@
     "react-autosize-textarea": "^7.0.0",
     "react-burger-menu": "^2.6.10",
     "react-dom": "^16.8.6",
-    "react-lazyload": "^2.5.0"
+    "react-lazyload": "^2.5.0",
+    "sitemap": "^3.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

@@ -18,6 +18,7 @@
     ],
     "build": {
         "env": {
+            "URL": "https://alexfi.dev",
             "PRISMIC_ENDPOINT": "https://alexfi.cdn.prismic.io/api/v2",
             "ACCESS_TOKEN": "MC5YTTZ1RkJFQUFNYllpRFZZ.EQdh77-977-9cTvvv71P77-9KS_vv73vv73vv73vv73vv73vv71Ba2Z9RO-_ve-_vVrvv73vv70877-9Su-_vQ",
             "NAV": "[ {\"name\": \"Home\", \"link\": \"/\"}, {\"name\": \"Kontakt\", \"link\": \"/kontakt\"} ]",

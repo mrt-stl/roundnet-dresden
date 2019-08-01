@@ -1,14 +1,14 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { getAll } from "../../networking/prismic-api"
 import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
-import sitemap from "sitemap"
+import { createSiteMap } from "../../utils/sitemap-utils"
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     const allDocs: ApiSearchResponse = await getAll()
 
     if (allDocs.results) {
-        const sitemapStr = createSiteMap(allDocs.results)
-        
+        const sitemapStr = createSiteMap(process.env.URL, allDocs.results)
+
         res.setHeader("Content-Type", "application/xml")
         res.send(sitemapStr)
 
@@ -19,36 +19,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
 }
 
-const createSiteMap = (pages: Array<any>) => {
-    const urls = []
 
-    for (const page of pages) {
-        const url = createUrl(page.type, page.uid)
-        urls.push({ url })
-    }
-
-    const createdSitemap = sitemap.createSitemap({
-        hostname: process.env.URL,
-        urls,
-        cacheTime: 1000 * 60 * 60 * 24
-    })
-
-    return createdSitemap.toString()
-}
-
-const createUrl = (type: string, uid: string) => {
-    const urlId = uid === "home" ? "" : uid
-
-    let url: string
-    switch (type) {
-        case "blog":
-            url = "/blog/" + uid
-            break
-
-        default:
-            url = "/" + urlId
-            break
-    }
-
-    return url
-}

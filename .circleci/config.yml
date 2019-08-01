@@ -122,14 +122,20 @@ workflows:
     jobs:
       - test
       - dev-build-and-deploy:
+          requires:
+            - test
           filters:
             branches:
               only: development
       - beta-build-and-deploy:
+          requires:
+            - test
           filters:
             branches:
               only: beta
       - prod-build-and-deploy:
+          requires:
+            - test
           filters:
             branches:
               only: master

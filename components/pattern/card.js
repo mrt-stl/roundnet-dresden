@@ -1,5 +1,5 @@
 import { string, bool } from "prop-types"
-import Parser from "html-react-parser"
+import parse from "html-react-parser"
 import LazyLoad from "react-lazyload"
 
 const Card = (props) => {
@@ -24,12 +24,12 @@ const Card = (props) => {
 
     // Title
     const titleContainer = title !== "" ?
-        Parser(title) :
+        parse(title) :
         <div />
 
     // Content
     const contentContainer = content !== "" ?
-        Parser(content) :
+        parse(content) :
         <div />
 
 

@@ -1,7 +1,7 @@
 import { object } from "prop-types"
 import LazyLoad from "react-lazyload"
 import { asText, asHtml } from "../../utils/prismic-utils"
-import Parser from "html-react-parser"
+import parse from "html-react-parser"
 
 const Preview = ({ data }) => {
     const title = asText(data.preview_title)
@@ -14,7 +14,7 @@ const Preview = ({ data }) => {
             <div className="grid">
                 <div className="col-4">
                     <h2>{title}</h2>
-                    {Parser(content)}
+                    {parse(content)}
                 </div>
             </div>
 

@@ -1,6 +1,6 @@
 import { object } from "prop-types"
 import { asHtml } from "../../utils/prismic-utils"
-import Parser from "html-react-parser"
+import parse from "html-react-parser"
 
 const Focus = ({ data }) => {
     const content = asHtml(data.focus_content)
@@ -9,7 +9,7 @@ const Focus = ({ data }) => {
         <div className="focus-container">
             <div className="grid">
                 <div className="col">
-                    {Parser(content)}
+                    {parse(content)}
                 </div>
             </div>
         </div>

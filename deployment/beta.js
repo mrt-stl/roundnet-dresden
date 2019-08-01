@@ -12,8 +12,6 @@ admin.initializeApp({
 const token = process.argv[3]
 const alexToken = process.argv[5]
 
-let deployCmd = "now --target production -A [FILE] --token [TOKEN]"
-
 const db = admin.firestore()
 
 const projectsRef = db.collection("projects")
@@ -30,6 +28,7 @@ projectsRef.where("branch", "=", "beta").get()
 function deployToNow(project) {
     console.log("Start deploying:", project.url)
 
+    let deployCmd = "now --target production -A [FILE] --token [TOKEN]"
     if (project.project_id === "alexfi") {
         deployCmd = deployCmd.replace("[TOKEN]", alexToken)
 

@@ -1,44 +1,51 @@
-/* eslint-disable no-console */
 const { exec } = require("child_process")
-const fs = require("fs")
 
-console.log("Deploy to beta")
+const admin = require("firebase-admin")
+const serviceAccount = require("./firebase-deploy.json")
 
-const alexfiToken = process.argv[5]
-exec("now --target production -A deployment/alexfi-now.json --token " + alexfiToken, (err, stdout, stderr) => {
-    if (err) {
-        console.error(err)
-        // node couldn't execute the command
-        return
-    }
+const createCmd = require("./deploy-utils")
 
-    // the *entire* stdout and stderr (buffered)
-    console.log(stdout)
-    console.error(stderr)
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
 })
 
 const token = process.argv[3]
-const configFolder = "./deployment/beta/"
-const deployCmd = "now --target production -A [FILE] --token " + token
+const alexToken = process.argv[5]
 
-fs.readdir(configFolder, (err, files) => {
-    if (err) {
-        console.error(err)
-        return
-    }
-    files.forEach(file => {
-        const path = configFolder + file
-        const deployCmdWithFile = deployCmd.replace("[FILE]", path)
-        exec(deployCmdWithFile, (err, stdout, stderr) => {
-            if (err) {
-                console.error(err)
-                // node couldn't execute the command
-                return
-            }
+let deployCmd = "now --target production -A [FILE] --token [TOKEN]"
 
-            // the *entire* stdout and stderr (buffered)
-            console.log(stdout)
-            console.error(stderr)
+const db = admin.firestore()
+
+const projectsRef = db.collection("projects")
+projectsRef.where("branch", "=", "beta").get()
+    .then((snapshot) => {
+        snapshot.forEach((doc) => {
+            deployToNow(doc.data())
         })
     })
-})
+    .catch((err) => {
+        console.log("Error getting documents", err)
+    })
+
+function deployToNow(project) {
+    console.log("Start deploying:", project.url)
+
+    if (project.project_id === "alexfi") {
+        deployCmd = deployCmd.replace("[TOKEN]", alexToken)
+
+    } else {
+        deployCmd = deployCmd.replace("[TOKEN]", token)
+    }
+
+    const cmd = createCmd(deployCmd, project)
+
+    exec(cmd, (err, stdout, stderr) => {
+        if (err) {
+            console.error(err)
+            return
+        }
+
+        console.log(stdout)
+        console.error(stderr)
+    })
+}

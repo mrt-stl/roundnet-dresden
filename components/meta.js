@@ -90,12 +90,12 @@ const Meta = (props) => {
                 <link rel="icon" type="image/png" sizes="96x96" href={iconCDN + "favicon-96x96.png"}></link>
                 <link rel="icon" type="image/png" sizes="16x16" href={iconCDN + "favicon-16x16.png"}></link>
 
-                {gaId ?
+                {gaId && gaId !== "" ?
                     <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaId} async></script> :
                     <script />
                 }
 
-                {gaId ?
+                {gaId && gaId !== "" ?
                     <script dangerouslySetInnerHTML={{
                         __html: `
                     window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${gaId}');
@@ -110,7 +110,7 @@ const Meta = (props) => {
                     };`
                 }} />
 
-                <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" />
+                <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" async />
 
             </Head>
             {grid}

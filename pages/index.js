@@ -1,26 +1,27 @@
 import Meta from "../components/meta"
 import Nav from "../components/navigation/nav"
-import { getByUid } from "../networking/prismic-api"
+import { getByUid, getAll } from "../networking/prismic-api"
 import PatternWrapper from "../components/pattern-wrapper"
 import CookieNotification from "../components/pattern/cookie-notification"
 import { asText } from "../utils/prismic-utils"
 import Love from "../components/pattern/love"
+import EditButton from "../components/pattern/edit-button"
 import crypto from "crypto"
 import parser from "accept-language-parser"
 import { cacheControlHeader } from "../utils/cache-utils"
 
-const Index = (props) => {
+const Index = ({ results }) => {
     const cookieLink = process.env.COOKIE ? JSON.parse(process.env.COOKIE) : process.env.COOKIE
 
     // Get language
-    var languageFilter = "de-de"
+    let languageFilter = "de-de"
     try {
         languageFilter = navigator.language
     } catch (e) {
         // do nothing here
     }
 
-    const docByLang = filterByLanguage(languageFilter, props.results)
+    const docByLang = filterByLanguage(languageFilter, results)
     const meta = createMeta(docByLang)
     const body = docByLang.data.body
 
@@ -28,13 +29,17 @@ const Index = (props) => {
         <div className="gemacht-mit-stadtteilliebe">
             <Meta
                 data={meta} />
+
             <Nav />
             <PatternWrapper
                 body={body} />
+
             {cookieLink ?
                 <CookieNotification
                     link={cookieLink.link} /> :
                 <div />}
+            <EditButton
+                docId={docByLang.id} />
             <Love />
         </div>
     )
@@ -46,6 +51,8 @@ Index.getInitialProps = async ({ query, res }) => {
 
     const docs = await getByUid(docType, queryId)
     const results = docs.results
+
+    getAll()
 
     if (res) {
         const etag = createEtag(docs.results)
@@ -70,7 +77,7 @@ const filterByLanguage = (langFilter, results) => {
     langFilter = langFilter ? langFilter : "de-de"
 
     // Filter result for best fitting lang
-    var filteredResult = results.filter(result => result.lang === langFilter)
+    let filteredResult = results.filter(result => result.lang === langFilter)
     filteredResult = filteredResult.length > 0 ? filteredResult[0] : results[0]
     return filteredResult
 }

@@ -2,6 +2,7 @@ module.exports = {
   poweredByHeader: false,
   target: "serverless",
   env: {
+    URL: process.env.URL,
     NAME: process.env.NAME,
     PRISMIC_ENDPOINT: process.env.PRISMIC_ENDPOINT,
     ACCESS_TOKEN: process.env.ACCESS_TOKEN,
@@ -15,7 +16,6 @@ module.exports = {
     CACHING_TIME: process.env.CACHING_TIME
   },
   webpack: config => {
-      // Fixes npm packages that depend on `fs` module
       config.node = {
           fs: "empty"
       }

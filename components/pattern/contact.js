@@ -1,6 +1,6 @@
 import { Component } from "react"
 import { asHtml } from "../../utils/prismic-utils"
-import Parser from "html-react-parser"
+import parse from "html-react-parser"
 import TextareaAutosize from "react-autosize-textarea"
 import { sendContactMail } from "../../networking/mail-api"
 
@@ -25,8 +25,8 @@ class Contact extends Component {
             <div className="focus-container">
                 <div className="grid">
                     <div className="col-8">
-                        {Parser(title)}
-                        {Parser(content)}
+                        {parse(title)}
+                        {parse(content)}
                     </div>
                 </div>
 

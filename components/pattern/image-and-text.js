@@ -1,6 +1,6 @@
 import { object } from "prop-types"
 import { asHtml } from "../../utils/prismic-utils"
-import Parser from "html-react-parser"
+import parse from "html-react-parser"
 import LazyLoad from "react-lazyload"
 
 const ImageAndText = ({ data }) => {
@@ -19,7 +19,7 @@ const ImageAndText = ({ data }) => {
                 </div>
                 <div className="col-4">
                     <div className="text-container">
-                        {Parser(content)}
+                        {parse(content)}
                     </div>
                 </div>
             </div>

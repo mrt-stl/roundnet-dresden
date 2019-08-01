@@ -1,6 +1,6 @@
 import { object } from "prop-types"
 import { asHtml } from "../../utils/prismic-utils"
-import Parser from "html-react-parser"
+import parse from "html-react-parser"
 
 const HighlightText = ({ data }) => {
     const content = asHtml(data.highlight_content)
@@ -8,7 +8,7 @@ const HighlightText = ({ data }) => {
     return (
         <div className="highlight-container">
             <div className="grid justify-content-center">
-                <div className="col-6">{Parser(content)}</div>
+                <div className="col-6">{parse(content)}</div>
             </div>
 
             <style jsx>{`

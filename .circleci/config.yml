@@ -63,7 +63,7 @@ jobs:
 
     - run:
         name: Deploy to Development
-        command: yarn deploy-test --token ${NOW_TOKEN}
+        command: yarn deploy-dev --token ${NOW_TOKEN}
 
   beta-build-and-deploy:
     docker:

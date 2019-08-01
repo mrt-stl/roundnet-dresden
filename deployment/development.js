@@ -24,6 +24,7 @@ projectsRef.where("branch", "=", "development").get()
     })
 
 function deployToNow(project) {
+    console.log("Start deploying:", project.url)
     const cmd = createCmd(project)
 
     exec(cmd, (err, stdout, stderr) => {
@@ -43,6 +44,9 @@ function createCmd(project) {
     const file = "deployment/" + project.project_id + ".json"
 
     let cmd = deployCmd.replace("[FILE]", file)
+
+    // Add url
+    cmd = cmd + " -b URL=" + stringForCmd(project.url)
 
     // Add Prismic
     cmd = cmd + " -b PRISMIC_ENDPOINT=" + stringForCmd(project.prismic_endpoint)

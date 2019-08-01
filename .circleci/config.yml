@@ -4,9 +4,8 @@
 #
 version: 2
 jobs:
-  dev-build-and-deploy:
+  test:
     docker:
-
     - image: circleci/node:11.15.0
 
     working_directory: ~/repo
@@ -14,11 +13,45 @@ jobs:
     steps:
     - checkout
 
-    # Download and cache dependencies
     - restore_cache:
         keys:
         - v1-dependencies-{{ checksum "package.json" }}
-        # fallback to using the latest cache if no exact match is found
+        - v1-dependencies-
+
+    - run: 
+        name: Installing
+        command: yarn install
+
+    - save_cache:
+        paths:
+        - node_modules
+        key: v1-dependencies-{{ checksum "package.json" }}
+
+    - run: 
+        name: Building
+        command: yarn build
+
+    - run: 
+        name: Linting
+        command: yarn lint
+
+    - run:
+        name: Testing
+        command: yarn test
+
+
+  dev-build-and-deploy:
+    docker:
+    - image: circleci/node:11.15.0
+
+    working_directory: ~/repo
+
+    steps:
+    - checkout
+
+    - restore_cache:
+        keys:
+        - v1-dependencies-{{ checksum "package.json" }}
         - v1-dependencies-
 
     - run: yarn install
@@ -27,14 +60,6 @@ jobs:
         paths:
         - node_modules
         key: v1-dependencies-{{ checksum "package.json" }}
-
-    - run: yarn build
-
-    - run: yarn lint
-
-    - run:
-        name: Testing
-        command: yarn test
 
     - run:
         name: Deploy to Development
@@ -42,7 +67,6 @@ jobs:
 
   beta-build-and-deploy:
     docker:
-
     - image: circleci/node:11.15.0
 
     working_directory: ~/repo
@@ -50,11 +74,9 @@ jobs:
     steps:
     - checkout
 
-    # Download and cache dependencies
     - restore_cache:
         keys:
         - v1-dependencies-{{ checksum "package.json" }}
-        # fallback to using the latest cache if no exact match is found
         - v1-dependencies-
 
     - run: yarn install
@@ -63,14 +85,6 @@ jobs:
         paths:
         - node_modules
         key: v1-dependencies-{{ checksum "package.json" }}
-
-    - run: yarn build
-
-    - run: yarn lint
-
-    - run:
-        name: Testing
-        command: yarn test
 
     - run:
         name: Deploy to Beta
@@ -86,11 +100,9 @@ jobs:
     steps:
     - checkout
 
-      # Download and cache dependencies
     - restore_cache:
         keys:
         - v1-dependencies-{{ checksum "package.json" }}
-        # fallback to using the latest cache if no exact match is found
         - v1-dependencies-
 
     - run: yarn install
@@ -100,14 +112,6 @@ jobs:
         - node_modules
         key: v1-dependencies-{{ checksum "package.json" }}
 
-    - run: yarn build
-
-    - run: yarn lint
-
-    - run:
-        name: Testing
-        command: yarn test
-
     - run:
         name: Deploy to Production
         command: yarn deploy-all --token ${NOW_TOKEN}
@@ -116,6 +120,7 @@ workflows:
   version: 2
   build-deploy:
     jobs:
+      - test
       - dev-build-and-deploy:
           filters:
             branches:

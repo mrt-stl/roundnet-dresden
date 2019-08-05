@@ -7,7 +7,7 @@ function jsonForCmd(str) {
 }
 
 const createCmd = function (deployCmd, project) {
-    const file = "deployment/" + project.project_id + ".json"
+    const file = "deployment/configs/" + project.project_id + ".json"
 
     let cmd = deployCmd.replace("[FILE]", file)
 

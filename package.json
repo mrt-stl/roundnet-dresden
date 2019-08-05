@@ -7,7 +7,7 @@
     "start": "next start -p $PORT",
     "deploy-dev": "node deployment/development.js",
     "deploy-beta": "node deployment/beta.js",
-    "deploy-all": "node deployment/prod.js",
+    "deploy-prod": "node deployment/prod.js",
     "now-build": "next build",
     "lint": "eslint .",
     "test": "jest"

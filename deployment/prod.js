@@ -1,31 +1,45 @@
-/* eslint-disable no-console */
+// eslint-disable-next-line security/detect-child-process
 const { exec } = require("child_process")
-const fs = require("fs")
 
-console.log("Deploy to production")
+const admin = require("firebase-admin")
+const serviceAccount = require("./firebase-deploy.json")
+
+const createCmd = require("./deploy-utils")
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount)
+})
 
 const token = process.argv[3]
-const configFolder = "./deployment/configs/"
-const deployCmd = "now --target production -A [FILE] --token " + token
 
-fs.readdir(configFolder, (err, files) => {
-    if (err) {
-        console.error(err)
-        return
-    }
-    files.forEach(file => {
-        const path = configFolder + file
-        const deployCmdWithFile = deployCmd.replace("[FILE]", path)
-        exec(deployCmdWithFile, (err, stdout, stderr) => {
-            if (err) {
-                console.error(err)
-                // node couldn't execute the command
-                return
-            }
+const db = admin.firestore()
 
-            // the *entire* stdout and stderr (buffered)
-            console.log(stdout)
-            console.error(stderr)
+const projectsRef = db.collection("projects")
+projectsRef.where("branch", "=", "production").get()
+    .then((snapshot) => {
+        snapshot.forEach((doc) => {
+            deployToNow(doc.data())
         })
     })
-})
+    .catch((err) => {
+        console.log("Error getting documents", err)
+    })
+
+function deployToNow(project) {
+    console.log("Start deploying:", project.url)
+
+    let deployCmd = "now --target production -A [FILE] --token [TOKEN]"
+    deployCmd = deployCmd.replace("[TOKEN]", token)
+
+    const cmd = createCmd(deployCmd, project)
+
+    exec(cmd, (err, stdout, stderr) => {
+        if (err) {
+            console.error(err)
+            return
+        }
+
+        console.log(stdout)
+        console.error(stderr)
+    })
+}

@@ -1,3 +1,4 @@
+// eslint-disable-next-line security/detect-child-process
 const { exec } = require("child_process")
 
 const admin = require("firebase-admin")

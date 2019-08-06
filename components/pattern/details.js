@@ -3,7 +3,7 @@ import { array } from "prop-types"
 import { asHtml } from "../../utils/prismic-utils"
 
 const Details = ({ primary, items }) => {
-    const backgroundColor = primary && primary.detail_background ? primary.detail_background : "var(--white)"
+    const backgroundColor = primary && primary.detail_background ? primary.detail_background : "var(--background)"
 
     const details = items.map((detail, index) => {
         const title = asHtml(detail.detail_title)
@@ -19,7 +19,7 @@ const Details = ({ primary, items }) => {
     })
 
     return (
-        <div className="infinite-cards-container" style={{ backgroundColor: backgroundColor }}>
+        <div className="infinite-cards-container">
             <div className="grid">
                 {details}
             </div>
@@ -28,6 +28,13 @@ const Details = ({ primary, items }) => {
                 .infinite-cards-container {
                     padding-top: var(--standard-spacing);
                     padding-bottom: var(--standard-spacing);
+                    background-color: ${backgroundColor};
+                }
+                
+                @media (prefers-color-scheme: dark) { 
+                    .infinite-cards-container {
+                        background-color: var(--background);
+                    }
                 }
             `}</style>
         </div>

@@ -1,6 +1,5 @@
 import Prismic from "prismic-javascript"
 import { config } from "../config"
-import ResolvedApi from "prismic-javascript/d.ts/ResolvedApi";
 
 /**
  * Prepare prismic API

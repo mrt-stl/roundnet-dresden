@@ -9,8 +9,6 @@ function jsonForCmd(str) {
 const createCmd = function (deployCmd, project) {
     const file = "deployment/configs/" + project.project_id + ".json"
 
-    console.log(project)
-
     let cmd = deployCmd.replace("[FILE]", file)
 
     // Add url
@@ -22,6 +20,20 @@ const createCmd = function (deployCmd, project) {
 
     // Add navigation
     cmd = cmd + " -b NAV=" + jsonForCmd(project.nav)
+
+    // Add colors
+    const primary = project.colors.primary !== "" ? project.colors.primary : "#121212"
+    const secondary = project.colors.secondary !== "" ? project.colors.secondary : "#303030"
+    const accent = project.colors.accent !== "" ? project.colors.accent : "#F83850"
+
+    const colors = {
+        colors: {
+            primary,
+            secondary,
+            accent
+        }
+    }
+    cmd = cmd + " -b COLORS=" + jsonForCmd(colors)
 
     // Add font
     if (project.font.name !== "") {

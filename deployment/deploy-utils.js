@@ -26,13 +26,7 @@ const createCmd = function (deployCmd, project) {
     const secondary = project.colors.secondary !== "" ? project.colors.secondary : "#303030"
     const accent = project.colors.accent !== "" ? project.colors.accent : "#F83850"
 
-    const colors = {
-        colors: {
-            primary,
-            secondary,
-            accent
-        }
-    }
+    const colors = { primary, secondary, accent }
     cmd = cmd + " -b COLORS=" + jsonForCmd(colors)
 
     // Add font

@@ -16,21 +16,6 @@
             "use": "@now/static"
         }
     ],
-    "build": {
-        "env": {
-            "URL": "https://tukan.stadtteilliebe.de",
-            "NAME": "kranich-stl",
-            "PRISMIC_ENDPOINT": "https://kranich.cdn.prismic.io/api/v2",
-            "ACCESS_TOKEN": "MC5YTWJ4d2hFQUFDa0F6RXJZ.PA3vv73vv712K--_vUpxUO-_ve-_ve-_ve-_ve-_ve-_vTXvv70RCXkqHe-_vWPvv71-77-9Fe-_ve-_vX0",
-            "NAV": "[ {\"name\": \"Tukan\", \"link\": \"/\"}, {\"name\": \"Vorteile\", \"link\": \"/vorteile\"}, {\"name\": \"Elemente\", \"link\": \"/elemente\"}, {\"name\": \"Referenzen\", \"link\": \"/referenzen\"}, {\"name\": \"Blog\", \"link\": \"/blog\"}, {\"name\": \"Kontakt\", \"link\": \"/kontakt\"} ]",
-            "FONT": "{\"url\": \"https://use.typekit.net/zvs7feh.css\", \"name\": \"neue-haas-unica\" }",
-            "COOKIE": "{\"link\": \"https://stadtteilliebe.de/datenschutz\"}",
-            "GA": "UA-137430078-2",
-            "COLORS": "{ \"primary\": \"#3c3c3c\", \"secondary\": \"#8caaaa\", \"accent\": \"#ea918c\" }",
-            "DARK_MODE": "auto",
-            "CACHING_TIME": "1"
-        }
-    },
     "routes": [
         {
             "src": "^/robots.txt",

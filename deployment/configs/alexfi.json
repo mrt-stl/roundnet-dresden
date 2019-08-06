@@ -16,17 +16,6 @@
             "use": "@now/static"
         }
     ],
-    "build": {
-        "env": {
-            "URL": "https://alexfi.dev",
-            "PRISMIC_ENDPOINT": "https://alexfi.cdn.prismic.io/api/v2",
-            "ACCESS_TOKEN": "MC5YTTZ1RkJFQUFNYllpRFZZ.EQdh77-977-9cTvvv71P77-9KS_vv73vv73vv73vv73vv73vv71Ba2Z9RO-_ve-_vVrvv73vv70877-9Su-_vQ",
-            "NAV": "[ {\"name\": \"Home\", \"link\": \"/\"}, {\"name\": \"Kontakt\", \"link\": \"/kontakt\"} ]",
-            "COLORS": "{ \"primary\": \"#022c43\", \"secondary\": \"#053f5e\", \"accent\": \"#80b480\" }",
-            "FONT": "{\"url\": \"https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap\", \"name\": \"Source Code Pro\" }",
-            "DARK_MODE": "auto"
-        }
-    },
     "routes": [
         {
             "src": "^/robots.txt",

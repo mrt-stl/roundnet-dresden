@@ -1,5 +1,6 @@
 import Prismic from "prismic-javascript"
 import { config } from "../config"
+import { logError } from "../utils/rollbar-utils"
 
 /**
  * Prepare prismic API
@@ -23,8 +24,15 @@ export const getByUid = async (type: string, uid: string) => {
     const api = await prismicApi()
 
     const prismicFragment: string = "my." + type + ".uid"
-    const res = await api.query(Prismic.Predicates.at(prismicFragment, uid), { lang: "*" })
-    return res
+
+    try {
+        const res = await api.query(Prismic.Predicates.at(prismicFragment, uid), { lang: "*" })
+        return res
+
+    } catch (e) {
+        logError(e)
+        return { error: "Could not get data" }
+    }
 }
 
 /**

@@ -19,7 +19,7 @@ const Details = ({ primary, items }) => {
     })
 
     return (
-        <div className="infinite-cards-container" style={{ backgroundColor: backgroundColor }}>
+        <div className="infinite-cards-container">
             <div className="grid">
                 {details}
             </div>
@@ -28,11 +28,12 @@ const Details = ({ primary, items }) => {
                 .infinite-cards-container {
                     padding-top: var(--standard-spacing);
                     padding-bottom: var(--standard-spacing);
+                    background-color: ${backgroundColor};
                 }
                 
                 @media (prefers-color-scheme: dark) { 
                     .infinite-cards-container {
-                        background-color: var(--background)!important
+                        background-color: var(--background);
                     }
                 }
             `}</style>

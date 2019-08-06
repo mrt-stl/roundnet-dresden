@@ -1,6 +1,6 @@
 import Meta from "../components/meta"
 import Nav from "../components/navigation/nav"
-import { getByUid, getAll } from "../networking/prismic-api"
+import { getByUid } from "../networking/prismic-api"
 import PatternWrapper from "../components/pattern-wrapper"
 import CookieNotification from "../components/pattern/cookie-notification"
 import { asText } from "../utils/prismic-utils"
@@ -9,8 +9,13 @@ import EditButton from "../components/pattern/edit-button"
 import crypto from "crypto"
 import parser from "accept-language-parser"
 import { cacheControlHeader } from "../utils/cache-utils"
+import Error from "./_error"
 
-const Index = ({ results }) => {
+const Index = ({ results, error }) => {
+    if (error) {
+        return (<Error />)
+    }
+
     const cookieLink = process.env.COOKIE ? JSON.parse(process.env.COOKIE) : process.env.COOKIE
 
     // Get language
@@ -50,9 +55,12 @@ Index.getInitialProps = async ({ query, res }) => {
     const docType = query.type ? query.type : "standard"
 
     const docs = await getByUid(docType, queryId)
+    if (docs.error) {
+        return {
+            error: docs.error
+        }
+    }
     const results = docs.results
-
-    getAll()
 
     if (res) {
         const etag = createEtag(docs.results)

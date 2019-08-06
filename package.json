@@ -27,6 +27,7 @@
     "react-burger-menu": "^2.6.10",
     "react-dom": "^16.8.6",
     "react-lazyload": "^2.6.2",
+    "rollbar": "^2.11.0",
     "sitemap": "^3.2.2"
   },
   "devDependencies": {

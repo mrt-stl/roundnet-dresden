@@ -84,6 +84,7 @@ class Contact extends Component {
                         padding-top: var(--standard-spacing);
                         padding-bottom: var(--standard-spacing);
                     }
+
                     input[type=text], input[type=email] {
                         height: 48px;
                         width: 100%;
@@ -98,15 +99,19 @@ class Contact extends Component {
                         -moz-appearance: none;
                         padding: 0px;
                     }
+
                     :focus {
                         outline: none;
                     }
+
                     ::placeholder {
                         color: var(--all-gray-30);
                     }
+
                     ::-ms-input-placeholder {
                         color: var(--all-gray-30);
                     }
+
                     button {   
                         padding: 0px 24px;
                         height: 48px;
@@ -123,8 +128,7 @@ class Contact extends Component {
                         color: var(--font-color);
                         cursor: auto;
                         padding-left: 0px;
-                    }
-                    
+                    }   
                 `}</style>
             </div>
         )

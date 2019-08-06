@@ -242,10 +242,10 @@ img {
   margin-top: 0.8em;
 }
 
-.button {
+.button a {
     background-color: var(--primary);
     padding: 13px 24px 16px 24px;
-    color: var(--font-color);
+    color: var(--background);
     margin-top: 1em;
     display: inline-block;
 }

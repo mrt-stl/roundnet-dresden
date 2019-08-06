@@ -242,6 +242,14 @@ img {
   margin-top: 0.8em;
 }
 
+.button {
+    background-color: var(--primary);
+    padding: 13px 24px 16px 24px;
+    color: var(--font-color);
+    margin-top: 1em;
+    display: inline-block;
+}
+
 textarea {
     box-shadow: none;
 }

@@ -22,7 +22,7 @@ class Contact extends Component {
         const btnClass = formButtonDisabled ? "disabled" : ""
 
         return (
-            <div className="focus-container">
+            <div className="contact-container">
                 <div className="grid">
                     <div className="col-8">
                         {parse(title)}
@@ -80,6 +80,10 @@ class Contact extends Component {
                 </div>
 
                 <style jsx>{`
+                    .contact-container {
+                        padding-top: var(--standard-spacing);
+                        padding-bottom: var(--standard-spacing);
+                    }
                     input[type=text], input[type=email] {
                         height: 48px;
                         width: 100%;

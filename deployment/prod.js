@@ -15,7 +15,7 @@ const token = process.argv[3]
 const db = admin.firestore()
 
 const projectsRef = db.collection("projects")
-projectsRef.where("branch", "=", "production").get()
+projectsRef.where("branch", "=", "master").get()
     .then((snapshot) => {
         snapshot.forEach((doc) => {
             deployToNow(doc.data())

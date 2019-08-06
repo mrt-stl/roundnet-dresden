@@ -1,14 +1,21 @@
 import Prismic from "prismic-javascript"
 import { config } from "../config"
+import { Agent } from "https"
 
 /**
  * Prepare prismic API
  */
-const prismicApi = async() => {
+const prismicApi = async () => {
     const endpoint = process.env.PRISMIC_ENDPOINT ? process.env.PRISMIC_ENDPOINT : config.PRISMIC_ENDPOINT
     const accessToken = process.env.ACCESS_TOKEN ? process.env.ACCESS_TOKEN : config.ACCESS_TOKEN
+    
+    // Add proxy agent because of DEV-43
+    const proxyAgent = new Agent({ maxSockets: 100 })
 
-    const api = await Prismic.api(endpoint, { accessToken })
+    const api = await Prismic.api(endpoint, {
+        accessToken,
+        proxyAgent
+    })
     return api
 }
 

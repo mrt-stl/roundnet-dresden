@@ -124,12 +124,12 @@ workflows:
             branches:
               ignore: development
       - dev-build-and-deploy:
-          requires:
-            - test
           filters:
             branches:
               only: development
       - beta-build-and-deploy:
+          requires:
+            - test
           filters:
             branches:
               only: beta

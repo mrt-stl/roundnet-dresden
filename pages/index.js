@@ -16,7 +16,7 @@ const Index = ({ results, error }) => {
         return (<Error />)
     }
 
-    const cookieLink = process.env.COOKIE && process.env.COOKIE !== "" ? JSON.parse(process.env.COOKIE) : null
+    const cookieLink = process.env.COOKIE && process.env.COOKIE !== "" ? process.env.COOKIE : null
 
     // Get language
     let languageFilter = "de-de"

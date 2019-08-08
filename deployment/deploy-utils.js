@@ -45,6 +45,10 @@ const createCmd = function (deployCmd, project) {
     const cachingTime = project.cache_duration !== "" ? project.cache_duration : 15
     cmd = cmd + " -b CACHING_TIME=" + stringForCmd(cachingTime)
 
+    cmd = cmd + " -b GA=" + stringForCmd(project.ga_id)
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
+    cmd = cmd + " -b COOKIE=" + stringForCmd(project.cookie.link)
+
     return cmd
 }
 

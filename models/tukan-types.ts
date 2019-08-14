@@ -4,5 +4,6 @@ export enum TukanType {
     Card = "card",
     Contact = "contact",
     Details = "details",
-    Focus = "focus"
+    Focus = "focus",
+    HeroImage = "hero-image"
 }

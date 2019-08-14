@@ -7,6 +7,7 @@ import ContactModel from "../models/contact-model"
 import DetailsModel from "../models/details-model"
 import CardModel from "../models/card-model"
 import FocusModel from "../models/focus-model"
+import HeroImageModel from "../models/hero-image-model"
 
 export const prismicPageToComponentModels = (prismicResStr: string) => {
     const prismicRes: ApiSearchResponse = JSON.parse(prismicResStr)
@@ -83,10 +84,24 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
         case "focus":
             const focusPrimary = slice.primary
+
             const focusContent = asHtml(focusPrimary.focus_content)
 
             const focus = new FocusModel(focusContent)
             return focus
+
+        case "startbild":
+            const heroImagePrimary = slice.primary
+
+            const heroImageImgSrc = heroImagePrimary.hero_image_img.url
+            const heroImageImgAlt = heroImagePrimary.hero_image_img.alt
+            const heroImageTitle = asHtml(heroImagePrimary.hero_image_title)
+            const heroImageLink = linkResolver(heroImagePrimary.hero_image_link)
+            const heroImageLinkContent = asHtml(heroImagePrimary.hero_image_link_content)
+            const heroImageLinkIsBlank = heroImagePrimary.hero_image_link ? heroImagePrimary.hero_image_link.target === "_blank" : false
+
+            const heroImage = new HeroImageModel(heroImageImgSrc, heroImageImgAlt, heroImageTitle, heroImageLink, heroImageLinkContent, heroImageLinkIsBlank)
+            return heroImage
 
         default:
             return null

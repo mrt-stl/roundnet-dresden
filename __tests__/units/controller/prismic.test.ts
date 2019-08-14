@@ -51,3 +51,8 @@ const focusModels = componentModels.filter(model => model.type === TukanType.Foc
 test("page contains one or more focus models", () => {
     expect(focusModels.length).toBeGreaterThan(0)
 })
+
+const heroImageModels = componentModels.filter(model => model.type === TukanType.HeroImage)
+test("page contains one or more hero image models", () => {
+    expect(heroImageModels.length).toBeGreaterThan(0)
+})

@@ -2,7 +2,7 @@
   "name": "tukan-platform",
   "version": "0.0.1",
   "scripts": {
-    "local": "now dev -A deployment/configs/standard-stl.json",
+    "local": "now dev -A deployment/local.json",
     "build": "next build",
     "start": "next start -p $PORT",
     "deploy-dev": "node deployment/development.js",
@@ -19,7 +19,7 @@
     "html-react-parser": "^0.9.1",
     "next": "^9.0.3",
     "nodemailer": "^6.3.0",
-    "now": "^15.8.7",
+    "now": "^16.1.1",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.1",
     "react": "^16.8.6",

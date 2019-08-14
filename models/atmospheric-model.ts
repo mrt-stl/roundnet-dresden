@@ -5,8 +5,8 @@ export default class AtmosphericModel extends TukanModel {
     public imgSrc: string
     public imgAlt: string
 
-    constructor(type: TukanType, imgSrc: string, imgAlt?: string) {
-        super(type)
+    constructor(imgSrc: string, imgAlt?: string) {
+        super(TukanType.Atmospheric)
 
         this.imgSrc = imgSrc
         this.imgAlt = imgAlt

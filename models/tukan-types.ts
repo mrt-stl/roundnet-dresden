@@ -1,4 +1,6 @@
 export enum TukanType {
     Action = "action",
-    Atmospheric = "atmospheric"
+    Atmospheric = "atmospheric",
+    Card = "card",
+    Contact = "contact"
 }

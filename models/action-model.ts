@@ -9,8 +9,8 @@ export default class ActionModel extends TukanModel {
     public linkContent?: string
     public linkIsBlank: boolean
 
-    constructor(type: TukanType, content: string, backgroundColor?: string, link?: string, linkIsBlank: boolean = false, linkContent?: string) {
-        super(type)
+    constructor(content: string, backgroundColor?: string, link?: string, linkIsBlank: boolean = false, linkContent?: string) {
+        super(TukanType.Action)
 
         this.content = content
         this.backgroundColor = isUndefinedOrNullOrEmpty(backgroundColor) ? backgroundColor : "var(--secondary)"

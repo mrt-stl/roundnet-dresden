@@ -2,7 +2,7 @@ import PrismicDOM from "prismic-dom"
 
 export const asHtml = (richtext) => {
     if (richtext === undefined) {
-        return <div></div>
+        return null
 
     } else {
         return PrismicDOM.RichText.asHtml(richtext, linkResolver)

@@ -1,7 +1,6 @@
 import fs from "fs"
 import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
 import { prismicPageToComponentModels } from "../../../controller/prismic-controller"
-import ActionModel from "../../../models/action-model"
 import { TukanType } from "../../../models/tukan-types"
 
 const pageExampleFile = __dirname + "/test-page.json"
@@ -30,4 +29,9 @@ test("page contains one or more action models", () => {
 const atmoModels = componentModels.filter(model => model.type === TukanType.Atmospheric)
 test("page contains one or more atmospheric models", () => {
     expect(atmoModels.length).toBeGreaterThan(0)
+})
+
+const contactModels = componentModels.filter(model => model.type === TukanType.Contact)
+test("page contains one or more contact models", () => {
+    expect(contactModels.length).toBeGreaterThan(0)
 })

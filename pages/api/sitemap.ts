@@ -1,9 +1,9 @@
-import { NextApiRequest, NextApiResponse } from "next"
+import { NextApiResponse } from "next"
 import { getAll } from "../../networking/prismic-api"
 import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
 import { createSiteMap } from "../../utils/sitemap-utils"
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async (_: any, res: NextApiResponse) => {
     const allDocs: ApiSearchResponse = await getAll()
 
     if (allDocs.results) {

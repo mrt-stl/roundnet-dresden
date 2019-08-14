@@ -11,7 +11,7 @@
     "now-build": "next build",
     "lint": "yarn eslint && yarn tslint",
     "eslint": "eslint .",
-    "tslint": "tslint -c ./tslint.json '**/*.ts'",
+    "tslint": "tslint -c ./tslint.json '**/*.{ts,tsx}'",
     "test": "jest --verbose",
     "test-units": "jest --verbose ./units"
   },
@@ -51,6 +51,8 @@
     "react-test-renderer": "^16.8.6",
     "ts-jest": "^24.0.2",
     "tslint": "^5.18.0",
+    "tslint-config-security": "^1.16.0",
+    "tslint-react": "^4.0.0",
     "typescript": "^3.5.3"
   }
 }

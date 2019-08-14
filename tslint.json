@@ -1,6 +1,8 @@
 {
     "extends": [
-        "tslint:recommended"
+        "tslint:recommended",
+        "tslint-config-security",
+        "tslint-react"
     ],
     "linterOptions": {
         "exclude": [
@@ -40,7 +42,11 @@
             true,
             "spaces",
             4
-        ]
+        ],
+        "tsr-detect-non-literal-fs-filename": [
+            false
+        ],
+        "jsx-alignment": false
     },
     "rulesDirectory": []
 }

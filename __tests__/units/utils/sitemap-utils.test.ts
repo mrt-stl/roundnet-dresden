@@ -1,4 +1,4 @@
-import { createSiteMap } from "../../utils/sitemap-utils"
+import { createSiteMap } from "../../../utils/sitemap-utils"
 import fs from "fs"
 
 const pagesExampleFile = __dirname + "/pages-example.json"

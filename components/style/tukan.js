@@ -233,11 +233,8 @@ img {
 }
 
 .large-text {
-  font-weight: var(--medium);
   font-size: 1.25em;
   color: var(--font-color);
-  letter-spacing: 0.1px;
-  line-height: 1.3;
   margin-bottom: 0.8em;
   margin-top: 0.8em;
 }

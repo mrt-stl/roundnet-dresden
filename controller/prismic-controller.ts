@@ -49,7 +49,6 @@ const mapResultToModel = (slice: any) => {
             const atmospheric = new AtmosphericModel(TukanType.Atmospheric, atmoSrc, atmoAlt)
             return atmospheric
 
-
         default:
             return null
     }

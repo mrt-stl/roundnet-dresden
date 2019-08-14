@@ -9,7 +9,9 @@
     "deploy-beta": "node deployment/beta.js",
     "deploy-prod": "node deployment/prod.js",
     "now-build": "next build",
-    "lint": "eslint .",
+    "lint": "yarn eslint && yarn tslint",
+    "eslint": "eslint .",
+    "tslint": "tslint -c ./tslint.json '**/*.ts'",
     "test": "jest --verbose",
     "test-units": "jest --verbose ./units"
   },

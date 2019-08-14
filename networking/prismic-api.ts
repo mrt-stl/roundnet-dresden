@@ -16,7 +16,7 @@ const prismicApi = async () => {
 }
 
 /**
- * 
+ * Get page by UID
  * @param type of document
  * @param uid to indentify page
  */

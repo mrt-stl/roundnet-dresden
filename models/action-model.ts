@@ -3,11 +3,11 @@ import { TukanType } from "./tukan-types"
 import { isUndefinedOrNullOrEmpty } from "../utils/object-utils"
 
 export default class ActionModel extends TukanModel {
-    backgroundColor: string
-    content: string
-    link?: string
-    linkContent?: string
-    linkIsBlank: boolean
+    public backgroundColor: string
+    public content: string
+    public link?: string
+    public linkContent?: string
+    public linkIsBlank: boolean
 
     constructor(type: TukanType, content: string, backgroundColor?: string, link?: string, linkIsBlank: boolean = false, linkContent?: string) {
         super(type)

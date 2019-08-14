@@ -8,6 +8,7 @@ import DetailsModel from "../models/details-model"
 import CardModel from "../models/card-model"
 import FocusModel from "../models/focus-model"
 import HeroImageModel from "../models/hero-image-model"
+import ImageAndTextModel from "../models/image-and-text-model"
 
 export const prismicPageToComponentModels = (prismicResStr: string) => {
     const prismicRes: ApiSearchResponse = JSON.parse(prismicResStr)
@@ -102,6 +103,17 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const heroImage = new HeroImageModel(heroImageImgSrc, heroImageImgAlt, heroImageTitle, heroImageLink, heroImageLinkContent, heroImageLinkIsBlank)
             return heroImage
+
+        case "image_and_text":
+            const iatPrimary = slice.primary
+
+            const iatImgSrc: string = iatPrimary.image.url
+            const iatImgAlt: string = iatPrimary.image.alt
+            const iatImgHeight = iatPrimary.image.dimensions.height.toString() + "px"
+            const iatContent: string = asHtml(iatPrimary.content)
+
+            const imageAndText = new ImageAndTextModel(iatImgSrc, iatContent, iatImgAlt, iatImgHeight)
+            return imageAndText
 
         default:
             return null

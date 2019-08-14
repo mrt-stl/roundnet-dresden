@@ -7,7 +7,7 @@ const ImageAndText = ({ data }) => {
     const content = asHtml(data.content)
 
     // Get height or die tryin
-    const height = data.image ? data.image.dimensions.height.toString() + "px" : "0"
+    const height = data.image ? data.image.dimensions.height.toString() + "px" : "auto"
 
     return (
         <div className="image-and-text-container">

@@ -56,3 +56,8 @@ const heroImageModels = componentModels.filter(model => model.type === TukanType
 test("page contains one or more hero image models", () => {
     expect(heroImageModels.length).toBeGreaterThan(0)
 })
+
+const iatModels = componentModels.filter(model => model.type === TukanType.ImageAndText)
+test("page contains one or more image and text models", () => {
+    expect(iatModels.length).toBeGreaterThan(0)
+})

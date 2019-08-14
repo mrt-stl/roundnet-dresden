@@ -23,6 +23,11 @@ test("componentModels are greater 0", () => {
 })
 
 const actionModels = componentModels.filter(model => model.type === TukanType.Action)
-test("actionModels are greater 0", () => {
+test("page contains one or more action models", () => {
     expect(actionModels.length).toBeGreaterThan(0)
+})
+
+const atmoModels = componentModels.filter(model => model.type === TukanType.Atmospheric)
+test("page contains one or more atmospheric models", () => {
+    expect(atmoModels.length).toBeGreaterThan(0)
 })

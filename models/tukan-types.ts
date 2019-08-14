@@ -3,5 +3,6 @@ export enum TukanType {
     Atmospheric = "atmospheric",
     Card = "card",
     Contact = "contact",
-    Details = "details"
+    Details = "details",
+    Focus = "focus"
 }

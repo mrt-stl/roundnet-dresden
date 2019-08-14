@@ -6,6 +6,7 @@ import AtmosphericModel from "../models/atmospheric-model"
 import ContactModel from "../models/contact-model"
 import DetailsModel from "../models/details-model"
 import CardModel from "../models/card-model"
+import FocusModel from "../models/focus-model";
 
 export const prismicPageToComponentModels = (prismicResStr: string) => {
     const prismicRes: ApiSearchResponse = JSON.parse(prismicResStr)
@@ -79,6 +80,13 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const details = new DetailsModel(detailsCards, backgroundColor)
             return details
+
+        case "focus":
+            const focusPrimary = slice.primary
+            const focusContent = asHtml(focusPrimary.focus_content)
+
+            const focus = new FocusModel(focusContent)
+            return focus
 
         default:
             return null

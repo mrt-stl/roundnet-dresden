@@ -46,3 +46,8 @@ const detailsModel = detailsModels[0] as DetailsModel
 test("details model has two cards", () => {
     expect(detailsModel.cards.length).toBe(2)
 })
+
+const focusModels = componentModels.filter(model => model.type === TukanType.Focus)
+test("page contains one or more focus models", () => {
+    expect(focusModels.length).toBeGreaterThan(0)
+})

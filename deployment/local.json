@@ -3,7 +3,7 @@
     "name": "local",
     "public": false,
     "regions": [
-        "bru1"
+        "dev1"
     ],
     "builds": [
         {
@@ -17,15 +17,14 @@
     ],
     "build": {
         "env": {
-            "URL": "https://stadtteilliebe.de",
-            "NAME": "stl",
-            "PRISMIC_ENDPOINT": "https://stadtteilliebe2.cdn.prismic.io/api/v2",
-            "ACCESS_TOKEN": "MC5YTkFjbnhFQUFGOElqbjNx.FH7vv71m77-977-9CWvvv73vv71-U2bvv73vv71uOe-_vUjvv73vv73vv70G77-9Ue-_ve-_ve-_ve-_vW_vv71U",
-            "NAV": "[ {\"name\": \"Stadtteilliebe\", \"link\": \"/\"}, {\"name\": \"Leistungen\", \"link\": \"/leistungen\"}, {\"name\": \"Projekte\", \"link\": \"/projekte\"}, {\"name\": \"Blog\", \"link\": \"/blog\"}, {\"name\": \"Kontakt\", \"link\": \"/kontakt\"}]",
+            "URL": "https://standard.stl-dev.now.sh/",
+            "NAME": "standard-stl",
+            "PRISMIC_ENDPOINT": "https://standard.cdn.prismic.io/api/v2",
+            "ACCESS_TOKEN": "MC5YTWJpUFJFQUFDSUF0MzB2.77-977-977-977-9ae-_ve-_ve-_ve-_ve-_vWzvv70a77-9Yu-_vRvvv73vv71m77-977-977-9fGFE77-9Q0Hvv73vv70k",
+            "NAV": "[ {\"name\": \"Home\", \"link\": \"/\"} ]",
             "FONT": "{\"url\": \"https://use.typekit.net/zvs7feh.css\", \"name\": \"neue-haas-unica\" }",
-            "COOKIE": "{\"link\": \"/datenschutz\"}",
-            "GA": "UA-137430078-1",
-            "HAS_BANNER": "0",
+            "COOKIE": "https://stadtteilliebe.de/datenschutz",
+            "COLORS": "{ \"primary\": \"#3c3c3c\", \"secondary\": \"#8caaaa\", \"accent\": \"#ea918c\" }",
             "DARK_MODE": "auto",
             "CACHING_TIME": "0"
         }

@@ -4,6 +4,8 @@ import { asText, linkResolver, asHtml } from "../utils/prismic-utils"
 import TukanModel from "../models/tukan-model"
 import AtmosphericModel from "../models/atmospheric-model"
 import ContactModel from "../models/contact-model"
+import DetailsModel from "../models/details-model"
+import CardModel from "../models/card-model"
 
 export const prismicPageToComponentModels = (prismicResStr: string) => {
     const prismicRes: ApiSearchResponse = JSON.parse(prismicResStr)
@@ -27,7 +29,7 @@ export const prismicPageToComponentModels = (prismicResStr: string) => {
     return componentModels
 }
 
-const mapResultToModel = (slice: any) => {
+const mapResultToModel = (slice: any): TukanModel | null => {
     switch (slice.slice_type) {
         case "action":
             const actionPrimary = slice.primary
@@ -59,6 +61,24 @@ const mapResultToModel = (slice: any) => {
 
             const contact = new ContactModel(contactMail, contactTitle, contactContent)
             return contact
+
+        case "details":
+            const detailsPrimary = slice.primary
+            const detailsItems: any[] = slice.items
+
+            const detailsCards: CardModel[] = []
+            for (const detailsItem of detailsItems) {
+                const detailsCardTitle = asHtml(detailsItem.detail_title)
+                const detailsCardContent = asHtml(detailsItem.detail_content)
+
+                const detailsCard = new CardModel(detailsCardTitle, detailsCardContent)
+                detailsCards.push(detailsCard)
+            }
+
+            const backgroundColor: string = detailsPrimary.detail_background
+
+            const details = new DetailsModel(detailsCards, backgroundColor)
+            return details
 
         default:
             return null

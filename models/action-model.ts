@@ -13,7 +13,7 @@ export default class ActionModel extends TukanModel {
         super(TukanType.Action)
 
         this.content = content
-        this.backgroundColor = isUndefinedOrNullOrEmpty(backgroundColor) ? backgroundColor : "var(--secondary)"
+        this.backgroundColor = !isUndefinedOrNullOrEmpty(backgroundColor) ? backgroundColor : "var(--secondary)"
         this.link = link
         this.linkIsBlank = linkIsBlank
         this.linkContent = linkContent

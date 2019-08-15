@@ -10,6 +10,7 @@ import FocusModel from "../models/focus-model"
 import HeroImageModel from "../models/hero-image-model"
 import ImageAndTextModel from "../models/image-and-text-model"
 import InfiniteCardsModel from "../models/infinite-cards-model"
+import LocationModel from "../models/location-model"
 
 export const prismicPageToComponentModels = (prismicResStr: string) => {
     const prismicRes: ApiSearchResponse = JSON.parse(prismicResStr)
@@ -134,6 +135,15 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const infiniteCardsModel = new InfiniteCardsModel(infiniteCards)
             return infiniteCardsModel
+
+        case "location":
+            const locationPrimary = slice.primary
+
+            const locationLat: number = locationPrimary.location_coords.latitude
+            const locationLng: number = locationPrimary.location_coords.longitude
+
+            const location = new LocationModel(locationLat, locationLng)
+            return location
 
         default:
             return null

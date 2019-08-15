@@ -72,3 +72,8 @@ const icModel = icModels[0] as InfiniteCardsModel
 test("infinite cards model has three cards", () => {
     expect(icModel.cards.length).toBe(3)
 })
+
+const locationModels = componentModels.filter(model => model.type === TukanType.Location)
+test("page contains one or more location models", () => {
+    expect(locationModels.length).toBeGreaterThan(0)
+})

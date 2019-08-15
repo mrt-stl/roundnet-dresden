@@ -3,6 +3,7 @@ import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
 import { prismicPageToComponentModels } from "../../../controller/prismic-controller"
 import { TukanType } from "../../../models/tukan-types"
 import DetailsModel from "../../../models/details-model"
+import InfiniteCardsModel from "../../../models/infinite-cards-model"
 
 const pageExampleFile = __dirname + "/test-page.json"
 
@@ -60,4 +61,14 @@ test("page contains one or more hero image models", () => {
 const iatModels = componentModels.filter(model => model.type === TukanType.ImageAndText)
 test("page contains one or more image and text models", () => {
     expect(iatModels.length).toBeGreaterThan(0)
+})
+
+const icModels = componentModels.filter(model => model.type === TukanType.InfiniteCards)
+test("page contains one or more infinite card models", () => {
+    expect(icModels.length).toBeGreaterThan(0)
+})
+
+const icModel = icModels[0] as InfiniteCardsModel
+test("infinite cards model has three cards", () => {
+    expect(icModel.cards.length).toBe(3)
 })

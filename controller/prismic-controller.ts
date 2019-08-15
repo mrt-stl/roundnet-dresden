@@ -9,6 +9,7 @@ import CardModel from "../models/card-model"
 import FocusModel from "../models/focus-model"
 import HeroImageModel from "../models/hero-image-model"
 import ImageAndTextModel from "../models/image-and-text-model"
+import InfiniteCardsModel from "../models/infinite-cards-model"
 
 export const prismicPageToComponentModels = (prismicResStr: string) => {
     const prismicRes: ApiSearchResponse = JSON.parse(prismicResStr)
@@ -114,6 +115,25 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const imageAndText = new ImageAndTextModel(iatImgSrc, iatContent, iatImgAlt, iatImgHeight)
             return imageAndText
+
+        case "karte":
+            const infiniteCardsItems = slice.items
+            const infiniteCards: CardModel[] = []
+            for (const cardsItem of infiniteCardsItems) {
+
+                const itemTitle: string = asHtml(cardsItem.detail_title)
+                const itemContent: string = asHtml(cardsItem.detail_content)
+                const itemImgSrc: string = cardsItem.card_img.url
+                const itemImgAlt: string = cardsItem.card_img.alt
+                const itemLink: string = linkResolver(cardsItem.card_link)
+                const itemLinkIsBlank = cardsItem.card_link ? cardsItem.card_link.target === "_blank" : false
+
+                const infiniteCard = new CardModel(itemTitle, itemContent, itemImgSrc, itemImgAlt, itemLink, itemLinkIsBlank)
+                infiniteCards.push(infiniteCard)
+            }
+
+            const infiniteCardsModel = new InfiniteCardsModel(infiniteCards)
+            return infiniteCardsModel
 
         default:
             return null

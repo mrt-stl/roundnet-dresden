@@ -82,3 +82,8 @@ const previewModels = componentModels.filter(model => model.type === TukanType.P
 test("page contains one or more preview models", () => {
     expect(previewModels.length).toBeGreaterThan(0)
 })
+
+const richtextModels = componentModels.filter(model => model.type === TukanType.Richtext)
+test("page contains one or more richtext models", () => {
+    expect(richtextModels.length).toBeGreaterThan(0)
+})

@@ -9,5 +9,6 @@ export enum TukanType {
     ImageAndText = "image-and-text",
     InfiniteCards = "infinite-cards",
     Location = "location",
-    Preview = "preview"
+    Preview = "preview",
+    Richtext = "richtext"
 }

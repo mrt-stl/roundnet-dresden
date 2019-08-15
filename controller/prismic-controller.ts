@@ -12,6 +12,7 @@ import ImageAndTextModel from "../models/image-and-text-model"
 import InfiniteCardsModel from "../models/infinite-cards-model"
 import LocationModel from "../models/location-model"
 import PreviewModel from "../models/preview-model"
+import RichtextModel from "../models/richtext-model"
 
 export const prismicPageToComponentModels = (prismicResStr: string) => {
     const prismicRes: ApiSearchResponse = JSON.parse(prismicResStr)
@@ -156,6 +157,14 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const preview = new PreviewModel(previewTitle, previewContent, previewImgSrc, previewImgAlt)
             return preview
+
+        case "richtext":
+            const richtextPrimary = slice.primary
+
+            const richtextContent = richtextPrimary.richtext_content
+
+            const richtext = new RichtextModel(richtextContent)
+            return richtext
 
         default:
             return null

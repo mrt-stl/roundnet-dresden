@@ -11,6 +11,7 @@ import HeroImageModel from "../models/hero-image-model"
 import ImageAndTextModel from "../models/image-and-text-model"
 import InfiniteCardsModel from "../models/infinite-cards-model"
 import LocationModel from "../models/location-model"
+import PreviewModel from "../models/preview-model"
 
 export const prismicPageToComponentModels = (prismicResStr: string) => {
     const prismicRes: ApiSearchResponse = JSON.parse(prismicResStr)
@@ -144,6 +145,17 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const location = new LocationModel(locationLat, locationLng)
             return location
+
+        case "preview":
+            const previewPrimary = slice.primary
+
+            const previewTitle = asText(previewPrimary.preview_title)
+            const previewContent = asHtml(previewPrimary.preview_content)
+            const previewImgSrc = previewPrimary.preview_image.url
+            const previewImgAlt = previewPrimary.preview_image.alt
+
+            const preview = new PreviewModel(previewTitle, previewContent, previewImgSrc, previewImgAlt)
+            return preview
 
         default:
             return null

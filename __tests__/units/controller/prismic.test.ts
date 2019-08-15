@@ -77,3 +77,8 @@ const locationModels = componentModels.filter(model => model.type === TukanType.
 test("page contains one or more location models", () => {
     expect(locationModels.length).toBeGreaterThan(0)
 })
+
+const previewModels = componentModels.filter(model => model.type === TukanType.Preview)
+test("page contains one or more preview models", () => {
+    expect(previewModels.length).toBeGreaterThan(0)
+})

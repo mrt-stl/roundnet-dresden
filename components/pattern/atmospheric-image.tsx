@@ -1,16 +1,20 @@
-import { object } from "prop-types"
 import LazyLoad from "react-lazyload"
 
-const AtmosphericImage = ({ data }) => {
-    const img = data.atmospheric_img.url
-    const alt = data.atmospheric_img.alt
+interface IAtmosphericProps {
+    imgSrc: string,
+    imgAlt?: string
+}
+
+const AtmosphericImage = (props: IAtmosphericProps) => {
+    const imgSrc = props.imgSrc
+    const imgAlt = props.imgAlt
 
     return (
         <div className="atmo-image-container">
             <LazyLoad height={"60vh"} offset={200}>
-                <img src={img} alt={alt}></img>
+                <img src={imgSrc} alt={imgAlt} />
             </LazyLoad>
-            
+
             <style jsx>{`
                 .atmo-image-container {
                     position: relative;
@@ -25,10 +29,6 @@ const AtmosphericImage = ({ data }) => {
             `}</style>
         </div>
     )
-}
-
-AtmosphericImage.propTypes = {
-    data: object
 }
 
 export default AtmosphericImage

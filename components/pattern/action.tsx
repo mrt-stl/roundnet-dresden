@@ -1,15 +1,21 @@
-import { object } from "prop-types"
-import { asText, linkResolver } from "../../utils/prismic-utils"
 
-const Action = ({ data }) => {
-    const backgroundColor = data.action_color ? data.action_color : "var(--secondary)"
-    const content = asText(data.action_content)
-    const link = linkResolver(data.action_link)
-    const linkContent = asText(data.action_link_text)
-    const linkIsBlank = data.action_link.target === "_blank"
+interface IActionProps {
+    backgroundColor: string
+    content: string
+    link?: string
+    linkContent?: string
+    linkIsBlank?: boolean
+}
+
+const Action = (props: IActionProps) => {
+    const backgroundColor = props.backgroundColor
+    const content = props.content
+    const link = props.link
+    const linkContent = props.linkContent
+    const linkIsBlank = props.linkIsBlank
 
     return (
-        <div className="action-container" style={{ backgroundColor: backgroundColor }}>
+        <div className="action-container" style={{ backgroundColor }}>
             <div className="grid">
                 <div className="col-4">
                     <p className="content">{content}</p>
@@ -18,11 +24,11 @@ const Action = ({ data }) => {
 
             <div className="grid">
                 <div className="col-4">
-                    {link && link !== "/undefined" ?
+                    {link ?
                         <div>
                             {linkIsBlank ?
-                                <a href={link ? link : ""} className="link-content" target="blank" rel="noopener">{linkContent}</a> :
-                                <a href={link ? link : ""} className="link-content">{linkContent}</a>
+                                <a href={link} className="link-content" target="blank" rel="noopener">{linkContent}</a> :
+                                <a href={link} className="link-content">{linkContent}</a>
                             }
                         </div> :
                         <p className="link-content">{linkContent}</p>
@@ -50,10 +56,6 @@ const Action = ({ data }) => {
             `}</style>
         </div>
     )
-}
-
-Action.propTypes = {
-    data: object
 }
 
 export default Action

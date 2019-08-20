@@ -14,9 +14,7 @@ import LocationModel from "../models/location-model"
 import PreviewModel from "../models/preview-model"
 import RichtextModel from "../models/richtext-model"
 
-export const prismicPageToComponentModels = (prismicResStr: string) => {
-    const prismicRes: ApiSearchResponse = JSON.parse(prismicResStr)
-
+export const prismicPageToComponentModels = (prismicRes: ApiSearchResponse) => {
     const hasNoData = prismicRes.results === undefined && prismicRes.results.length <= 0
     if (hasNoData) {
         return null

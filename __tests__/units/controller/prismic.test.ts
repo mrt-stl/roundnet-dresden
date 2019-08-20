@@ -18,7 +18,7 @@ test("body is defined", () => {
     expect(body).not.toBeUndefined()
 })
 
-const componentModels = prismicPageToComponentModels(pageExample)
+const componentModels = prismicPageToComponentModels(pageJson)
 test("componentModels are greater 0", () => {
     expect(componentModels.length).toBeGreaterThan(0)
 })

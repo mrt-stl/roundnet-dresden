@@ -87,3 +87,8 @@ const richtextModels = componentModels.filter(model => model.type === TukanType.
 test("page contains one or more richtext models", () => {
     expect(richtextModels.length).toBeGreaterThan(0)
 })
+
+const highlightModels = componentModels.filter(model => model.type === TukanType.HighlightText)
+test("page contains one or more highlight models", () => {
+    expect(highlightModels.length).toBeGreaterThan(0)
+})

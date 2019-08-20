@@ -6,6 +6,7 @@ export enum TukanType {
     Details = "details",
     Focus = "focus",
     HeroImage = "hero-image",
+    HighlightText = "highlight-text",
     ImageAndText = "image-and-text",
     InfiniteCards = "infinite-cards",
     Location = "location",

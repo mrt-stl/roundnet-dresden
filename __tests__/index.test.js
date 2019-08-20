@@ -18,6 +18,6 @@ describe("Index", () => {
     })
 
     it("Main structure test", () => {
-        expect(wrapper.find(".gemacht-mit-stadtteilliebe").text()).toBe("<Meta /><Nav /><PatternWrapper /><EditButton /><Love />")
+        expect(wrapper.find(".gemacht-mit-stadtteilliebe").text()).toBe("<Meta /><Nav /><TukanContainer /><EditButton /><Love />")
     })
 })

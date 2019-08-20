@@ -12,6 +12,8 @@ import FocusModel from "../models/focus-model"
 import Focus from "./pattern/focus"
 import HeroImageModel from "../models/hero-image-model"
 import HeroImage from "./pattern/hero-image"
+import HighlightTextModel from "../models/highlight-text-model"
+import HighlightText from "./pattern/highlight-text"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -95,6 +97,13 @@ const matchComponent = (model: TukanModel, index: number) => {
                     linkIsBlank={heroImageModel.linkIsBlank} />
             break
 
+        case TukanType.HighlightText:
+            const highlightTextModel = model as HighlightTextModel
+            component =
+                <HighlightText
+                    key={index}
+                    content={highlightTextModel.content} />
+            break
     }
 
     return component

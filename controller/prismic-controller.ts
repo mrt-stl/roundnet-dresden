@@ -13,6 +13,7 @@ import InfiniteCardsModel from "../models/infinite-cards-model"
 import LocationModel from "../models/location-model"
 import PreviewModel from "../models/preview-model"
 import RichtextModel from "../models/richtext-model"
+import HighlightTextModel from "../models/highlight-text-model"
 
 export const prismicPageToComponentModels = (prismicRes: ApiSearchResponse) => {
     const hasNoData = prismicRes.results === undefined && prismicRes.results.length <= 0
@@ -158,10 +159,18 @@ const mapResultToModel = (slice: any): TukanModel | null => {
         case "richtext":
             const richtextPrimary = slice.primary
 
-            const richtextContent = richtextPrimary.richtext_content
+            const richtextContent = asHtml(richtextPrimary.richtext_content)
 
             const richtext = new RichtextModel(richtextContent)
             return richtext
+
+        case "highlight":
+            const highlightPrimary = slice.primary
+
+            const highlightContent = asHtml(highlightPrimary.highlight_content)
+
+            const highlightModel = new HighlightTextModel(highlightContent)
+            return highlightModel
 
         default:
             return null

@@ -1,12 +1,17 @@
 import { Component } from "react"
-import { asHtml } from "../../utils/prismic-utils"
 import parse from "html-react-parser"
 import TextareaAutosize from "react-autosize-textarea"
 import { sendContactMail } from "../../networking/mail-api"
 
-class Contact extends Component {
+interface IContactProps {
+    targetMail: string
+    title?: string
+    content?: string
+}
 
-    state = {
+class Contact extends Component<IContactProps, {}> {
+
+    public state = {
         formButtonDisabled: false,
         formButtonText: "Senden",
         name: "",
@@ -14,21 +19,25 @@ class Contact extends Component {
         formContent: ""
     }
 
-    render() {
-        const title = asHtml(this.props.data.contact_title)
-        const content = asHtml(this.props.data.contact_content)
-
+    public render() {
+        const { title, content } = this.props
         const { formButtonText, formButtonDisabled, name, mail, formContent } = this.state
+
+        const contactTitle = title ? title : ""
+        const contactContent = content ? content : ""
         const btnClass = formButtonDisabled ? "disabled" : ""
 
         return (
             <div className="contact-container">
-                <div className="grid">
-                    <div className="col-8">
-                        {parse(title)}
-                        {parse(content)}
-                    </div>
-                </div>
+                {title || content ?
+                    <div className="grid">
+                        <div className="col-8">
+                            {parse(contactTitle)}
+                            {parse(contactContent)}
+                        </div>
+                    </div> :
+                    <div />
+                }
 
                 <div className="grid">
                     <div className="col-4">
@@ -112,7 +121,7 @@ class Contact extends Component {
                         color: var(--all-gray-30);
                     }
 
-                    button {   
+                    button {
                         padding: 0px 24px;
                         height: 48px;
                         background-color: var(--accent);
@@ -128,28 +137,28 @@ class Contact extends Component {
                         color: var(--font-color);
                         cursor: auto;
                         padding-left: 0px;
-                    }   
+                    }
                 `}</style>
             </div>
         )
     }
 
-    onNameChange = (event) => {
+    private onNameChange = (event) => {
         this.setState({ name: event.target.value })
     }
 
-    onMailChange = (event) => {
+    private onMailChange = (event) => {
         this.setState({ mail: event.target.value })
     }
 
-    onFormContentChange = (event) => {
+    private onFormContentChange = (event) => {
         this.setState({ formContent: event.target.value })
     }
 
-    submitContactForm = async (event) => {
+    private submitContactForm = async (event) => {
         event.preventDefault()
 
-        const recipientMail = this.props.data.contact_targetmail
+        const recipientMail = this.props.targetMail
         const { name, mail, formContent } = this.state
 
         const res = await sendContactMail(recipientMail, name, mail, formContent)

@@ -23,7 +23,6 @@ export const prismicPageToComponentModels = (prismicRes: ApiSearchResponse) => {
     const slices = prismicRes.results[0].data.body
 
     const componentModels: TukanModel[] = []
-
     for (const slice of slices) {
         const model = mapResultToModel(slice)
         if (model !== null) {

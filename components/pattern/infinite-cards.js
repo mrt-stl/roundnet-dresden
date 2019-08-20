@@ -2,7 +2,6 @@ import Card from "./card"
 import { array } from "prop-types"
 import { asHtml, linkResolver } from "../../utils/prismic-utils"
 
-
 const InfiniteCards = (props) => {
     const cards = props.data.map((card, index) => {
         const img = card.card_img.url

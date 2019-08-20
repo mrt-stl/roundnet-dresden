@@ -4,6 +4,10 @@ import ActionModel from "../models/action-model"
 import { TukanType } from "../models/tukan-types"
 import AtmosphericModel from "../models/atmospheric-model"
 import AtmosphericImage from "./pattern/atmospheric-image"
+import ContactModel from "../models/contact-model"
+import Contact from "./pattern/contact"
+import DetailsModel from "../models/details-model"
+import Details from "./pattern/details";
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -46,6 +50,26 @@ const matchComponent = (model: TukanModel, index: number) => {
                     imgSrc={atmosphericModel.imgSrc}
                     imgAlt={atmosphericModel.imgAlt} />
             break
+
+        case TukanType.Contact:
+            const contactModel = model as ContactModel
+            component =
+                <Contact
+                    key={index}
+                    targetMail={contactModel.targetMail}
+                    title={contactModel.title}
+                    content={contactModel.content} />
+            break
+
+        case TukanType.Details:
+            const detailsModel = model as DetailsModel
+            component =
+                <Details
+                    key={index}
+                    backgroundColor={detailsModel.backgroundColor}
+                    items={detailsModel.cards} />
+            break
+
     }
 
     return component

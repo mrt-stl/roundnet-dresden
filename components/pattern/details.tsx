@@ -1,19 +1,26 @@
 import Card from "./card"
-import { array } from "prop-types"
-import { asHtml } from "../../utils/prismic-utils"
 
-const Details = ({ primary, items }) => {
-    const backgroundColor = primary && primary.detail_background ? primary.detail_background : "var(--background)"
+interface IDetailsCard {
+    title?: string
+    content?: string
+}
+
+interface IDetailsProps {
+    backgroundColor: string
+    items: IDetailsCard[]
+}
+
+const Details = (props: IDetailsProps) => {
+    const backgroundColor = props.backgroundColor
+    const items = props.items
 
     const details = items.map((detail, index) => {
-        const title = asHtml(detail.detail_title)
-        const content = asHtml(detail.detail_content)
 
         return (
             <div key={index} className="col-2">
                 <Card
-                    title={title}
-                    content={content} />
+                    title={detail.title}
+                    content={detail.content} />
             </div>
         )
     })
@@ -30,8 +37,8 @@ const Details = ({ primary, items }) => {
                     padding-bottom: var(--standard-spacing);
                     background-color: ${backgroundColor};
                 }
-                
-                @media (prefers-color-scheme: dark) { 
+
+                @media (prefers-color-scheme: dark) {
                     .infinite-cards-container {
                         background-color: var(--background);
                     }
@@ -39,10 +46,6 @@ const Details = ({ primary, items }) => {
             `}</style>
         </div>
     )
-}
-
-Details.propTypes = {
-    data: array
 }
 
 export default Details

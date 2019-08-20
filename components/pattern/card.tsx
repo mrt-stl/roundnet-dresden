@@ -1,17 +1,24 @@
-import { string, bool } from "prop-types"
 import parse from "html-react-parser"
 import LazyLoad from "react-lazyload"
 
-const Card = (props) => {
-    const { title, content, img, imgDescription, link } = props
+interface ICardProps {
+    title?: string
+    content?: string
+    imgSrc?: string
+    imgAlt?: string
+    link?: string
+    linkIsBlank?: boolean
+}
 
-    const href = link && link !== "/undefined" ? link : ""
+const Card = (props: ICardProps) => {
+    const { title, content, imgSrc, imgAlt, link } = props
+
     const { target, rel } = props.linkIsBlank ? { target: "_blank", rel: "noopener" } : { target: "", rel: "" }
 
     // Image
-    const imgContainer = img ?
+    const imgContainer = imgSrc ?
         <LazyLoad height={"256px"} offset={200}>
-            <img src={img} alt={imgDescription} />
+            <img src={imgSrc} alt={imgAlt} />
             <style jsx>{`
                 img {
                     height: 256px;
@@ -35,9 +42,9 @@ const Card = (props) => {
 
     return (
         <div className="card-container">
-            {href !== "" ?
+            {link ?
                 <div className="link-container">
-                    <a href={href} target={target} rel={rel}>
+                    <a href={link} target={target} rel={rel}>
                         {imgContainer}
                         {titleContainer}
                         {contentContainer}
@@ -52,7 +59,7 @@ const Card = (props) => {
 
             <style jsx>{`
                 .link-container:hover {
-                    opacity: 0.4; 
+                    opacity: 0.4;
                     transition: .3s ease-out;
                 }
 
@@ -63,15 +70,6 @@ const Card = (props) => {
         </div>
 
     )
-}
-
-Card.propTypes = {
-    title: string,
-    content: string,
-    img: string,
-    imgDescription: string,
-    link: string,
-    linkIsBlank: bool
 }
 
 export default Card

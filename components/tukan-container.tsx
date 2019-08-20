@@ -7,7 +7,9 @@ import AtmosphericImage from "./pattern/atmospheric-image"
 import ContactModel from "../models/contact-model"
 import Contact from "./pattern/contact"
 import DetailsModel from "../models/details-model"
-import Details from "./pattern/details";
+import Details from "./pattern/details"
+import FocusModel from "../models/focus-model"
+import Focus from "./pattern/focus"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -68,6 +70,14 @@ const matchComponent = (model: TukanModel, index: number) => {
                     key={index}
                     backgroundColor={detailsModel.backgroundColor}
                     items={detailsModel.cards} />
+            break
+
+        case TukanType.Focus:
+            const focusModel = model as FocusModel
+            component =
+                <Focus
+                    key={index}
+                    content={focusModel.content} />
             break
 
     }

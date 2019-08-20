@@ -1,9 +1,11 @@
-import { object } from "prop-types"
-import { asHtml } from "../../utils/prismic-utils"
 import parse from "html-react-parser"
 
-const Focus = ({ data }) => {
-    const content = asHtml(data.focus_content)
+interface IFocusProps {
+    content: string
+}
+
+const Focus = (props: IFocusProps) => {
+    const content = props.content
 
     return (
         <div className="focus-container">
@@ -14,10 +16,6 @@ const Focus = ({ data }) => {
             </div>
         </div>
     )
-}
-
-Focus.propTypes = {
-    data: object
 }
 
 export default Focus

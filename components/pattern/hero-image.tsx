@@ -1,21 +1,28 @@
-import { object } from "prop-types"
 import LazyLoad from "react-lazyload"
-import { asText, linkResolver } from "../../utils/prismic-utils"
 
-const HeroImage = ({ data }) => {
-    const title = asText(data.hero_image_title)
-    const link = linkResolver(data.hero_image_link)
-    const linkContent = asText(data.hero_image_link_content)
-    const img = data.hero_image_img.url
-    const imgDescription = data.hero_image_img.alt
-    const linkIsBlank = data.hero_image_link.target === "_blank"
+interface IHeroImageProps {
+    imgSrc: string
+    imgAlt?: string
+    title?: string
+    link?: string
+    linkContent?: string
+    linkIsBlank?: boolean
+}
+
+const HeroImage = (props: IHeroImageProps) => {
+    const imgSrc = props.imgSrc
+    const imgAlt = props.imgAlt
+    const title = props.title
+    const link = props.link
+    const linkContent = props.linkContent
+    const linkIsBlank = props.linkIsBlank
 
     return (
         <div className="hero-image-container">
             <div className="hero-image-content-container text-center">
                 <div className="fadeInUp">
                     <h1>{title}</h1>
-                    {link !== "/undefined" ?
+                    {link ?
                         <div>
                             {linkIsBlank ?
                                 <a href={link} className="link-content" target="blank" rel="noopener">{linkContent}</a> :
@@ -28,7 +35,7 @@ const HeroImage = ({ data }) => {
 
             </div>
             <LazyLoad height={"90vh"} offset={200}>
-                <img src={img} alt={imgDescription}></img>
+                <img src={imgSrc} alt={imgAlt} />
             </LazyLoad>
 
             <style jsx>{`
@@ -41,7 +48,7 @@ const HeroImage = ({ data }) => {
                     position: absolute;
                     top: 50%;
                     left: 50%;
-                    transform: translate(-50%, -50%); 
+                    transform: translate(-50%, -50%);
                 }
                 .link-content {
                     color: var(--white);
@@ -61,28 +68,28 @@ const HeroImage = ({ data }) => {
                     -webkit-transform: translate3d(0, 100%, 0);
                     transform: translate3d(0, 100%, 0);
                     }
-                
+
                     to {
                     opacity: 1;
                     -webkit-transform: translate3d(0, 0, 0);
                     transform: translate3d(0, 0, 0);
                     }
                 }
-                
+
                 @keyframes fadeInUp {
                     from {
                     opacity: 0;
                     -webkit-transform: translate3d(0, 100%, 0);
                     transform: translate3d(0, 100%, 0);
                     }
-                
+
                     to {
                     opacity: 1;
                     -webkit-transform: translate3d(0, 0, 0);
                     transform: translate3d(0, 0, 0);
                     }
                 }
-                
+
                 .fadeInUp {
                     animation-name: fadeInUp;
                     animation-duration: 1.5s;
@@ -92,10 +99,6 @@ const HeroImage = ({ data }) => {
             `}</style>
         </div>
     )
-}
-
-HeroImage.propTypes = {
-    data: object
 }
 
 export default HeroImage

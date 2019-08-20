@@ -97,9 +97,9 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const heroImageImgSrc = heroImagePrimary.hero_image_img.url
             const heroImageImgAlt = heroImagePrimary.hero_image_img.alt
-            const heroImageTitle = asHtml(heroImagePrimary.hero_image_title)
+            const heroImageTitle = asText(heroImagePrimary.hero_image_title)
             const heroImageLink = linkResolver(heroImagePrimary.hero_image_link)
-            const heroImageLinkContent = asHtml(heroImagePrimary.hero_image_link_content)
+            const heroImageLinkContent = asText(heroImagePrimary.hero_image_link_content)
             const heroImageLinkIsBlank = heroImagePrimary.hero_image_link ? heroImagePrimary.hero_image_link.target === "_blank" : false
 
             const heroImage = new HeroImageModel(heroImageImgSrc, heroImageImgAlt, heroImageTitle, heroImageLink, heroImageLinkContent, heroImageLinkIsBlank)

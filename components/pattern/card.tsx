@@ -39,7 +39,6 @@ const Card = (props: ICardProps) => {
         parse(content) :
         <div />
 
-
     return (
         <div className="card-container">
             {link ?

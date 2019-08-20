@@ -10,6 +10,8 @@ import DetailsModel from "../models/details-model"
 import Details from "./pattern/details"
 import FocusModel from "../models/focus-model"
 import Focus from "./pattern/focus"
+import HeroImageModel from "../models/hero-image-model"
+import HeroImage from "./pattern/hero-image"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -78,6 +80,19 @@ const matchComponent = (model: TukanModel, index: number) => {
                 <Focus
                     key={index}
                     content={focusModel.content} />
+            break
+
+        case TukanType.HeroImage:
+            const heroImageModel = model as HeroImageModel
+            component =
+                <HeroImage
+                    key={index}
+                    imgSrc={heroImageModel.imgSrc}
+                    imgAlt={heroImageModel.imgAlt}
+                    title={heroImageModel.title}
+                    link={heroImageModel.link}
+                    linkContent={heroImageModel.linkContent}
+                    linkIsBlank={heroImageModel.linkIsBlank} />
             break
 
     }

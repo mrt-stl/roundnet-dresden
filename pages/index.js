@@ -41,7 +41,7 @@ const Index = ({ results, error }) => {
 
             {cookieLink !== null ?
                 <CookieNotification
-                    link={cookieLink.link} /> :
+                    link={cookieLink} /> :
                 <div />}
             <EditButton
                 docId={docByLang.id} />

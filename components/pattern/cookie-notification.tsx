@@ -1,15 +1,14 @@
 import { Component } from "react"
 import CookieUtils from "../../utils/cookie-utils"
-import { string } from "prop-types"
 
-class CookieNotification extends Component {
+interface CookieNotificationProps {
+    link: string
+}
 
-    constructor(props) {
-        super(props)
+class CookieNotification extends Component<CookieNotificationProps, {}> {
 
-        this.state = {
-            acceptedCookie: true
-        }
+    state = {
+        acceptedCookie: true
     }
 
     componentDidMount() {
@@ -27,17 +26,6 @@ class CookieNotification extends Component {
                 this.setState({ acceptedCookie: false })
             }
         }
-    }
-
-    /**
-     * On click handling for accepting cookie.
-     */
-    onAcceptCookie = () => {
-        const settings = { acceptedCookie: true }
-        const settingsString = JSON.stringify(settings)
-        CookieUtils.setSettingsCookie(settingsString, 30)
-
-        this.setState({ acceptedCookie: true })
     }
 
     render() {
@@ -115,10 +103,17 @@ class CookieNotification extends Component {
             </div>
         )
     }
-}
 
-CookieNotification.propTypes = {
-    link: string
+    /**
+     * On click handling for accepting cookie.
+     */
+    onAcceptCookie = () => {
+        const settings = { acceptedCookie: true }
+        const settingsString = JSON.stringify(settings)
+        CookieUtils.setSettingsCookie(settingsString, 30)
+
+        this.setState({ acceptedCookie: true })
+    }
 }
 
 export default CookieNotification

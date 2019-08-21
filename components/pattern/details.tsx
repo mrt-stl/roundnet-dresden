@@ -7,14 +7,14 @@ interface IDetailsCard {
 
 export interface IDetailsProps {
     backgroundColor: string
-    items: IDetailsCard[]
+    cards: IDetailsCard[]
 }
 
 const Details = (props: IDetailsProps) => {
     const backgroundColor = props.backgroundColor
-    const items = props.items
+    const cards = props.cards
 
-    const details = items.map((detail, index) => {
+    const details = cards.map((detail, index) => {
 
         return (
             <div key={index} className="col-2">

@@ -1,7 +1,8 @@
 import TukanModel from "./tukan-model"
 import { TukanType } from "./tukan-types"
+import { IImageAndTextProps } from "../components/pattern/image-and-text"
 
-export default class ImageAndTextModel extends TukanModel {
+export default class ImageAndTextModel extends TukanModel implements IImageAndTextProps {
     public imgSrc: string
     public content: string
     public imgAlt?: string

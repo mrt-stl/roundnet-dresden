@@ -1,9 +1,11 @@
-import { object } from "prop-types"
-import { asHtml } from "../../utils/prismic-utils"
 import parse from "html-react-parser"
 
-const Richtext = ({ data }) => {
-    const content = asHtml(data.richtext_content)
+export interface IRichtextProps {
+    content: string
+}
+
+const Richtext = (props: IRichtextProps) => {
+    const content = props.content
 
     return (
         <div className="richtext-container">
@@ -22,10 +24,6 @@ const Richtext = ({ data }) => {
         </div>
 
     )
-}
-
-Richtext.propTypes = {
-    data: object
 }
 
 export default Richtext

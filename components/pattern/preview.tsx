@@ -1,14 +1,19 @@
-import { object } from "prop-types"
 import LazyLoad from "react-lazyload"
-import { asText, asHtml } from "../../utils/prismic-utils"
 import parse from "html-react-parser"
 
-const Preview = ({ data }) => {
-    const title = asText(data.preview_title)
-    const content = asHtml(data.preview_content)
-    const img = data.preview_image.url
-    const alt = data.preview_image.alt
-    
+export interface IPreviewProps {
+    title: string
+    content: string
+    imgSrc: string
+    imgAlt?: string
+}
+
+const Preview = (props: IPreviewProps) => {
+    const title = props.title
+    const content = props.content
+    const imgSrc = props.imgSrc
+    const imgAlt = props.imgAlt
+
     return (
         <div className="preview-container">
             <div className="grid">
@@ -18,11 +23,11 @@ const Preview = ({ data }) => {
                 </div>
             </div>
 
-            {img ?
+            {imgSrc ?
                 <div className="grid">
                     <div className="col">
                         <LazyLoad height={"512px"} offset={200}>
-                            <img src={img} alt={alt}></img>
+                            <img src={imgSrc} alt={imgAlt} />
                         </LazyLoad>
                     </div>
                 </div> :
@@ -44,10 +49,6 @@ const Preview = ({ data }) => {
         </div>
 
     )
-}
-
-Preview.propTypes = {
-    data: object
 }
 
 export default Preview

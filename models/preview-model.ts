@@ -1,7 +1,8 @@
 import TukanModel from "./tukan-model"
 import { TukanType } from "./tukan-types"
+import { IPreviewProps } from "../components/pattern/preview"
 
-export default class PreviewModel extends TukanModel {
+export default class PreviewModel extends TukanModel implements IPreviewProps {
 
     public title: string
     public content: string

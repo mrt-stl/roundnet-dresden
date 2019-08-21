@@ -20,6 +20,8 @@ import InfiniteCardsModel from "../models/infinite-cards-model"
 import InfiniteCards from "./pattern/infinite-cards"
 import LocationModel from "../models/location-model"
 import Location from "./pattern/location"
+import PreviewModel from "../models/preview-model"
+import Preview from "./pattern/preview"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -137,6 +139,17 @@ const matchComponent = (model: TukanModel, index: number) => {
                     key={index}
                     lat={locationModel.lat}
                     lng={locationModel.lng} />
+            break
+
+        case TukanType.Preview:
+            const previewModel = model as PreviewModel
+            component =
+                <Preview
+                    key={index}
+                    title={previewModel.title}
+                    content={previewModel.content}
+                    imgSrc={previewModel.imgSrc}
+                    imgAlt={previewModel.imgAlt} />
             break
     }
 

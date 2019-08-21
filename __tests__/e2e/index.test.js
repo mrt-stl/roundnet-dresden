@@ -1,8 +1,6 @@
-/* eslint-env jest */
-
 import { shallow } from "enzyme"
 
-import Index from "../pages/index.js"
+import Index from "../../pages/index.js"
 
 describe("Index", () => {
     let wrapper

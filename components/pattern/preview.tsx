@@ -4,7 +4,7 @@ import parse from "html-react-parser"
 export interface IPreviewProps {
     title: string
     content: string
-    imgSrc: string
+    imgSrc?: string
     imgAlt?: string
 }
 

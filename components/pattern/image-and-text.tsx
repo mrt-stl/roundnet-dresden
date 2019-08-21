@@ -1,4 +1,3 @@
-import { object } from "prop-types"
 import parse from "html-react-parser"
 import LazyLoad from "react-lazyload"
 
@@ -41,10 +40,6 @@ const ImageAndText = (props: IImageAndTextProps) => {
             `}</style>
         </div>
     )
-}
-
-ImageAndText.propTypes = {
-    data: object
 }
 
 export default ImageAndText

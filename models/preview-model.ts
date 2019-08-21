@@ -6,10 +6,10 @@ export default class PreviewModel extends TukanModel implements IPreviewProps {
 
     public title: string
     public content: string
-    public imgSrc: string
+    public imgSrc?: string
     public imgAlt?: string
 
-    constructor(title: string, content: string, imgSrc: string, imgAlt?: string) {
+    constructor(title: string, content: string, imgSrc?: string, imgAlt?: string) {
         super(TukanType.Preview)
 
         this.title = title

@@ -17,15 +17,17 @@ const HeroImage = (props: IHeroImageProps) => {
     const linkContent = props.linkContent
     const linkIsBlank = props.linkIsBlank
 
+    const titleContainer = title ? <h1>{title}</h1> : <></>
+
     return (
         <div className="hero-image-container">
             <div className="hero-image-content-container text-center">
                 <div className="fadeInUp">
-                    <h1>{title}</h1>
+                    {titleContainer}
                     {link ?
                         <div>
                             {linkIsBlank ?
-                                <a href={link} className="link-content" target="blank" rel="noopener">{linkContent}</a> :
+                                <a href={link} className="link-content" target="_blank" rel="noopener">{linkContent}</a> :
                                 <a href={link} className="link-content">{linkContent}</a>
                             }
                         </div> :

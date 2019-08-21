@@ -22,6 +22,8 @@ import LocationModel from "../models/location-model"
 import Location from "./pattern/location"
 import PreviewModel from "../models/preview-model"
 import Preview from "./pattern/preview"
+import RichtextModel from "../models/richtext-model"
+import Richtext from "./pattern/richtext"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -81,7 +83,7 @@ const matchComponent = (model: TukanModel, index: number) => {
                 <Details
                     key={index}
                     backgroundColor={detailsModel.backgroundColor}
-                    items={detailsModel.cards} />
+                    cards={detailsModel.cards} />
             break
 
         case TukanType.Focus:
@@ -150,6 +152,14 @@ const matchComponent = (model: TukanModel, index: number) => {
                     content={previewModel.content}
                     imgSrc={previewModel.imgSrc}
                     imgAlt={previewModel.imgAlt} />
+            break
+
+        case TukanType.Richtext:
+            const richtextModel = model as RichtextModel
+            component =
+                <Richtext
+                    key={index}
+                    content={richtextModel.content} />
             break
     }
 

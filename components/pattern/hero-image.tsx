@@ -17,7 +17,9 @@ const HeroImage = (props: IHeroImageProps) => {
     const linkContent = props.linkContent
     const linkIsBlank = props.linkIsBlank
 
-    const titleContainer = title ? <h1>{title}</h1> : <></>
+    const titleContainer = title ?
+        <h1 style={{ color: "var(--white)", fontSize: "3em" }}>{title}</h1> :
+        <></>
 
     return (
         <div className="hero-image-container">
@@ -54,10 +56,6 @@ const HeroImage = (props: IHeroImageProps) => {
                 }
                 .link-content {
                     color: var(--white);
-                }
-                h1 {
-                    color: var(--white);
-                    font-size: 3em;
                 }
                 img {
                     width: 100%;

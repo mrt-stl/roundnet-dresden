@@ -1,13 +1,20 @@
 import GoogleMapReact from "google-map-react"
-import { object } from "prop-types"
 import Marker from "../elements/marker"
 import LazyLoad from "react-lazyload"
 
-const Location = ({ data }) => {
+export interface ILocationProps {
+    lat: number
+    lng: number
+}
+
+const Location = (props: ILocationProps) => {
     const zoom = 15
+    const lat = props.lat
+    const lng = props.lng
+
     const center = {
-        lat: data.location_coords.latitude,
-        lng: data.location_coords.longitude
+        lat,
+        lng
     }
 
     return (
@@ -18,8 +25,8 @@ const Location = ({ data }) => {
                     defaultCenter={center}
                     defaultZoom={zoom}>
                     <Marker
-                        lat={center.lat}
-                        lng={center.lng} />
+                        lat={lat}
+                        lng={lng} />
                 </GoogleMapReact>
 
                 <style jsx>{`
@@ -31,10 +38,6 @@ const Location = ({ data }) => {
             </div>
         </LazyLoad>
     )
-}
-
-Location.propTypes = {
-    data: object
 }
 
 export default Location

@@ -18,6 +18,8 @@ import ImageAndTextModel from "../models/image-and-text-model"
 import ImageAndText from "./pattern/image-and-text"
 import InfiniteCardsModel from "../models/infinite-cards-model"
 import InfiniteCards from "./pattern/infinite-cards"
+import LocationModel from "../models/location-model"
+import Location from "./pattern/location"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -126,6 +128,15 @@ const matchComponent = (model: TukanModel, index: number) => {
                 <InfiniteCards
                     key={index}
                     cards={infiniteCardsModel.cards} />
+            break
+
+        case TukanType.Location:
+            const locationModel = model as LocationModel
+            component =
+                <Location
+                    key={index}
+                    lat={locationModel.lat}
+                    lng={locationModel.lng} />
             break
     }
 

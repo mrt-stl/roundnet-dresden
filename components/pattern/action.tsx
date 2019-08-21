@@ -1,14 +1,14 @@
 
 export interface IActionProps {
-    backgroundColor: string
     content: string
+    backgroundColor?: string
     link?: string
     linkContent?: string
     linkIsBlank?: boolean
 }
 
 const Action = (props: IActionProps) => {
-    const backgroundColor = props.backgroundColor
+    const backgroundColor = props.backgroundColor ? props.backgroundColor : "white"
     const content = props.content
     const link = props.link
     const linkContent = props.linkContent

@@ -152,7 +152,7 @@ img {
 	text-align: center;
 }
 
-.page-container {
+.tukan-container {
 	margin-top: 48px;
 }
 

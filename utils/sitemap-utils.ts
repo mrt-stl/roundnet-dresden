@@ -2,11 +2,10 @@ import sitemap from "sitemap"
 
 /**
  * Creates sitemap
- * 
  * @param host is the standard host
  * @param pages data from all pages
  */
-export const createSiteMap = (host: string, pages: Array<any>): string => {
+export const createSiteMap = (host: string, pages: any[]): string => {
     const urls = []
 
     for (const page of pages) {

@@ -1,34 +1,22 @@
 import Meta from "../components/meta"
 import Nav from "../components/navigation/nav"
 import { getByUid } from "../networking/prismic-api"
-import PatternWrapper from "../components/pattern-wrapper"
+import TukanContainer from "../components/tukan-container"
 import CookieNotification from "../components/pattern/cookie-notification"
 import { asText } from "../utils/prismic-utils"
 import Love from "../components/pattern/love"
 import EditButton from "../components/pattern/edit-button"
 import crypto from "crypto"
-import parser from "accept-language-parser"
 import { cacheControlHeader } from "../utils/cache-utils"
 import Error from "./_error"
+import { prismicPageToComponentModels } from "../controller/prismic-controller"
 
-const Index = ({ results, error }) => {
+const Index = ({ error, docId, meta, componentModels }) => {
     if (error) {
         return (<Error />)
     }
 
     const cookieLink = process.env.COOKIE && process.env.COOKIE !== "" ? process.env.COOKIE : null
-
-    // Get language
-    let languageFilter = "de-de"
-    try {
-        languageFilter = navigator.language
-    } catch (e) {
-        // do nothing here
-    }
-
-    const docByLang = filterByLanguage(languageFilter, results)
-    const meta = createMeta(docByLang)
-    const body = docByLang.data.body
 
     return (
         <div className="gemacht-mit-stadtteilliebe">
@@ -36,15 +24,15 @@ const Index = ({ results, error }) => {
                 data={meta} />
 
             <Nav />
-            <PatternWrapper
-                body={body} />
+            <TukanContainer
+                tukanModels={componentModels} />
 
             {cookieLink !== null ?
                 <CookieNotification
                     link={cookieLink} /> :
                 <div />}
             <EditButton
-                docId={docByLang.id} />
+                docId={docId} />
             <Love />
         </div>
     )
@@ -60,22 +48,30 @@ Index.getInitialProps = async ({ query, res }) => {
             error: docs.error
         }
     }
-    const results = docs.results
 
+    const results = docs.results
     if (res) {
         const etag = createEtag(docs.results)
         res.setHeader("X-version", etag)
         res.setHeader("Cache-Control", cacheControlHeader())
     }
 
+    const docByLang = results[0]
+    const docId = docByLang.id
+    const meta = createMeta(docByLang)
+
+    const componentModels = prismicPageToComponentModels(docs)
+
     return {
-        results
+        docId,
+        meta,
+        componentModels
     }
 }
 
 // Filter docs by language
+/*
 const filterByLanguage = (langFilter, results) => {
-    // Languages that are available from prismic
     const docLangs = []
     for (const result of results) {
         docLangs.push(result.lang)
@@ -89,6 +85,7 @@ const filterByLanguage = (langFilter, results) => {
     filteredResult = filteredResult.length > 0 ? filteredResult[0] : results[0]
     return filteredResult
 }
+*/
 
 // Get meta data
 const createMeta = (docs) => {

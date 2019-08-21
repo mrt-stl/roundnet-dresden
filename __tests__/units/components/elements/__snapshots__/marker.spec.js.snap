@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Marker component Matches the snapshot 1`] = `
+<div
+  className="jsx-4136012813 marker-container"
+>
+  <img
+    className="jsx-4136012813"
+    src="/static/icon/marker.svg"
+  />
+</div>
+`;

@@ -11,16 +11,12 @@ import { cacheControlHeader } from "../utils/cache-utils"
 import Error from "./_error"
 import { prismicPageToComponentModels } from "../controller/prismic-controller"
 
-const Index = ({ results, error, componentModels }) => {
+const Index = ({ error, docId, meta, componentModels }) => {
     if (error) {
         return (<Error />)
     }
 
     const cookieLink = process.env.COOKIE && process.env.COOKIE !== "" ? process.env.COOKIE : null
-
-    // TODO refactor lang
-    const docByLang = results[0]
-    const meta = createMeta(docByLang)
 
     return (
         <div className="gemacht-mit-stadtteilliebe">
@@ -36,7 +32,7 @@ const Index = ({ results, error, componentModels }) => {
                     link={cookieLink.link} /> :
                 <div />}
             <EditButton
-                docId={docByLang.id} />
+                docId={docId} />
             <Love />
         </div>
     )
@@ -60,10 +56,15 @@ Index.getInitialProps = async ({ query, res }) => {
         res.setHeader("Cache-Control", cacheControlHeader())
     }
 
+    const docByLang = results[0]
+    const docId = docByLang.id
+    const meta = createMeta(docByLang)
+
     const componentModels = prismicPageToComponentModels(docs)
 
     return {
-        results,
+        docId,
+        meta,
         componentModels
     }
 }

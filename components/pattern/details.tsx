@@ -6,13 +6,13 @@ interface IDetailsCard {
 }
 
 export interface IDetailsProps {
-    backgroundColor: string
     cards: IDetailsCard[]
+    backgroundColor?: string
 }
 
 const Details = (props: IDetailsProps) => {
-    const backgroundColor = props.backgroundColor
     const cards = props.cards
+    const backgroundColor = props.backgroundColor ? props.backgroundColor : "white"
 
     const details = cards.map((detail, index) => {
 

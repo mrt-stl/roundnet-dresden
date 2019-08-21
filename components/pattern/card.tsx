@@ -1,7 +1,7 @@
 import parse from "html-react-parser"
 import LazyLoad from "react-lazyload"
 
-interface ICardProps {
+export interface ICardProps {
     title?: string
     content?: string
     imgSrc?: string
@@ -30,12 +30,12 @@ const Card = (props: ICardProps) => {
         <div />
 
     // Title
-    const titleContainer = title !== "" ?
+    const titleContainer = title !== null && title !== "" ?
         parse(title) :
         <div />
 
     // Content
-    const contentContainer = content !== "" ?
+    const contentContainer = content && content !== "" ?
         parse(content) :
         <div />
 

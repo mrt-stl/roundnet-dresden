@@ -122,8 +122,8 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const infiniteCards: CardModel[] = []
             for (const cardsItem of infiniteCardsItems) {
 
-                const itemTitle: string = asHtml(cardsItem.detail_title)
-                const itemContent: string = asHtml(cardsItem.detail_content)
+                const itemTitle: string = asHtml(cardsItem.card_title)
+                const itemContent: string = asHtml(cardsItem.card_content)
                 const itemImgSrc: string = cardsItem.card_img.url
                 const itemImgAlt: string = cardsItem.card_img.alt
                 const itemLink: string = linkResolver(cardsItem.card_link)

@@ -1,20 +1,26 @@
 import { object } from "prop-types"
-import { asHtml } from "../../utils/prismic-utils"
 import parse from "html-react-parser"
 import LazyLoad from "react-lazyload"
 
-const ImageAndText = ({ data }) => {
-    const content = asHtml(data.content)
+interface IImageAndTextProps {
+    content: string
+    imgSrc: string
+    imgAlt?: string
+    imgHeight?: string | number
+}
 
-    // Get height or die tryin
-    const height = data.image ? data.image.dimensions.height.toString() + "px" : "auto"
+const ImageAndText = (props: IImageAndTextProps) => {
+    const content = props.content
+    const imgSrc = props.imgSrc
+    const imgAlt = props.imgAlt
+    const imgHeight = props.imgHeight ? props.imgHeight.toString() + "px" : "auto"
 
     return (
         <div className="image-and-text-container">
             <div className="grid align-items-center">
                 <div className="col-4">
-                    <LazyLoad height={height} offset={200}>
-                        <img src={data.image.url} alt={data.image.alt} />
+                    <LazyLoad height={imgHeight} offset={200}>
+                        <img src={imgSrc} alt={imgAlt} />
                     </LazyLoad>
                 </div>
                 <div className="col-4">

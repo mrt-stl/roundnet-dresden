@@ -14,6 +14,10 @@ import HeroImageModel from "../models/hero-image-model"
 import HeroImage from "./pattern/hero-image"
 import HighlightTextModel from "../models/highlight-text-model"
 import HighlightText from "./pattern/highlight-text"
+import ImageAndTextModel from "../models/image-and-text-model"
+import ImageAndText from "./pattern/image-and-text"
+import InfiniteCardsModel from "../models/infinite-cards-model"
+import InfiniteCards from "./pattern/infinite-cards"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -103,6 +107,25 @@ const matchComponent = (model: TukanModel, index: number) => {
                 <HighlightText
                     key={index}
                     content={highlightTextModel.content} />
+            break
+
+        case TukanType.ImageAndText:
+            const iatModel = model as ImageAndTextModel
+            component =
+                <ImageAndText
+                    key={index}
+                    content={iatModel.content}
+                    imgSrc={iatModel.imgSrc}
+                    imgAlt={iatModel.imgAlt}
+                    imgHeight={iatModel.imgHeight} />
+            break
+
+        case TukanType.InfiniteCards:
+            const infiniteCardsModel = model as InfiniteCardsModel
+            component =
+                <InfiniteCards
+                    key={index}
+                    cards={infiniteCardsModel.cards} />
             break
     }
 

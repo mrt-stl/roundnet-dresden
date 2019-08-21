@@ -73,6 +73,15 @@ test("infinite cards model has three cards", () => {
     expect(icModel.cards.length).toBe(3)
 })
 
+const icModelCard = icModel.cards[0]
+test("first card model has title", () => {
+    expect(icModelCard.title).not.toBeNull()
+})
+
+test("first card model has content", () => {
+    expect(icModelCard.content).not.toBeNull()
+})
+
 const locationModels = componentModels.filter(model => model.type === TukanType.Location)
 test("page contains one or more location models", () => {
     expect(locationModels.length).toBeGreaterThan(0)

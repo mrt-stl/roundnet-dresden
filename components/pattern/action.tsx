@@ -8,8 +8,8 @@ export interface IActionProps {
 }
 
 const Action = (props: IActionProps) => {
-    const backgroundColor = props.backgroundColor ? props.backgroundColor : "white"
     const content = props.content
+    const backgroundColor = props.backgroundColor ? props.backgroundColor : "white"
     const link = props.link
     const linkContent = props.linkContent
     const linkIsBlank = props.linkIsBlank
@@ -27,7 +27,7 @@ const Action = (props: IActionProps) => {
                     {link ?
                         <div>
                             {linkIsBlank ?
-                                <a href={link} className="link-content" target="blank" rel="noopener">{linkContent}</a> :
+                                <a href={link} className="link-content" target="_blank" rel="noopener">{linkContent}</a> :
                                 <a href={link} className="link-content">{linkContent}</a>
                             }
                         </div> :

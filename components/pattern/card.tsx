@@ -30,7 +30,7 @@ const Card = (props: ICardProps) => {
         <div />
 
     // Title
-    const titleContainer = title !== null && title !== "" ?
+    const titleContainer = title && title !== "" ?
         parse(title) :
         <div />
 

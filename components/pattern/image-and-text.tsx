@@ -2,7 +2,7 @@ import { object } from "prop-types"
 import parse from "html-react-parser"
 import LazyLoad from "react-lazyload"
 
-interface IImageAndTextProps {
+export interface IImageAndTextProps {
     content: string
     imgSrc: string
     imgAlt?: string

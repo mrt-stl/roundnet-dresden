@@ -1,6 +1,6 @@
 import parse from "html-react-parser"
 
-interface IHighlightTextProps {
+export interface IHighlightTextProps {
     content: string
 }
 

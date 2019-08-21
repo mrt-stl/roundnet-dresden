@@ -3,7 +3,7 @@ import parse from "html-react-parser"
 import TextareaAutosize from "react-autosize-textarea"
 import { sendContactMail } from "../../networking/mail-api"
 
-interface IContactProps {
+export interface IContactProps {
     targetMail: string
     title?: string
     content?: string

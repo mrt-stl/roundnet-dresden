@@ -1,5 +1,5 @@
 
-interface IActionProps {
+export interface IActionProps {
     backgroundColor: string
     content: string
     link?: string

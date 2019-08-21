@@ -1,6 +1,6 @@
 import LazyLoad from "react-lazyload"
 
-interface IHeroImageProps {
+export interface IHeroImageProps {
     imgSrc: string
     imgAlt?: string
     title?: string

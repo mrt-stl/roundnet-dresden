@@ -1,6 +1,6 @@
 import parse from "html-react-parser"
 
-interface IFocusProps {
+export interface IFocusProps {
     content: string
 }
 

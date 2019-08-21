@@ -1,6 +1,6 @@
 import LazyLoad from "react-lazyload"
 
-interface IAtmosphericProps {
+export interface IAtmosphericProps {
     imgSrc: string,
     imgAlt?: string
 }

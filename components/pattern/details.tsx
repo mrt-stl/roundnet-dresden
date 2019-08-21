@@ -5,7 +5,7 @@ interface IDetailsCard {
     content?: string
 }
 
-interface IDetailsProps {
+export interface IDetailsProps {
     backgroundColor: string
     items: IDetailsCard[]
 }

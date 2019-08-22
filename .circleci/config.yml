@@ -6,124 +6,122 @@ version: 2
 jobs:
   test:
     docker:
-    - image: circleci/node:11.15.0
+      - image: circleci/node:11.15.0
 
     working_directory: ~/repo
 
     steps:
-    - checkout
+      - checkout
 
-    - restore_cache:
-        keys:
-        - v1-dependencies-{{ checksum "package.json" }}
-        - v1-dependencies-
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
 
-    - run: 
-        name: Installing
-        command: yarn install
+      - run:
+          name: Installing
+          command: yarn install
 
-    - save_cache:
-        paths:
-        - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
 
-    - run: 
-        name: Building
-        command: yarn build
+      - run:
+          name: Building
+          command: yarn build
 
-    - run: 
-        name: Linting
-        command: yarn lint
+      - run:
+          name: Linting
+          command: yarn lint
 
-    - run:
-        name: Testing
-        command: yarn test
-
+      - run:
+          name: Testing
+          command: yarn test
 
   dev-build-and-deploy:
     docker:
-    - image: circleci/node:11.15.0
+      - image: circleci/node:11.15.0
 
     working_directory: ~/repo
 
     steps:
-    - checkout
+      - checkout
 
-    - restore_cache:
-        keys:
-        - v1-dependencies-{{ checksum "package.json" }}
-        - v1-dependencies-
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
 
-    - run: yarn install
+      - run: yarn install
 
-    - save_cache:
-        paths:
-        - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
 
-    - run:
-        name: Deploy to Development
-        command: yarn deploy-dev --token ${NOW_TOKEN}
+      - run:
+          name: Deploy to Development
+          command: yarn deploy-dev --token ${NOW_TOKEN}
 
   beta-build-and-deploy:
     docker:
-    - image: circleci/node:11.15.0
+      - image: circleci/node:11.15.0
 
     working_directory: ~/repo
 
     steps:
-    - checkout
+      - checkout
 
-    - restore_cache:
-        keys:
-        - v1-dependencies-{{ checksum "package.json" }}
-        - v1-dependencies-
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
 
-    - run: yarn install
+      - run: yarn install
 
-    - save_cache:
-        paths:
-        - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
 
-    - run:
-        name: Deploy to Beta
-        command: yarn deploy-beta --token ${NOW_TOKEN} --alex ${NOW_TOKEN_ALEXFI}
+      - run:
+          name: Deploy to Beta
+          command: yarn deploy-beta --token ${NOW_TOKEN} --alex ${NOW_TOKEN_ALEXFI}
 
   prod-build-and-deploy:
     docker:
-    - image: circleci/node:11.15.0
+      - image: circleci/node:11.15.0
 
     working_directory: ~/repo
 
     steps:
-    - checkout
+      - checkout
 
-    - restore_cache:
-        keys:
-        - v1-dependencies-{{ checksum "package.json" }}
-        - v1-dependencies-
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
 
-    - run: yarn install
+      - run: yarn install
 
-    - save_cache:
-        paths:
-        - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
 
-    - run:
-        name: Deploy to Production
-        command: yarn deploy-prod --token ${NOW_TOKEN}
+      - run:
+          name: Deploy to Production
+          command: yarn deploy-prod --token ${NOW_TOKEN}
 
 workflows:
   version: 2
   build-deploy:
     jobs:
-      - test:
-          filters:
-            branches:
-              ignore: development
+      - test
       - dev-build-and-deploy:
+          requires:
+            - test
           filters:
             branches:
               only: development
@@ -139,6 +137,3 @@ workflows:
           filters:
             branches:
               only: master
-
-
-

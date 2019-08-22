@@ -11,6 +11,9 @@ const createCmd = function (deployCmd, project) {
 
     let cmd = deployCmd.replace("[FILE]", file)
 
+    // Add id
+    cmd = cmd + " -b PROJECT_ID=" + stringForCmd(project.project_id)
+
     // Add url
     cmd = cmd + " -b URL=" + stringForCmd(project.url)
 

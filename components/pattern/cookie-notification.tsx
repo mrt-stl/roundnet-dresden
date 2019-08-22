@@ -1,17 +1,17 @@
 import { Component } from "react"
 import CookieUtils from "../../utils/cookie-utils"
 
-interface CookieNotificationProps {
+interface ICookieNotificationProps {
     link: string
 }
 
-class CookieNotification extends Component<CookieNotificationProps, {}> {
+class CookieNotification extends Component<ICookieNotificationProps, {}> {
 
-    state = {
+    public state = {
         acceptedCookie: true
     }
 
-    componentDidMount() {
+    public componentDidMount() {
         const cookie = CookieUtils.getSettingsCookie()
 
         // Has no cookie.
@@ -28,7 +28,7 @@ class CookieNotification extends Component<CookieNotificationProps, {}> {
         }
     }
 
-    render() {
+    public render() {
         // If cookie is accepted don't display message
         if (this.state.acceptedCookie) {
             return (<div />)
@@ -54,7 +54,7 @@ class CookieNotification extends Component<CookieNotificationProps, {}> {
                         z-index: 100;
                         width: 100%;
                         height: 48px;
-                        background-color: var(--dark); 
+                        background-color: var(--dark);
                         color: var(--white);
                     }
 
@@ -62,18 +62,18 @@ class CookieNotification extends Component<CookieNotificationProps, {}> {
                         color: var(--white);
                         text-decoration: underline;
                     }
-    
+
                     .cookie-content-container {
                         padding-left: 8px;
                         padding-right: 8px;
                         width: 100%;
                         position: relative;
                     }
-                    
+
                     .text-left {
                         display: inline;
                     }
-    
+
                     .text-right {
                         display: inline;
                         position: absolute;
@@ -81,7 +81,7 @@ class CookieNotification extends Component<CookieNotificationProps, {}> {
                         cursor: pointer;
                         text-decoration: underline;
                     }
-    
+
                     @media only screen and (max-width: 768px) {
                         .grid {
                             flex-direction: row;
@@ -89,7 +89,7 @@ class CookieNotification extends Component<CookieNotificationProps, {}> {
                         .cookie-content-container {
                             padding-left: 24px;
                             padding-right: 24px;
-                        } 
+                        }
                         .text-right {
                             position: static;
                             margin-left: 5px;
@@ -98,7 +98,6 @@ class CookieNotification extends Component<CookieNotificationProps, {}> {
                             height: 80px;
                         }
                     }
-                    
                 `}</style>
             </div>
         )
@@ -107,7 +106,7 @@ class CookieNotification extends Component<CookieNotificationProps, {}> {
     /**
      * On click handling for accepting cookie.
      */
-    onAcceptCookie = () => {
+    private onAcceptCookie = () => {
         const settings = { acceptedCookie: true }
         const settingsString = JSON.stringify(settings)
         CookieUtils.setSettingsCookie(settingsString, 30)

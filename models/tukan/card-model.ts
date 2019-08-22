@@ -1,6 +1,6 @@
 import TukanModel from "./tukan-model"
 import { TukanType } from "./tukan-types"
-import { ICardProps } from "../components/pattern/card"
+import { ICardProps } from "../../components/pattern/card"
 
 export default class CardModel extends TukanModel implements ICardProps {
     public title?: string

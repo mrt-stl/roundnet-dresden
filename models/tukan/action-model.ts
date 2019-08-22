@@ -1,7 +1,7 @@
 import TukanModel from "./tukan-model"
 import { TukanType } from "./tukan-types"
-import { isUndefinedOrNullOrEmpty } from "../utils/object-utils"
-import { IActionProps } from "../components/pattern/action"
+import { isUndefinedOrNullOrEmpty } from "../../utils/object-utils"
+import { IActionProps } from "../../components/pattern/action"
 
 export default class ActionModel extends TukanModel implements IActionProps {
     public backgroundColor: string

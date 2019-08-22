@@ -1,9 +1,9 @@
 import fs from "fs"
 import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
 import { prismicPageToComponentModels } from "../../../controller/prismic-controller"
-import { TukanType } from "../../../models/tukan-types"
-import DetailsModel from "../../../models/details-model"
-import InfiniteCardsModel from "../../../models/infinite-cards-model"
+import { TukanType } from "../../../models/tukan/tukan-types"
+import DetailsModel from "../../../models/tukan/details-model"
+import InfiniteCardsModel from "../../../models/tukan/infinite-cards-model"
 
 const pageExampleFile = __dirname + "/test-page.json"
 

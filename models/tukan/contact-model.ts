@@ -1,6 +1,6 @@
 import TukanModel from "./tukan-model"
 import { TukanType } from "./tukan-types"
-import { IContactProps } from "../components/pattern/contact"
+import { IContactProps } from "../../components/pattern/contact"
 
 export default class ContactModel extends TukanModel implements IContactProps {
     public targetMail: string

@@ -1,13 +1,12 @@
 import TukanModel from "./tukan-model"
 import { TukanType } from "./tukan-types"
-import { IRichtextProps } from "../components/pattern/richtext"
+import { IFocusProps } from "../../components/pattern/focus"
 
-export default class RichtextModel extends TukanModel implements IRichtextProps {
-
+export default class FocusModel extends TukanModel implements IFocusProps {
     public content: string
 
     constructor(content: string) {
-        super(TukanType.Richtext)
+        super(TukanType.Focus)
 
         this.content = content
     }

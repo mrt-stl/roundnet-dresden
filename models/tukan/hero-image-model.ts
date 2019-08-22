@@ -1,6 +1,6 @@
 import TukanModel from "./tukan-model"
 import { TukanType } from "./tukan-types"
-import { IHeroImageProps } from "../components/pattern/hero-image"
+import { IHeroImageProps } from "../../components/pattern/hero-image"
 
 export default class HeroImageModel extends TukanModel implements IHeroImageProps {
     public imgSrc: string

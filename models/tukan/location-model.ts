@@ -1,6 +1,6 @@
 import TukanModel from "./tukan-model"
 import { TukanType } from "./tukan-types"
-import { ILocationProps } from "../components/pattern/location"
+import { ILocationProps } from "../../components/pattern/location"
 
 export default class LocationModel extends TukanModel implements ILocationProps {
 

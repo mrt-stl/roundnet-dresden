@@ -1,12 +1,4 @@
 const Love = () => {
-    const noBanner = process.env.HAS_BANNER && Number(process.env.HAS_BANNER) === 0
-
-    if (noBanner) {
-        return (
-            <div />
-        )
-    }
-
     return (
         <div className="love-container">
             <a href="https://stadtteilliebe.de">

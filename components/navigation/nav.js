@@ -1,14 +1,16 @@
 import NavLink from "./nav-link"
 import MobileMenu from "./mobile-menu"
+import Project from "../../models/config/project"
 
 const Nav = () => {
-    const navArray = process.env.NAV ? JSON.parse(process.env.NAV) : [{ "name": "Home", "link": "/" }]
+    const project = Project.getInstance()
+    const navLinks = project.nav
 
     return (
         <div>
             <div className="nav">
                 <div className="grid-nav h-100">
-                    {navArray.map((element, index) => {
+                    {navLinks.map((element, index) => {
                         return (<div className="align-items-center" key={index}>
                             <NavLink
                                 href={element.link}
@@ -19,7 +21,7 @@ const Nav = () => {
             </div>
 
             <MobileMenu
-                links={navArray} />
+                links={navLinks} />
 
             <style jsx>{`
                 .nav {

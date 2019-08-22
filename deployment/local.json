@@ -23,10 +23,12 @@
             "ACCESS_TOKEN": "MC5YTWJpUFJFQUFDSUF0MzB2.77-977-977-977-9ae-_ve-_ve-_ve-_ve-_vWzvv70a77-9Yu-_vRvvv73vv71m77-977-977-9fGFE77-9Q0Hvv73vv70k",
             "NAV": "[ {\"name\": \"Home\", \"link\": \"/\"} ]",
             "FONT": "{\"url\": \"https://use.typekit.net/zvs7feh.css\", \"name\": \"neue-haas-unica\" }",
-            "COOKIE": "https://stadtteilliebe.de/datenschutz",
-            "COLORS": "{ \"primary\": \"#3c3c3c\", \"secondary\": \"#8caaaa\", \"accent\": \"#ea918c\" }",
+            "COOKIE": "{\"link\": \"https://stadtteilliebe.de/datenschutz\"}",
+            "COLORS": "{ \"primary\": \"\", \"secondary\": \"\", \"accent\": \"\" }",
             "DARK_MODE": "auto",
-            "CACHING_TIME": "0"
+            "CACHING_TIME": "0",
+            "PROJECT_ID": "stl",
+            "HAS_BANNER": "on"
         }
     },
     "routes": [

@@ -10,30 +10,41 @@ import crypto from "crypto"
 import { cacheControlHeader } from "../utils/cache-utils"
 import Error from "./_error"
 import { prismicPageToComponentModels } from "../controller/prismic-controller"
+import Project, { ShowBannerType } from "../models/config/project"
 
 const Index = ({ error, docId, meta, componentModels }) => {
     if (error) {
         return (<Error />)
     }
 
-    const cookieLink = process.env.COOKIE && process.env.COOKIE !== "" ? process.env.COOKIE : null
+    const project = Project.getInstance()
+    const showCookieNotification = project.cookieLink !== null
+    const showBanner = project.showBanner === ShowBannerType.ON
 
     return (
         <div className="gemacht-mit-stadtteilliebe">
             <Meta
+                project={project}
                 data={meta} />
 
             <Nav />
+
             <TukanContainer
                 tukanModels={componentModels} />
 
-            {cookieLink !== null ?
+            {showCookieNotification ?
                 <CookieNotification
-                    link={cookieLink} /> :
-                <div />}
+                    link={project.cookieLink} /> :
+                <div />
+            }
+
             <EditButton
                 docId={docId} />
-            <Love />
+
+            {showBanner ?
+                <Love /> :
+                <div />
+            }
         </div>
     )
 }

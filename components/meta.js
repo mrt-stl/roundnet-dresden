@@ -2,41 +2,39 @@ import Head from "next/head"
 import { tukan } from "./style/tukan"
 import { grid } from "./style/binary-grid"
 import { string, object } from "prop-types"
+import { DarkModeType } from "../models/config/project"
 
 const Meta = (props) => {
+    const project = props.project
+
     // Icon urls
-    const projectName = process.env.NAME ? process.env.NAME : "kranich-stl"
+    const projectName = project.name ? project.name : "kranich-stl"
     const iconCDN = "https://s3.eu-central-1.amazonaws.com/kranich/icons/" + projectName + "/"
 
     // Set colors
-    const definedColors = process.env.COLORS ? JSON.parse(process.env.COLORS) : process.env.COLORS
+    const projectColors = project.colors
+    let colors = defaultColors
+    let darkModeColors
 
-    const darkMode = process.env.DARK_MODE ? process.env.DARK_MODE : "off"
-
-    let colors, darkModeColors
-    switch (darkMode) {
-        case "on":
+    switch (project.darkMode) {
+        case DarkModeType.ON:
             colors = defaultDarkModeColors
             darkModeColors = defaultDarkModeColors
             break
 
-        case "auto":
-            colors = defaultColors
-            if (definedColors) {
-                colors.primary = definedColors.primary
-                colors.secondary = definedColors.secondary
-                colors.accent = definedColors.accent
-            }
+        case DarkModeType.AUTO:
+            colors.primary = projectColors.primary !== "" ? projectColors.primary : defaultColors.primary
+            colors.secondary = projectColors.secondary !== "" ? projectColors.secondary : defaultColors.secondary
+            colors.accent = projectColors.accent !== "" ? projectColors.accent : defaultColors.accent
+
             darkModeColors = defaultDarkModeColors
             break
 
         default:
-            colors = defaultColors
-            if (definedColors) {
-                colors.primary = definedColors.primary
-                colors.secondary = definedColors.secondary
-                colors.accent = definedColors.accent
-            }
+            colors.primary = projectColors.primary !== "" ? projectColors.primary : defaultColors.primary
+            colors.secondary = projectColors.secondary !== "" ? projectColors.secondary : defaultColors.secondary
+            colors.accent = projectColors.accent !== "" ? projectColors.accent : defaultColors.accent
+
             darkModeColors = colors
             break
     }
@@ -45,18 +43,16 @@ const Meta = (props) => {
 
     // Set font or go to default font
     let fontUrl, fontName
-    if (process.env.FONT) {
-        const fontJson = JSON.parse(process.env.FONT)
-        fontUrl = fontJson.url
-        fontName = fontJson.name
+    if (project.font) {
+        fontUrl = project.font.url
+        fontName = project.font.name
 
     } else {
         fontUrl = "https://fonts.googleapis.com/css?family=Muli:400,700&display=swap"
         fontName = "Muli"
     }
 
-    // Google Analytics ID
-    const gaId = process.env.GA
+    const gaID = project.googleAnalyticsID
 
     return (
         <div>
@@ -90,15 +86,15 @@ const Meta = (props) => {
                 <link rel="icon" type="image/png" sizes="96x96" href={iconCDN + "favicon-96x96.png"}></link>
                 <link rel="icon" type="image/png" sizes="16x16" href={iconCDN + "favicon-16x16.png"}></link>
 
-                {gaId && gaId !== "" ?
-                    <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaId} async></script> :
+                {gaID && gaID !== "" ?
+                    <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaID} async></script> :
                     <script />
                 }
 
-                {gaId && gaId !== "" ?
+                {gaID && gaID !== "" ?
                     <script dangerouslySetInnerHTML={{
                         __html: `
-                    window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${gaId}');
+                    window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${gaID}');
                     `}} /> :
                     <script />
                 }
@@ -106,7 +102,7 @@ const Meta = (props) => {
                 <script dangerouslySetInnerHTML={{
                     __html: `
                     window.prismic = {
-                        endpoint: "${process.env.PRISMIC_ENDPOINT}"
+                        endpoint: "${project.prismicEndpoint}"
                     };`
                 }} />
 

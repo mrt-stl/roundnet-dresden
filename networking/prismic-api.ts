@@ -1,13 +1,15 @@
 import Prismic from "prismic-javascript"
-import { config } from "../config"
 import { logError } from "../utils/rollbar-utils"
+import Project from "../models/config/project"
 
 /**
  * Prepare prismic API
  */
 const prismicApi = async () => {
-    const endpoint = process.env.PRISMIC_ENDPOINT ? process.env.PRISMIC_ENDPOINT : config.PRISMIC_ENDPOINT
-    const accessToken = process.env.ACCESS_TOKEN ? process.env.ACCESS_TOKEN : config.ACCESS_TOKEN
+    const project = Project.getInstance()
+
+    const endpoint = project.prismicEndpoint
+    const accessToken = project.prismicAccessToken
 
     const api = await Prismic.api(endpoint, {
         accessToken

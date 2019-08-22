@@ -39,31 +39,43 @@ const Card = (props: ICardProps) => {
         parse(content) :
         <div />
 
+    const cardContentContainer = title || content ?
+        <div style={{ paddingBottom: "16px", paddingLeft: "16px", paddingRight: "16px" }}>
+            {titleContainer}
+            {contentContainer}
+        </div> :
+        <></>
+
     return (
         <div className="card-container">
             {link ?
                 <div className="link-container">
                     <a href={link} target={target} rel={rel}>
                         {imgContainer}
-                        {titleContainer}
-                        {contentContainer}
+                        {cardContentContainer}
+
                     </a>
                 </div> :
                 <div>
                     {imgContainer}
-                    {titleContainer}
-                    {contentContainer}
+                    {cardContentContainer}
                 </div>
             }
 
             <style jsx>{`
                 .link-container:hover {
-                    opacity: 0.4;
-                    transition: .3s ease-out;
+                    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 24px 0px;
+                    transition: 0.8s ease-out;
                 }
 
                 a {
                     color: var(--primary);
+                }
+
+                .card-content-container {
+                    padding-bottom: 16px;
+                    padding-left: 16px;
+                    padding-right: 16px;
                 }
             `}</style>
         </div>

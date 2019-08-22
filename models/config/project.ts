@@ -3,8 +3,21 @@ const standardNav = { link: "/", name: "Home" }
 
 export default class Project {
 
-    public projectId: string
+    public static getInstance(): Project {
+        if (!Project.instance) {
+            Project.instance = new Project()
+        }
 
+        return Project.instance
+    }
+
+    public static clearInstance() {
+        Project.instance = null
+    }
+
+    private static instance: Project
+
+    public projectId: string
     public cachingTime: number
     public colors: IColors
     public cookieLink?: string | null
@@ -18,7 +31,9 @@ export default class Project {
     public showBanner: string
     public url?: string | null
 
-    constructor() {
+    private constructor() { this.init() }
+
+    private init() {
         this.projectId = process.env.PROJECT_ID ? process.env.PROJECT_ID : ""
         this.cachingTime = this.parseCacheTime(process.env.CACHING_TIME)
         this.colors = process.env.COLORS ? JSON.parse(process.env.COLORS) : {}

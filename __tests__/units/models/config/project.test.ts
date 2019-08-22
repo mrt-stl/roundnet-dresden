@@ -5,7 +5,7 @@ describe("Project Environment Variables are not set", () => {
         jest.resetModules()
     })
 
-    const project = new Project()
+    const project = Project.getInstance()
 
     test("Caching time is not right", () => {
         expect(project.cachingTime).toBe(15 * 60)
@@ -93,7 +93,8 @@ describe("Project Environment Variables are set", () => {
     process.env.HAS_BANNER = showBanner
     process.env.URL = url
 
-    const project = new Project()
+    Project.clearInstance()
+    const project = Project.getInstance()
 
     test("Caching time is set right", () => {
         expect(project.cachingTime).toBe(42 * 60)

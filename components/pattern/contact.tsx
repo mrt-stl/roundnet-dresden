@@ -16,16 +16,18 @@ class Contact extends Component<IContactProps, {}> {
         formButtonText: "Senden",
         name: "",
         mail: "",
-        formContent: ""
+        formContent: "",
+        textareaIsFocused: false
     }
 
     public render() {
         const { title, content } = this.props
-        const { formButtonText, formButtonDisabled, name, mail, formContent } = this.state
+        const { formButtonText, formButtonDisabled, name, mail, formContent, textareaIsFocused } = this.state
 
         const contactTitle = title ? title : ""
         const contactContent = content ? content : ""
         const btnClass = formButtonDisabled ? "disabled" : ""
+        const borderBottom = textareaIsFocused ? "2px solid var(--accent)" : "1px solid var(--primary)"
 
         return (
             <div className="contact-container">
@@ -45,6 +47,7 @@ class Contact extends Component<IContactProps, {}> {
                             type="text"
                             placeholder="Name"
                             value={name}
+                            name="fname"
                             onChange={this.onNameChange} />
                     </div>
                     <div className="col-4">
@@ -52,6 +55,7 @@ class Contact extends Component<IContactProps, {}> {
                             type="email"
                             placeholder="Mail-Adresse"
                             value={mail}
+                            name="email"
                             onChange={this.onMailChange} />
                     </div>
                 </div>
@@ -62,12 +66,14 @@ class Contact extends Component<IContactProps, {}> {
                             placeholder="Nachricht"
                             value={formContent}
                             onChange={this.onFormContentChange}
+                            onFocus={this.onTextareaFocus}
+                            onBlur={this.onTextareaBlur}
                             style={{
                                 minHeight: "48px",
                                 width: "100%",
                                 border: "none",
                                 borderRadius: "0px",
-                                borderBottom: "1px solid var(--primary)",
+                                borderBottom,
                                 margin: "8px 0px",
                                 resize: "none",
                                 padding: "0px",
@@ -107,10 +113,12 @@ class Contact extends Component<IContactProps, {}> {
                         -webkit-appearance: none;
                         -moz-appearance: none;
                         padding: 0px;
+                        outline: none;
                     }
 
-                    :focus {
-                        outline: none;
+                    input[type=text]:focus, input[type=email]:focus, textarea:focus {
+                        transition: 0.3s ease-out;
+                        border-bottom: 2px solid var(--accent);
                     }
 
                     ::placeholder {
@@ -174,6 +182,14 @@ class Contact extends Component<IContactProps, {}> {
         } else {
             this.setState({ formButtonText: "Fülle alle Felder aus!" })
         }
+    }
+
+    private onTextareaFocus = () => {
+        this.setState({ textareaIsFocused: true })
+    }
+
+    private onTextareaBlur = () => {
+        this.setState({ textareaIsFocused: false })
     }
 }
 

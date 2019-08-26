@@ -1,3 +1,5 @@
+import { logError } from "../../utils/rollbar-utils";
+
 const MIN = 60
 const standardNav = { link: "/", name: "Home" }
 
@@ -36,17 +38,27 @@ export default class Project {
     private init() {
         this.projectId = process.env.PROJECT_ID ? process.env.PROJECT_ID : ""
         this.cachingTime = this.parseCacheTime(process.env.CACHING_TIME)
-        this.colors = process.env.COLORS ? JSON.parse(process.env.COLORS) : {}
-        this.cookieLink = process.env.COOKIE ? JSON.parse(process.env.COOKIE).link : null
+        this.colors = this.parse(process.env.COLORS) ? JSON.parse(process.env.COLORS) : {}
+        this.cookieLink = this.parse(process.env.COOKIE)
         this.darkMode = process.env.DARK_MODE ? process.env.DARK_MODE : DarkModeType.OFF
-        this.font = process.env.FONT ? JSON.parse(process.env.FONT) : null
+        this.font = this.parse(process.env.FONT)
         this.googleAnalyticsID = process.env.GA ? process.env.GA : null
         this.name = process.env.NAME ? process.env.NAME : null
-        this.nav = process.env.NAV ? JSON.parse(process.env.NAV) : [standardNav]
+        this.nav = this.parse(process.env.NAV) ? JSON.parse(process.env.NAV) : [standardNav]
         this.prismicAccessToken = process.env.ACCESS_TOKEN ? process.env.ACCESS_TOKEN : null
         this.prismicEndpoint = process.env.PRISMIC_ENDPOINT ? process.env.PRISMIC_ENDPOINT : null
         this.showBanner = process.env.HAS_BANNER ? process.env.HAS_BANNER : ShowBannerType.OFF
         this.url = process.env.URL ? process.env.URL : null
+    }
+
+    private parse = (envVar: any) => {
+        try {
+            const parsedVar = JSON.parse(envVar)
+            return parsedVar
+        } catch (e) {
+            logError(e)
+            return null
+        }
     }
 
     private parseCacheTime(envVar: any) {

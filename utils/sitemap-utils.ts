@@ -1,4 +1,4 @@
-import sitemap from "sitemap"
+import { createSitemap } from "sitemap"
 
 /**
  * Creates sitemap
@@ -13,7 +13,7 @@ export const createSiteMap = (host: string, pages: any[]): string => {
         urls.push({ url })
     }
 
-    const createdSitemap = sitemap.createSitemap({
+    const createdSitemap = createSitemap({
         hostname: host,
         urls,
         cacheTime: 1000 * 60 * 60 * 24

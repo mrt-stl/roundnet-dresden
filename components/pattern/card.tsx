@@ -64,8 +64,8 @@ const Card = (props: ICardProps) => {
 
             <style jsx>{`
                 .link-container:hover {
-                    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 24px 0px;
-                    transition: 0.8s ease-out;
+                    opacity: 0.4;
+                    transition: 0.3s ease-out;
                 }
 
                 a {

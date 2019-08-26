@@ -9,7 +9,7 @@ const Meta = (props) => {
     const project = props.project
 
     // Icon urls
-    const projectId = isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "kranich-stl"
+    const projectId = !isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "kranich-stl"
     const iconCDN = "https://s3.eu-central-1.amazonaws.com/kranich/icons/" + projectId + "/"
 
     // Set colors

@@ -32,12 +32,12 @@ jobs:
           command: yarn build
 
       - run:
-          name: Linting
-          command: yarn lint
-
-      - run:
           name: Testing
           command: yarn test
+
+      - run:
+          name: Linting
+          command: yarn lint
 
   dev-build-and-deploy:
     docker:

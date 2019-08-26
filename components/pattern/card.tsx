@@ -17,11 +17,11 @@ const Card = (props: ICardProps) => {
 
     // Image
     const imgContainer = imgSrc ?
-        <LazyLoad height={"256px"} offset={200}>
+        <LazyLoad height={"320px"} offset={200}>
             <img src={imgSrc} alt={imgAlt} />
             <style jsx>{`
                 img {
-                    height: 256px;
+                    height: 320px;
                     width: 100%;
                     object-fit: cover;
                 }

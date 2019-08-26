@@ -43,7 +43,7 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const actionBackgroundColor = actionPrimary.action_color
             const actionLink = linkResolver(actionPrimary.action_link)
             const actionLinkIsBlank = actionPrimary.action_link ? actionPrimary.action_link.target === "_blank" : false
-            const actionLinkContent = actionPrimary.action_link_text ? asText(actionPrimary.action_content) : null
+            const actionLinkContent = actionPrimary.action_link_text ? asText(actionPrimary.action_link_text) : null
 
             const action = new ActionModel(actionContent, actionBackgroundColor, actionLink, actionLinkIsBlank, actionLinkContent)
             return action

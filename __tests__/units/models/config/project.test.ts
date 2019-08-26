@@ -81,7 +81,7 @@ describe("Project Environment Variables are set", () => {
 
     process.env.CACHING_TIME = cachingTimeEnv
     process.env.COLORS = JSON.stringify(colors)
-    process.env.COOKIE = JSON.stringify({ link: cookieLink })
+    process.env.COOKIE = cookieLink
     process.env.DARK_MODE = darkMode
     process.env.FONT = JSON.stringify(font)
     process.env.GA = gaEnv

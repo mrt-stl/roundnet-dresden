@@ -1,4 +1,4 @@
-import { logError } from "../../utils/rollbar-utils";
+import { logError } from "../../utils/rollbar-utils"
 
 const MIN = 60
 const standardNav = { link: "/", name: "Home" }

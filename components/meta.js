@@ -3,13 +3,14 @@ import { tukan } from "./style/tukan"
 import { grid } from "./style/binary-grid"
 import { string, object } from "prop-types"
 import { DarkModeType } from "../models/config/project"
+import { isUndefinedOrNullOrEmpty } from "../utils/object-utils"
 
 const Meta = (props) => {
     const project = props.project
 
     // Icon urls
-    const projectName = project.name ? project.name : "kranich-stl"
-    const iconCDN = "https://s3.eu-central-1.amazonaws.com/kranich/icons/" + projectName + "/"
+    const projectId = isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "kranich-stl"
+    const iconCDN = "https://s3.eu-central-1.amazonaws.com/kranich/icons/" + projectId + "/"
 
     // Set colors
     const projectColors = project.colors

@@ -39,7 +39,7 @@ export default class Project {
         this.projectId = process.env.PROJECT_ID ? process.env.PROJECT_ID : ""
         this.cachingTime = this.parseCacheTime(process.env.CACHING_TIME)
         this.colors = this.parse(process.env.COLORS) ? JSON.parse(process.env.COLORS) : {}
-        this.cookieLink = this.parse(process.env.COOKIE)
+        this.cookieLink = this.parse(process.env.COOKIE) ? this.parse(process.env.COOKIE).link : null
         this.darkMode = process.env.DARK_MODE ? process.env.DARK_MODE : DarkModeType.OFF
         this.font = this.parse(process.env.FONT)
         this.googleAnalyticsID = process.env.GA ? process.env.GA : null
@@ -52,6 +52,10 @@ export default class Project {
     }
 
     private parse = (envVar: any) => {
+        if (!envVar) {
+            return null
+        }
+
         try {
             const parsedVar = JSON.parse(envVar)
             return parsedVar

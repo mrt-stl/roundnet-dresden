@@ -9,7 +9,7 @@ const Nav = () => {
     return (
         <div>
             <div className="nav">
-                <div className="one-row-grid inner-nav h-100">
+                <div className="grid no-wrap inner-nav h-100">
                     {navLinks.map((element, index) => {
                         return (<div className="align-items-center" key={index}>
                             <NavLink

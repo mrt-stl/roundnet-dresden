@@ -17,15 +17,8 @@ export const grid = <style jsx global>{`
     padding-right: var(--grid-padding);
 }
 
-.one-row-grid {
-    display: flex;
-    flex-direction: row;
+.no-wrap {
     flex-wrap: nowrap;
-    max-width: var(--grid-width);
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: var(--grid-padding);
-    padding-right: var(--grid-padding);
 }
 
 .col, 

@@ -1,13 +1,31 @@
 export const grid = <style jsx global>{`
 
+:root {
+    --grid-width: 1280px;
+    --grid-padding: 12px;
+    --col-padding: 12px;
+}
+
 .grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 1024px;
-    width: 100%;
+    max-width: var(--grid-width);
     margin-right: auto;
     margin-left: auto;
+    padding-left: var(--grid-padding);
+    padding-right: var(--grid-padding);
+}
+
+.one-row-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-width: var(--grid-width);
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: var(--grid-padding);
+    padding-right: var(--grid-padding);
 }
 
 .col, 
@@ -16,7 +34,7 @@ export const grid = <style jsx global>{`
 .col-4,
 .col-6,
 .col-8 {
-    padding: 8px;
+    padding: 8px var(--col-padding);
     box-sizing: border-box;
 }
 
@@ -64,6 +82,8 @@ export const grid = <style jsx global>{`
 @media only screen and (max-width: 768px) {
     .grid {
         flex-direction: column;
+        padding-left: 0px;
+        padding-right: 0px;
     }
     .col, 
     .col-1,

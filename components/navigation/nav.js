@@ -9,7 +9,7 @@ const Nav = () => {
     return (
         <div>
             <div className="nav">
-                <div className="grid-nav h-100">
+                <div className="one-row-grid inner-nav h-100">
                     {navLinks.map((element, index) => {
                         return (<div className="align-items-center" key={index}>
                             <NavLink
@@ -34,21 +34,12 @@ const Nav = () => {
                     background-color: var(--background);
                 }
 
-                .grid-nav {
-                    display: flex;
-                    flex-direction: row;
-                    max-width: 1024px;
-                    width: 100%;
-                    margin-right: auto;
-                    margin-left: auto;
-                }
-
                 .nav-link {
                     color: var(--primary);
                 }
 
                 @media only screen and (max-width: 768px) {
-                    .grid-nav {
+                    .inner-nav {
                         display: none;
                     }
                 }

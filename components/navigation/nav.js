@@ -34,6 +34,11 @@ const Nav = () => {
                     background-color: var(--background);
                 }
 
+                .inner-nav {
+                    padding-left: calc(var(--col-padding) + var(--grid-padding));
+                    padding-right: calc(var(--col-padding) + var(--grid-padding));
+                }
+
                 .nav-link {
                     color: var(--primary);
                 }

@@ -12,13 +12,14 @@ export const tukan = (fontName, colors, darkModeColors) => {
     --all-gray-10: ${colors.allGray10};
     --all-gray-20: ${colors.allGray20};
     --all-gray-30: ${colors.allGray30};
-	--all-gray-40: ${colors.allGray40};
+    --all-gray-40: ${colors.allGray40};
 	
 	--regular: 400;
     --medium: 500;
     --bold: 600;
 
     --standard-spacing: 5em;
+    --large-spacing: 6em;
 }
 
 @media (prefers-color-scheme: dark) { 

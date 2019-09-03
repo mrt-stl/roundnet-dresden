@@ -33,8 +33,6 @@ const Index = ({ error, docId, meta, componentModels }) => {
             <TukanContainer
                 tukanModels={componentModels} />
 
-            <Footer />
-
             {showCookieNotification ?
                 <CookieNotification
                     link={project.cookieLink} /> :

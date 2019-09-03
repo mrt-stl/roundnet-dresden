@@ -40,7 +40,7 @@ const Card = (props: ICardProps) => {
         <div />
 
     const cardContentContainer = title || content ?
-        <div style={{ paddingBottom: "16px", paddingLeft: "16px", paddingRight: "16px" }}>
+        <div>
             {titleContainer}
             {contentContainer}
         </div> :

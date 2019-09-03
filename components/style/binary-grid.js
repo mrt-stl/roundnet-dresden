@@ -1,7 +1,7 @@
 export const grid = <style jsx global>{`
 
 :root {
-    --grid-width: 1280px;
+    --grid-width: 1184px;
     --grid-padding: 12px;
     --col-padding: 12px;
 }

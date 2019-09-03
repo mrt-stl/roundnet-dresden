@@ -11,7 +11,6 @@ import { cacheControlHeader } from "../utils/cache-utils"
 import Error from "./_error"
 import { prismicPageToComponentModels } from "../controller/prismic-controller"
 import Project, { ShowBannerType } from "../models/config/project"
-import Footer from "../components/pattern/footer"
 
 const Index = ({ error, docId, meta, componentModels }) => {
     if (error) {

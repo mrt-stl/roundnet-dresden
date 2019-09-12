@@ -38,7 +38,7 @@ const createCmd = function (deployCmd, project) {
     }
 
     // Show banner or not
-    const showBanner = project.show_banner === "on" ? 1 : 0
+    const showBanner = project.show_banner ? project.show_banner : "off"
     cmd = cmd + " -b HAS_BANNER=" + stringForCmd(showBanner)
 
     // Add dark mode setting

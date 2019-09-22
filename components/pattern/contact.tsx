@@ -117,7 +117,6 @@ class Contact extends Component<IContactProps, {}> {
                     }
 
                     input[type=text]:focus, input[type=email]:focus, textarea:focus {
-                        transition: 0.3s ease-out;
                         border-bottom: 2px solid var(--accent);
                     }
 

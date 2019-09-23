@@ -62,9 +62,26 @@ export const grid = <style jsx global>{`
     max-width: 100%;
 }
 
+.col-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+.justify-content-start {
+    display: flex;
+    justify-content: flex-start;
+}
+
 .justify-content-center {
     display: flex;
     justify-content: center;
+}
+
+.justify-content-end {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .align-items-center {
@@ -88,6 +105,12 @@ export const grid = <style jsx global>{`
         padding-right: 24px;
         flex-basis: 100%;
         max-width: 100%;
+    }
+
+    .justify-content-start,
+    .justify-content-center,
+    .justify-content-end {
+        flex-direction: row;
     }
 }
 

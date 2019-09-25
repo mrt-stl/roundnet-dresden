@@ -1,4 +1,5 @@
 import LazyLoad from "react-lazyload"
+import { useInView } from "react-hook-inview"
 
 export interface IHeroImageProps {
     imgSrc: string
@@ -10,21 +11,23 @@ export interface IHeroImageProps {
 }
 
 const HeroImage = (props: IHeroImageProps) => {
-    const imgSrc = props.imgSrc
-    const imgAlt = props.imgAlt
-    const title = props.title
-    const link = props.link
-    const linkContent = props.linkContent
-    const linkIsBlank = props.linkIsBlank
+    const { imgSrc, imgAlt, title, link, linkContent, linkIsBlank } = props
 
     const titleContainer = title ?
         <h1 style={{ color: "var(--white)", fontSize: "3em" }}>{title}</h1> :
         <></>
 
+    const [ref, isVisible] = useInView({
+        unobserveOnEnter: true,
+        threshold: 0.2
+    })
+
+    const animationClassName = isVisible ? "fadeInUp" : ""
+
     return (
         <div className="hero-image-container">
-            <div className="hero-image-content-container text-center">
-                <div className="fadeInUp">
+            <div className="hero-image-content-container text-center" ref={ref}>
+                <div className={animationClassName}>
                     {titleContainer}
                     {link ?
                         <div>

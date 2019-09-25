@@ -1,4 +1,4 @@
-import LazyLoad from "react-lazyload"
+import TukanImage from "../elements/tukan-image"
 
 export interface IAtmosphericProps {
     imgSrc: string,
@@ -11,9 +11,10 @@ const AtmosphericImage = (props: IAtmosphericProps) => {
 
     return (
         <div className="atmo-image-container">
-            <LazyLoad height={"60vh"} offset={200}>
-                <img src={imgSrc} alt={imgAlt} />
-            </LazyLoad>
+            <TukanImage
+                src={imgSrc}
+                alt={imgAlt}
+                height="100%" />
 
             <style jsx>{`
                 .atmo-image-container {

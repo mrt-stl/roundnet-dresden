@@ -1,5 +1,5 @@
 import parse from "html-react-parser"
-import LazyLoad from "react-lazyload"
+import TukanImage from "../elements/tukan-image"
 
 export interface ICardProps {
     title?: string
@@ -17,16 +17,10 @@ const Card = (props: ICardProps) => {
 
     // Image
     const imgContainer = imgSrc ?
-        <LazyLoad height={"320px"} offset={200}>
-            <img src={imgSrc} alt={imgAlt} />
-            <style jsx>{`
-                img {
-                    height: 320px;
-                    width: 100%;
-                    object-fit: cover;
-                }
-            `}</style>
-        </LazyLoad> :
+        <TukanImage
+            src={imgSrc}
+            alt={imgAlt}
+            height="320px" /> :
         <div />
 
     // Title

@@ -159,7 +159,6 @@ pre {
 }
 
 img {
-	height: auto;
 	max-width: 100%;
 	object-fit: cover;
 }
@@ -304,6 +303,18 @@ textarea::-ms-input-placeholder {
     padding-left: 17px;
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0,0,0,.25);
+}
+
+/* Lazy load opacity effect */
+
+.lazy-load-image-background.opacity {
+    background-image: none !important;
+    opacity: 0;
+}
+
+.lazy-load-image-background.opacity.lazy-load-image-loaded {
+    opacity: 1;
+    transition: opacity 1s linear;
 }
 
 `}</style>

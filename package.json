@@ -30,6 +30,7 @@
     "react-burger-menu": "^2.6.11",
     "react-dom": "^16.9.0",
     "react-hook-inview": "^4.1.1",
+    "react-lazy-load-image-component": "^1.3.2",
     "react-lazyload": "^2.6.2",
     "rollbar": "^2.12.2",
     "sitemap": "^4.1.1"

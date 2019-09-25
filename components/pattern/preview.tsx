@@ -1,5 +1,5 @@
-import LazyLoad from "react-lazyload"
 import parse from "html-react-parser"
+import TukanImage from "../elements/tukan-image"
 
 export interface IPreviewProps {
     title: string
@@ -26,9 +26,10 @@ const Preview = (props: IPreviewProps) => {
             {imgSrc ?
                 <div className="grid">
                     <div className="col">
-                        <LazyLoad height={"512px"} offset={200}>
-                            <img src={imgSrc} alt={imgAlt} />
-                        </LazyLoad>
+                        <TukanImage
+                            src={imgSrc}
+                            alt={imgAlt}
+                            height="512px" />
                     </div>
                 </div> :
                 <div />

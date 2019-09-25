@@ -122,8 +122,7 @@ const matchComponent = (model: TukanModel, index: number) => {
                     key={index}
                     content={iatModel.content}
                     imgSrc={iatModel.imgSrc}
-                    imgAlt={iatModel.imgAlt}
-                    imgHeight={iatModel.imgHeight} />
+                    imgAlt={iatModel.imgAlt} />
             break
 
         case TukanType.InfiniteCards:

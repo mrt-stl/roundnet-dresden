@@ -140,6 +140,24 @@ hr {
 	box-sizing: content-box;
 }
 
+pre {
+    word-wrap: break-word;
+    word-break: break-word;
+    padding: 16px;
+    margin: 1em 0;
+    line-height: 1.65;
+    border: 1px solid var(--all-gray-20);
+    color: #bd10e0;
+    background: #f8f8f8;
+    overflow: auto;
+    border-radius: 4px;
+}
+
+.code {
+    font-family: monospace,monospace;
+    color: #bd10e0  
+}
+
 img {
 	height: auto;
 	max-width: 100%;

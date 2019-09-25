@@ -1,0 +1,1 @@
+export const lazyLoadImageClassName = " lazy-load-image-background opacity"

@@ -1,5 +1,6 @@
 import { create } from "react-test-renderer"
 import Card from "../../../../components/pattern/card"
+import { lazyLoadImageClassName } from "../../../utils"
 
 const title = "<h1>TEST</h1>"
 const content = "<p>TEST</p>"
@@ -33,7 +34,7 @@ describe("Card component", () => {
         const component = create(<Card imgSrc={imgSrc} />)
         const instance = component.root
 
-        const imgs = instance.findAllByProps({ className: "lazyload-placeholder" })
+        const imgs = instance.findAllByProps({ className: lazyLoadImageClassName })
         expect(imgs.length).toBe(1)
     })
 

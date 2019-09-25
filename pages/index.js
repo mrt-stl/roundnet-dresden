@@ -11,6 +11,7 @@ import { cacheControlHeader } from "../utils/cache-utils"
 import Error from "./_error"
 import { prismicPageToComponentModels } from "../controller/prismic-controller"
 import Project, { ShowBannerType } from "../models/config/project"
+import parser from "accept-language-parser"
 
 const Index = ({ error, docId, meta, componentModels }) => {
     if (error) {
@@ -52,6 +53,7 @@ const Index = ({ error, docId, meta, componentModels }) => {
 Index.getInitialProps = async ({ query, res }) => {
     const queryId = query.id ? query.id : "home"
     const docType = query.type ? query.type : "standard"
+    const lang = query.lang ? query.lang : "de-de"
 
     const docs = await getByUid(docType, queryId)
     if (docs.error) {
@@ -67,11 +69,11 @@ Index.getInitialProps = async ({ query, res }) => {
         res.setHeader("Cache-Control", cacheControlHeader())
     }
 
-    const docByLang = results[0]
+    const docByLang = filterByLanguage(lang, results)
     const docId = docByLang.id
     const meta = createMeta(docByLang)
 
-    const componentModels = prismicPageToComponentModels(docs)
+    const componentModels = prismicPageToComponentModels(docByLang)
 
     return {
         docId,
@@ -81,7 +83,6 @@ Index.getInitialProps = async ({ query, res }) => {
 }
 
 // Filter docs by language
-/*
 const filterByLanguage = (langFilter, results) => {
     const docLangs = []
     for (const result of results) {
@@ -96,7 +97,6 @@ const filterByLanguage = (langFilter, results) => {
     filteredResult = filteredResult.length > 0 ? filteredResult[0] : results[0]
     return filteredResult
 }
-*/
 
 // Get meta data
 const createMeta = (docs) => {

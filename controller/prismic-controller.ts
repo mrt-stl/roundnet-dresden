@@ -1,4 +1,3 @@
-import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
 import ActionModel from "../models/tukan/action-model"
 import { asText, linkResolver, asHtml } from "../utils/prismic-utils"
 import TukanModel from "../models/tukan/tukan-model"
@@ -14,14 +13,14 @@ import LocationModel from "../models/tukan/location-model"
 import PreviewModel from "../models/tukan/preview-model"
 import RichtextModel from "../models/tukan/richtext-model"
 import HighlightTextModel from "../models/tukan/highlight-text-model"
+import { Document } from "prismic-javascript/d.ts/documents"
 
-export const prismicPageToComponentModels = (prismicRes: ApiSearchResponse) => {
-    const hasNoData = prismicRes.results === undefined && prismicRes.results.length <= 0
-    if (hasNoData) {
+export const prismicPageToComponentModels = (result: Document) => {
+    if (!result) {
         return null
     }
 
-    const slices = prismicRes.results[0].data.body
+    const slices = result.data.body
 
     const componentModels: TukanModel[] = []
     for (const slice of slices) {

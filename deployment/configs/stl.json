@@ -26,8 +26,20 @@
             "dest": "/api/sitemap"
         },
         {
+            "src": "/en/blog/(?<id>[^/]+)$",
+            "dest": "/index?id=$id&type=blog&lang=en"
+        },
+        {
             "src": "/blog/(?<id>[^/]+)$",
             "dest": "/index?id=$id&type=blog"
+        },
+        {
+            "src": "/en/(?<id>[^/]+)$",
+            "dest": "/index?id=$id&lang=en"
+        },
+        {
+            "src": "/en/",
+            "dest": "/index?id=home&lang=en"
         },
         {
             "src": "/(?<id>[^/]+)$",

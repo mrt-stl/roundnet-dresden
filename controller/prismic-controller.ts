@@ -173,14 +173,18 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             return highlightModel
 
         case "footer":
+            const footerPrimary = slice.primary
             const footerItems = slice.items
+
             const footerRows: string[] = []
             for (const item of footerItems) {
                 const itemContent = asHtml(item.footer_row)
                 footerRows.push(itemContent)
             }
 
-            const footerModel = new FooterModel(footerRows)
+            const footerBgColor = footerPrimary.footer_bg_color
+
+            const footerModel = new FooterModel(footerRows, footerBgColor)
             return footerModel
 
         default:

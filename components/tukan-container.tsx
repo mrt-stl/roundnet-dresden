@@ -101,7 +101,8 @@ const matchComponent = (model: TukanModel, index: number) => {
             component =
                 <Footer
                     key={index}
-                    rows={footerModel.rows} />
+                    rows={footerModel.rows}
+                    backgroundColor={footerModel.backgroundColor} />
             break
 
         case TukanType.HeroImage:

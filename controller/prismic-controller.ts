@@ -15,6 +15,7 @@ import PreviewModel from "../models/tukan/preview-model"
 import RichtextModel from "../models/tukan/richtext-model"
 import HighlightTextModel from "../models/tukan/highlight-text-model"
 import FooterModel from "../models/tukan/footer-model"
+import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -186,6 +187,17 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const footerModel = new FooterModel(footerRows, footerBgColor)
             return footerModel
+
+        case "image_with_caption":
+            const iwcPrimary = slice.primary
+
+            const iwcImgSrc = iwcPrimary.iwc_img.url
+            const iwcImgAlt = iwcPrimary.iwc_img.alt
+            const iwcCaption = asText(iwcPrimary.iwc_caption)
+            const iwcBgColor = iwcPrimary.iwc_color
+
+            const iwcModel = new ImageWithCaptionModel(iwcImgSrc, iwcImgAlt, iwcCaption, iwcBgColor)
+            return iwcModel
 
         default:
             return null

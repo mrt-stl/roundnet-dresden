@@ -9,6 +9,7 @@ export enum TukanType {
     HeroImage = "hero-image",
     HighlightText = "highlight-text",
     ImageAndText = "image-and-text",
+    ImageWithCaption = "image-with-caption",
     InfiniteCards = "infinite-cards",
     Location = "location",
     Preview = "preview",

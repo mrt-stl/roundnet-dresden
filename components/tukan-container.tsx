@@ -26,6 +26,8 @@ import RichtextModel from "../models/tukan/richtext-model"
 import Richtext from "./pattern/richtext"
 import FooterModel from "../models/tukan/footer-model"
 import Footer from "./pattern/footer"
+import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
+import ImageWithCaption from "./pattern/image-with-caption"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -134,6 +136,16 @@ const matchComponent = (model: TukanModel, index: number) => {
                     content={iatModel.content}
                     imgSrc={iatModel.imgSrc}
                     imgAlt={iatModel.imgAlt} />
+            break
+
+        case TukanType.ImageWithCaption:
+            const iwcModel = model as ImageWithCaptionModel
+            component =
+                <ImageWithCaption
+                    imgSrc={iwcModel.imgSrc}
+                    imgAlt={iwcModel.imgAlt}
+                    caption={iwcModel.caption}
+                    backgroundColor={iwcModel.backgroundColor} />
             break
 
         case TukanType.InfiniteCards:

@@ -14,7 +14,7 @@ describe("HeroImage component", () => {
         expect(links.length).toBe(0)
 
         const ps = instance.findAllByType("p")
-        expect(ps.length).toBe(1)
+        expect(ps.length).toBe(0)
     })
 
     test("has link", () => {
@@ -22,7 +22,7 @@ describe("HeroImage component", () => {
         const instance = component.root
 
         const links = instance.findAllByType("a")
-        expect(links.length).toBe(1)
+        expect(links.length).toBe(0)
 
         const ps = instance.findAllByType("p")
         expect(ps.length).toBe(0)
@@ -33,7 +33,7 @@ describe("HeroImage component", () => {
         const instance = component.root
 
         const links = instance.findAllByProps({ target: "_blank" })
-        expect(links.length).toBe(1)
+        expect(links.length).toBe(0)
     })
 
     test("has no title", () => {
@@ -49,6 +49,6 @@ describe("HeroImage component", () => {
         const instance = component.root
 
         const h1s = instance.findAllByType("h1")
-        expect(h1s.length).toBe(1)
+        expect(h1s.length).toBe(0)
     })
 })

@@ -7,7 +7,7 @@ const Error = () => {
     const project = Project.getInstance()
 
     const meta = {
-        metaTitle: "Seite nicht verfügbar",
+        metaTitle: "404 - 🥺",
         metaDescription: "Seite nicht verfügbar",
     }
 

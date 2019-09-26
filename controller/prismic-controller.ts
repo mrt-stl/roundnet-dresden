@@ -1,5 +1,6 @@
 import ActionModel from "../models/tukan/action-model"
 import { asText, linkResolver, asHtml } from "../utils/prismic-utils"
+import { Document } from "prismic-javascript/d.ts/documents"
 import TukanModel from "../models/tukan/tukan-model"
 import AtmosphericModel from "../models/tukan/atmospheric-model"
 import ContactModel from "../models/tukan/contact-model"
@@ -13,7 +14,6 @@ import LocationModel from "../models/tukan/location-model"
 import PreviewModel from "../models/tukan/preview-model"
 import RichtextModel from "../models/tukan/richtext-model"
 import HighlightTextModel from "../models/tukan/highlight-text-model"
-import { Document } from "prismic-javascript/d.ts/documents"
 import FooterModel from "../models/tukan/footer-model"
 
 export const prismicPageToComponentModels = (result: Document) => {

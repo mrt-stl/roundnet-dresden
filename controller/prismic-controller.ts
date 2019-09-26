@@ -14,6 +14,7 @@ import PreviewModel from "../models/tukan/preview-model"
 import RichtextModel from "../models/tukan/richtext-model"
 import HighlightTextModel from "../models/tukan/highlight-text-model"
 import { Document } from "prismic-javascript/d.ts/documents"
+import FooterModel from "../models/tukan/footer-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -170,6 +171,17 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const highlightModel = new HighlightTextModel(highlightContent)
             return highlightModel
+
+        case "footer":
+            const footerItems = slice.items
+            const footerRows: string[] = []
+            for (const item of footerItems) {
+                const itemContent = asHtml(item.footer_row)
+                footerRows.push(itemContent)
+            }
+
+            const footerModel = new FooterModel(footerRows)
+            return footerModel
 
         default:
             return null

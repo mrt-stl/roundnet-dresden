@@ -24,6 +24,8 @@ import PreviewModel from "../models/tukan/preview-model"
 import Preview from "./pattern/preview"
 import RichtextModel from "../models/tukan/richtext-model"
 import Richtext from "./pattern/richtext"
+import FooterModel from "../models/tukan/footer-model"
+import Footer from "./pattern/footer"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -92,6 +94,14 @@ const matchComponent = (model: TukanModel, index: number) => {
                 <Focus
                     key={index}
                     content={focusModel.content} />
+            break
+
+        case TukanType.Footer:
+            const footerModel = model as FooterModel
+            component =
+                <Footer
+                    key={index}
+                    rows={footerModel.rows} />
             break
 
         case TukanType.HeroImage:

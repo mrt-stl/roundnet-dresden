@@ -27,19 +27,21 @@ const HeroImage = (props: IHeroImageProps) => {
     return (
         <div className="hero-image-container">
             <div className="hero-image-content-container text-center" ref={ref}>
-                <div className={animationClassName}>
-                    {titleContainer}
-                    {link ?
-                        <div>
-                            {linkIsBlank ?
-                                <a href={link} className="link-content" target="_blank" rel="noopener">{linkContent}</a> :
-                                <a href={link} className="link-content">{linkContent}</a>
-                            }
-                        </div> :
-                        <p className="link-content">{linkContent}</p>
-                    }
-                </div>
-
+                {isVisible ?
+                    <div className={animationClassName}>
+                        {titleContainer}
+                        {link ?
+                            <div>
+                                {linkIsBlank ?
+                                    <a href={link} className="link-content" target="_blank" rel="noopener">{linkContent}</a> :
+                                    <a href={link} className="link-content">{linkContent}</a>
+                                }
+                            </div> :
+                            <p className="link-content">{linkContent}</p>
+                        }
+                    </div> :
+                    <div />
+                }
             </div>
             <LazyLoad height={"90vh"} offset={200}>
                 <img src={imgSrc} alt={imgAlt} />

@@ -1,11 +1,6 @@
-import LazyLoad from "react-lazyload"
-
 export interface IFooterProps {
     content: string
     backgroundColor?: string
-    link?: string
-    linkContent?: string
-    linkIsBlank?: boolean
 }
 
 const Footer = (props: IFooterProps) => {
@@ -14,11 +9,6 @@ const Footer = (props: IFooterProps) => {
     return (
         <div className="footer-container" style={{ backgroundColor }}>
             <div className="grid">
-                <div className="col-2">
-                    <LazyLoad height="60px" offset="200">
-                        <img src="../static/img/stadtteilliebe-favicon.svg" alt=""/>
-                    </LazyLoad>
-                </div>
                 <div className="col-2">
                     <p className="content">Stadtteilliebe</p>
                     <p className="content">Leistungen</p>

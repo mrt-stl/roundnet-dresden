@@ -1,7 +1,10 @@
 import Meta from "../components/meta"
 import Nav from "../components/navigation/nav"
+import Project from "../models/config/project"
+
 
 const Error = () => {
+    const project = Project.getInstance()
 
     const meta = {
         metaTitle: "Seite nicht verfügbar",
@@ -11,6 +14,7 @@ const Error = () => {
     return (
         <div >
             <Meta
+                project={project}
                 data={meta} />
             <Nav />
 

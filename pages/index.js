@@ -56,9 +56,9 @@ Index.getInitialProps = async ({ query, res }) => {
     const lang = query.lang ? query.lang : "de-de"
 
     const docs = await getByUid(docType, queryId)
-    if (docs.error) {
+    if (docs.error || docs.results.length < 1) {
         return {
-            error: docs.error
+            error: "Page not found"
         }
     }
 

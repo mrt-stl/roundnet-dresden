@@ -58,10 +58,8 @@ const Meta = (props) => {
     return (
         <div>
             <Head>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta charSet="utf-8" />
-                <link href={fontUrl} rel="stylesheet" />
-                <link rel="stylesheet" href="/static/css/normalize.css" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
 
                 <title>{props.data.metaTitle}</title>
 
@@ -72,6 +70,11 @@ const Meta = (props) => {
                 <meta property="og:description" content={props.data.metaDescription}></meta>
                 <meta property="og:image" content={props.data.metaOgImg}></meta>
                 <meta name="twitter:card" content="summary_large_image"></meta>
+
+                <meta name="theme-color" content={colors.primary} />
+
+                <link href={fontUrl} rel="stylesheet" />
+                <link rel="stylesheet" href="/static/css/normalize.css" />
 
                 <link rel="apple-touch-icon" sizes="57x57" href={iconCDN + "apple-icon-57x57.png"}></link>
                 <link rel="apple-touch-icon" sizes="60x60" href={iconCDN + "apple-icon-60x60.png"}></link>

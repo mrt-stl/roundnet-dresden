@@ -142,6 +142,7 @@ const matchComponent = (model: TukanModel, index: number) => {
             const iwcModel = model as ImageWithCaptionModel
             component =
                 <ImageWithCaption
+                    key={index}
                     imgSrc={iwcModel.imgSrc}
                     imgAlt={iwcModel.imgAlt}
                     caption={iwcModel.caption}

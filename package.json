@@ -33,7 +33,7 @@
     "react-lazy-load-image-component": "^1.3.2",
     "react-lazyload": "^2.6.2",
     "rollbar": "^2.12.2",
-    "sitemap": "^4.1.1"
+    "sitemap": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",

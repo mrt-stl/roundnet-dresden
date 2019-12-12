@@ -29,7 +29,7 @@ projectsRef.where("branch", "=", "beta").get()
 function deployToNow(project) {
     console.log("Start deploying:", project.url)
 
-    let deployCmd = "now --target production -A [FILE] --token [TOKEN]"
+    let deployCmd = "now --prod -A [FILE] --token [TOKEN]"
     if (project.project_id === "alexfi") {
         deployCmd = deployCmd.replace("[TOKEN]", alexToken)
 

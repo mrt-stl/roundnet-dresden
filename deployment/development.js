@@ -11,7 +11,7 @@ admin.initializeApp({
 })
 
 const token = process.argv[3]
-const deployCmd = "now --target production -A [FILE] --token " + token
+const deployCmd = "now --prod -A [FILE] --token " + token
 
 const db = admin.firestore()
 

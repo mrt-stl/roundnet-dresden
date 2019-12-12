@@ -28,7 +28,7 @@ projectsRef.where("branch", "=", "master").get()
 function deployToNow(project) {
     console.log("Start deploying:", project.url)
 
-    let deployCmd = "now --target production -A [FILE] --token [TOKEN]"
+    let deployCmd = "now --prod -A [FILE] --token [TOKEN]"
     deployCmd = deployCmd.replace("[TOKEN]", token)
 
     const cmd = createCmd(deployCmd, project)

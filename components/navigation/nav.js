@@ -1,6 +1,7 @@
 import NavLink from "./nav-link"
 import MobileMenu from "./mobile-menu"
 import Project from "../../models/config/project"
+import { gridConfig } from "../style/binary-grid"
 
 const Nav = () => {
     const project = Project.getInstance()
@@ -35,8 +36,8 @@ const Nav = () => {
                 }
 
                 .inner-nav {
-                    padding-left: calc(var(--col-padding) + var(--grid-padding));
-                    padding-right: calc(var(--col-padding) + var(--grid-padding));
+                    padding-left: calc(${gridConfig.colPadding} + ${gridConfig.gridPadding});
+                    padding-right: calc(${gridConfig.colPadding} + ${gridConfig.gridPadding});
                 }
 
                 .nav-link {

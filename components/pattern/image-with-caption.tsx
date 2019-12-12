@@ -16,28 +16,27 @@ const ImageWithCaption = (props: IImageWithCaptionProps) => {
 
     return (
         <div className="image-with-caption-container">
-            <div className="grid">
-                <div className="col">
-                    <TukanImage
-                        src={props.imgSrc}
-                        alt={props.imgAlt}
-                        height="auto" />
-                </div>
-            </div>
-            <div className="grid justify-content-center">
-                <div className="col-4 text-center">
-                    <p>{props.caption}</p>
+            <div className="grid no-padding align-items-center h-100">
+                <div className="grid no-padding">
+                    <div className="col no-padding">
+                        <TukanImage
+                            src={props.imgSrc}
+                            alt={props.imgAlt}
+                            height="100%"
+                            width="auto" />
+                        <p className="text-center">{props.caption}</p>
+                    </div>
                 </div>
             </div>
 
             <style jsx>{`
                 .image-with-caption-container {
                     background-color: ${backgroundColor};
-                    padding-top: var(--large-spacing);
-                    padding-bottom: var(--large-spacing);
+                    height: calc(100vh - 48px);
                 }
 
                 p {
+                    padding-top: 2em;
                     color: ${color};
                 }
             `}</style>

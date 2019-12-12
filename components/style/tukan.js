@@ -317,5 +317,15 @@ textarea::-ms-input-placeholder {
     transition: opacity 1s linear;
 }
 
+.image-with-caption-container .lazy-load-image-loaded {
+    max-height: 60vh;
+}
+
+.image-with-caption-container .lazy-load-image-loaded img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 `}</style>
 }

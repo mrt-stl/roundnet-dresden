@@ -17,10 +17,6 @@ export const grid = <style jsx global>{`
     padding-right: ${gridConfig.gridPadding};
 }
 
-.no-wrap {
-    flex-wrap: nowrap;
-}
-
 .col, 
 .col-1,
 .col-2,
@@ -112,6 +108,29 @@ export const grid = <style jsx global>{`
     .justify-content-end {
         flex-direction: row;
     }
+
+    .align-items-center {
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* Util CSS classes */
+.no-wrap {
+    flex-wrap: nowrap;
+}
+
+.no-padding {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100%;
 }
 
 `}</style>

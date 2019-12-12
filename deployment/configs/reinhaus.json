@@ -1,7 +1,6 @@
 {
     "version": 2,
     "name": "reinhaus",
-    "alias": "reinhaus",
     "public": false,
     "regions": [
         "all"

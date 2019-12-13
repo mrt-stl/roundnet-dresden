@@ -105,13 +105,9 @@ export const grid = <style jsx global>{`
 
     .justify-content-start,
     .justify-content-center,
-    .justify-content-end {
-        flex-direction: row;
-    }
-
+    .justify-content-end,
     .align-items-center {
-        display: flex;
-        align-items: center;
+        flex-direction: row;
     }
 }
 

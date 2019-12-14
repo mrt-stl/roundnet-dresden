@@ -30,7 +30,7 @@ export const grid = <style jsx global>{`
 .col {
     flex-grow: 1;
     flex-basis: 0;
-    max-width: 100%;
+    width: 100%;
 }
 
 .col-1 {

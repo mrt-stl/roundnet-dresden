@@ -36,7 +36,6 @@ const ImageWithCaption = (props: IImageWithCaptionProps) => {
                 p {
                     padding-top: 0.5em;
                     color: ${color};
-                    font-size: 0.875em;
                 }
             `}</style>
         </div>

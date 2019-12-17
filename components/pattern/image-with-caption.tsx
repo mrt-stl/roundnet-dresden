@@ -23,7 +23,7 @@ const ImageWithCaption = (props: IImageWithCaptionProps) => {
                         alt={props.imgAlt}
                         height="auto"
                         width="auto" />
-                    <p className="text-center">{props.caption}</p>
+                    <p className="text-center" style={{ color }}>{props.caption}</p>
                 </div>
             </div>
 
@@ -35,7 +35,6 @@ const ImageWithCaption = (props: IImageWithCaptionProps) => {
 
                 p {
                     padding-top: 0.5em;
-                    color: ${color};
                 }
             `}</style>
         </div>

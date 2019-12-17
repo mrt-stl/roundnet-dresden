@@ -25,7 +25,6 @@ const Index = ({ error, docId, meta, componentModels }) => {
     return (
         <div className="gemacht-mit-stadtteilliebe">
             <Meta
-                project={project}
                 data={meta} />
 
             <Nav />

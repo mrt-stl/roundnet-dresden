@@ -1,12 +1,16 @@
 import Head from "next/head"
 import { tukan } from "./style/tukan"
 import { grid } from "./style/binary-grid"
-import { string, object } from "prop-types"
-import { DarkModeType } from "../models/config/project"
+import Project, { DarkModeType } from "../models/config/project"
 import { isUndefinedOrNullOrEmpty } from "../utils/object-utils"
+import { IMetaData } from "../models/config/meta-data"
 
-const Meta = (props) => {
-    const project = props.project
+interface IMetaProps {
+    data: IMetaData
+}
+
+const Meta = (props: IMetaProps) => {
+    const project = Project.getInstance()
 
     // Icon urls
     const projectId = !isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "kranich-stl"
@@ -14,8 +18,8 @@ const Meta = (props) => {
 
     // Set colors
     const projectColors = project.colors
-    let colors = defaultColors
-    let darkModeColors
+    let colors: any = defaultColors
+    let darkModeColors: any = defaultDarkModeColors
 
     switch (project.darkMode) {
         case DarkModeType.ON:
@@ -40,17 +44,13 @@ const Meta = (props) => {
             break
     }
 
-
-
     // Set font or go to default font
-    let fontUrl, fontName
+    let fontUrl = "https://fonts.googleapis.com/css?family=Muli:400,700&display=swap"
+    let fontName = "Muli"
     if (project.font) {
         fontUrl = project.font.url
         fontName = project.font.name
 
-    } else {
-        fontUrl = "https://fonts.googleapis.com/css?family=Muli:400,700&display=swap"
-        fontName = "Muli"
     }
 
     const gaID = project.googleAnalyticsID
@@ -63,35 +63,35 @@ const Meta = (props) => {
 
                 <title>{props.data.metaTitle}</title>
 
-                <meta name="author" content={props.data.metaAuthor}></meta>
-                <meta name="description" content={props.data.metaDescription}></meta>
+                <meta name="author" content={props.data.metaAuthor} />
+                <meta name="description" content={props.data.metaDescription} />
 
-                <meta property="og:title" content={props.data.metaTitle}></meta>
-                <meta property="og:description" content={props.data.metaDescription}></meta>
-                <meta property="og:image" content={props.data.metaOgImg}></meta>
-                <meta name="twitter:card" content="summary_large_image"></meta>
+                <meta property="og:title" content={props.data.metaTitle} />
+                <meta property="og:description" content={props.data.metaDescription} />
+                <meta property="og:image" content={props.data.metaOgImg} />
+                <meta name="twitter:card" content="summary_large_image" />
 
                 <meta name="theme-color" content={colors.primary} />
 
                 <link href={fontUrl} rel="stylesheet" />
                 <link rel="stylesheet" href="/static/css/normalize.css" />
 
-                <link rel="apple-touch-icon" sizes="57x57" href={iconCDN + "apple-icon-57x57.png"}></link>
-                <link rel="apple-touch-icon" sizes="60x60" href={iconCDN + "apple-icon-60x60.png"}></link>
-                <link rel="apple-touch-icon" sizes="72x72" href={iconCDN + "apple-icon-72x72.png"}></link>
-                <link rel="apple-touch-icon" sizes="76x76" href={iconCDN + "apple-icon-76x76.png"}></link>
-                <link rel="apple-touch-icon" sizes="114x114" href={iconCDN + "apple-icon-114x114.png"}></link>
-                <link rel="apple-touch-icon" sizes="120x120" href={iconCDN + "apple-icon-120x120.png"}></link>
-                <link rel="apple-touch-icon" sizes="144x144" href={iconCDN + "apple-icon-144x144.png"}></link>
-                <link rel="apple-touch-icon" sizes="152x152" href={iconCDN + "apple-icon-152x152.png"}></link>
-                <link rel="apple-touch-icon" sizes="180x180" href={iconCDN + "apple-icon-180x180.png"}></link>
-                <link rel="icon" type="image/png" sizes="192x192" href={iconCDN + "android-icon-192x192.png"}></link>
-                <link rel="icon" type="image/png" sizes="32x32" href={iconCDN + "favicon-32x32.png"}></link>
-                <link rel="icon" type="image/png" sizes="96x96" href={iconCDN + "favicon-96x96.png"}></link>
-                <link rel="icon" type="image/png" sizes="16x16" href={iconCDN + "favicon-16x16.png"}></link>
+                <link rel="apple-touch-icon" sizes="57x57" href={iconCDN + "apple-icon-57x57.png"} />
+                <link rel="apple-touch-icon" sizes="60x60" href={iconCDN + "apple-icon-60x60.png"} />
+                <link rel="apple-touch-icon" sizes="72x72" href={iconCDN + "apple-icon-72x72.png"} />
+                <link rel="apple-touch-icon" sizes="76x76" href={iconCDN + "apple-icon-76x76.png"} />
+                <link rel="apple-touch-icon" sizes="114x114" href={iconCDN + "apple-icon-114x114.png"} />
+                <link rel="apple-touch-icon" sizes="120x120" href={iconCDN + "apple-icon-120x120.png"} />
+                <link rel="apple-touch-icon" sizes="144x144" href={iconCDN + "apple-icon-144x144.png"} />
+                <link rel="apple-touch-icon" sizes="152x152" href={iconCDN + "apple-icon-152x152.png"} />
+                <link rel="apple-touch-icon" sizes="180x180" href={iconCDN + "apple-icon-180x180.png"} />
+                <link rel="icon" type="image/png" sizes="192x192" href={iconCDN + "android-icon-192x192.png"} />
+                <link rel="icon" type="image/png" sizes="32x32" href={iconCDN + "favicon-32x32.png"} />
+                <link rel="icon" type="image/png" sizes="96x96" href={iconCDN + "favicon-96x96.png"} />
+                <link rel="icon" type="image/png" sizes="16x16" href={iconCDN + "favicon-16x16.png"} />
 
                 {gaID && gaID !== "" ?
-                    <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaID} async></script> :
+                    <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaID} async /> :
                     <script />
                 }
 
@@ -143,13 +143,6 @@ const defaultDarkModeColors = {
     allGray20: "#808080",
     allGray30: "#d0d0d0",
     allGray40: "#f0f0f0"
-}
-
-Meta.propTypes = {
-    primary: string,
-    secondary: string,
-    accent: string,
-    data: object
 }
 
 export default Meta

@@ -16,7 +16,7 @@ const ImageWithCaption = (props: IImageWithCaptionProps) => {
     const backgroundColor = props.backgroundColor ? props.backgroundColor : "var(--background)"
     const color = !isColorLight(backgroundColor) || backgroundColor === "var(--background)" ?
         "#FFFFFF" :
-        "var(--font-color)"
+        "#121212"
 
     let centricElement: JSX.Element
     switch (true) {

@@ -14,7 +14,7 @@ const Love = () => {
                         position: relative;
                         bottom: 0;
                         height: 48px;
-                        background-color: var(--secondary);
+                        background-color: #121212;
                     }
                     a {
                         color: var(--white);

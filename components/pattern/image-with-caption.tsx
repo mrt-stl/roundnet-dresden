@@ -17,15 +17,13 @@ const ImageWithCaption = (props: IImageWithCaptionProps) => {
     return (
         <div className="image-with-caption-container">
             <div className="grid no-padding align-items-center h-100">
-                <div className="grid no-padding">
-                    <div className="col no-padding">
-                        <TukanImage
-                            src={props.imgSrc}
-                            alt={props.imgAlt}
-                            height="100%"
-                            width="auto" />
-                        <p className="text-center">{props.caption}</p>
-                    </div>
+                <div className="col no-padding">
+                    <TukanImage
+                        src={props.imgSrc}
+                        alt={props.imgAlt}
+                        height="auto"
+                        width="auto" />
+                    <p className="text-center">{props.caption}</p>
                 </div>
             </div>
 
@@ -36,7 +34,7 @@ const ImageWithCaption = (props: IImageWithCaptionProps) => {
                 }
 
                 p {
-                    padding-top: 2em;
+                    padding-top: 0.5em;
                     color: ${color};
                 }
             `}</style>

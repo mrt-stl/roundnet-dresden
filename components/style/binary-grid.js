@@ -25,6 +25,7 @@ export const grid = <style jsx global>{`
 .col-8 {
     padding: 12px ${gridConfig.gridPadding};
     box-sizing: border-box;
+    min-height: 1px;
 }
 
 .col {
@@ -112,6 +113,10 @@ export const grid = <style jsx global>{`
 }
 
 /* Util CSS classes */
+.flex {
+    display: flex;
+}
+
 .no-wrap {
     flex-wrap: nowrap;
 }
@@ -119,6 +124,10 @@ export const grid = <style jsx global>{`
 .no-padding {
     padding-left: 0px !important;
     padding-right: 0px !important;
+}
+
+.w-auto {
+    width: auto;
 }
 
 .w-100 {

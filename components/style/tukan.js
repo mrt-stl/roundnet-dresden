@@ -318,11 +318,13 @@ textarea::-ms-input-placeholder {
 }
 
 .image-with-caption-container .lazy-load-image-loaded {
-    max-height: 60vh;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .image-with-caption-container .lazy-load-image-loaded img {
     display: block;
+    max-height: 60vh;
     margin-left: auto;
     margin-right: auto;
 }

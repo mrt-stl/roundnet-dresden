@@ -8,7 +8,11 @@ export const isColorLight = (color: string) => {
     // tslint:disable-next-line: no-bitwise
     const b = (rgb >> 0) & 0xff
 
-    const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b
+    const hsp = Math.sqrt(
+        0.299 * (r * r) +
+        0.587 * (g * g) +
+        0.114 * (b * b)
+    )
 
-    return luma < 40
+    return hsp > 127.5
 }

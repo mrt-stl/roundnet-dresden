@@ -25,7 +25,7 @@
     "html-react-parser": "^0.9.1",
     "next": "^9.1.5",
     "nodemailer": "^6.3.0",
-    "now": "^16.6.3",
+    "now": "^16.7.0",
     "prismic-dom": "^2.1.0",
     "prismic-javascript": "^2.1.1",
     "react": "^16.12.0",

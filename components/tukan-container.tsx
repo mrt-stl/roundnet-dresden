@@ -143,6 +143,7 @@ const matchComponent = (model: TukanModel, index: number) => {
             component =
                 <ImageWithCaption
                     key={index}
+                    videoSrc={iwcModel.videoSrc}
                     imgSrc={iwcModel.imgSrc}
                     imgAlt={iwcModel.imgAlt}
                     caption={iwcModel.caption}

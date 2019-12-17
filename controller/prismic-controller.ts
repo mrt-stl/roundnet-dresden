@@ -191,12 +191,13 @@ const mapResultToModel = (slice: any): TukanModel | null => {
         case "image_with_caption":
             const iwcPrimary = slice.primary
 
-            const iwcImgSrc = iwcPrimary.iwc_img.url
-            const iwcImgAlt = iwcPrimary.iwc_img.alt
+            const iwcVideoSrc = iwcPrimary.iwc_video?.url
+            const iwcImgSrc = iwcPrimary.iwc_img?.url
+            const iwcImgAlt = iwcPrimary.iwc_img?.alt
             const iwcCaption = asText(iwcPrimary.iwc_caption)
             const iwcBgColor = iwcPrimary.iwc_color
 
-            const iwcModel = new ImageWithCaptionModel(iwcImgSrc, iwcImgAlt, iwcCaption, iwcBgColor)
+            const iwcModel = new ImageWithCaptionModel(iwcVideoSrc, iwcImgSrc, iwcImgAlt, iwcCaption, iwcBgColor)
             return iwcModel
 
         default:

@@ -11,10 +11,10 @@
             "id": "XMbjCBEAACIAt4Cw",
             "uid": "home",
             "type": "standard",
-            "href": "https://standard.cdn.prismic.io/api/v2/documents/search?ref=XUvrlxEAACAAbLN8&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XMbjCBEAACIAt4Cw%22%29+%5D%5D",
+            "href": "https://standard.cdn.prismic.io/api/v2/documents/search?ref=XfkApRAAAGaagfdb&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XMbjCBEAACIAt4Cw%22%29+%5D%5D",
             "tags": [],
             "first_publication_date": "2019-04-29T11:42:04+0000",
-            "last_publication_date": "2019-08-08T09:29:59+0000",
+            "last_publication_date": "2019-12-17T16:21:57+0000",
             "slugs": [
                 "startseite",
                 "das-konnte-dein-projekt-sein",
@@ -66,7 +66,7 @@
                                 },
                                 "alt": "Alt Text",
                                 "copyright": null,
-                                "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg"
+                                "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format"
                             },
                             "hero_image_link": {
                                 "link_type": "Web",
@@ -94,7 +94,7 @@
                                     },
                                     "alt": "Alt Text",
                                     "copyright": null,
-                                    "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg"
+                                    "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format"
                                 },
                                 "card_title": [
                                     {
@@ -124,7 +124,7 @@
                                     },
                                     "alt": "Alt Text",
                                     "copyright": null,
-                                    "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg"
+                                    "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format"
                                 },
                                 "card_title": [
                                     {
@@ -152,7 +152,7 @@
                                     },
                                     "alt": null,
                                     "copyright": null,
-                                    "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg"
+                                    "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format"
                                 },
                                 "card_title": [],
                                 "card_content": [],
@@ -178,7 +178,7 @@
                                 },
                                 "alt": "Alt Text",
                                 "copyright": null,
-                                "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg"
+                                "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format"
                             }
                         }
                     },
@@ -280,7 +280,7 @@
                                 },
                                 "alt": "Alt Text",
                                 "copyright": null,
-                                "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg"
+                                "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format"
                             }
                         }
                     },
@@ -467,7 +467,7 @@
                                 },
                                 {
                                     "type": "image",
-                                    "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg",
+                                    "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format",
                                     "alt": "fff",
                                     "copyright": null,
                                     "dimensions": {
@@ -522,12 +522,12 @@
                         "primary": {
                             "image": {
                                 "dimensions": {
-                                    "width": 1920,
-                                    "height": 1280
+                                    "width": 960,
+                                    "height": 800
                                 },
-                                "alt": "Alt Text",
+                                "alt": null,
                                 "copyright": null,
-                                "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg"
+                                "url": "https://wroomdev.s3.amazonaws.com/tutoblanktemplate%2F97109f41-140e-4dc9-a2c8-96fb10f14051_star.gif?auto=compress,format"
                             },
                             "content": [
                                 {
@@ -561,6 +561,105 @@
                             ],
                             "contact_targetmail": "alex@stadtteilliebe.de"
                         }
+                    },
+                    {
+                        "slice_type": "image_with_caption",
+                        "slice_label": null,
+                        "items": [
+                            {}
+                        ],
+                        "primary": {
+                            "iwc_video": {
+                                "link_type": "Any"
+                            },
+                            "iwc_img": {
+                                "dimensions": {
+                                    "width": 1920,
+                                    "height": 1280
+                                },
+                                "alt": "Tukan",
+                                "copyright": null,
+                                "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format"
+                            },
+                            "iwc_caption": [
+                                {
+                                    "type": "paragraph",
+                                    "text": "Ein wunderschöner Tukan!",
+                                    "spans": []
+                                }
+                            ],
+                            "iwc_color": "#fce2e2"
+                        }
+                    },
+                    {
+                        "slice_type": "footer",
+                        "slice_label": null,
+                        "items": [
+                            {
+                                "footer_row": [
+                                    {
+                                        "type": "paragraph",
+                                        "text": "Stadtteilliebe",
+                                        "spans": [
+                                            {
+                                                "start": 0,
+                                                "end": 14,
+                                                "type": "hyperlink",
+                                                "data": {
+                                                    "link_type": "Web",
+                                                    "url": "https://stadtteilliebe.de",
+                                                    "target": "_blank"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": "Stadtteilliebe",
+                                        "spans": [
+                                            {
+                                                "start": 0,
+                                                "end": 14,
+                                                "type": "hyperlink",
+                                                "data": {
+                                                    "link_type": "Web",
+                                                    "url": "https://stadtteilliebe.de",
+                                                    "target": "_blank"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": "Stadtteilliebe",
+                                        "spans": [
+                                            {
+                                                "start": 0,
+                                                "end": 14,
+                                                "type": "hyperlink",
+                                                "data": {
+                                                    "link_type": "Web",
+                                                    "url": "https://stadtteilliebe.de",
+                                                    "target": "_blank"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "footer_row": [
+                                    {
+                                        "type": "paragraph",
+                                        "text": "All rights reserved",
+                                        "spans": []
+                                    }
+                                ]
+                            }
+                        ],
+                        "primary": {
+                            "footer_bg_color": "#f5f5f5"
+                        }
                     }
                 ],
                 "meta_title": [
@@ -591,7 +690,7 @@
                     },
                     "alt": "Preview for Twitter",
                     "copyright": null,
-                    "url": "https://standard.cdn.prismic.io/standard/2edd84336a0d429fa44054a02d539d9c352a6a41_tukan_1920.jpg"
+                    "url": "https://images.prismic.io/standard/2edd84336a0d429fa44054a02d539d9c352a6a41_tukan_1920.jpg?auto=compress,format"
                 }
             }
         },
@@ -599,7 +698,7 @@
             "id": "XNPoGRAAAFPcAx_T",
             "uid": "home",
             "type": "standard",
-            "href": "https://standard.cdn.prismic.io/api/v2/documents/search?ref=XUvrlxEAACAAbLN8&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XNPoGRAAAFPcAx_T%22%29+%5D%5D",
+            "href": "https://standard.cdn.prismic.io/api/v2/documents/search?ref=XfkApRAAAGaagfdb&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XNPoGRAAAFPcAx_T%22%29+%5D%5D",
             "tags": [],
             "first_publication_date": "2019-05-09T08:43:08+0000",
             "last_publication_date": "2019-05-09T08:43:08+0000",
@@ -647,7 +746,7 @@
                                 },
                                 "alt": null,
                                 "copyright": null,
-                                "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg"
+                                "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format"
                             },
                             "hero_image_link": {
                                 "link_type": "Web",
@@ -690,7 +789,7 @@
                                 },
                                 "alt": null,
                                 "copyright": null,
-                                "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg"
+                                "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format"
                             }
                         }
                     },
@@ -740,7 +839,7 @@
                                 },
                                 "alt": null,
                                 "copyright": null,
-                                "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg"
+                                "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format"
                             }
                         }
                     },
@@ -801,7 +900,7 @@
             "id": "XNP9xxAAAF7uA4DR",
             "uid": "home",
             "type": "standard",
-            "href": "https://standard.cdn.prismic.io/api/v2/documents/search?ref=XUvrlxEAACAAbLN8&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XNP9xxAAAF7uA4DR%22%29+%5D%5D",
+            "href": "https://standard.cdn.prismic.io/api/v2/documents/search?ref=XfkApRAAAGaagfdb&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XNP9xxAAAF7uA4DR%22%29+%5D%5D",
             "tags": [],
             "first_publication_date": "2019-05-09T10:15:39+0000",
             "last_publication_date": "2019-05-09T10:15:39+0000",
@@ -849,7 +948,7 @@
                                 },
                                 "alt": null,
                                 "copyright": null,
-                                "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg"
+                                "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format"
                             },
                             "hero_image_link": {
                                 "link_type": "Web",
@@ -892,7 +991,7 @@
                                 },
                                 "alt": null,
                                 "copyright": null,
-                                "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg"
+                                "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format"
                             }
                         }
                     },
@@ -942,7 +1041,7 @@
                                 },
                                 "alt": null,
                                 "copyright": null,
-                                "url": "https://standard.cdn.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg"
+                                "url": "https://images.prismic.io/standard/67a7110bf8870726a4b2f85010fa53c292cf1757_tukan_1920.jpg?auto=compress,format"
                             }
                         }
                     },
@@ -1000,6 +1099,6 @@
             }
         }
     ],
-    "version": "e044ddb",
+    "version": "aa1901d",
     "license": "All Rights Reserved"
 }

@@ -9,7 +9,7 @@ const Footer = (props: IFooterProps) => {
     const backgroundColor = props.backgroundColor ? props.backgroundColor : "var(--background)"
 
     return (
-        <div className="footer-container">
+        <div className="footer-container" style={{ backgroundColor }}>
             <div className="grid">
                 {props.rows.map((row, index) => {
                     return (
@@ -22,7 +22,6 @@ const Footer = (props: IFooterProps) => {
 
             <style jsx>{`
                 .footer-container {
-                    background-color: ${backgroundColor};
                     padding-top: var(--large-spacing);
                     padding-bottom: var(--large-spacing);
                 }

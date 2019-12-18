@@ -16,7 +16,8 @@
     "eslint": "eslint .",
     "tslint": "tslint -c ./tslint.json '**/*.{ts,tsx}'",
     "test": "jest --verbose",
-    "test-units": "jest --verbose ./units"
+    "test-units": "jest --verbose ./units",
+    "test-coverage": "jest --verbose --coverage"
   },
   "dependencies": {
     "accept-language-parser": "^1.5.0",

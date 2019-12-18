@@ -101,3 +101,13 @@ const highlightModels = componentModels.filter(model => model.type === TukanType
 test("page contains one or more highlight models", () => {
     expect(highlightModels.length).toBeGreaterThan(0)
 })
+
+const footerModels = componentModels.filter(model => model.type === TukanType.Footer)
+test("page contains one or more footer models", () => {
+    expect(footerModels.length).toBeGreaterThan(0)
+})
+
+const iwcModels = componentModels.filter(model => model.type === TukanType.ImageWithCaption)
+test("page contains one or more image with captions models", () => {
+    expect(iwcModels.length).toBeGreaterThan(0)
+})

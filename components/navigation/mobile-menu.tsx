@@ -1,6 +1,11 @@
 import { slide as Menu } from "react-burger-menu"
+import INavLink from "../../models/nav/nav-link"
 
-const MobileMenu = (props) => (
+interface IMobileMenuProps {
+    links: INavLink[]
+}
+
+const MobileMenu = (props: IMobileMenuProps) => (
     <div className="mobile-menu">
         <Menu width={"80%"}
             customBurgerIcon={<img src="/static/icon/icon-menu-open.svg" alt="Open menu" />}
@@ -19,7 +24,7 @@ const MobileMenu = (props) => (
 
         <style jsx>{`
             .mobile-menu {
-                display: none;       
+                display: none;
             }
             .menu-item {
                 padding-top: 1em;
@@ -32,10 +37,9 @@ const MobileMenu = (props) => (
 
             @media only screen and (max-width: 768px) {
                 .mobile-menu {
-                    display: block;       
+                    display: block;
                 }
             }
-           
         `}</style>
 
     </div>

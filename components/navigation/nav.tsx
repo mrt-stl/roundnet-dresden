@@ -12,11 +12,13 @@ const Nav = () => {
             <div className="nav">
                 <div className="grid no-wrap inner-nav h-100">
                     {navLinks.map((element, index) => {
-                        return (<div className="align-items-center" key={index}>
-                            <NavLink
-                                href={element.link}
-                                linkContent={element.name} />
-                        </div>)
+                        return (
+                            <div className="align-items-center" key={index}>
+                                <NavLink
+                                    href={element.link}
+                                    linkContent={element.name} />
+                            </div>
+                        )
                     })}
                 </div>
             </div>
@@ -54,6 +56,5 @@ const Nav = () => {
         </div>
     )
 }
-
 
 export default Nav

@@ -1,4 +1,5 @@
 import { logError } from "../../utils/rollbar-utils"
+import INavLink from "../nav/nav-link"
 
 const MIN = 60
 const standardNav = { link: "/", name: "Home" }
@@ -27,7 +28,7 @@ export default class Project {
     public font?: IFont | null
     public googleAnalyticsID?: string | null
     public name?: string | null
-    public nav: INav[]
+    public nav: INavLink[]
     public prismicAccessToken?: string | null
     public prismicEndpoint?: string | null
     public showBanner: string
@@ -106,9 +107,4 @@ export enum ShowBannerType {
 interface IFont {
     name: string
     url: string
-}
-
-interface INav {
-    link: string
-    name: string
 }

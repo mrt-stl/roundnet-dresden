@@ -1,6 +1,9 @@
-import { string } from "prop-types"
+interface INavLinkProps {
+    href: string,
+    linkContent: string
+}
 
-const NavLink = (props) => (
+const NavLink = (props: INavLinkProps) => (
     <div className="nav-link">
         <a href={props.href}>{props.linkContent}</a>
         <style jsx>{`
@@ -21,10 +24,5 @@ const NavLink = (props) => (
     </div>
 
 )
-
-NavLink.propTypes = {
-    href: string,
-    linkContent: string
-}
 
 export default NavLink

@@ -1,5 +1,5 @@
 import { Component } from "react"
-import CookieUtils from "../../utils/cookie-utils"
+import { getSettingsCookie, setSettingsCookie } from "../../utils/cookie-utils"
 
 interface ICookieNotificationProps {
     link: string
@@ -12,7 +12,7 @@ class CookieNotification extends Component<ICookieNotificationProps, {}> {
     }
 
     public componentDidMount() {
-        const cookie = CookieUtils.getSettingsCookie()
+        const cookie = getSettingsCookie()
 
         // Has no cookie.
         if (cookie === null) {
@@ -109,7 +109,7 @@ class CookieNotification extends Component<ICookieNotificationProps, {}> {
     private onAcceptCookie = () => {
         const settings = { acceptedCookie: true }
         const settingsString = JSON.stringify(settings)
-        CookieUtils.setSettingsCookie(settingsString, 30)
+        setSettingsCookie(settingsString, 30)
 
         this.setState({ acceptedCookie: true })
     }

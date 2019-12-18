@@ -1,4 +1,5 @@
 import Rollbar from "rollbar"
+import Project from "../models/config/project"
 
 const rollbar = new Rollbar({
     accessToken: "bb675fb694fc463abf4f20791ff396da",
@@ -7,9 +8,25 @@ const rollbar = new Rollbar({
 })
 
 export const log = (msg: string) => {
-    rollbar.log(msg)
+    const project = Project.getInstance()
+
+    if (project.isProduction()) {
+        rollbar.log(msg)
+
+    } else {
+        // tslint:disable-next-line: no-console
+        console.log(msg)
+    }
 }
 
 export const logError = (error: any) => {
-    rollbar.error(error)
+    const project = Project.getInstance()
+
+    if (project.isProduction()) {
+        rollbar.error(error)
+
+    } else {
+        // tslint:disable-next-line: no-console
+        console.error(error)
+    }
 }

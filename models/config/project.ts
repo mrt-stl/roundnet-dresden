@@ -35,6 +35,10 @@ export default class Project {
 
     private constructor() { this.init() }
 
+    public isProduction() {
+        return process.env.NODE_ENV === "production"
+    }
+
     private init() {
         this.projectId = process.env.PROJECT_ID ? process.env.PROJECT_ID : ""
         this.cachingTime = this.parseCacheTime(process.env.CACHING_TIME)

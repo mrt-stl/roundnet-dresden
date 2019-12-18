@@ -12,6 +12,7 @@ import Error from "./_error"
 import { prismicPageToComponentModels } from "../controller/prismic-controller"
 import Project, { ShowBannerType } from "../models/config/project"
 import parser from "accept-language-parser"
+import { Document } from "prismic-javascript/d.ts/documents"
 
 const Index = ({ error, docId, meta, componentModels }) => {
     if (error) {
@@ -54,8 +55,10 @@ Index.getInitialProps = async ({ query, res }) => {
     const docType = query.type ? query.type : "standard"
     const lang = query.lang ? query.lang : "de-de"
 
-    const docs = await getByUid(docType, queryId)
-    if (docs.error || docs.results.length < 1) {
+    const prismicRes = await getByUid(docType, queryId)
+    const docs = prismicRes.data
+
+    if (prismicRes.error || docs.results.length < 1) {
         return {
             error: "Page not found"
         }
@@ -82,7 +85,7 @@ Index.getInitialProps = async ({ query, res }) => {
 }
 
 // Filter docs by language
-const filterByLanguage = (langFilter, results) => {
+const filterByLanguage = (langFilter: string, results: Document[]) => {
     const docLangs = []
     for (const result of results) {
         docLangs.push(result.lang)
@@ -92,8 +95,8 @@ const filterByLanguage = (langFilter, results) => {
     langFilter = langFilter ? langFilter : "de-de"
 
     // Filter result for best fitting lang
-    let filteredResult = results.filter(result => result.lang === langFilter)
-    filteredResult = filteredResult.length > 0 ? filteredResult[0] : results[0]
+    const langResults = results.filter(result => result.lang === langFilter)
+    const filteredResult = langResults.length > 0 ? langResults[0] : results[0]
     return filteredResult
 }
 

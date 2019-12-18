@@ -153,20 +153,34 @@ workflows:
   version: 2
   build-deploy:
     jobs:
-      - test
-      - test-dev
+      - test:
+          filters:
+            branches:
+              only:
+                - beta
+                - master
+
+      - test-dev:
+          filters:
+            branches:
+              ignore:
+                - beta
+                - master
+
       - dev-build-and-deploy:
           requires:
             - test-dev
           filters:
             branches:
               only: development
+
       - beta-build-and-deploy:
           requires:
             - test
           filters:
             branches:
               only: beta
+
       - prod-build-and-deploy:
           requires:
             - test

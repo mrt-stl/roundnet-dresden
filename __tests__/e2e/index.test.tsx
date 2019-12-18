@@ -1,6 +1,6 @@
 import { shallow } from "enzyme"
 
-import Index from "../../pages/index.js"
+import Index from "../../pages/index"
 
 describe("Index", () => {
     let wrapper
@@ -9,7 +9,8 @@ describe("Index", () => {
         const query = {
             query: {
                 id: "home"
-            }
+            },
+            res: null
         }
         const props = await Index.getInitialProps(query)
         wrapper = shallow(<Index {...props} />)

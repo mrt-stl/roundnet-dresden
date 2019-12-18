@@ -13,13 +13,25 @@ import { prismicPageToComponentModels } from "../controller/prismic-controller"
 import Project, { ShowBannerType } from "../models/config/project"
 import parser from "accept-language-parser"
 import { Document } from "prismic-javascript/d.ts/documents"
+import TukanModel from "../models/tukan/tukan-model"
+import { IMetaData } from "../models/config/meta-data"
 
-const Index = ({ error, docId, meta, componentModels }) => {
+interface IIndexProps {
+    docId?: string
+    meta?: IMetaData
+    componentModels?: TukanModel[]
+    error?: string
+}
+
+const Index = (props: IIndexProps) => {
+    const { docId, meta, componentModels, error } = props
+
     if (error) {
         return (<Error />)
     }
 
     const project = Project.getInstance()
+
     const showCookieNotification = project.cookieLink !== null
     const showBanner = project.showBanner === ShowBannerType.ON
 
@@ -101,7 +113,7 @@ const filterByLanguage = (langFilter: string, results: Document[]) => {
 }
 
 // Get meta data
-const createMeta = (docs) => {
+const createMeta = (docs: Document): IMetaData => {
     const metaTitle = asText(docs.data.meta_title)
     const metaDescription = asText(docs.data.meta_description)
     const metaAuthor = asText(docs.data.meta_author)
@@ -116,7 +128,7 @@ const createMeta = (docs) => {
 }
 
 // Create etag from json
-const createEtag = (json) => {
+const createEtag = (json: any) => {
     return crypto.createHash("md5")
         .update(JSON.stringify(json))
         .digest("hex")

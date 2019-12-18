@@ -39,7 +39,7 @@ jobs:
           name: Linting
           command: yarn lint
 
-  test-dev:
+  test-units:
     docker:
       - image: circleci/node:11.15.0
 
@@ -160,7 +160,7 @@ workflows:
                 - beta
                 - master
 
-      - test-dev:
+      - test-units:
           filters:
             branches:
               ignore:
@@ -169,7 +169,7 @@ workflows:
 
       - dev-build-and-deploy:
           requires:
-            - test-dev
+            - test-units
           filters:
             branches:
               only: development

@@ -1,15 +1,15 @@
-import { string } from "prop-types"
+interface IEditButtonProps {
+    docId: string
+}
 
-const EditButton = ({ docId }) => {
+const EditButton = (props: IEditButtonProps) => {
+    const { docId } = props
+
     return (
         <div
             className="edit-button"
             data-wio-id={docId} />
     )
-}
-
-EditButton.propTypes = {
-    docId: string
 }
 
 export default EditButton

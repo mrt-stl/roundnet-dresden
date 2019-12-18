@@ -6,8 +6,7 @@ import CookieNotification from "../components/pattern/cookie-notification"
 import { asText } from "../utils/prismic-utils"
 import Love from "../components/pattern/love"
 import EditButton from "../components/pattern/edit-button"
-import crypto from "crypto"
-import { cacheControlHeader } from "../utils/cache-utils"
+import { cacheControlHeader, createEtag } from "../utils/cache-utils"
 import Error from "./_error"
 import { prismicPageToComponentModels } from "../controller/prismic-controller"
 import Project, { ShowBannerType } from "../models/config/project"
@@ -125,13 +124,6 @@ const createMeta = (docs: Document): IMetaData => {
         metaAuthor,
         metaOgImg
     }
-}
-
-// Create etag from json
-const createEtag = (json: any) => {
-    return crypto.createHash("md5")
-        .update(JSON.stringify(json))
-        .digest("hex")
 }
 
 export default Index

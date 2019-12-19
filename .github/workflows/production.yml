@@ -1,9 +1,9 @@
-name: beta
+name: master
 
 on:
   push:
     branches:
-      - beta
+      - master
 
 jobs:
   build:
@@ -44,7 +44,7 @@ jobs:
       run: yarn test
 
     - name: Deploy Development
-      run: yarn deploy-beta --token ${{ secrets.NOW_TOKEN }}
+      run: yarn deploy-prod --token ${{ secrets.NOW_TOKEN }}
 
       env:
         CI: true

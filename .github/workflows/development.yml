@@ -1,4 +1,4 @@
-name: Tukan Platform Build
+name: development
 
 on:
   push:
@@ -33,7 +33,7 @@ jobs:
       run: yarn test-units
 
     - name: Deploy Development
-      run: yarn deploy-dev
+      run: yarn deploy-dev --token ${{ secrets.NOW_TOKEN }}
 
       env:
         CI: true

@@ -46,7 +46,7 @@ jobs:
     - name: Unit Tests
       run: yarn test
 
-    - name: Deploy Development
+    - name: Deploy Master
       run: yarn deploy-prod --token ${{ secrets.NOW_TOKEN }}
 
       env:

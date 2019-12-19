@@ -1,9 +1,9 @@
-name: development
+name: beta
 
 on:
   push:
     branches:
-      - development
+      - beta
 
 jobs:
   build:
@@ -30,10 +30,10 @@ jobs:
       run: yarn lint
     
     - name: Unit Tests
-      run: yarn test-units
+      run: yarn test
 
     - name: Deploy Development
-      run: yarn deploy-dev --token ${{ secrets.NOW_TOKEN }}
+      run: yarn deploy-beta --token ${{ secrets.NOW_TOKEN }}
 
       env:
         CI: true

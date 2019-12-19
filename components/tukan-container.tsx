@@ -28,6 +28,8 @@ import FooterModel from "../models/tukan/footer-model"
 import Footer from "./pattern/footer"
 import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
 import ImageWithCaption from "./pattern/image-with-caption"
+import HeadlineModel from "../models/tukan/headline-model"
+import Headline from "./pattern/headline"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -105,6 +107,14 @@ const matchComponent = (model: TukanModel, index: number) => {
                     key={index}
                     rows={footerModel.rows}
                     backgroundColor={footerModel.backgroundColor} />
+            break
+
+        case TukanType.Headline:
+            const headlineModel = model as HeadlineModel
+            component =
+                <Headline
+                    key={index}
+                    content={headlineModel.content} />
             break
 
         case TukanType.HeroImage:

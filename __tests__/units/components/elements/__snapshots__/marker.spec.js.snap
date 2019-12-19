@@ -2,10 +2,10 @@
 
 exports[`Marker component Matches the snapshot 1`] = `
 <div
-  className="jsx-4136012813 marker-container"
+  className="jsx-1110152491 marker-container"
 >
   <img
-    className="jsx-4136012813"
+    className="jsx-1110152491"
     src="/static/icon/marker.svg"
   />
 </div>

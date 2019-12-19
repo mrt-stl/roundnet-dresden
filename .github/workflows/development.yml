@@ -1,15 +1,17 @@
-name: Node CI
+name: Tukan Platform Build
 
-on: [push]
+on:
+  push:
+    branches:
+      - development
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [12.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -21,11 +23,17 @@ jobs:
     - name: Installation
       run: yarn install
     
-    - name: Build
+    - name: Building
       run: yarn build
     
-    - name: Testing
-      run: yarn test
+    - name: Linting
+      run: yarn lint
+    
+    - name: Unit Tests
+      run: yarn test-units
+
+    - name: Deploy Development
+      run: yarn deploy-dev
 
       env:
         CI: true

@@ -18,15 +18,19 @@ const Location = (props: ILocationProps) => {
     }
 
     return (
-        <LazyLoad height={"512px"} offset={300}>
+        <LazyLoad
+            height="512px"
+            offset={300}>
             <div className="location-container">
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: "AIzaSyBg2SZDYXK6Zv_UXZdVJJr5J8eRlSAVUKQ" }}
                     defaultCenter={center}
                     defaultZoom={zoom}>
+
                     <Marker
                         lat={lat}
                         lng={lng} />
+
                 </GoogleMapReact>
 
                 <style jsx>{`

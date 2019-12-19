@@ -10,9 +10,17 @@ const Marker = (_props: IMarkerProps) => {
         <div className="marker-container">
             <img src="/static/icon/marker.svg" />
             <style jsx>{`
-                .img {
-                    width: 64px;
-                    height: 64px;
+                .marker-container {
+                    position: absolute;
+                    top: -28px;
+                    left: -16px;
+                    width: 32px;
+                    height: 32px;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
                 }
             `}</style>
         </div>

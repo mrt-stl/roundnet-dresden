@@ -47,7 +47,7 @@ jobs:
       run: yarn test
 
     - name: Deploy Staging
-      run: yarn deploy-beta --token ${{ secrets.NOW_TOKEN }}
+      run: yarn deploy-beta --token ${{ secrets.NOW_TOKEN }} --alex ${{ secrets.ALEX_TOKEN }}
 
       env:
         CI: true

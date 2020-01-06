@@ -2,6 +2,7 @@ import { createSitemap } from "sitemap"
 
 /**
  * Creates sitemap
+ *
  * @param host is the standard host
  * @param pages data from all pages
  */

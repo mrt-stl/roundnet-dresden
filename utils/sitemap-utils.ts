@@ -27,12 +27,12 @@ const createUrl = (type: string, uid: string): string => {
 
     let url: string
     switch (type) {
-        case "blog":
-            url = "/blog/" + uid
+        case "standard":
+            url = "/" + urlId
             break
 
         default:
-            url = "/" + urlId
+            url = "/" + type + "/" + uid
             break
     }
 

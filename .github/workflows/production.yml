@@ -43,7 +43,7 @@ jobs:
     - name: Linting
       run: yarn lint
     
-    - name: Unit Tests
+    - name: Testing
       run: yarn test
 
     - name: Deploy Master

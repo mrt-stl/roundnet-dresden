@@ -48,6 +48,9 @@ jobs:
 
     - name: Deploy Development
       run: yarn deploy-dev --token ${{ secrets.NOW_TOKEN }}
+
+      env:
+        CI: true
     
     - name: Slack notification
       env:
@@ -58,5 +61,4 @@ jobs:
       with:
         args: "A new commit has been pushed."
 
-      env:
-        CI: true
+

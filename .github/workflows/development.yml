@@ -53,10 +53,10 @@ jobs:
         CI: true
     
     - name: Slack notification
+      if: success()
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_USERNAME: Stadtteilliebe # Optional.
-        SLACK_OVERRIDE_MESSAGE: "Custom message" # Optional.
+        SLACK_USERNAME: "Stadtteilbot"
       uses: Ilshidur/action-slack@master
       with:
         args: "A new commit has been pushed."

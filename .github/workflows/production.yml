@@ -54,18 +54,16 @@ jobs:
 
     - name: Slack Notification Success
       if: success()
+      uses: rtCamp/action-slack-notify@master
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_USERNAME: Stadtteilbot
-      uses: Ilshidur/action-slack@master
-      with:
-        args: "*[MASTER]* Build and deployment were successful"
-    
+        SLACK_COLOR: good
+
     - name: Slack Notification Failure
       if: failure()
+      uses: rtCamp/action-slack-notify@master
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_USERNAME: Stadtteilbot
-      uses: Ilshidur/action-slack@master
-      with:
-        args: "*[MASTER]* Build and deployment failed"
+        SLACK_COLOR: danger

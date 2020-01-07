@@ -59,7 +59,7 @@ jobs:
         SLACK_USERNAME: Stadtteilbot
       uses: Ilshidur/action-slack@master
       with:
-        args: "[DEVELOPMENT] Build and deployment were successful"
+        args: "*[DEVELOPMENT]* Build and deployment were successful"
     
     - name: Slack Notification Failure
       if: failure()
@@ -68,6 +68,6 @@ jobs:
         SLACK_USERNAME: Stadtteilbot
       uses: Ilshidur/action-slack@master
       with:
-        args: "DEVELOPMENT] Build and deployment failed"
+        args: "*[DEVELOPMENT]* Build and deployment failed"
 
 

@@ -48,6 +48,24 @@ jobs:
 
     - name: Deploy Staging
       run: yarn deploy-beta --token ${{ secrets.NOW_TOKEN }} --alex ${{ secrets.ALEX_TOKEN }}
-
+      
       env:
         CI: true
+
+    - name: Slack Notification Success
+      if: success()
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_USERNAME: Stadtteilbot
+      uses: Ilshidur/action-slack@master
+      with:
+        args: "*[BETA]* Build and deployment were successful"
+    
+    - name: Slack Notification Failure
+      if: failure()
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_USERNAME: Stadtteilbot
+      uses: Ilshidur/action-slack@master
+      with:
+        args: "*[BETA]* Build and deployment failed"

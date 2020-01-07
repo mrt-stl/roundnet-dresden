@@ -1,4 +1,8 @@
-module.exports = {
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true"
+})
+
+module.exports = withBundleAnalyzer({
   poweredByHeader: false,
   target: "serverless",
   env: {
@@ -17,9 +21,9 @@ module.exports = {
     CACHING_TIME: process.env.CACHING_TIME
   },
   webpack: config => {
-      config.node = {
-          fs: "empty"
-      }
-      return config
+    config.node = {
+      fs: "empty"
+    }
+    return config
   }
-}
+})

@@ -52,13 +52,22 @@ jobs:
       env:
         CI: true
     
-    - name: Slack notification
+    - name: Slack Notification Success
       if: success()
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_USERNAME: "Stadtteilbot"
+        SLACK_USERNAME: Stadtteilbot
       uses: Ilshidur/action-slack@master
       with:
-        args: "A new commit has been pushed."
+        args: "[DEVELOPMENT] Build and deployment were successful"
+    
+    - name: Slack Notification Failure
+      if: failure()
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_USERNAME: Stadtteilbot
+      uses: Ilshidur/action-slack@master
+      with:
+        args: "DEVELOPMENT] Build and deployment failed"
 
 

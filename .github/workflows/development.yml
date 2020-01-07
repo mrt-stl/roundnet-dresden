@@ -48,6 +48,15 @@ jobs:
 
     - name: Deploy Development
       run: yarn deploy-dev --token ${{ secrets.NOW_TOKEN }}
+    
+    - name: Slack notification
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_USERNAME: Stadtteilliebe # Optional.
+        SLACK_OVERRIDE_MESSAGE: "Custom message" # Optional.
+      uses: Ilshidur/action-slack@master
+      with:
+        args: "A new commit has been pushed."
 
       env:
         CI: true

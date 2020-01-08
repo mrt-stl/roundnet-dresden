@@ -63,6 +63,10 @@ const Nav = () => {
                     .desktop-nav {
                         display: none;
                     }
+
+                    .inner-nav {
+                        padding-left: ${gridConfig.gridPadding};
+                    }
                 }
         `}</style>
 

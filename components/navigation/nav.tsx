@@ -14,7 +14,7 @@ const Nav = () => {
         <div>
             <div className="nav">
                 <div className="grid no-wrap inner-nav h-100">
-                    <div className="align-items-center" key={0}>
+                    <div className="align-items-center h-100" key={0}>
                         <NavLink
                             href={firstNavLink.link}
                             linkContent={firstNavLink.name} />

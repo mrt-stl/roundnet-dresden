@@ -8,13 +8,25 @@ const Nav = () => {
     const project = Project.getInstance()
     const navLinks = project.nav
 
+    const firstNavLink = navLinks[0]
+
     return (
         <div>
             <div className="nav">
                 <div className="grid no-wrap inner-nav h-100">
+                    <div className="align-items-center" key={0}>
+                        <NavLink
+                            href={firstNavLink.link}
+                            linkContent={firstNavLink.name} />
+                    </div>
+
                     {navLinks.map((element, index) => {
+                        if (index === 0) {
+                            return
+                        }
+
                         return (
-                            <div className="align-items-center" key={index}>
+                            <div className="align-items-center desktop-nav" key={index}>
                                 <NavLink
                                     href={element.link}
                                     linkContent={element.name} />
@@ -48,7 +60,7 @@ const Nav = () => {
                 }
 
                 @media only screen and (max-width: 768px) {
-                    .inner-nav {
+                    .desktop-nav {
                         display: none;
                     }
                 }

@@ -176,7 +176,7 @@ img {
 }
 
 .tukan-container {
-	margin-top: 48px;
+	margin-top: ${tukanConfig.navHeight};
 }
 
 .call-to-action {

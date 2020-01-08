@@ -1,6 +1,7 @@
 import TukanImage from "../elements/tukan-image"
 import { isColorLight } from "../../utils/color-utils"
 import { isNullOrUndefined } from "util"
+import { tukanConfig } from "../style/tukan"
 
 export interface IImageWithCaptionProps {
     videoSrc: string
@@ -60,7 +61,7 @@ const ImageWithCaption = (props: IImageWithCaptionProps) => {
             <style jsx>{`
                 .image-with-caption-container {
                     background-color: ${backgroundColor};
-                    height: calc(100vh - 48px);
+                    height: calc(100vh - ${tukanConfig.navHeight});
                 }
 
                 p {

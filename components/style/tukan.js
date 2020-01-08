@@ -1,3 +1,7 @@
+export const tukanConfig = {
+    navHeight: "48px"
+}
+
 export const tukan = (fontName, colors, darkModeColors) => {
     return <style jsx global>{`
 

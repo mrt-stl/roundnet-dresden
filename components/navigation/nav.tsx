@@ -2,6 +2,7 @@ import NavLink from "./nav-link"
 import MobileMenu from "./mobile-menu"
 import Project from "../../models/config/project"
 import { gridConfig } from "../style/binary-grid"
+import { tukanConfig } from "../style/tukan"
 
 const Nav = () => {
     const project = Project.getInstance()
@@ -33,7 +34,7 @@ const Nav = () => {
                     position: fixed;
                     top: 0;
                     width: 100%;
-                    height: 48px;
+                    height: ${tukanConfig.navHeight};
                     background-color: var(--background);
                 }
 

@@ -333,5 +333,11 @@ textarea::-ms-input-placeholder {
     margin-right: auto;
 }
 
+/* Utils */
+
+.hide {
+    display: none !important;
+}
+
 `}</style>
 }

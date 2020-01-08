@@ -8,25 +8,14 @@ const Nav = () => {
     const project = Project.getInstance()
     const navLinks = project.nav
 
-    const firstNavLink = navLinks[0]
-
     return (
         <div>
             <div className="nav">
                 <div className="grid no-wrap inner-nav h-100">
-                    <div className="align-items-center h-100" key={0}>
-                        <NavLink
-                            href={firstNavLink.link}
-                            linkContent={firstNavLink.name} />
-                    </div>
-
                     {navLinks.map((element, index) => {
-                        if (index === 0) {
-                            return
-                        }
-
+                        const hideMobile = index !== 0 ? "desktop-nav" : "h-100"
                         return (
-                            <div className="align-items-center desktop-nav" key={index}>
+                            <div className={"align-items-center " + hideMobile} key={index}>
                                 <NavLink
                                     href={element.link}
                                     linkContent={element.name} />

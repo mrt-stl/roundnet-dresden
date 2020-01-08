@@ -7,7 +7,6 @@ interface IMobileMenuProps {
 
 const MobileMenu = (props: IMobileMenuProps) => {
     const { links } = props
-    links.shift()
 
     return (
         <div className="mobile-menu">
@@ -17,8 +16,10 @@ const MobileMenu = (props: IMobileMenuProps) => {
                 right>
 
                 {links.map((element, index) => {
+                    const visibilityClass = index === 0 ? "hide" : ""
+
                     return (
-                        <div className="align-items-center" key={index}>
+                        <div className={"align-items-center " + visibilityClass} key={index}>
                             <a className="menu-item" href={element.link}>{element.name}</a>
                         </div>
                     )

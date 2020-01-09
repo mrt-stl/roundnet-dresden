@@ -131,6 +131,10 @@ ul {
     color: var(--font-color);
 }
 
+li {
+    padding-left: 8px;
+}
+
 @media (max-width: 768px) {
     ul {
         font-size: 14px;

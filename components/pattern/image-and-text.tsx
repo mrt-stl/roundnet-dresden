@@ -30,8 +30,8 @@ const ImageAndText = (props: IImageAndTextProps) => {
 
             <style jsx>{`
                 .image-and-text-container {
-                    padding-top: var(--standard-spacing);
-                    padding-bottom: var(--standard-spacing);
+                    margin-top: var(--standard-spacing);
+                    margin-bottom: var(--standard-spacing);
                 }
                 .text-container {
                     padding: 32px;

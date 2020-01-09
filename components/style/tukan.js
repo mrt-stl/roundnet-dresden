@@ -245,6 +245,21 @@ img {
     text-align: center;
 }
 
+.styled-list {
+    background-color: var(--all-gray-10);
+    padding-top: 32px;
+    padding-right: 24px;
+    padding-bottom: 32px;
+    padding-left: 60px !important;
+    line-height: 2;
+}
+
+@media (max-width: 768px) {
+    .styled-list {
+        font-size: 14px;
+    }
+}
+
 .small-text {
   font-size: 0.875em;
   font-weight: var(--regular);

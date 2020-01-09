@@ -30,6 +30,8 @@ import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
 import ImageWithCaption from "./pattern/image-with-caption"
 import HeadlineModel from "../models/tukan/headline-model"
 import Headline from "./pattern/headline"
+import ColRichtextModel from "../models/tukan/col-richtext-model"
+import ColRichtext from "./pattern/col-richtext"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -71,6 +73,14 @@ const matchComponent = (model: TukanModel, index: number) => {
                     key={index}
                     imgSrc={atmosphericModel.imgSrc}
                     imgAlt={atmosphericModel.imgAlt} />
+            break
+
+        case TukanType.ColRichtext:
+            const colRichtextModel = model as ColRichtextModel
+            component =
+                <ColRichtext
+                    key={index}
+                    cols={colRichtextModel.cols} />
             break
 
         case TukanType.Contact:

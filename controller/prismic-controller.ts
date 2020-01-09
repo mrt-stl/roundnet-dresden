@@ -17,6 +17,7 @@ import HighlightTextModel from "../models/tukan/highlight-text-model"
 import FooterModel from "../models/tukan/footer-model"
 import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
 import HeadlineModel from "../models/tukan/headline-model"
+import ColRichtextModel from "../models/tukan/col-richtext-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -208,6 +209,18 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const headlineModel = new HeadlineModel(headlineContent)
 
             return headlineModel
+
+        case "spalten":
+            const colRichtextItems = slice.items
+
+            const colRichtextRows: string[] = []
+            for (const item of colRichtextItems) {
+                const itemContent = asHtml(item.col)
+                colRichtextRows.push(itemContent)
+            }
+
+            const colRichtextModel = new ColRichtextModel(colRichtextRows)
+            return colRichtextModel
 
         default:
             return null

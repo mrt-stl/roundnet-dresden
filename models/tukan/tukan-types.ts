@@ -2,6 +2,7 @@ export enum TukanType {
     Action = "action",
     Atmospheric = "atmospheric",
     Card = "card",
+    ColRichtext = "col-richtext",
     Contact = "contact",
     Details = "details",
     Focus = "focus",

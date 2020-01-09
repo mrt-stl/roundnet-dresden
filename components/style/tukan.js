@@ -277,6 +277,14 @@ img {
   margin-top: 0.8em;
 }
 
+.logo-img {
+    height: 40px;
+}
+
+.logo-img img {
+    height: 100%;
+}
+
 /* This is needed twice, first for Firefox and second for other browsers */
 .button a {
     background-color: var(--primary);

@@ -35,13 +35,10 @@ function deployToNow(project) {
     exec(cmd, (err, stdout, stderr) => {
         if (err) {
             console.error(err)
-            throw Error(err)
+            return
         }
 
         console.log(stdout)
-        if (stderr) {
-            console.error(stderr)
-            throw Error(stderr)
-        }
+        console.error(stderr)
     })
 }

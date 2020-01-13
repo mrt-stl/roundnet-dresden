@@ -1,4 +1,4 @@
-import TukanImage from "../elements/tukan-image"
+import LazyLoad from "react-lazyload"
 
 export interface IAtmosphericProps {
     imgSrc: string,
@@ -10,25 +10,27 @@ const AtmosphericImage = (props: IAtmosphericProps) => {
     const imgAlt = props.imgAlt
 
     return (
-        <div className="atmo-image-container">
-            <TukanImage
-                src={imgSrc}
-                alt={imgAlt}
-                height="100%" />
+        <LazyLoad
+            height="60vh"
+            offset={50}>
+            <div className="atmo-image-container">
+                <img src={imgSrc} alt={imgAlt} className="zoomIn" height="100%" />
 
-            <style jsx>{`
-                .atmo-image-container {
-                    position: relative;
-                    height: 60vh;
-                    width: 100%;
-                }
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            `}</style>
-        </div>
+                <style jsx>{`
+                    .atmo-image-container {
+                        position: relative;
+                        height: 60vh;
+                        width: 100%;
+                        overflow: hidden;
+                    }
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                `}</style>
+            </div>
+        </LazyLoad>
     )
 }
 

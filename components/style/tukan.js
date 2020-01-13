@@ -356,6 +356,30 @@ textarea::-ms-input-placeholder {
     margin-right: auto;
 }
 
+
+
+  
+@keyframes zoomIn {
+    from {
+      transform: scale(1);
+    }
+  
+    60% {
+      transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+  }
+  
+  .zoomIn {
+    animation-name: zoomIn;
+    animation-duration: 1.6s;
+    animation-timing-function: ease;
+    animation-delay: 0.4s;
+  }
+
 /* Utils */
 
 .hide {

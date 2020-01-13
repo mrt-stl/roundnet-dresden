@@ -11,6 +11,7 @@
         "deploy-dev": "node deployment/development.js",
         "deploy-beta": "node deployment/beta.js",
         "deploy-prod": "node deployment/prod.js",
+        "deploy-extra": "node deployment/extra.js",
         "now-build": "next build",
         "lint": "yarn eslint && yarn tslint",
         "eslint": "eslint .",

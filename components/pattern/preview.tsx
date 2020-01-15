@@ -42,8 +42,8 @@ const Preview = (props: IPreviewProps) => {
                     object-fit: cover;
                 }
                 .preview-container {
-                    margin-top: var(--standard-spacing);
-                    margin-bottom: var(--standard-spacing);
+                    padding-top: var(--standard-spacing);
+                    padding-bottom: var(--standard-spacing);
                     background-color: var(--all-gray-10);
                 }
             `}</style>

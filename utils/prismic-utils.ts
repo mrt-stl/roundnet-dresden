@@ -29,7 +29,7 @@ export const linkResolver = (doc: any) => {
             break
 
         case !isNullOrUndefined(doc.type):
-            link += + doc.type + "/" + doc.uid
+            link += doc.type + "/" + doc.uid
             break
 
         default:

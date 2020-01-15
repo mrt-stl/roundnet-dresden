@@ -1,5 +1,6 @@
 import PrismicDOM from "prismic-dom"
 import { isNullOrUndefined } from "util"
+import { getLanguageCode } from "./lang-utils"
 
 export const asHtml = (richtext: any): string | null => {
     if (!richtext) {
@@ -14,18 +15,21 @@ export const asText = (richtext: any): string => {
 }
 
 export const linkResolver = (doc: any) => {
-    let link = ""
+    const docLang = doc.lang
+    const langCode = getLanguageCode(docLang)
+
+    let link = langCode === "de" ? "/" : `/${langCode}/`
     switch (true) {
         case doc.link_type === "Web":
             link = doc.url
             break
 
         case doc.type?.toLowerCase() === "standard":
-            link = "/" + doc.uid
+            link += doc.uid
             break
 
         case !isNullOrUndefined(doc.type):
-            link = "/" + doc.type + "/" + doc.uid
+            link += + doc.type + "/" + doc.uid
             break
 
         default:

@@ -38,6 +38,7 @@ const MobileMenu = (props: IMobileMenuProps) => {
 
                 a {
                     display: block;
+                    background-image: none;
                 }
 
                 @media only screen and (max-width: 768px) {

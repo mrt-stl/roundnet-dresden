@@ -155,8 +155,12 @@ a {
     transition: background-size .4s;
 }
 
-a:hover {
+a:hover, a:focus {
     background-size: 100% 1px;
+}
+
+a img {
+    background-image: none;
 }
 
 hr {

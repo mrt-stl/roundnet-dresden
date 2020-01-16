@@ -64,6 +64,7 @@ const Card = (props: ICardProps) => {
 
                 a {
                     color: var(--primary);
+                    background-image: none;
                 }
 
                 .card-content-container {

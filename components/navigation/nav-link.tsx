@@ -26,6 +26,7 @@ const NavLink = (props: INavLinkProps) => {
                 }
                 .nav-link a {
                     color: var(--primary);
+                    background-image: none;
                 }
 
                 .nav-link a:hover {

@@ -147,6 +147,16 @@ a {
 	font-weight: regular;
     letter-spacing: 0.5px;
     line-height: 1.2;
+
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size .4s;
+}
+
+a:hover {
+    background-size: 100% 1px;
 }
 
 hr {

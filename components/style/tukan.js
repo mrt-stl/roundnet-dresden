@@ -159,7 +159,7 @@ a:hover, a:focus {
     background-size: 100% 1px;
 }
 
-a img {
+a:has(img) {
     background-image: none;
 }
 

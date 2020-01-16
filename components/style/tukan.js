@@ -159,10 +159,6 @@ a:hover, a:focus {
     background-size: 100% 1px;
 }
 
-a:has(img) {
-    background-image: none;
-}
-
 hr {
 	background-color: #000000;
 	height: 4px;
@@ -300,7 +296,7 @@ img {
 }
 
 /* This is needed twice, first for Firefox and second for other browsers */
-.button a {
+.button a, a .button {
     background-color: var(--primary);
     padding: 13px 24px 16px 24px;
     color: var(--background);
@@ -308,12 +304,9 @@ img {
     display: inline-block;
 }
 
-a .button {
-    background-color: var(--primary);
-    padding: 13px 24px 16px 24px;
-    color: var(--background);
-    margin-top: 1em;
-    display: inline-block;
+.button a:hover, a .button:hover {
+    background-color: var(--accent);
+    transition: .5s;
 }
 
 textarea {

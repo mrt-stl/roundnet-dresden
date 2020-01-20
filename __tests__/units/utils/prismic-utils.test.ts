@@ -41,6 +41,14 @@ describe("test prismic-utils", () => {
         expect(link).toEqual("/tukan")
     })
 
+    const noLink = {
+        link_type: "Any"
+    }
+    test("resolve no link", () => {
+        const link = linkResolver(noLink)
+        expect(link).toBeNull()
+    })
+
     const pElement = [
         {
             type: "paragraph",

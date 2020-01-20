@@ -14,12 +14,16 @@ export const asText = (richtext: any): string => {
     return PrismicDOM.RichText.asText(richtext)
 }
 
-export const linkResolver = (doc: any) => {
+export const linkResolver = (doc: any): string | null => {
     const docLang = doc.lang
     const langCode = getLanguageCode(docLang)
 
     let link = langCode === "de" ? "/" : `/${langCode}/`
     switch (true) {
+        case doc.link_type === "Any":
+            link = null
+            break
+
         case doc.link_type === "Web":
             link = doc.url
             break

@@ -1399,6 +1399,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/shopify-buy@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@types/shopify-buy/-/shopify-buy-1.4.3.tgz#7863490c6157f38f5b69dde2cdf6b65da1cbcacd"
+  integrity sha512-bzft/wdZY73mac+c7MuRtaHy820AtOfyb4zOsZW0P4RZ+Nm6p1E3hBlEti9bUbUWQ2if/EfqSj0UXgjojZ+IVA==
+
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
@@ -8628,6 +8633,11 @@ shellwords@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
+
+shopify-buy@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/shopify-buy/-/shopify-buy-2.9.0.tgz#72e7e86d2d89459feaa904d54bcaf1d8550240b0"
+  integrity sha512-ffDYRhqkSXwnd5EwcI1OpcOBQvQXLtPiuqAZMwcchz58kIBZGru3GWUQRBEL4ArEwuKlb0g7m9zCHy5hkoGjkw==
 
 side-channel@^1.0.1:
   version "1.0.2"

@@ -18,6 +18,7 @@ import FooterModel from "../models/tukan/footer-model"
 import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
 import HeadlineModel from "../models/tukan/headline-model"
 import ColRichtextModel from "../models/tukan/col-richtext-model"
+import ProductModel from "../models/tukan/product-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -221,6 +222,16 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const colRichtextModel = new ColRichtextModel(colRichtextRows)
             return colRichtextModel
+
+        case "catalog":
+            const catalogPrimary = slice.primary
+
+            const productName = catalogPrimary.shopify_catalogue.title
+            const productPrice = catalogPrimary.shopify_catalogue.variants[0].price
+            const productImgSrc = catalogPrimary.shopify_catalogue.image.src
+
+            const productModel = new ProductModel(productName, productPrice, productImgSrc)
+            return productModel
 
         default:
             return null

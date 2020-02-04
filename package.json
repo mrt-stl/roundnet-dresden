@@ -40,6 +40,7 @@
         "react-lazy-load-image-component": "^1.3.2",
         "react-lazyload": "^2.6.2",
         "rollbar": "^2.12.2",
+        "shopify-buy": "^2.9.0",
         "sitemap": "^5.0.0"
     },
     "devDependencies": {
@@ -52,6 +53,7 @@
         "@types/node": "^13.1.6",
         "@types/prismic-dom": "^2.1.1",
         "@types/react": "^16.9.16",
+        "@types/shopify-buy": "^1.4.3",
         "babel-eslint": "^10.0.3",
         "babel-jest": "^24.9.0",
         "cross-env": "^6.0.3",

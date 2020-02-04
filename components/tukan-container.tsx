@@ -32,6 +32,8 @@ import HeadlineModel from "../models/tukan/headline-model"
 import Headline from "./pattern/headline"
 import ColRichtextModel from "../models/tukan/col-richtext-model"
 import ColRichtext from "./pattern/col-richtext"
+import ProductModel from "../models/tukan/product-model"
+import Product from "./shop/product"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -196,6 +198,16 @@ const matchComponent = (model: TukanModel, index: number) => {
                     content={previewModel.content}
                     imgSrc={previewModel.imgSrc}
                     imgAlt={previewModel.imgAlt} />
+            break
+
+        case TukanType.Product:
+            const productModel = model as ProductModel
+            component =
+                <Product
+                    key={index}
+                    name={productModel.name}
+                    price={productModel.price}
+                    imgSrc={productModel.imgSrc} />
             break
 
         case TukanType.Richtext:

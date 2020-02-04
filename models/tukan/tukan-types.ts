@@ -15,5 +15,6 @@ export enum TukanType {
     InfiniteCards = "infinite-cards",
     Location = "location",
     Preview = "preview",
+    Product = "product",
     Richtext = "richtext"
 }

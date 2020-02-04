@@ -1,0 +1,17 @@
+import TukanModel from "./tukan-model"
+import { IProductProps } from "../../components/shop/product"
+import { TukanType } from "./tukan-types"
+
+export default class ProductModel extends TukanModel implements IProductProps {
+    public name: string
+    public price: string
+    public imgSrc: string
+
+    constructor(name: string, price: string, imgSrc: string) {
+        super(TukanType.Product)
+
+        this.name = name
+        this.price = price
+        this.imgSrc = imgSrc
+    }
+}

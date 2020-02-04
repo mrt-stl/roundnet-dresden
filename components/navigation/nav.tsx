@@ -3,6 +3,7 @@ import MobileMenu from "./mobile-menu"
 import Project from "../../models/config/project"
 import { gridConfig } from "../style/binary-grid"
 import { tukanConfig } from "../style/tukan"
+import ShopifyCart from "../shop/cart"
 
 const Nav = () => {
     const project = Project.getInstance()
@@ -22,7 +23,9 @@ const Nav = () => {
                             </div>
                         )
                     })}
+                    <ShopifyCart />
                 </div>
+
             </div>
 
             <MobileMenu

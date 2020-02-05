@@ -207,7 +207,8 @@ const matchComponent = (model: TukanModel, index: number) => {
                     key={index}
                     name={productModel.name}
                     price={productModel.price}
-                    imgSrc={productModel.imgSrc} />
+                    imgSrc={productModel.imgSrc}
+                    variantID={productModel.variantID} />
             break
 
         case TukanType.Richtext:

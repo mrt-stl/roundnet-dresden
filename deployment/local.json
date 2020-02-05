@@ -61,6 +61,10 @@
             "dest": "/index?id=home&lang=en"
         },
         {
+            "src": "/checkout",
+            "dest": "/checkout"
+        },
+        {
             "src": "/(?<id>[^/]+)$",
             "dest": "/index?id=$id"
         }

@@ -1,17 +1,26 @@
-import { useEffect } from "react"
+import { Component } from "react"
+import { saveCheckoutID, getCheckoutID } from "../../utils/shop-utils"
 import { client } from "../../models/config/shopify"
 
-const ShopifyCart = () => {
+class ShopifyCart extends Component {
 
-    useEffect(() => {
-        client.checkout.create().then((res: any) => {
-            console.log(res.webUrl)
-        })
-    })
+    public render() {
+        return (
+            <a href="/checkout">
+                Warenkorb
+            </a>
+        )
+    }
 
-    return (
-        <div>Cart</div>
-    )
+    public async componentDidMount() {
+        const savedCheckoutID = getCheckoutID()
+        if (!savedCheckoutID) {
+            const checkout = await client.checkout.create()
+
+            const checkoutID = checkout.id
+            saveCheckoutID(checkoutID)
+        }
+    }
 }
 
 export default ShopifyCart

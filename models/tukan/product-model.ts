@@ -6,12 +6,14 @@ export default class ProductModel extends TukanModel implements IProductProps {
     public name: string
     public price: string
     public imgSrc: string
+    public variantID: number
 
-    constructor(name: string, price: string, imgSrc: string) {
+    constructor(name: string, price: string, imgSrc: string, variantID: number) {
         super(TukanType.Product)
 
         this.name = name
         this.price = price
         this.imgSrc = imgSrc
+        this.variantID = variantID
     }
 }

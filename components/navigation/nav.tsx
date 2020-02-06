@@ -3,14 +3,14 @@ import MobileMenu from "./mobile-menu"
 import Project from "../../models/config/project"
 import { gridConfig } from "../style/binary-grid"
 import { tukanConfig } from "../style/tukan"
-import ShopifyCart from "../shop/cart"
+import CartLink from "../shop/cart-link"
 
 const Nav = () => {
     const project = Project.getInstance()
     const navLinks = project.nav
 
     return (
-        <div>
+        <nav>
             <div className="nav">
                 <div className="grid no-wrap inner-nav h-100">
                     {navLinks.map((element, index) => {
@@ -23,7 +23,9 @@ const Nav = () => {
                             </div>
                         )
                     })}
-                    <ShopifyCart />
+
+                    <CartLink />
+
                 </div>
 
             </div>
@@ -62,7 +64,7 @@ const Nav = () => {
                 }
         `}</style>
 
-        </div>
+        </nav>
     )
 }
 

@@ -2,13 +2,15 @@ import { Component } from "react"
 import { saveCheckoutID, getCheckoutID } from "../../utils/shop-utils"
 import { client } from "../../models/config/shopify"
 
-class ShopifyCart extends Component {
+class CartLink extends Component {
 
     public render() {
         return (
-            <a href="/cart">
-                Warenkorb
-            </a>
+            <div className="cart-link-container align-items-center">
+                <a href="/cart">
+                    Warenkorb
+                </a>
+            </div>
         )
     }
 
@@ -23,4 +25,4 @@ class ShopifyCart extends Component {
     }
 }
 
-export default ShopifyCart
+export default CartLink

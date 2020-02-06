@@ -363,7 +363,50 @@ textarea::-ms-input-placeholder {
     margin-right: auto;
 }
 
+.product-container button {
+    padding: 0px 24px;
+    height: 48px;
+    background-color: var(--primary);
+    margin: 16px 0px;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    color: var(--white);
+}
 
+.cart-link-container {
+    margin-right: 12px;
+    margin-left: auto;
+}
+
+.cart-link-container a {
+    color: var(--font-color);
+}
+
+.cart-head-container {
+    border-bottom: var(--all-gray-20) 1px solid;
+}
+
+.cart-element-container {
+    border-bottom: var(--all-gray-20) 1px solid;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.cart-element-container p {
+    padding-top: 1em;
+}
+
+.cart-container button {
+    padding: 0px 24px;
+    height: 48px;
+    background-color: var(--accent);
+    margin: 16px 0px;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    color: var(--white);
+}
 
   
 @keyframes zoomIn {

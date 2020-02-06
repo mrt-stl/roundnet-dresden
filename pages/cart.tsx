@@ -1,17 +1,100 @@
 import { Component } from "react"
 import { client } from "../models/config/shopify"
 import { getCheckoutID } from "../utils/shop-utils"
+import Meta from "../components/meta"
+import { IMetaData } from "../models/config/meta-data"
+import Nav from "../components/navigation/nav"
+import CartElement from "../components/shop/cart-element"
 
 class Cart extends Component {
     public state = {
-        checkoutUrl: null
+        checkoutUrl: null,
+        lineItems: [],
     }
 
     public render() {
-        const { checkoutUrl } = this.state
+        const { lineItems } = this.state
+        const metaData: IMetaData = {
+            metaAuthor: null,
+            metaTitle: "Warenkorb",
+            metaDescription: null,
+            metaOgImg: null
+        }
+
+        let total = 0
+        const lineItemDivs = lineItems.map((lineItem, index) => {
+            const amount = lineItem.quantity
+            const currencyCode = lineItem.variant.priceV2.currencyCode
+
+            const price = lineItem.variant.priceV2.amount
+            const parsedPrice = parseFloat(price)
+            const readablePrice = parsedPrice.toFixed(2)
+            const totalPrice = (amount * parsedPrice).toFixed(2) + " " + currencyCode
+
+            total += (amount * parsedPrice)
+
+            return (
+                <CartElement
+                    key={index}
+                    imgSrc={lineItem.variant.image.src}
+                    name={lineItem.title}
+                    price={readablePrice + " " + currencyCode}
+                    amount={amount}
+                    total={totalPrice} />
+            )
+        })
+
         return (
-            <div>
-                <a href={checkoutUrl}>Zur Kasse</a>
+            <div className="gemacht-mit-stadtteilliebe">
+                <Meta
+                    data={metaData} />
+
+                <Nav />
+
+                <div className="tukan-container">
+                    <div className="cart-container">
+
+                        <div className="grid" style={{ paddingTop: "3em", paddingBottom: "2em" }}>
+                            <div className="col">
+                                <h2>Einkaufswagen</h2>
+                                <a href="/" style={{ color: "var(--font-color)" }}>Zurück zum Shop</a>
+                            </div>
+                        </div>
+
+                        <div className="grid no-wrap cart-head-container">
+                            <div className="col-4">
+                                <p>Artikel</p>
+                            </div>
+                            <div className="col-1">
+                                <p>Preis</p>
+                            </div>
+                            <div className="col-1">
+                                <p>Menge</p>
+                            </div>
+                            <div className="col-2">
+                                <p style={{ float: "right" }}>Gesamt</p>
+                            </div>
+                        </div>
+
+                        {lineItemDivs}
+
+                        <div className="grid justify-content-end" style={{ paddingTop: "1em", paddingBottom: "1em" }}>
+                            <div className="col-2">
+                                <p>Summe</p>
+                            </div>
+                            <div className="col-1">
+                                <p style={{ float: "right" }}>{total.toFixed(2)} EUR</p>
+                            </div>
+                        </div>
+
+                        <div className="grid justify-content-end">
+                            <div className="col-2">
+                                <button style={{ float: "right" }}>Zur Kasse</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         )
     }
@@ -20,7 +103,10 @@ class Cart extends Component {
         const checkoutID = getCheckoutID()
         if (checkoutID) {
             client.checkout.fetch(checkoutID).then((checkout) => {
-                this.setState({ checkoutUrl: checkout.webUrl })
+                this.setState({
+                    checkoutUrl: checkout.webUrl,
+                    lineItems: checkout.lineItems
+                })
             })
         }
     }

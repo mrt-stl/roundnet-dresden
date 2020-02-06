@@ -12,7 +12,8 @@ export const addToCart = async (variantID: string) => {
 
     const checkoutID = getCheckoutID()
     try {
-        const checkout = await client.checkout.addLineItems(checkoutID, lineItemsToAdd)
+        const clientCheckout: any = client.checkout
+        const checkout = await clientCheckout.addLineItems(checkoutID, lineItemsToAdd)
         console.log(checkout)
     } catch (e) {
         console.log(e)

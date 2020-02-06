@@ -110,6 +110,10 @@ export const grid = <style jsx global>{`
     .align-items-center {
         flex-direction: row;
     }
+
+    .no-wrap {
+        flex-direction: row !important;
+    }
 }
 
 /* Util CSS classes */

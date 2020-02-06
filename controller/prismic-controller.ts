@@ -230,8 +230,9 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const productPrice = catalogPrimary.shopify_catalogue.variants[0].price
             const productImgSrc = catalogPrimary.shopify_catalogue.image.src
             const productVariantID = catalogPrimary.shopify_catalogue.variants[0].admin_graphql_api_id
+            const productDescription = catalogPrimary.shopify_catalogue.body_html
 
-            const productModel = new ProductModel(productName, productPrice, productImgSrc, productVariantID)
+            const productModel = new ProductModel(productName, productPrice, productImgSrc, productVariantID, productDescription)
             return productModel
 
         default:

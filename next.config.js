@@ -18,7 +18,9 @@ module.exports = withBundleAnalyzer({
     COLORS: process.env.COLORS,
     DARK_MODE: process.env.DARK_MODE,
     HAS_BANNER: process.env.HAS_BANNER,
-    CACHING_TIME: process.env.CACHING_TIME
+    CACHING_TIME: process.env.CACHING_TIME,
+    SHOPIFY_ACCESS_TOKEN: process.env.SHOPIFY_ACCESS_TOKEN,
+    SHOPIFY_STORE_DOMAIN: process.env.SHOPIFY_STORE_DOMAIN
   },
   webpack: config => {
     config.node = {

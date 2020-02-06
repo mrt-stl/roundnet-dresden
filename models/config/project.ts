@@ -58,6 +58,10 @@ export default class Project {
         this.prismicEndpoint = process.env.PRISMIC_ENDPOINT ? process.env.PRISMIC_ENDPOINT : null
         this.showBanner = process.env.HAS_BANNER ? process.env.HAS_BANNER : ShowBannerType.OFF
         this.url = process.env.URL ? process.env.URL : null
+
+        // Shopify variables
+        this.shopifyAccessToken = process.env.SHOPIFY_ACCESS_TOKEN ?? null
+        this.shopifyStoreDomain = process.env.SHOPIFY_STORE_DOMAIN ?? null
     }
 
     private parse = (envVar: any) => {

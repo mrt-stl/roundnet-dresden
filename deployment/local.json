@@ -28,7 +28,9 @@
             "DARK_MODE": "auto",
             "CACHING_TIME": "0",
             "PROJECT_ID": "stl",
-            "HAS_BANNER": "on"
+            "HAS_BANNER": "on",
+            "SHOPIFY_ACCESS_TOKEN": "8a1375fb56d36b6ed4aed75934b9051e",
+            "SHOPIFY_STORE_DOMAIN": "stadtteilshop.myshopify.com"
         }
     },
     "routes": [

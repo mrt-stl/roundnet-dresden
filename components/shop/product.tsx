@@ -4,7 +4,7 @@ export interface IProductProps {
     name: string
     price: string
     imgSrc: string
-    variantID: number
+    variantID: string
 }
 
 const Product = (props: IProductProps) => {

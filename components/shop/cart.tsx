@@ -6,7 +6,7 @@ class ShopifyCart extends Component {
 
     public render() {
         return (
-            <a href="/checkout">
+            <a href="/cart">
                 Warenkorb
             </a>
         )

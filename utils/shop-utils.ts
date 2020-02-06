@@ -3,13 +3,14 @@ import { client } from "../models/config/shopify"
 
 const LS_ID = "CHECKOUT_ID"
 
-export const addToCart = async (variantID: number) => {
-    const checkoutID = getCheckoutID()
+export const addToCart = async (variantID: string) => {
+    const encodedVariantID = btoa(variantID)
     const lineItemsToAdd = [{
-        variantId: variantID,
+        variantId: encodedVariantID,
         quantity: 1,
     }]
 
+    const checkoutID = getCheckoutID()
     try {
         const checkout = await client.checkout.addLineItems(checkoutID, lineItemsToAdd)
         console.log(checkout)

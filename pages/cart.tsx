@@ -2,7 +2,7 @@ import { Component } from "react"
 import { client } from "../models/config/shopify"
 import { getCheckoutID } from "../utils/shop-utils"
 
-class Checkout extends Component {
+class Cart extends Component {
     public state = {
         checkoutUrl: null
     }
@@ -26,4 +26,4 @@ class Checkout extends Component {
     }
 }
 
-export default Checkout
+export default Cart

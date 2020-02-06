@@ -2,14 +2,13 @@ interface ICartElementProps {
     ID: string
     imgSrc: string
     name: string
-    price: string
     amount: string
     total: string
     removeLineItem: (lineItemID: string) => void
 }
 
 const CartElement = (props: ICartElementProps) => {
-    const { ID, imgSrc, name, price, amount, total, removeLineItem } = props
+    const { ID, imgSrc, name, amount, total, removeLineItem } = props
 
     const removeLineItemWithID = () => {
         removeLineItem(ID)
@@ -17,7 +16,7 @@ const CartElement = (props: ICartElementProps) => {
 
     return (
         <div className="grid no-wrap cart-element-container">
-            <div className="col-2">
+            <div className="col">
                 <img src={imgSrc} />
             </div>
             <div className="col-2">
@@ -25,12 +24,11 @@ const CartElement = (props: ICartElementProps) => {
                 <a onClick={removeLineItemWithID}
                     style={{ color: "var(--font-color)", cursor: "pointer" }}>Entfernen</a>
             </div>
-            <div className="col-1">
-                <p>{price}</p>
+
+            <div className="col-2">
+                <p style={{ float: "right" }}>{amount} Stück</p>
             </div>
-            <div className="col-1">
-                <p>{amount} Stück</p>
-            </div>
+
             <div className="col-2">
                 <p style={{ float: "right" }}>{total}</p>
             </div>

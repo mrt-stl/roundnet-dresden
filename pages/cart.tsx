@@ -28,7 +28,6 @@ class Cart extends Component {
 
             const price = lineItem.variant.priceV2.amount
             const parsedPrice = parseFloat(price)
-            const readablePrice = parsedPrice.toFixed(2)
             const totalPrice = (amount * parsedPrice).toFixed(2) + " " + currencyCode
 
             total += (amount * parsedPrice)
@@ -39,7 +38,6 @@ class Cart extends Component {
                     key={index}
                     imgSrc={lineItem.variant.image.src}
                     name={lineItem.title}
-                    price={readablePrice + " " + currencyCode}
                     amount={amount}
                     total={totalPrice}
                     removeLineItem={this.removeLineItem} />
@@ -67,11 +65,9 @@ class Cart extends Component {
                             <div className="col-4">
                                 <p>Artikel</p>
                             </div>
-                            <div className="col-1">
-                                <p>Preis</p>
-                            </div>
-                            <div className="col-1">
-                                <p>Menge</p>
+
+                            <div className="col-2">
+                                <p style={{ float: "right" }}>Menge</p>
                             </div>
                             <div className="col-2">
                                 <p style={{ float: "right" }}>Gesamt</p>
@@ -80,11 +76,11 @@ class Cart extends Component {
 
                         {lineItemDivs}
 
-                        <div className="grid justify-content-end" style={{ paddingTop: "1em", paddingBottom: "1em" }}>
+                        <div className="grid justify-content-end" style={{ paddingTop: "1em" }}>
                             <div className="col-2">
-                                <p>Summe</p>
+                                <p style={{ float: "right" }}>Summe</p>
                             </div>
-                            <div className="col-1">
+                            <div className="col-2">
                                 <p style={{ float: "right" }}>{total.toFixed(2)} EUR</p>
                             </div>
                         </div>

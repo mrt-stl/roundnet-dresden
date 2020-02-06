@@ -52,6 +52,10 @@ const createCmd = function (deployCmd, project) {
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     cmd = cmd + " -b COOKIE=" + stringForCmd(project.cookie.link)
 
+    // Add Shopify variables
+    cmd = cmd + " -b SHOPIFY_ACCESS_TOKEN=" + stringForCmd(project.shopify_access_token)
+    cmd = cmd + " -b SHOPIFY_STORE_DOMAIN=" + stringForCmd(project.shopify_store_domain)
+
     return cmd
 }
 

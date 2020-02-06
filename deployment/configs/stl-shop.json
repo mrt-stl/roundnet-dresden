@@ -1,0 +1,36 @@
+{
+    "version": 2,
+    "name": "stadtteilshop",
+    "public": false,
+    "regions": [
+        "all"
+    ],
+    "builds": [
+        {
+            "src": "next.config.js",
+            "use": "@now/next"
+        },
+        {
+            "src": "static/*",
+            "use": "@now/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "^/robots.txt",
+            "dest": "/static/robots.txt"
+        },
+        {
+            "src": "^/sitemap.xml",
+            "dest": "/api/sitemap"
+        },
+        {
+            "src": "/cart",
+            "dest": "/cart"
+        },
+        {
+            "src": "/(?<id>[^/]+)$",
+            "dest": "/index?id=$id"
+        }
+    ]
+}

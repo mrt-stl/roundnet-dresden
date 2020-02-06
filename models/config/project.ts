@@ -34,6 +34,10 @@ export default class Project {
     public showBanner: string
     public url?: string | null
 
+    // Shopify variables
+    public shopifyStoreDomain?: string
+    public shopifyAccessToken?: string
+
     private constructor() { this.init() }
 
     public isProduction() {

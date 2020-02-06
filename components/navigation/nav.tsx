@@ -24,7 +24,10 @@ const Nav = () => {
                         )
                     })}
 
-                    <CartLink />
+                    {project.shopifyStoreDomain ?
+                        <CartLink /> :
+                        <></>
+                    }
 
                 </div>
 

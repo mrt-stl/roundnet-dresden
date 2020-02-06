@@ -1,6 +1,9 @@
 import Client from "shopify-buy"
+import Project from "./project"
+
+const project = Project.getInstance()
 
 export const client = Client.buildClient({
-    storefrontAccessToken: "8a1375fb56d36b6ed4aed75934b9051e",
-    domain: "stadtteilshop.myshopify.com"
+    storefrontAccessToken: project.shopifyAccessToken,
+    domain: project.shopifyStoreDomain
 })

@@ -35,12 +35,14 @@ class Cart extends Component {
 
             return (
                 <CartElement
+                    ID={lineItem.id}
                     key={index}
                     imgSrc={lineItem.variant.image.src}
                     name={lineItem.title}
                     price={readablePrice + " " + currencyCode}
                     amount={amount}
-                    total={totalPrice} />
+                    total={totalPrice}
+                    removeLineItem={this.removeLineItem} />
             )
         })
 
@@ -105,6 +107,20 @@ class Cart extends Component {
             client.checkout.fetch(checkoutID).then((checkout) => {
                 this.setState({
                     checkoutUrl: checkout.webUrl,
+                    lineItems: checkout.lineItems
+                })
+            })
+        }
+    }
+
+    private removeLineItem = (lineItemID: string) => {
+        const checkoutID = getCheckoutID()
+        const lineItemIdsToRemove = []
+        lineItemIdsToRemove.push(lineItemID)
+
+        if (checkoutID) {
+            client.checkout.removeLineItems(checkoutID, lineItemIdsToRemove).then((checkout) => {
+                this.setState({
                     lineItems: checkout.lineItems
                 })
             })

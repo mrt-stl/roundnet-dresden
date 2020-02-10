@@ -11,6 +11,10 @@ export const asHtml = (richtext: any): string | null => {
 }
 
 export const asText = (richtext: any): string => {
+    if (!richtext) {
+        return null
+    }
+
     return PrismicDOM.RichText.asText(richtext)
 }
 

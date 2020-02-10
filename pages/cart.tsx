@@ -87,12 +87,11 @@ class Cart extends Component {
 
                         <div className="grid justify-content-end">
                             <div className="col-2">
-                                <button style={{ float: "right" }}>Zur Kasse</button>
+                                <button style={{ float: "right" }} onClick={this.onCheckoutBtnClick}>Zur Kasse</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         )
     }
@@ -106,6 +105,16 @@ class Cart extends Component {
                     lineItems: checkout.lineItems
                 })
             })
+        }
+    }
+
+    private onCheckoutBtnClick = () => {
+        const { checkoutUrl } = this.state
+
+        try {
+            window.location.replace(checkoutUrl)
+        } catch (e) {
+            // do nothing here
         }
     }
 

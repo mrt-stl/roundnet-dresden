@@ -22,6 +22,7 @@ export const tukan = (fontName, colors, darkModeColors) => {
     --medium: 500;
     --bold: 600;
 
+    --small-spacing: 1em;
     --standard-spacing: 5em;
     --large-spacing: 6em;
 }
@@ -190,6 +191,11 @@ pre {
 img {
 	max-width: 100%;
 	object-fit: cover;
+}
+
+.block-img {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .h-100 {
@@ -361,6 +367,10 @@ textarea::-ms-input-placeholder {
     max-height: 60vh;
     margin-left: auto;
     margin-right: auto;
+}
+
+.product-container {
+    padding-top: var(--standard-spacing);
 }
 
 .product-container button {

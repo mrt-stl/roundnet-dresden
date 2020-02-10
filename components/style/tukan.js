@@ -376,7 +376,7 @@ textarea::-ms-input-placeholder {
 .product-container button {
     padding: 0px 24px;
     height: 48px;
-    background-color: var(--primary);
+    background-color: var(--accent);
     margin: 16px 0px;
     border: none;
     border-radius: 0px;

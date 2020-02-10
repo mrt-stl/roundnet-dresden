@@ -14,7 +14,8 @@ const Nav = () => {
             <div className="nav">
                 <div className="grid no-wrap inner-nav h-100">
                     {navLinks.map((element, index) => {
-                        const hideMobile = index !== 0 ? "desktop-nav" : "h-100"
+                        const hideMobileIndex = project.shopifyStoreDomain ? -1 : 0
+                        const hideMobile = index !== hideMobileIndex ? "desktop-nav" : "h-100"
                         return (
                             <div className={"align-items-center " + hideMobile} key={index}>
                                 <NavLink

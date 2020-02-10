@@ -1,11 +1,14 @@
 import { slide as Menu } from "react-burger-menu"
 import INavLink from "../../models/nav/nav-link"
+import Project from "../../models/config/project"
 
 interface IMobileMenuProps {
     links: INavLink[]
 }
 
 const MobileMenu = (props: IMobileMenuProps) => {
+    const project = Project.getInstance()
+
     const { links } = props
 
     return (
@@ -16,7 +19,8 @@ const MobileMenu = (props: IMobileMenuProps) => {
                 right>
 
                 {links.map((element, index) => {
-                    const visibilityClass = index === 0 ? "hide" : ""
+                    const visibilitIndex = project.shopifyStoreDomain ? -1 : 0
+                    const visibilityClass = index === visibilitIndex ? "hide" : ""
 
                     return (
                         <div className={"align-items-center " + visibilityClass} key={index}>

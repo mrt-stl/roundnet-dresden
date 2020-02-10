@@ -389,6 +389,13 @@ textarea::-ms-input-placeholder {
     margin-left: auto;
 }
 
+@media (max-width: 768px) {
+    .cart-link-container {
+        margin-left: 12px;
+        margin-right: auto;
+    }
+}
+
 .cart-link-container a {
     color: var(--font-color);
 }

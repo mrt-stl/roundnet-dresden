@@ -3,4 +3,5 @@ export interface IMetaData {
     metaTitle: string
     metaDescription: string
     metaOgImg: string
+    metaBanner?: string
 }

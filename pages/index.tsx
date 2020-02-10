@@ -14,6 +14,7 @@ import parser from "accept-language-parser"
 import { Document } from "prismic-javascript/d.ts/documents"
 import TukanModel from "../models/tukan/tukan-model"
 import { IMetaData } from "../models/config/meta-data"
+import Banner from "../components/navigation/banner"
 
 interface IIndexProps {
     docId?: string
@@ -40,6 +41,11 @@ const Index = (props: IIndexProps) => {
                 data={meta} />
 
             <Nav />
+
+            {meta.metaBanner ?
+                <Banner content={meta.metaBanner} /> :
+                <></>
+            }
 
             <TukanContainer
                 tukanModels={componentModels} />
@@ -117,12 +123,14 @@ const createMeta = (docs: Document): IMetaData => {
     const metaDescription = asText(docs.data.meta_description)
     const metaAuthor = asText(docs.data.meta_author)
     const metaOgImg = docs.data.meta_og_img ? docs.data.meta_og_img.url : docs.data.meta_og_img
+    const metaBanner = asText(docs.data.meta_banner)
 
     return {
         metaTitle,
         metaDescription,
         metaAuthor,
-        metaOgImg
+        metaOgImg,
+        metaBanner
     }
 }
 

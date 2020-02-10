@@ -12,7 +12,8 @@ export const tukan = (fontName, colors, darkModeColors) => {
     --white: #ffffff;
     --dark: ${colors.dark};
 	--background: ${colors.background};
-	--font-color: ${colors.font};
+    --font-color: ${colors.font};
+    --font-color-invert: ${darkModeColors.font};
     --all-gray-10: ${colors.allGray10};
     --all-gray-20: ${colors.allGray20};
     --all-gray-30: ${colors.allGray30};
@@ -35,11 +36,12 @@ export const tukan = (fontName, colors, darkModeColors) => {
 		--white: #ffffff;
         --dark: ${colors.dark};
 		--background: ${darkModeColors.background};
-		--font-color: ${darkModeColors.font};
+        --font-color: ${darkModeColors.font};
+        --font-color-invert: ${colors.font};
 		--all-gray-10: ${darkModeColors.allGray10};
 		--all-gray-20: ${darkModeColors.allGray20};
 		--all-gray-30: ${darkModeColors.allGray30};
-		--all-gray-40: ${darkModeColors.allGray40};
+        --all-gray-40: ${darkModeColors.allGray40};
 	}
 }
 
@@ -208,6 +210,21 @@ img {
 
 .tukan-container {
 	margin-top: ${tukanConfig.navHeight};
+}
+
+.banner-container {
+    background-color: var(--primary);
+    height: 36px;
+    z-index: 100;
+    overflow: hidden;
+    position: fixed;
+    top: ${tukanConfig.navHeight};
+    width: 100%;
+}
+
+.banner-container p {
+    color: var(--font-color-invert);
+    font-size: 14px;
 }
 
 .call-to-action {

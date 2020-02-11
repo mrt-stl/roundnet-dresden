@@ -115,10 +115,10 @@ class Cart extends Component {
     }
 
     private removeLineItem = (lineItemID: string) => {
-        const checkoutID = getCheckoutID()
         const lineItemIdsToRemove = []
         lineItemIdsToRemove.push(lineItemID)
 
+        const checkoutID = getCheckoutID()
         if (checkoutID) {
             client.checkout.removeLineItems(checkoutID, lineItemIdsToRemove).then((checkout) => {
                 this.setState({

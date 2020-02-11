@@ -5,6 +5,7 @@ import Meta from "../components/meta"
 import { IMetaData } from "../models/config/meta-data"
 import Nav from "../components/navigation/nav"
 import CartElement from "../components/shop/cart-element"
+import { routeTo } from "../utils/link-utils"
 
 class Cart extends Component {
     public state = {
@@ -110,12 +111,7 @@ class Cart extends Component {
 
     private onCheckoutBtnClick = () => {
         const { checkoutUrl } = this.state
-
-        try {
-            window.location.replace(checkoutUrl)
-        } catch (e) {
-            // do nothing here
-        }
+        routeTo(checkoutUrl)
     }
 
     private removeLineItem = (lineItemID: string) => {

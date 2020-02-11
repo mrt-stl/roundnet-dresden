@@ -442,6 +442,17 @@ textarea::-ms-input-placeholder {
     color: var(--white);
 }
 
+.footer-container {
+    padding-top: var(--large-spacing);
+    padding-bottom: var(--large-spacing);
+}
+
+@media (prefers-color-scheme: dark) { 
+    .footer-container {
+        background-color: var(--background);
+    }
+}
+
   
 @keyframes zoomIn {
     from {

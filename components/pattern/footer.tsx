@@ -6,7 +6,7 @@ export interface IFooterProps {
 }
 
 const Footer = (props: IFooterProps) => {
-    const backgroundColor = props.backgroundColor ? props.backgroundColor : "var(--background)"
+    const backgroundColor = props.backgroundColor ?? "var(--background)"
 
     return (
         <footer className="footer-container" style={{ backgroundColor }}>
@@ -19,13 +19,6 @@ const Footer = (props: IFooterProps) => {
                     )
                 })}
             </div>
-
-            <style jsx>{`
-                .footer-container {
-                    padding-top: var(--large-spacing);
-                    padding-bottom: var(--large-spacing);
-                }
-            `}</style>
         </footer>
     )
 }

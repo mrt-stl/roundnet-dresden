@@ -524,7 +524,6 @@ textarea::-ms-input-placeholder {
     animation-duration: 0.8s;
   }
 
-
 /* Utils */
 
 .hide {

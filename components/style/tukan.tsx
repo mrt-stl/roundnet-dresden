@@ -162,6 +162,10 @@ a:hover {
     background-size: 100% 1px;
 }
 
+h2 a {
+    color: var(--font-color);
+}
+
 h2 a:hover {
     background-size: 100% 2px;
 }

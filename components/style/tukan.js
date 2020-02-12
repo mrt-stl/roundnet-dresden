@@ -162,6 +162,10 @@ a:hover {
     background-size: 100% 1px;
 }
 
+h2 a:hover {
+    background-size: 100% 2px;
+}
+
 hr {
 	background-color: #000000;
 	height: 4px;

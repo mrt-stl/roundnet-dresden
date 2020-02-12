@@ -15,7 +15,6 @@ import { Document } from "prismic-javascript/d.ts/documents"
 import TukanModel from "../models/tukan/tukan-model"
 import { IMetaData } from "../models/config/meta-data"
 import Banner from "../components/navigation/banner"
-import AtmosphericVideo from "../components/pattern/atmospheric-video"
 
 interface IIndexProps {
     docId?: string

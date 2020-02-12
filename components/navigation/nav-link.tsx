@@ -30,7 +30,7 @@ const NavLink = (props: INavLinkProps) => {
                 }
 
                 .nav-link a:hover {
-                    color: var(--all-gray-40);
+                    color: var(--accent);
                     transition: 0.2s;
                 }
             `}</style>

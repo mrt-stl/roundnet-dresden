@@ -18,7 +18,7 @@ export const tukan = (fontName, colors, darkModeColors) => {
     --all-gray-20: ${colors.allGray20};
     --all-gray-30: ${colors.allGray30};
     --all-gray-40: ${colors.allGray40};
-	
+
 	--regular: 400;
     --medium: 500;
     --bold: 600;
@@ -28,7 +28,7 @@ export const tukan = (fontName, colors, darkModeColors) => {
     --large-spacing: 6em;
 }
 
-@media (prefers-color-scheme: dark) { 
+@media (prefers-color-scheme: dark) {
 	:root {
 		--primary: ${darkModeColors.primary};
 		--secondary: ${darkModeColors.secondary};
@@ -191,7 +191,7 @@ pre {
 
 .code {
     font-family: monospace,monospace;
-    color: #bd10e0  
+    color: #bd10e0
 }
 
 img {
@@ -251,38 +251,38 @@ img {
     top: 0 !important;
     right: 12x !important;
 }
-  
+
 .bm-burger-bars {
     background: #373a47;
 }
-  
+
 .bm-morph-shape {
     fill: #373a47;
 }
-  
+
 .bm-menu {
     background: var(--all-gray-10);
     padding-top: 128px;
     padding-left: 64px;
 }
-  
+
 .bm-menu a {
     color: #b8b7ad;
 }
-  
+
 .bm-item-list a {
     padding: 0.8em;
 }
-  
+
 .bm-item-list a span {
     margin-left: 10px;
     font-weight: 700;
 }
-  
+
 .bm-item:focus {
     outline: none;
 }
-  
+
 .bm-menu-wrap {
       top: 0;
 }
@@ -415,7 +415,7 @@ textarea::-ms-input-placeholder {
 }
 
 .cart-link-container a:hover {
-    transition: 0.3s;
+    transition: 0.2s;
     color: var(--accent);
 }
 
@@ -460,18 +460,18 @@ textarea::-ms-input-placeholder {
     padding-bottom: var(--large-spacing);
 }
 
-@media (prefers-color-scheme: dark) { 
+@media (prefers-color-scheme: dark) {
     .footer-container {
         background-color: var(--background);
     }
 }
 
-  
+
 @keyframes zoomIn {
     from {
       transform: scale(1);
     }
-  
+
     60% {
       transform: scale(1.08);
     }
@@ -480,7 +480,7 @@ textarea::-ms-input-placeholder {
         transform: scale(1);
     }
   }
-  
+
 .zoomIn {
     animation-name: zoomIn;
     animation-duration: 1.6s;
@@ -493,41 +493,41 @@ textarea::-ms-input-placeholder {
       -webkit-transform: scale3d(1, 1, 1);
       transform: scale3d(1, 1, 1);
     }
-  
+
     50% {
       -webkit-transform: scale3d(1.05, 1.05, 1.05);
       transform: scale3d(1.05, 1.05, 1.05);
     }
-  
+
     to {
       -webkit-transform: scale3d(1, 1, 1);
       transform: scale3d(1, 1, 1);
     }
   }
-  
+
   @keyframes pulse {
     from {
       -webkit-transform: scale3d(1, 1, 1);
       transform: scale3d(1, 1, 1);
     }
-  
+
     50% {
       -webkit-transform: scale3d(1.05, 1.05, 1.05);
       transform: scale3d(1.05, 1.05, 1.05);
     }
-  
+
     to {
       -webkit-transform: scale3d(1, 1, 1);
       transform: scale3d(1, 1, 1);
     }
   }
-  
+
 .pulse {
     animation-name: pulse;
     animation-duration: 0.8s;
     animation-timing-function: ease;
 }
-  
+
 
 /* Utils */
 

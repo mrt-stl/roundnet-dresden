@@ -158,7 +158,7 @@ a {
     transition: background-size .4s;
 }
 
-a:hover, a:focus {
+a:hover {
     background-size: 100% 1px;
 }
 
@@ -404,6 +404,15 @@ textarea::-ms-input-placeholder {
 .cart-link-container {
     margin-right: 12px;
     margin-left: auto;
+}
+
+.cart-link-container a {
+    background-image: none !important;
+}
+
+.cart-link-container a:hover {
+    transition: 0.3s;
+    color: var(--accent);
 }
 
 @media (max-width: 768px) {

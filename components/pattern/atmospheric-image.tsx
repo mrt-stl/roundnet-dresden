@@ -14,7 +14,7 @@ const AtmosphericImage = (props: IAtmosphericProps) => {
             height="60vh"
             offset={50}>
             <div className="atmo-image-container">
-                <img src={imgSrc} alt={imgAlt} className="zoomIn" height="100%" />
+                <img src={imgSrc} alt={imgAlt} height="100%" />
 
                 <style jsx>{`
                     .atmo-image-container {

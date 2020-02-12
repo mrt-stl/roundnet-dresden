@@ -58,8 +58,7 @@ const Card = (props: ICardProps) => {
 
             <style jsx>{`
                 .link-container:hover {
-                    opacity: 0.4;
-                    transition: 0.3s ease-out;
+                    opacity: 0.85;
                 }
 
                 a {

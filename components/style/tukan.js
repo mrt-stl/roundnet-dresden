@@ -481,12 +481,53 @@ textarea::-ms-input-placeholder {
     }
   }
   
-  .zoomIn {
+.zoomIn {
     animation-name: zoomIn;
     animation-duration: 1.6s;
     animation-timing-function: ease;
     animation-delay: 0.4s;
+}
+
+@-webkit-keyframes pulse {
+    from {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  
+    50% {
+      -webkit-transform: scale3d(1.05, 1.05, 1.05);
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+  
+    to {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
   }
+  
+  @keyframes pulse {
+    from {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  
+    50% {
+      -webkit-transform: scale3d(1.05, 1.05, 1.05);
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+  
+    to {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
+.pulse {
+    animation-name: pulse;
+    animation-duration: 0.8s;
+    animation-timing-function: ease;
+}
+  
 
 /* Utils */
 

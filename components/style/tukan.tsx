@@ -492,45 +492,37 @@ textarea::-ms-input-placeholder {
     animation-delay: 0.4s;
 }
 
-@-webkit-keyframes pulse {
-    from {
-      -webkit-transform: scale3d(1, 1, 1);
-      transform: scale3d(1, 1, 1);
-    }
 
-    50% {
-      -webkit-transform: scale3d(1.05, 1.05, 1.05);
-      transform: scale3d(1.05, 1.05, 1.05);
-    }
-
+@-webkit-keyframes flash {
+    from,
+    50%,
     to {
-      -webkit-transform: scale3d(1, 1, 1);
-      transform: scale3d(1, 1, 1);
+      opacity: 1;
+    }
+
+    25%,
+    75% {
+      opacity: 0;
     }
   }
 
-  @keyframes pulse {
-    from {
-      -webkit-transform: scale3d(1, 1, 1);
-      transform: scale3d(1, 1, 1);
-    }
-
-    50% {
-      -webkit-transform: scale3d(1.05, 1.05, 1.05);
-      transform: scale3d(1.05, 1.05, 1.05);
-    }
-
+  @keyframes flash {
+    from,
+    50%,
     to {
-      -webkit-transform: scale3d(1, 1, 1);
-      transform: scale3d(1, 1, 1);
+      opacity: 1;
+    }
+
+    25%,
+    75% {
+      opacity: 0;
     }
   }
 
-.pulse {
-    animation-name: pulse;
+  .flash {
+    animation-name: flash;
     animation-duration: 0.8s;
-    animation-timing-function: ease;
-}
+  }
 
 
 /* Utils */

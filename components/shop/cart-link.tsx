@@ -17,7 +17,7 @@ const CartLink = () => {
         }
     }, [total])
 
-    const linkClass = showAnimation ? "pulse" : ""
+    const linkClass = showAnimation ? "flash" : ""
 
     // Get total sum from shopify and set it to state hook.
     const setTotalFromShopify = async () => {

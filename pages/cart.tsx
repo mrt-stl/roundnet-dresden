@@ -110,8 +110,7 @@ class Cart extends Component {
     }
 
     private onCheckoutBtnClick = () => {
-        const { checkoutUrl } = this.state
-        routeTo(checkoutUrl)
+        routeTo("https://shop.stadtteilliebe.de/checkout")
     }
 
     private removeLineItem = (lineItemID: string) => {

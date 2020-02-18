@@ -19,8 +19,8 @@
         "env": {
             "URL": "https://standard.stl-dev.now.sh/",
             "NAME": "standard-stl",
-            "PRISMIC_ENDPOINT": "https://standard.cdn.prismic.io/api/v2",
-            "ACCESS_TOKEN": "MC5YTWJpUFJFQUFDSUF0MzB2.77-977-977-977-9ae-_ve-_ve-_ve-_ve-_vWzvv70a77-9Yu-_vRvvv73vv71m77-977-977-9fGFE77-9Q0Hvv73vv70k",
+            "PRISMIC_ENDPOINT": "https://stadtteilshop.cdn.prismic.io/api/v2",
+            "ACCESS_TOKEN": "MC5YamstemhNQUFDQUFma3dv.VnLvv71jNUbvv71J77-9HiLvv73vv70iA--_ve-_ve-_vVDvv73vv73vv71Q77-9KSXvv73vv73vv708MmQ",
             "NAV": "[ {\"name\": \"Start\", \"link\": \"/\"}, {\"name\": \"Shop\", \"link\": \"/home\"} ]",
             "FONT": "{\"url\": \"https://use.typekit.net/zvs7feh.css\", \"name\": \"neue-haas-unica\" }",
             "COOKIE": "{\"link\": \"https://stadtteilliebe.de/datenschutz\"}",

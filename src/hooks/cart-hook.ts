@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-const listeners = []
+let listeners = []
 let state = 0
 
 const setState = (newState: number) => {
@@ -10,10 +10,14 @@ const setState = (newState: number) => {
     })
 }
 
-const useCart = (): any => {
+const useCart = (): [number, (state: number) => void] => {
     const newListener = useState()[1]
     useEffect(() => {
         listeners.push(newListener)
+
+        return () => {
+            listeners = listeners.filter(listener => listener !== newListener)
+        }
     }, [])
     return [state, setState]
 }

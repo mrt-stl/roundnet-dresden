@@ -19,6 +19,7 @@ import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
 import HeadlineModel from "../models/tukan/headline-model"
 import ColRichtextModel from "../models/tukan/col-richtext-model"
 import ProductModel from "../models/tukan/product-model"
+import MultiFunctionalModel from "../models/tukan/multi-functional-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -234,6 +235,24 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const productModel = new ProductModel(productName, productPrice, productImgSrc, productVariantID, productDescription)
             return productModel
+
+        case "multi_functional":
+            const multiFunctionalPrimary = slice.primary
+            const multiFunctionalItems = slice.items
+
+            const multiFunctionalTitle = asText(multiFunctionalPrimary.multi_functional_title)
+            const multiFunctionalCols = []
+
+            for(const item of multiFunctionalItems){
+                const content = asHtml(item.multi_functional_content)
+                const link = linkResolver(item.multi_functional_link)
+                const col = {content, link}
+                multiFunctionalCols.push(col)
+            }
+
+            const multiFunctionalModel = new MultiFunctionalModel(multiFunctionalCols, multiFunctionalTitle)
+            
+            return multiFunctionalModel 
 
         default:
             return null

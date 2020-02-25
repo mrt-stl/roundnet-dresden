@@ -99,10 +99,10 @@ h4 {
 	font-size: 1.5em;
     color: var(--font-color);
     letter-spacing: 0.1px;
-    font-weight: var(--medium);
+    font-weight: var(--bold);
     line-height: 1.25em;
-    margin-bottom: 0.75em;
-    margin-top: 0.75em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 }
 
 h5 {
@@ -468,6 +468,11 @@ textarea::-ms-input-placeholder {
     .footer-container {
         background-color: var(--background);
     }
+}
+
+.multi-functional-container {
+    margin-bottom: var(--standard-spacing);
+    margin-top: var(--standard-spacing);
 }
 
 

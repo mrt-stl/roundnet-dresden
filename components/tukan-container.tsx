@@ -34,6 +34,8 @@ import ColRichtextModel from "../models/tukan/col-richtext-model"
 import ColRichtext from "./pattern/col-richtext"
 import ProductModel from "../models/tukan/product-model"
 import Product from "./shop/product"
+import MultiFunctionalModel from "../models/tukan/multi-functional-model"
+import MultiFunctional from "./pattern/multi-functional"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -187,6 +189,15 @@ const matchComponent = (model: TukanModel, index: number) => {
                     key={index}
                     lat={locationModel.lat}
                     lng={locationModel.lng} />
+            break
+
+        case TukanType.MultiFunctional:
+            const multiFunctionalModel = model as MultiFunctionalModel
+            component =
+                <MultiFunctional
+                    key={index}
+                    cols={multiFunctionalModel.cols}
+                    title={multiFunctionalModel.title} />
             break
 
         case TukanType.Preview:

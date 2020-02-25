@@ -14,6 +14,7 @@ export enum TukanType {
     ImageWithCaption = "image-with-caption",
     InfiniteCards = "infinite-cards",
     Location = "location",
+    MultiFunctional = "multi-functional",
     Preview = "preview",
     Product = "product",
     Richtext = "richtext"

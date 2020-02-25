@@ -243,16 +243,16 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const multiFunctionalTitle = asText(multiFunctionalPrimary.multi_functional_title)
             const multiFunctionalCols = []
 
-            for(const item of multiFunctionalItems){
+            for (const item of multiFunctionalItems) {
                 const content = asHtml(item.multi_functional_content)
                 const link = linkResolver(item.multi_functional_link)
-                const col = {content, link}
+                const col = { content, link }
                 multiFunctionalCols.push(col)
             }
 
             const multiFunctionalModel = new MultiFunctionalModel(multiFunctionalCols, multiFunctionalTitle)
-            
-            return multiFunctionalModel 
+
+            return multiFunctionalModel
 
         default:
             return null

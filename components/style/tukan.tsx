@@ -66,23 +66,23 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1 {
-	font-size: 4em;
+	font-size: 3em;
     color: var(--font-color);
     letter-spacing: 0.1px;
-    line-height: 1.25;
-    margin-bottom: 0.25em;
-    margin-top: 0.25em;
-    font-weight: var(--medium);
+    line-height: 1.125;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    font-weight: var(--bold);
 }
 
 h2 {
-	font-size: 2.5em;
+	font-size: 2.25em;
     color: var(--font-color);
     letter-spacing: 0;
-    line-height: 1.2;
+    line-height: 1.25;
     font-weight: var(--medium);
-    margin-bottom: 0.4em;
-    margin-top: 0.4em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
 }
 
 h3 {
@@ -111,8 +111,8 @@ h5 {
 	letter-spacing: 0.1px;
 	color: var(--all-gray-30);
 	line-height: 1.5em;
-	margin-bottom: 1em;
-	margin-top: 1em;
+	margin-bottom: 0.8em;
+	margin-top: 0.8em;
 }
 
 p {

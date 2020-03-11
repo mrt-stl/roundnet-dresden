@@ -1,7 +1,7 @@
 {
     "version": 2,
     "name": "zwickmuehle",
-    "alias": "zwickmühle.org",
+    "alias": "zwickmuehle.org",
     "public": false,
     "regions": [
         "all"

@@ -16,6 +16,9 @@ const Meta = (props: IMetaProps) => {
     const projectId = !isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "kranich-stl"
     const iconCDN = "https://s3.eu-central-1.amazonaws.com/kranich/icons/" + projectId + "/"
 
+    const metaTitle = !isUndefinedOrNullOrEmpty(props.data.metaTitle) ? props.data.metaTitle : project.metaTitle
+    const metaDescription = !isUndefinedOrNullOrEmpty(props.data.metaDescription) ? props.data.metaDescription : project.metaDescription
+
     // Set colors
     const projectColors = project.colors
     let colors: any = defaultColors
@@ -50,7 +53,6 @@ const Meta = (props: IMetaProps) => {
     if (project.font) {
         fontUrl = project.font.url
         fontName = project.font.name
-
     }
 
     const gaID = project.googleAnalyticsID
@@ -61,13 +63,13 @@ const Meta = (props: IMetaProps) => {
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-                <title>{props.data.metaTitle}</title>
+                <title>{metaTitle ?? ""}</title>
 
                 <meta name="author" content={props.data.metaAuthor} />
-                <meta name="description" content={props.data.metaDescription} />
+                <meta name="description" content={metaDescription} />
 
-                <meta property="og:title" content={props.data.metaTitle} />
-                <meta property="og:description" content={props.data.metaDescription} />
+                <meta property="og:title" content={metaTitle} />
+                <meta property="og:description" content={metaDescription} />
                 <meta property="og:image" content={props.data.metaOgImg} />
                 <meta name="twitter:card" content="summary_large_image" />
 

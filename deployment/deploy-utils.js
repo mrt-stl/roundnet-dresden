@@ -57,6 +57,11 @@ const createCmd = function (deployCmd, project) {
         cmd = cmd + " -b SHOPIFY_ACCESS_TOKEN=" + stringForCmd(project.shopify_access_token)
         cmd = cmd + " -b SHOPIFY_STORE_DOMAIN=" + stringForCmd(project.shopify_store_domain)
     }
+
+    if (project.meta) {
+        cmd = cmd + " -b META_TITLE=" + stringForCmd(project.meta.title)
+        cmd = cmd + " -b META_DESCRIPTION=" + stringForCmd(project.meta.description)
+    }
    
     return cmd
 }

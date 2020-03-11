@@ -58,6 +58,14 @@ describe("Project Environment Variables are not set", () => {
     test("Url not set", () => {
         expect(project.url).toBeNull()
     })
+
+    test("Meta title not set", () => {
+        expect(project.metaTitle).toBeNull()
+    })
+
+    test("Meta description not set", () => {
+        expect(project.metaDescription).toBeNull()
+    })
 })
 
 describe("Project Environment Variables are set", () => {
@@ -78,6 +86,8 @@ describe("Project Environment Variables are set", () => {
     const projectId = "stl"
     const showBanner = ShowBannerType.ON
     const url = "https://stadtteilliebe.de/"
+    const metaTitle = "Beispielprojekt"
+    const metaDescription = "Das ist ein Beispielprojekt"
 
     process.env.CACHING_TIME = cachingTimeEnv
     process.env.COLORS = JSON.stringify(colors)
@@ -92,6 +102,8 @@ describe("Project Environment Variables are set", () => {
     process.env.PROJECT_ID = projectId
     process.env.HAS_BANNER = showBanner
     process.env.URL = url
+    process.env.META_TITLE = metaTitle
+    process.env.META_DESCRIPTION = metaDescription
 
     Project.clearInstance()
     const project = Project.getInstance()
@@ -146,5 +158,13 @@ describe("Project Environment Variables are set", () => {
 
     test("Url set right", () => {
         expect(project.url).toBe(url)
+    })
+
+    test("Meta title set right", () => {
+        expect(project.metaTitle).toBe(metaTitle)
+    })
+
+    test("Meta description set right", () => {
+        expect(project.metaDescription).toBe(metaDescription)
     })
 })

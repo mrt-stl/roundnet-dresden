@@ -20,7 +20,9 @@ module.exports = withBundleAnalyzer({
     HAS_BANNER: process.env.HAS_BANNER,
     CACHING_TIME: process.env.CACHING_TIME,
     SHOPIFY_ACCESS_TOKEN: process.env.SHOPIFY_ACCESS_TOKEN,
-    SHOPIFY_STORE_DOMAIN: process.env.SHOPIFY_STORE_DOMAIN
+    SHOPIFY_STORE_DOMAIN: process.env.SHOPIFY_STORE_DOMAIN,
+    META_TITLE: process.env.META_TITLE,
+    META_DESCRIPTION: process.env.META_DESCRIPTION,
   },
   webpack: config => {
     config.node = {

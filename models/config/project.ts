@@ -33,6 +33,8 @@ export default class Project {
     public prismicEndpoint?: string | null
     public showBanner: string
     public url?: string | null
+    public metaTitle?: string | null
+    public metaDescription?: string | null
 
     // Shopify variables
     public shopifyStoreDomain?: string
@@ -62,6 +64,10 @@ export default class Project {
         // Shopify variables
         this.shopifyAccessToken = process.env.SHOPIFY_ACCESS_TOKEN ?? null
         this.shopifyStoreDomain = process.env.SHOPIFY_STORE_DOMAIN ?? null
+
+        // Meta variables
+        this.metaTitle = process.env.META_TITLE ?? null
+        this.metaDescription = process.env.META_DESCRIPTION ?? null
     }
 
     private parse = (envVar: any) => {

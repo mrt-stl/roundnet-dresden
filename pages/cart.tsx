@@ -41,7 +41,8 @@ class Cart extends Component {
                     name={lineItem.title}
                     amount={amount}
                     total={totalPrice}
-                    removeLineItem={this.removeLineItem} />
+                    removeLineItem={this.removeLineItem}
+                />
             )
         })
 

@@ -19,7 +19,7 @@ const MobileMenu = (props: IMobileMenuProps) => {
                 right>
 
                 {links.map((element, index) => {
-                    const visibilitIndex = project.shopifyStoreDomain ? -1 : 0
+                    const visibilitIndex = project.useShopView ? -1 : 0
                     const visibilityClass = index === visibilitIndex ? "hide" : ""
 
                     return (

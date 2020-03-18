@@ -21,6 +21,7 @@ module.exports = withBundleAnalyzer({
     CACHING_TIME: process.env.CACHING_TIME,
     SHOPIFY_ACCESS_TOKEN: process.env.SHOPIFY_ACCESS_TOKEN,
     SHOPIFY_STORE_DOMAIN: process.env.SHOPIFY_STORE_DOMAIN,
+    USE_SHOP_VIEW: process.env.USE_SHOP_VIEW,
     META_TITLE: process.env.META_TITLE,
     META_DESCRIPTION: process.env.META_DESCRIPTION,
   },

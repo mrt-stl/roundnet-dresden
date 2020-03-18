@@ -36,7 +36,8 @@ export default class Project {
     public metaTitle?: string | null
     public metaDescription?: string | null
 
-    // Shopify variables
+    // Shop variables
+    public useShopView: boolean
     public shopifyStoreDomain?: string
     public shopifyAccessToken?: string
 
@@ -61,7 +62,8 @@ export default class Project {
         this.showBanner = process.env.HAS_BANNER ? process.env.HAS_BANNER : ShowBannerType.OFF
         this.url = process.env.URL ? process.env.URL : null
 
-        // Shopify variables
+        // Shop variables
+        this.useShopView = Boolean(process.env.USE_SHOP_VIEW) ?? false
         this.shopifyAccessToken = process.env.SHOPIFY_ACCESS_TOKEN ?? null
         this.shopifyStoreDomain = process.env.SHOPIFY_STORE_DOMAIN ?? null
 

@@ -18,7 +18,7 @@ import FooterModel from "../models/tukan/footer-model"
 import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
 import HeadlineModel from "../models/tukan/headline-model"
 import ColRichtextModel from "../models/tukan/col-richtext-model"
-import ProductModel from "../models/tukan/product-model"
+import ShopifyProductModel from "../models/tukan/shopify-product-model"
 import MultiFunctionalModel from "../models/tukan/multi-functional-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
@@ -233,7 +233,7 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const productVariantID = catalogPrimary.shopify_catalogue.variants[0].admin_graphql_api_id
             const productDescription = catalogPrimary.shopify_catalogue.body_html
 
-            const productModel = new ProductModel(productName, productPrice, productImgSrc, productVariantID, productDescription)
+            const productModel = new ShopifyProductModel(productName, productPrice, productImgSrc, productVariantID, productDescription)
             return productModel
 
         case "multi_functional":

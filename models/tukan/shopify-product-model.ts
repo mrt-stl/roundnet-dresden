@@ -1,8 +1,8 @@
 import TukanModel from "./tukan-model"
-import { IProductProps } from "../../components/shop/product"
+import { IShopifyProductProps } from "../../components/shop/shopify-product"
 import { TukanType } from "./tukan-types"
 
-export default class ProductModel extends TukanModel implements IProductProps {
+export default class ShopifyProductModel extends TukanModel implements IShopifyProductProps {
     public name: string
     public price: string
     public imgSrc: string
@@ -10,7 +10,7 @@ export default class ProductModel extends TukanModel implements IProductProps {
     public description: string
 
     constructor(name: string, price: string, imgSrc: string, variantID: string, description: string) {
-        super(TukanType.Product)
+        super(TukanType.ShopifyProduct)
 
         this.name = name
         this.price = price

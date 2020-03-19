@@ -16,6 +16,6 @@ export enum TukanType {
     Location = "location",
     MultiFunctional = "multi-functional",
     Preview = "preview",
-    Product = "product",
-    Richtext = "richtext"
+    Richtext = "richtext",
+    ShopifyProduct = "shopify-product",
 }

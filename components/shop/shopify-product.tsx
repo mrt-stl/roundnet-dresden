@@ -2,7 +2,7 @@ import { addToCart } from "../../utils/shop-utils"
 import parse from "html-react-parser"
 import useCart from "../../src/hooks/cart-hook"
 
-export interface IProductProps {
+export interface IShopifyProductProps {
     name: string
     description: string
     price: string
@@ -10,7 +10,7 @@ export interface IProductProps {
     variantID: string
 }
 
-const Product = (props: IProductProps) => {
+const ShopifyProduct = (props: IShopifyProductProps) => {
     const { name, price, imgSrc, variantID, description } = props
     const [total, setTotal] = useCart()
 
@@ -42,4 +42,4 @@ const Product = (props: IProductProps) => {
     )
 }
 
-export default Product
+export default ShopifyProduct

@@ -32,8 +32,8 @@ import HeadlineModel from "../models/tukan/headline-model"
 import Headline from "./pattern/headline"
 import ColRichtextModel from "../models/tukan/col-richtext-model"
 import ColRichtext from "./pattern/col-richtext"
-import ProductModel from "../models/tukan/product-model"
-import Product from "./shop/product"
+import ShopifyProductModel from "../models/tukan/shopify-product-model"
+import ShopifyProduct from "./shop/shopify-product"
 import MultiFunctionalModel from "../models/tukan/multi-functional-model"
 import MultiFunctional from "./pattern/multi-functional"
 
@@ -211,24 +211,24 @@ const matchComponent = (model: TukanModel, index: number) => {
                     imgAlt={previewModel.imgAlt} />
             break
 
-        case TukanType.Product:
-            const productModel = model as ProductModel
-            component =
-                <Product
-                    key={index}
-                    name={productModel.name}
-                    price={productModel.price}
-                    imgSrc={productModel.imgSrc}
-                    variantID={productModel.variantID}
-                    description={productModel.description} />
-            break
-
         case TukanType.Richtext:
             const richtextModel = model as RichtextModel
             component =
                 <Richtext
                     key={index}
                     content={richtextModel.content} />
+            break
+
+        case TukanType.ShopifyProduct:
+            const productModel = model as ShopifyProductModel
+            component =
+                <ShopifyProduct
+                    key={index}
+                    name={productModel.name}
+                    price={productModel.price}
+                    imgSrc={productModel.imgSrc}
+                    variantID={productModel.variantID}
+                    description={productModel.description} />
             break
     }
 

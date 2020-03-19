@@ -1,7 +1,6 @@
 {
     "version": 2,
     "name": "shiningwhite",
-    "alias": "shiningwhite.de",
     "public": false,
     "regions": [
         "all"

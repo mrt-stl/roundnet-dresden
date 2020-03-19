@@ -20,6 +20,7 @@ import HeadlineModel from "../models/tukan/headline-model"
 import ColRichtextModel from "../models/tukan/col-richtext-model"
 import ShopifyProductModel from "../models/tukan/shopify-product-model"
 import MultiFunctionalModel from "../models/tukan/multi-functional-model"
+import PaypalExpressProductModel from "../models/tukan/paypal-express-product-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -253,6 +254,17 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const multiFunctionalModel = new MultiFunctionalModel(multiFunctionalCols, multiFunctionalTitle)
 
             return multiFunctionalModel
+
+        case "paypal_product":
+            const paypalProductPrimary = slice.primary
+
+            const paypalProductName = asText(paypalProductPrimary.product_name)
+            const paypalProductPrice = asText(paypalProductPrimary.product_price)
+            const paypalProductImgSrc = paypalProductPrimary.product_image?.url
+            const paypalProductDescription = asHtml(paypalProductPrimary.product_description)
+
+            const paypalExpressProductModel = new PaypalExpressProductModel(paypalProductName, paypalProductPrice, paypalProductImgSrc, paypalProductDescription)
+            return paypalExpressProductModel
 
         default:
             return null

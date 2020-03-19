@@ -36,6 +36,8 @@ import ShopifyProductModel from "../models/tukan/shopify-product-model"
 import ShopifyProduct from "./shop/shopify-product"
 import MultiFunctionalModel from "../models/tukan/multi-functional-model"
 import MultiFunctional from "./pattern/multi-functional"
+import PaypalExpressProductModel from "../models/tukan/paypal-express-product-model"
+import PaypalExpressProduct from "./shop/paypal-express-product"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -198,6 +200,18 @@ const matchComponent = (model: TukanModel, index: number) => {
                     key={index}
                     cols={multiFunctionalModel.cols}
                     title={multiFunctionalModel.title} />
+            break
+
+        case TukanType.PaypalExpressProduct:
+            const paypalExpressProductModel = model as PaypalExpressProductModel
+            component =
+                <PaypalExpressProduct
+                    key={index}
+                    name={paypalExpressProductModel.name}
+                    price={paypalExpressProductModel.price}
+                    description={paypalExpressProductModel.description}
+                    imgSrc={paypalExpressProductModel.imgSrc}
+                />
             break
 
         case TukanType.Preview:

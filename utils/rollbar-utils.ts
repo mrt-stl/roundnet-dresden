@@ -7,7 +7,7 @@ const rollbar = new Rollbar({
     captureUnhandledRejections: true
 })
 
-export const log = (msg: string) => {
+export const log = (msg: any) => {
     const project = Project.getInstance()
 
     if (project.isProduction()) {

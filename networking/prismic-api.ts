@@ -1,5 +1,5 @@
 import Prismic from "prismic-javascript"
-import { logError } from "../utils/rollbar-utils"
+import { logError, log } from "../utils/rollbar-utils"
 import Project from "../models/config/project"
 import { config } from "../config"
 import PrismicResponse from "../models/prismic/response"
@@ -9,6 +9,8 @@ import PrismicResponse from "../models/prismic/response"
  */
 const prismicApi = async () => {
     const project = Project.getInstance()
+
+    log(project)
 
     const endpoint = project.prismicEndpoint ? project.prismicEndpoint : config.PRISMIC_ENDPOINT
     const accessToken = project.prismicAccessToken ? project.prismicAccessToken : config.ACCESS_TOKEN
@@ -29,6 +31,8 @@ export const getByUid = async (type: string, uid: string) => {
 
     const prismicFragment: string = "my." + type + ".uid"
 
+    log(prismicFragment)
+
     const prismicRes = new PrismicResponse()
     try {
         prismicRes.data = await api.query(Prismic.Predicates.at(prismicFragment, uid), { lang: "*" })
@@ -37,6 +41,8 @@ export const getByUid = async (type: string, uid: string) => {
         logError(e)
         prismicRes.error = "Could not get data"
     }
+
+    log(prismicRes.data)
 
     return prismicRes
 }

@@ -12,11 +12,10 @@ export const log = (msg: any) => {
 
     if (project.isProduction()) {
         rollbar.log(msg)
-
-    } else {
-        // tslint:disable-next-line: no-console
-        console.log(msg)
     }
+
+    // tslint:disable-next-line: no-console
+    console.log(msg)
 }
 
 export const logError = (error: any) => {

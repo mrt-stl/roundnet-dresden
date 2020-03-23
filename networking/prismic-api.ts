@@ -42,7 +42,7 @@ export const getByUid = async (type: string, uid: string) => {
         prismicRes.error = "Could not get data"
     }
 
-    log(prismicRes.data)
+    log(JSON.stringify(prismicRes.data))
 
     return prismicRes
 }

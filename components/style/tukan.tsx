@@ -115,6 +115,16 @@ h5 {
 	margin-top: 0.8em;
 }
 
+h6 {
+    font-size: 1.25em;
+	font-weight: var(--regular);
+	letter-spacing: 0.1px;
+	color: var(--all-gray-30);
+	line-height: 1.5em;
+	margin-bottom: 0em;
+	margin-top: 0em;
+}
+
 p {
 	color: var(--font-color);
 	font-size: 1em;
@@ -203,6 +213,10 @@ img {
 	object-fit: cover;
 }
 
+iframe {
+    max-width: 100%;
+}
+
 .block-img {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -218,6 +232,18 @@ img {
 
 .tukan-container {
 	margin-top: ${tukanConfig.navHeight};
+}
+
+.richtext-container hr {
+    width: 100%;
+    background-color: var(--all-gray-30);
+    height: 1px;
+}
+
+.highlight-container hr {
+    width: 100%;
+    background-color: var(--all-gray-30);
+    height: 1px;
 }
 
 .banner-container {
@@ -464,6 +490,10 @@ textarea::-ms-input-placeholder {
     padding-bottom: var(--large-spacing);
 }
 
+.footer-container a {
+    color: var(--font-color);
+}
+
 @media (prefers-color-scheme: dark) {
     .footer-container {
         background-color: var(--background);
@@ -528,6 +558,7 @@ textarea::-ms-input-placeholder {
     animation-name: flash;
     animation-duration: 0.8s;
   }
+
 
 /* Utils */
 

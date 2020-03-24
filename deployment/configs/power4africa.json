@@ -26,6 +26,10 @@
             "dest": "/api/sitemap"
         },
         {
+            "src": "/projekte/(?<id>[^/]+)$",
+            "dest": "/index?id=$id&type=projekte"
+        },
+        {
             "src": "/(?<id>[^/]+)$",
             "dest": "/index?id=$id"
         }

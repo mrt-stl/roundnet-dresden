@@ -213,6 +213,10 @@ img {
 	object-fit: cover;
 }
 
+iframe {
+    max-width: 100%;
+}
+
 .block-img {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -231,6 +235,12 @@ img {
 }
 
 .richtext-container hr {
+    width: 100%;
+    background-color: var(--all-gray-30);
+    height: 1px;
+}
+
+.highlight-container hr {
     width: 100%;
     background-color: var(--all-gray-30);
     height: 1px;

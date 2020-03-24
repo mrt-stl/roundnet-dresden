@@ -8,7 +8,7 @@ export const asHtml = (richtext: any): string | null => {
     }
 
     const parsedHtml = PrismicDOM.RichText.asHtml(richtext, linkResolver)
-    const replacedHtml = parsedHtml.replace(/\[\[/g, "<").replace(/\]\]/g, ">")
+    const replacedHtml = parsedHtml.replace(/\[\[/g, "<").replace(/\]\]/g, " />")
 
     return replacedHtml
 }

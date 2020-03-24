@@ -464,6 +464,10 @@ textarea::-ms-input-placeholder {
     padding-bottom: var(--large-spacing);
 }
 
+.footer-container a {
+    color: var(--font-color);
+}
+
 @media (prefers-color-scheme: dark) {
     .footer-container {
         background-color: var(--background);

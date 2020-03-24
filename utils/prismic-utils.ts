@@ -7,7 +7,10 @@ export const asHtml = (richtext: any): string | null => {
         return null
     }
 
-    return PrismicDOM.RichText.asHtml(richtext, linkResolver)
+    const parsedHtml = PrismicDOM.RichText.asHtml(richtext, linkResolver)
+    const replacedHtml = parsedHtml.replace("[hr]", "<hr />")
+
+    return replacedHtml
 }
 
 export const asText = (richtext: any): string => {

@@ -10,8 +10,8 @@ import PrismicResponse from "../models/prismic/response"
 const prismicApi = async () => {
     const project = Project.getInstance()
 
-    const endpoint = project.prismicEndpoint ? project.prismicEndpoint : config.PRISMIC_ENDPOINT
-    const accessToken = project.prismicAccessToken ? project.prismicAccessToken : config.ACCESS_TOKEN
+    const endpoint = project.prismicEndpoint ?? config.PRISMIC_ENDPOINT
+    const accessToken = project.prismicAccessToken ?? config.ACCESS_TOKEN
 
     const api = await Prismic.api(endpoint, {
         accessToken

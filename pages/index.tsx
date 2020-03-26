@@ -15,16 +15,20 @@ import { Document } from "prismic-javascript/d.ts/documents"
 import TukanModel from "../models/tukan/tukan-model"
 import { IMetaData } from "../models/config/meta-data"
 import Banner from "../components/navigation/banner"
+import FooterModel from "../models/tukan/footer-model"
+import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
+import Footer from "../components/pattern/footer"
 
 interface IIndexProps {
     docId?: string
     meta?: IMetaData
     componentModels?: TukanModel[]
+    footer?: FooterModel
     error?: string
 }
 
 const Index = (props: IIndexProps) => {
-    const { docId, meta, componentModels, error } = props
+    const { docId, meta, componentModels, footer, error } = props
 
     if (error) {
         return (<Error />)
@@ -49,6 +53,13 @@ const Index = (props: IIndexProps) => {
 
             <TukanContainer
                 tukanModels={componentModels} />
+
+            {footer ?
+                <Footer
+                    rows={footer.rows}
+                    backgroundColor={footer.backgroundColor} /> :
+                <></>
+            }
 
             {showCookieNotification ?
                 <CookieNotification
@@ -75,7 +86,7 @@ Index.getInitialProps = async ({ query, res }) => {
     const prismicRes = await getByUid(docType, queryId)
     const docs = prismicRes.data
 
-    if (prismicRes.error || docs.results.length < 1) {
+    if (prismicRes.error || docs?.results?.length < 1) {
         return {
             error: "Page not found"
         }
@@ -90,14 +101,16 @@ Index.getInitialProps = async ({ query, res }) => {
 
     const docByLang = filterByLanguage(lang, results)
     const docId = docByLang.id
-    const meta = createMeta(docByLang)
 
+    const meta = createMeta(docByLang)
     const componentModels = prismicPageToComponentModels(docByLang)
+    const footer = createFooter(prismicRes.footer, lang)
 
     return {
         docId,
         meta,
-        componentModels
+        componentModels,
+        footer,
     }
 }
 
@@ -132,6 +145,19 @@ const createMeta = (docs: Document): IMetaData => {
         metaOgImg,
         metaBanner
     }
+}
+
+const createFooter = (data: ApiSearchResponse, langFilter: string) => {
+    const results = data?.results
+    if (!results || results.length < 1) {
+        return null
+    }
+
+    const filteredResult = filterByLanguage(langFilter, results)
+    const components = prismicPageToComponentModels(filteredResult)
+    const footerModel = components?.[0] as FooterModel
+
+    return footerModel
 }
 
 export default Index

@@ -3,6 +3,8 @@ import { logError } from "../utils/rollbar-utils"
 import Project from "../models/config/project"
 import { config } from "../config"
 import PrismicResponse from "../models/prismic/response"
+import ResolvedApi from "prismic-javascript/d.ts/ResolvedApi"
+import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
 
 /**
  * Prepare prismic API
@@ -27,11 +29,15 @@ const prismicApi = async () => {
 export const getByUid = async (type: string, uid: string) => {
     const api = await prismicApi()
 
-    const prismicFragment: string = "my." + type + ".uid"
-
     const prismicRes = new PrismicResponse()
     try {
-        prismicRes.data = await api.query(Prismic.Predicates.at(prismicFragment, uid), { lang: "*" })
+        const res: IPrismicQueryPromise[] = await getDataFromPrismic(api, type, uid)
+
+        const content = res.find(result => result?.value?.key === "content")
+        prismicRes.data = content?.value?.data
+
+        const footer = res.find(result => result?.value?.key === "footer")
+        prismicRes.footer = footer?.value?.data
 
     } catch (e) {
         logError(e)
@@ -42,6 +48,37 @@ export const getByUid = async (type: string, uid: string) => {
 }
 
 /**
+ * Create promises for getting data.
+ */
+const getDataFromPrismic = (api: ResolvedApi, type: string, uid: string): any => {
+    const queries: Array<Promise<IPrismicQueryResponse>> = []
+
+    // Query for content
+    const prismicFragment: string = "my." + type + ".uid"
+    const uidPredicate = Prismic.Predicates.at(prismicFragment, uid)
+    queries.push(performPrismicRequest(api, "content", uidPredicate))
+
+    // Query for footer
+    const footerPredicate = Prismic.Predicates.at("document.type", "footer")
+    queries.push(performPrismicRequest(api, "footer", footerPredicate))
+
+    const promise = Promise.allSettled(queries)
+    return promise
+}
+
+/**
+ * Perform request for getting data from prismic.
+ */
+const performPrismicRequest = async (api: ResolvedApi, key: string, predicate: string): Promise<IPrismicQueryResponse> => {
+    const res = await api.query(predicate, { lang: "*" })
+
+    return {
+        key,
+        data: res
+    }
+}
+
+/**
  * Get all documents
  */
 export const getAll = async () => {
@@ -49,4 +86,19 @@ export const getAll = async () => {
 
     const res = await api.query("", {})
     return res
+}
+
+enum AllSettledStatus {
+    FULFILLED = "fulfilled",
+    REJECTED = "rejected"
+}
+
+interface IPrismicQueryPromise {
+    status: AllSettledStatus
+    value?: IPrismicQueryResponse
+}
+
+interface IPrismicQueryResponse {
+    key: string
+    data: ApiSearchResponse
 }

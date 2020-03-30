@@ -23,4 +23,10 @@ describe("Index", () => {
             cy.get("button").click()
         })
     })
+
+    it("test cart link", () => {
+        cy.get(".cart-link-container").within(() => {
+            cy.get("a").click()
+        })
+    })
 })

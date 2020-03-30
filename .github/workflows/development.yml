@@ -38,7 +38,7 @@ jobs:
         run: yarn install
 
       - name: Building
-        run: yarn build
+        run: yarn test-build
 
       - name: Linting
         run: yarn lint

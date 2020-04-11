@@ -282,7 +282,7 @@ iframe {
 
 @media (max-width: 768px) {
     .stage-blog-container img {
-        max-height: 280px !important;
+        max-height: 240px !important;
     }
 }
 

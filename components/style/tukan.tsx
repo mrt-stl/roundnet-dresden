@@ -292,13 +292,22 @@ iframe {
 }
 
 @media (max-width: 512px) {
-    .stage-blog-container {
+    .stage-container h1 {
+        font-size: 2.25em;
+    }
+
+    .stage-container {
         padding-top: 3em;
         padding-bottom: 1em;
     }
 
     .stage-blog-container h1 {
         font-size: 2.25em;
+    }
+
+    .stage-blog-container {
+        padding-top: 3em;
+        padding-bottom: 1em;
     }
 
     .stage-blog-container img {

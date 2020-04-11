@@ -12,7 +12,7 @@ const Nav = () => {
     return (
         <nav>
             <div className="nav">
-                <div className="grid no-wrap inner-nav h-100">
+                <div className="grid no-wrap h-100">
                     {navLinks.map((element, index) => {
                         const hideMobileIndex = project.useShopView ? -1 : 0
                         const hideMobile = index !== hideMobileIndex ? "desktop-nav" : "h-100"

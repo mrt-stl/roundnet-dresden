@@ -20,6 +20,7 @@ export const grid = <style jsx global>{`
 .col, 
 .col-1,
 .col-2,
+.col-3,
 .col-4,
 .col-6,
 .col-8 {
@@ -42,6 +43,11 @@ export const grid = <style jsx global>{`
 .col-2 {
     flex-basis: 25%;
     max-width: 25%;
+}
+
+.col-3 {
+    flex-basis: 33.33%;
+    max-width: 33.33%;
 }
 
 .col-4 {
@@ -95,6 +101,7 @@ export const grid = <style jsx global>{`
     .col, 
     .col-1,
     .col-2,
+    .col-3,
     .col-4,
     .col-6,
     .col-8 {

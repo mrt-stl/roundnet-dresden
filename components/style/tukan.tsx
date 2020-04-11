@@ -501,7 +501,7 @@ textarea::-ms-input-placeholder {
 
 @media (max-width: 768px) {
     .cart-link-container {
-        margin-left: 12px;
+        margin-left: 24px;
         margin-right: auto;
     }
 }

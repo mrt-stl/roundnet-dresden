@@ -268,6 +268,7 @@ iframe {
 /* Stage Pattern */
 .stage-blog-container {
     padding-top: 7em;
+    padding-bottom: 1em;
 }
 
 .stage-blog-sub-title {

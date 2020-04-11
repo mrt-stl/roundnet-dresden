@@ -13,6 +13,7 @@ import InfiniteCardsModel from "../models/tukan/infinite-cards-model"
 import LocationModel from "../models/tukan/location-model"
 import PreviewModel from "../models/tukan/preview-model"
 import RichtextModel from "../models/tukan/richtext-model"
+import StageModel from "../models/tukan/stage-model"
 import StageBlogModel from "../models/tukan/stage-blog-model"
 import HighlightTextModel from "../models/tukan/highlight-text-model"
 import FooterModel from "../models/tukan/footer-model"
@@ -170,6 +171,15 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const richtext = new RichtextModel(richtextContent)
             return richtext
+
+        case "stage":
+            const stagePrimary = slice.primary
+
+            const stageTitle = asText(stagePrimary.stage_title)
+            const stageContent = asHtml(stagePrimary.stage_sub_title)
+
+            const stageModel = new StageModel(stageTitle, stageContent)
+            return stageModel
 
         case "stage_blog":
             const stageBlogPrimary = slice.primary

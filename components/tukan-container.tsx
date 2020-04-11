@@ -26,6 +26,8 @@ import RichtextModel from "../models/tukan/richtext-model"
 import Richtext from "./pattern/richtext"
 import StageBlogModel from "../models/tukan/stage-blog-model"
 import StageBlog from "./pattern/stage-blog"
+import StageModel from "../models/tukan/stage-model"
+import Stage from "./pattern/stage"
 import FooterModel from "../models/tukan/footer-model"
 import Footer from "./pattern/footer"
 import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
@@ -233,6 +235,15 @@ const matchComponent = (model: TukanModel, index: number) => {
                 <Richtext
                     key={index}
                     content={richtextModel.content} />
+            break
+
+        case TukanType.Stage:
+            const stageModel = model as StageModel
+            component =
+                <Stage
+                    key={index}
+                    title={stageModel.title}
+                    content={stageModel.content} />
             break
 
         case TukanType.StageBlog:

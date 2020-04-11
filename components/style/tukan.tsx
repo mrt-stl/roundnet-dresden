@@ -24,7 +24,8 @@ export const tukan = (fontName, colors, darkModeColors) => {
     --bold: 600;
 
     --small-spacing: 1em;
-    --standard-spacing: 5em;
+    --standard-spacing: 3em;
+    --medium-spacing:5em;
     --large-spacing: 6em;
 }
 
@@ -266,6 +267,12 @@ iframe {
 }
 
 /* Stage Pattern */
+
+.stage-container {
+    padding-top: 7em;
+    padding-bottom: 1em;
+}
+
 .stage-blog-container {
     padding-top: 7em;
     padding-bottom: 1em;
@@ -286,7 +293,7 @@ iframe {
 
 @media (max-width: 512px) {
     .stage-blog-container {
-        padding-top: 4em;
+        padding-top: 3em;
         padding-bottom: 1em;
     }
 

@@ -265,6 +265,27 @@ iframe {
 	font-size: 1.25em;
 }
 
+/* Stage Pattern */
+.stage-blog-container {
+    padding-top: 7em;
+    padding-bottom: 1em;
+}
+
+.stage-blog-sub-title {
+    text-align: center;
+    margin-bottom: 4em;
+}
+
+.stage-blog-container h1 {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .stage-blog-container img {
+        max-height: 280px !important;
+    }
+}
+
 /* Burger menu */
 .bm-burger-button {
     position: fixed;

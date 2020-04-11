@@ -281,6 +281,10 @@ iframe {
 }
 
 @media (max-width: 768px) {
+    .stage-blog-container h1 {
+        font-size: 2.25em;
+    }
+
     .stage-blog-container img {
         max-height: 240px !important;
     }

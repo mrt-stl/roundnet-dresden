@@ -28,7 +28,7 @@ const StageBlog = (props: IStageBlogProps) => {
                             <TukanImage
                                 src={imgSrc}
                                 alt={imgAlt}
-                                height="544px" />
+                                height="auto" />
                         </div>
                     </div>
                 </div>

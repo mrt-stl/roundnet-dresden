@@ -280,7 +280,16 @@ iframe {
     text-align: center;
 }
 
-@media (max-width: 768px) {
+.stage-blog-container img {
+    max-height: 544px !important;
+}
+
+@media (max-width: 512px) {
+    .stage-blog-container {
+        padding-top: 4em;
+        padding-bottom: 1em;
+    }
+
     .stage-blog-container h1 {
         font-size: 2.25em;
     }

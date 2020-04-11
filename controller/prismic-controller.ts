@@ -13,6 +13,7 @@ import InfiniteCardsModel from "../models/tukan/infinite-cards-model"
 import LocationModel from "../models/tukan/location-model"
 import PreviewModel from "../models/tukan/preview-model"
 import RichtextModel from "../models/tukan/richtext-model"
+import StageBlogModel from "../models/tukan/stage-blog-model"
 import HighlightTextModel from "../models/tukan/highlight-text-model"
 import FooterModel from "../models/tukan/footer-model"
 import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
@@ -169,6 +170,17 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const richtext = new RichtextModel(richtextContent)
             return richtext
+
+        case "stage_blog":
+            const stageBlogPrimary = slice.primary
+
+            const stageBlogTitle = asText(stageBlogPrimary.stage_blog_title)
+            const stageBlogContent = asHtml(stageBlogPrimary.stage_blog_sub_title)
+            const stageBlogImgSrc = stageBlogPrimary.stage_blog_image.url
+            const stageBlogImgAlt = stageBlogPrimary.stage_blog_image.alt
+
+            const stageBlogModel = new StageBlogModel(stageBlogTitle, stageBlogContent, stageBlogImgSrc, stageBlogImgAlt)
+            return stageBlogModel
 
         case "highlight":
             const highlightPrimary = slice.primary

@@ -24,6 +24,8 @@ import PreviewModel from "../models/tukan/preview-model"
 import Preview from "./pattern/preview"
 import RichtextModel from "../models/tukan/richtext-model"
 import Richtext from "./pattern/richtext"
+import StageBlogModel from "../models/tukan/stage-blog-model"
+import StageBlog from "./pattern/stage-blog"
 import FooterModel from "../models/tukan/footer-model"
 import Footer from "./pattern/footer"
 import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
@@ -231,6 +233,17 @@ const matchComponent = (model: TukanModel, index: number) => {
                 <Richtext
                     key={index}
                     content={richtextModel.content} />
+            break
+
+        case TukanType.StageBlog:
+            const stageBlogModel = model as StageBlogModel
+            component =
+                <StageBlog
+                    key={index}
+                    title={stageBlogModel.title}
+                    content={stageBlogModel.content}
+                    imgSrc={stageBlogModel.imgSrc}
+                    imgAlt={stageBlogModel.imgAlt} />
             break
 
         case TukanType.ShopifyProduct:

@@ -265,6 +265,20 @@ iframe {
 	font-size: 1.25em;
 }
 
+/* Stage Pattern */
+.stage-blog-container {
+    padding-top: 7em;
+}
+
+.stage-blog-sub-title {
+    text-align: center;
+    margin-bottom: 4em;
+}
+
+.stage-blog-container h1 {
+    text-align: center;
+}
+
 /* Burger menu */
 .bm-burger-button {
     position: fixed;

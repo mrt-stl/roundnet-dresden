@@ -280,6 +280,12 @@ iframe {
     text-align: center;
 }
 
+@media (max-width: 768px) {
+    .stage-blog-container img {
+        max-height: 280px !important;
+    }
+}
+
 /* Burger menu */
 .bm-burger-button {
     position: fixed;

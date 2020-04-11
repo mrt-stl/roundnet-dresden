@@ -281,7 +281,7 @@ iframe {
 }
 
 .stage-blog-container img {
-    max-height: 544px !important;
+    height: 544px;
 }
 
 @media (max-width: 512px) {
@@ -295,7 +295,7 @@ iframe {
     }
 
     .stage-blog-container img {
-        max-height: 240px !important;
+        height: 280px;
     }
 }
 

@@ -266,6 +266,15 @@ iframe {
 	font-size: 1.25em;
 }
 
+/* Navigation */
+
+@media (max-width: 768px) {
+    .nav-link {
+        padding-left: 24px;
+        padding-right: 12px;
+    }
+}
+
 /* Stage Pattern */
 
 .stage-container {
@@ -490,6 +499,10 @@ textarea::-ms-input-placeholder {
     margin-left: auto;
 }
 
+.card-container img {
+    height: 328px;
+}
+
 .cart-link-container a {
     background-image: none !important;
 }
@@ -500,6 +513,9 @@ textarea::-ms-input-placeholder {
 }
 
 @media (max-width: 768px) {
+    .card-container img {
+        height: 240px;
+    }
     .cart-link-container {
         margin-left: 24px;
         margin-right: auto;

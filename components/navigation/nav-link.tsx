@@ -33,6 +33,12 @@ const NavLink = (props: INavLinkProps) => {
                     color: var(--accent);
                     transition: 0.2s;
                 }
+                @media (max-width: 768px) {
+                    .nav-link {
+                        padding-left: 24px;
+                        padding-right: 12px;
+                    }
+                }
             `}</style>
         </div>
     )

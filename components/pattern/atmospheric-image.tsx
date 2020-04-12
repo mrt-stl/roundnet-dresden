@@ -27,6 +27,7 @@ const AtmosphericImage = (props: IAtmosphericProps) => {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
+                        vertical-align: top;
                     }
                 `}</style>
             </div>

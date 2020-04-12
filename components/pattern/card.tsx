@@ -20,7 +20,7 @@ const Card = (props: ICardProps) => {
         <TukanImage
             src={imgSrc}
             alt={imgAlt}
-            height="320px" /> :
+            height="auto" /> :
         <div />
 
     // Title

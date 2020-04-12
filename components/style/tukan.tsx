@@ -266,15 +266,6 @@ iframe {
 	font-size: 1.25em;
 }
 
-/* Navigation */
-
-@media (max-width: 768px) {
-    .nav-link {
-        padding-left: 24px;
-        padding-right: 12px;
-    }
-}
-
 /* Stage Pattern */
 
 .stage-container {

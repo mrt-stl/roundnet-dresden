@@ -19,7 +19,7 @@ const AtmosphericImage = (props: IAtmosphericProps) => {
                 <style jsx>{`
                     .atmo-image-container {
                         position: relative;
-                        height: auto;
+                        height: 560px;
                         width: 100%;
                         overflow: hidden;
                     }
@@ -28,6 +28,10 @@ const AtmosphericImage = (props: IAtmosphericProps) => {
                         height: 100%;
                         object-fit: cover;
                         vertical-align: top;
+                    }
+                    @media (max-width: 768px) {
+                        .atmo-image-container {
+                        height: 340px;
                     }
                 `}</style>
             </div>

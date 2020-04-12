@@ -412,6 +412,8 @@ iframe {
     margin-right: 24px;
     padding-top: var(--standard-spacing);
     padding-bottom: var(--standard-spacing);
+    max-width: 1440px;
+    margin: auto;
 }
 
 .text-container {

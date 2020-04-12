@@ -263,7 +263,7 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const multiFunctionalPrimary = slice.primary
             const multiFunctionalItems = slice.items
 
-            const multiFunctionalTitle = asText(multiFunctionalPrimary.multi_functional_title)
+            const multiFunctionalTitle = asHtml(multiFunctionalPrimary.multi_functional_title)
             const multiFunctionalCols = []
 
             for (const item of multiFunctionalItems) {

@@ -269,12 +269,12 @@ iframe {
 /* Stage Pattern */
 
 .stage-container {
-    padding-top: 7em;
+    padding-top: var(--large-spacing);
     padding-bottom: 1em;
 }
 
 .stage-blog-container {
-    padding-top: 7em;
+    padding-top: var(--large-spacing);
     padding-bottom: 1em;
 }
 
@@ -552,7 +552,7 @@ textarea::-ms-input-placeholder {
 
 .multi-functional-container {
     margin-bottom: var(--standard-spacing);
-    margin-top: var(--standard-spacing);
+    padding-top: var(--large-spacing);
 }
 
 

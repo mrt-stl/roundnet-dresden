@@ -402,6 +402,35 @@ iframe {
     height: 100%;
 }
 
+/* Pattern */
+
+.image-and-text-container {
+    margin-top: var(--standard-spacing);
+    margin-bottom: var(--standard-spacing);
+    background-color: #f4f4f4;
+    margin-left: 24px;
+    margin-right: 24px;
+    padding-top: var(--standard-spacing);
+    padding-bottom: var(--standard-spacing);
+}
+
+.text-container {
+    padding-top: 0px;
+    padding-bottom: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+@media (max-width: 768px) {
+    .image-and-text-container {
+        padding-top: 12px;
+        padding-bottom: 24px;
+    }
+    .text-container {
+        padding: 12px;
+    }
+}
+
 /* This is needed twice, first for Firefox and second for other browsers */
 .button a, a .button {
     background-color: var(--primary);

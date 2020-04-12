@@ -1,5 +1,4 @@
 import parse from "html-react-parser"
-import TukanImage from "../elements/tukan-image"
 
 export interface IImageAndTextProps {
     content: string
@@ -16,7 +15,7 @@ const ImageAndText = (props: IImageAndTextProps) => {
         <div className="image-and-text-container">
             <div className="grid align-items-center">
                 <div className="col-4">
-                    <TukanImage
+                    <img
                         src={imgSrc}
                         alt={imgAlt}
                         height="auto" />
@@ -27,16 +26,6 @@ const ImageAndText = (props: IImageAndTextProps) => {
                     </div>
                 </div>
             </div>
-
-            <style jsx>{`
-                .image-and-text-container {
-                    margin-top: var(--standard-spacing);
-                    margin-bottom: var(--standard-spacing);
-                }
-                .text-container {
-                    padding: 32px;
-                }
-            `}</style>
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import parse from "html-react-parser"
+import TukanImage from "../elements/tukan-image"
 
 export interface IImageAndTextProps {
     content: string
@@ -15,7 +16,7 @@ const ImageAndText = (props: IImageAndTextProps) => {
         <div className="image-and-text-container">
             <div className="grid align-items-center">
                 <div className="col-4">
-                    <img
+                    <TukanImage
                         src={imgSrc}
                         alt={imgAlt}
                         height="auto" />

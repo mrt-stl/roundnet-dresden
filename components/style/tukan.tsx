@@ -412,8 +412,6 @@ iframe {
     margin-right: 24px;
     padding-top: var(--standard-spacing);
     padding-bottom: var(--standard-spacing);
-    max-width: 1440px;
-    margin: auto;
 }
 
 .text-container {
@@ -444,7 +442,7 @@ iframe {
 
 .button a:hover, a .button:hover {
     background-color: var(--accent);
-    transition: .5s;
+    transition: 0s;
 }
 
 textarea {

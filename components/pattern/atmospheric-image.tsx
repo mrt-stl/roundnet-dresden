@@ -31,7 +31,8 @@ const AtmosphericImage = (props: IAtmosphericProps) => {
                     }
                     @media (max-width: 768px) {
                         .atmo-image-container {
-                        height: 340px;
+                            height: 340px;
+                        }
                     }
                 `}</style>
             </div>

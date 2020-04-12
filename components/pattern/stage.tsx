@@ -12,7 +12,7 @@ const Stage = (props: IStageProps) => {
     return (
             <div className="stage-container">
                 <div className="grid align-items-center">
-                    <div className="col-6">
+                    <div className="col-4">
                         <div>
                             <h1>{title}</h1>
                         </div>

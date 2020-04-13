@@ -591,6 +591,11 @@ textarea::-ms-input-placeholder {
     padding-top: var(--large-spacing);
 }
 
+@media (max-width: 512px) {
+    .multi-functional-container h1 {
+        font-size: 2.25em;
+    }
+}
 
 @keyframes zoomIn {
     from {

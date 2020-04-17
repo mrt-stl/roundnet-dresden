@@ -32,6 +32,14 @@
         {
             "src": "/(?<id>[^/]+)$",
             "dest": "/index?id=$id"
+        },
+        {
+            "src": "/ar/(?<id>[^/]+)$",
+            "dest": "/index?id=$id&lang=pl"
+        },
+        {
+            "src": "/ar/",
+            "dest": "/index?id=home&lang=pl"
         }
     ]
 }

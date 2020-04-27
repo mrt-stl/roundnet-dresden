@@ -475,6 +475,15 @@ textarea::-ms-input-placeholder {
     box-shadow: 0 2px 5px rgba(0,0,0,.25);
 }
 
+.selection {
+    margin-top: var(--standard-spacing);
+    margin-bottom: var(--standard-spacing);
+}
+
+.selection img {
+    max-height: 480px;
+}
+
 /* Lazy load opacity effect */
 
 .lazy-load-image-background.opacity {
@@ -655,6 +664,10 @@ textarea::-ms-input-placeholder {
 
 .hide {
     display: none !important;
+}
+
+.height {
+    line-height: 0px;
 }
 
 `}</style>

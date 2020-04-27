@@ -16,6 +16,16 @@ export const grid = <style jsx global>{`
     padding-left: ${gridConfig.gridPadding};
     padding-right: ${gridConfig.gridPadding};
 }
+.grid-alt {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1440px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: ${gridConfig.gridPadding};
+    padding-right: ${gridConfig.gridPadding};
+}
 
 .col, 
 .col-1,
@@ -94,6 +104,11 @@ export const grid = <style jsx global>{`
 
 @media only screen and (max-width: 768px) {
     .grid {
+        flex-direction: column;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .grid-alt {
         flex-direction: column;
         padding-left: 0px;
         padding-right: 0px;

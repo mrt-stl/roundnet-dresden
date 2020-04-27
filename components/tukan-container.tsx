@@ -24,6 +24,8 @@ import PreviewModel from "../models/tukan/preview-model"
 import Preview from "./pattern/preview"
 import RichtextModel from "../models/tukan/richtext-model"
 import Richtext from "./pattern/richtext"
+import SelectionModel from "../models/tukan/selection-model"
+import Selection from "./pattern/selection"
 import StageBlogModel from "../models/tukan/stage-blog-model"
 import StageBlog from "./pattern/stage-blog"
 import StageModel from "../models/tukan/stage-model"
@@ -204,6 +206,14 @@ const matchComponent = (model: TukanModel, index: number) => {
                     key={index}
                     cols={multiFunctionalModel.cols}
                     title={multiFunctionalModel.title} />
+            break
+
+        case TukanType.Selection:
+            const selectionModel = model as SelectionModel
+            component =
+                <Selection
+                    key={index}
+                    cols={selectionModel.cols} />
             break
 
         case TukanType.PaypalExpressProduct:

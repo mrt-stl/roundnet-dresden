@@ -18,6 +18,7 @@ export enum TukanType {
     PaypalExpressProduct = "paypal-express-product",
     Preview = "preview",
     Richtext = "richtext",
+    Selection = "selection",
     Stage = "stage",
     StageBlog = "stage-blog",
     ShopifyProduct = "shopify-product",

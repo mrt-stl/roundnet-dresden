@@ -13,6 +13,7 @@ import InfiniteCardsModel from "../models/tukan/infinite-cards-model"
 import LocationModel from "../models/tukan/location-model"
 import PreviewModel from "../models/tukan/preview-model"
 import RichtextModel from "../models/tukan/richtext-model"
+import SelectionModel from "../models/tukan/selection-model"
 import StageModel from "../models/tukan/stage-model"
 import StageBlogModel from "../models/tukan/stage-blog-model"
 import HighlightTextModel from "../models/tukan/highlight-text-model"
@@ -276,6 +277,24 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const multiFunctionalModel = new MultiFunctionalModel(multiFunctionalCols, multiFunctionalTitle)
 
             return multiFunctionalModel
+
+            case "selection":
+                const selectionItems = slice.items
+
+                const selectionCols = []
+
+                for (const item of selectionItems) {
+                    const ImgSrc = item.selection_image.url
+                    const ImgAlt = item.selection_image.alt
+                    const content = asHtml(item.selection_content)
+                    const link = linkResolver(item.selection_link)
+                    const col = {  ImgSrc, ImgAlt, content, link }
+                    selectionCols.push(col)
+                }
+
+                const selectionModel = new SelectionModel(selectionCols)
+
+                return selectionModel
 
         case "paypal_product":
             const paypalProductPrimary = slice.primary

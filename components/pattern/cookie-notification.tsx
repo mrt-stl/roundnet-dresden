@@ -36,13 +36,19 @@ class CookieNotification extends Component<ICookieNotificationProps, {}> {
 
         return (
             <div className="cookie-container">
-                <div className="grid align-items-center h-100">
-                    <div className="cookie-content-container">
-                        <div className="text-left">
-                            Diese Webseite verwendet Cookies. <a href={this.props.link}>Hier</a> erfährst du mehr
+                <div className="align-items-center">
+                    <div className="grid cookie-content-container">
+                        <div className="col-6">
+                            <div>
+                                <p>
+                                    Diese Webseite verwendet Cookies. Indem Du die Seite nutzt, stimmst Du der Cookie-Nutzung zu. <a href={this.props.link}>Mehr erfahren</a>
+                                </p>
+                            </div>
                         </div>
-                        <div className="text-right" onClick={this.onAcceptCookie}>
-                            Alles klar
+                        <div className="col-2 end">
+                            <div className="button" onClick={this.onAcceptCookie}>
+                                Alles klar
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -53,21 +59,42 @@ class CookieNotification extends Component<ICookieNotificationProps, {}> {
                         bottom: 0;
                         z-index: 100;
                         width: 100%;
-                        height: 48px;
                         background-color: var(--dark);
                         color: var(--white);
                     }
 
                     a {
-                        color: var(--white);
-                        text-decoration: underline;
+                        color: gray;
                     }
 
                     .cookie-content-container {
-                        padding-left: 8px;
-                        padding-right: 8px;
+                        padding-top: 24px;
+                        padding-bottom: 24px;
                         width: 100%;
                         position: relative;
+                    }
+
+                    .cookie-content-container p {
+                        line-height: 1.5em;
+                        color: var(--white);
+                        margin-top: 0px;
+                        margin-bottom: 0px;
+                    }
+
+                    .button {
+                        background-color:  var(--white);
+                        display: inline-block;
+                        padding-top: 14px;
+                        padding-bottom: 16px;
+                        padding-left: 16px;
+                        padding-right: 16px;
+                        color: var(--dark);
+                        cursor: pointer;
+                    }
+
+                    .end {
+                        display: flex;
+                        justify-content: flex-end;
                     }
 
                     .text-left {
@@ -86,17 +113,14 @@ class CookieNotification extends Component<ICookieNotificationProps, {}> {
                         .grid {
                             flex-direction: row;
                         }
-                        .cookie-content-container {
-                            padding-left: 24px;
-                            padding-right: 24px;
-                        }
                         .text-right {
                             position: static;
                             margin-left: 5px;
                         }
-                        .cookie-container {
-                            height: 80px;
-                        }
+                        .end {
+                            display: flex;
+                            justify-content: flex-start;
+                    }
                     }
                 `}</style>
             </div>

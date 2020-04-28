@@ -5,12 +5,12 @@ describe("Index", () => {
 
     it("set cookie", () => {
         cy.get(".cookie-container").within(() => {
-            cy.get(".text-right").click()
+            cy.get(".button").click()
 
             const expectedValue = JSON.stringify({ acceptedCookie: true })
             cy.getCookie("settings").should("be.property", "value", expectedValue)
 
-            cy.get(".text-right").should("not.exist")
+            cy.get(".button").should("not.exist")
         })
     })
 

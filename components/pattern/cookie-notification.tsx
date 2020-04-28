@@ -97,30 +97,14 @@ class CookieNotification extends Component<ICookieNotificationProps, {}> {
                         justify-content: flex-end;
                     }
 
-                    .text-left {
-                        display: inline;
-                    }
-
-                    .text-right {
-                        display: inline;
-                        position: absolute;
-                        right: 8px;
-                        cursor: pointer;
-                        text-decoration: underline;
-                    }
-
                     @media only screen and (max-width: 768px) {
                         .grid {
                             flex-direction: row;
                         }
-                        .text-right {
-                            position: static;
-                            margin-left: 5px;
-                        }
                         .end {
                             display: flex;
                             justify-content: flex-start;
-                    }
+                        }
                     }
                 `}</style>
             </div>

@@ -10,6 +10,8 @@ export const tukan = (fontName, colors, darkModeColors) => {
     --secondary: ${colors.secondary};
     --accent: ${colors.accent};
     --white: #ffffff;
+    --light-grey: #f4f4f4;
+    --medium-grey: #dcdcdc;
     --dark: ${colors.dark};
 	--background: ${colors.background};
     --font-color: ${colors.font};

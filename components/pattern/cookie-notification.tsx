@@ -41,7 +41,7 @@ class CookieNotification extends Component<ICookieNotificationProps, {}> {
                         <div className="col-6">
                             <div>
                                 <p>
-                                    Diese Webseite verwendet Cookies. Indem Du die Seite nutzt, stimmst Du der Cookie-Nutzung zu. <a href={this.props.link}>Mehr erfahren</a>
+                                    Diese Website verwendet Cookies. Indem Du die Seite nutzt, stimmst Du der Cookie-Nutzung zu. <a href={this.props.link}>Mehr erfahren</a>
                                 </p>
                             </div>
                         </div>
@@ -90,6 +90,10 @@ class CookieNotification extends Component<ICookieNotificationProps, {}> {
                         padding-right: 16px;
                         color: var(--dark);
                         cursor: pointer;
+                    }
+
+                    .button:hover {
+                        background-color: var(--medium-grey);
                     }
 
                     .end {

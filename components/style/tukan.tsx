@@ -73,7 +73,7 @@ h1 {
 	font-size: 3em;
     color: var(--font-color);
     letter-spacing: 0.1px;
-    line-height: 1.125;
+    line-height: 1.25;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
     font-weight: var(--bold);

@@ -13,6 +13,7 @@ export enum TukanType {
     ImageAndText = "image-and-text",
     ImageWithCaption = "image-with-caption",
     InfiniteCards = "infinite-cards",
+    LabSpotlight = "lab-spotlight",
     Location = "location",
     MultiFunctional = "multi-functional",
     PaypalExpressProduct = "paypal-express-product",

@@ -27,6 +27,20 @@ export const grid = <style jsx global>{`
     padding-right: ${gridConfig.gridPadding};
 }
 
+.grid-lab {
+    padding-left: calc((100vw - ${gridConfig.gridWidth}) / 2 + 12px)
+}
+
+.lab {
+    margin-right: calc((100vw - ${gridConfig.gridWidth}) / 2 + 12px);
+} 
+
+@media only screen and (max-width: ${gridConfig.gridWidth}) {
+    .lab {
+        margin-right: 0;
+    }  
+}
+
 .col, 
 .col-1,
 .col-2,

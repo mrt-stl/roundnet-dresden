@@ -18,6 +18,8 @@ import ImageAndTextModel from "../models/tukan/image-and-text-model"
 import ImageAndText from "./pattern/image-and-text"
 import InfiniteCardsModel from "../models/tukan/infinite-cards-model"
 import InfiniteCards from "./pattern/infinite-cards"
+import LabSpotlightModel from "../models/tukan/lab-spotlight-model"
+import LabSpotlight from "./pattern/lab-spotlight"
 import LocationModel from "../models/tukan/location-model"
 import Location from "./pattern/location"
 import PreviewModel from "../models/tukan/preview-model"
@@ -190,6 +192,16 @@ const matchComponent = (model: TukanModel, index: number) => {
                 <InfiniteCards
                     key={index}
                     cards={infiniteCardsModel.cards} />
+            break
+
+        case TukanType.LabSpotlight:
+            const labSpotlightModel = model as LabSpotlightModel
+            component =
+                <LabSpotlight
+                    content={labSpotlightModel.content}
+                    link={labSpotlightModel.link}
+                    imgSrc={labSpotlightModel.imgSrc}
+                    imgAlt={labSpotlightModel.imgAlt} />
             break
 
         case TukanType.Location:

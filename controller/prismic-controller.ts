@@ -10,6 +10,7 @@ import FocusModel from "../models/tukan/focus-model"
 import HeroImageModel from "../models/tukan/hero-image-model"
 import ImageAndTextModel from "../models/tukan/image-and-text-model"
 import InfiniteCardsModel from "../models/tukan/infinite-cards-model"
+import LabSpotlightModel from "../models/tukan/lab-spotlight-model"
 import LocationModel from "../models/tukan/location-model"
 import PreviewModel from "../models/tukan/preview-model"
 import RichtextModel from "../models/tukan/richtext-model"
@@ -145,6 +146,17 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const infiniteCardsModel = new InfiniteCardsModel(infiniteCards)
             return infiniteCardsModel
+
+        case "lab_spotlight":
+            const labSpotlightPrimary = slice.primary
+
+            const labSpotlightContent = asHtml(labSpotlightPrimary.lab_spotlight_content)
+            const labSpotlightLink = linkResolver(labSpotlightPrimary.lab_spotlight_link)
+            const labSpotlightImgSrc = labSpotlightPrimary.lab_spotlight_image.url
+            const labSpotlightImgAlt = labSpotlightPrimary.lab_spotlight_image.alt
+
+            const labSpotlightModel = new LabSpotlightModel(labSpotlightContent, labSpotlightLink, labSpotlightImgSrc, labSpotlightImgAlt)
+            return labSpotlightModel
 
         case "location":
             const locationPrimary = slice.primary

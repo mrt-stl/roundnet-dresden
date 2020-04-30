@@ -318,6 +318,34 @@ iframe {
     }
 }
 
+/* Lab Pattern */
+
+.lab-container {
+    margin-bottom: var(--medium-spacing);
+    margin-top: var(--medium-spacing);
+}
+
+.lab-spotlight-content {
+    max-width: 1000px;
+    margin: auto;
+    text-align: right;
+}
+
+.lab-container img {
+    height: 560px;
+}
+
+@media (max-width: 768px) {
+    .lab-spotlight-content {
+        margin-left: 24px;
+        margin-right: 24px;
+        text-align: left;
+    }
+    .lab-container img {
+        height: 400px;
+    }
+}
+
 /* Burger menu */
 .bm-burger-button {
     position: fixed;

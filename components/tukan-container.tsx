@@ -44,6 +44,8 @@ import MultiFunctionalModel from "../models/tukan/multi-functional-model"
 import MultiFunctional from "./pattern/multi-functional"
 import PaypalExpressProductModel from "../models/tukan/paypal-express-product-model"
 import PaypalExpressProduct from "./shop/paypal-express-product"
+import PortfolioModel from "../models/tukan/portfolio-model"
+import Portfolio from "./pattern/portfolio"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -278,6 +280,30 @@ const matchComponent = (model: TukanModel, index: number) => {
                     variantID={productModel.variantID}
                     description={productModel.description} />
             break
+
+            case TukanType.Portfolio:
+                const portfolioModel = model as PortfolioModel
+                component =
+                    <Portfolio
+                        key={index}
+                        title={portfolioModel.title}
+                        imgSrc01={portfolioModel.imgSrc01}
+                        imgAlt01={portfolioModel.imgAlt01}
+                        imgSrc02={portfolioModel.imgSrc02}
+                        imgAlt02={portfolioModel.imgAlt02}
+                        imgSrc03={portfolioModel.imgSrc03}
+                        imgAlt03={portfolioModel.imgAlt03}
+                        imgSrc04={portfolioModel.imgSrc04}
+                        imgAlt04={portfolioModel.imgAlt04}
+                        imgSrc05={portfolioModel.imgSrc05}
+                        imgAlt05={portfolioModel.imgAlt05}
+                        imgSrc06={portfolioModel.imgSrc06}
+                        imgAlt06={portfolioModel.imgAlt06}
+                        imgSrc07={portfolioModel.imgSrc07}
+                        imgAlt07={portfolioModel.imgAlt07}
+                        imgSrc08={portfolioModel.imgSrc08}
+                        imgAlt08={portfolioModel.imgAlt08} />
+                break
     }
 
     return component

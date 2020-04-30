@@ -24,6 +24,7 @@ import ColRichtextModel from "../models/tukan/col-richtext-model"
 import ShopifyProductModel from "../models/tukan/shopify-product-model"
 import MultiFunctionalModel from "../models/tukan/multi-functional-model"
 import PaypalExpressProductModel from "../models/tukan/paypal-express-product-model"
+import PortfolioModel from "../models/tukan/portfolio-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -192,6 +193,30 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const stageBlogModel = new StageBlogModel(stageBlogTitle, stageBlogContent, stageBlogImgSrc, stageBlogImgAlt)
             return stageBlogModel
+
+        case "portfolio":
+            const portfolioPrimary = slice.primary
+
+            const portfolioTitle = asText(portfolioPrimary.portfolio_title)
+            const portfolioImgSrc01 = portfolioPrimary.portfolio_image_01.url
+            const portfolioImgAlt01 = portfolioPrimary.portfolio_image_01.alt
+            const portfolioImgSrc02 = portfolioPrimary.portfolio_image_02.url
+            const portfolioImgAlt02 = portfolioPrimary.portfolio_image_02.alt
+            const portfolioImgSrc03 = portfolioPrimary.portfolio_image_03.url
+            const portfolioImgAlt03 = portfolioPrimary.portfolio_image_03.alt
+            const portfolioImgSrc04 = portfolioPrimary.portfolio_image_04.url
+            const portfolioImgAlt04 = portfolioPrimary.portfolio_image_04.alt
+            const portfolioImgSrc05 = portfolioPrimary.portfolio_image_05.url
+            const portfolioImgAlt05 = portfolioPrimary.portfolio_image_05.alt
+            const portfolioImgSrc06 = portfolioPrimary.portfolio_image_06.url
+            const portfolioImgAlt06 = portfolioPrimary.portfolio_image_06.alt
+            const portfolioImgSrc07 = portfolioPrimary.portfolio_image_07.url
+            const portfolioImgAlt07 = portfolioPrimary.portfolio_image_07.alt
+            const portfolioImgSrc08 = portfolioPrimary.portfolio_image_08.url
+            const portfolioImgAlt08 = portfolioPrimary.portfolio_image_08.alt
+
+            const portfolioModel = new PortfolioModel(portfolioTitle, portfolioImgSrc01, portfolioImgAlt01, portfolioImgSrc02, portfolioImgAlt02, portfolioImgSrc03, portfolioImgAlt03, portfolioImgSrc04, portfolioImgAlt04, portfolioImgSrc05, portfolioImgAlt05, portfolioImgSrc06, portfolioImgAlt06, portfolioImgSrc07, portfolioImgAlt07, portfolioImgSrc08, portfolioImgAlt08)
+            return portfolioModel
 
         case "highlight":
             const highlightPrimary = slice.primary

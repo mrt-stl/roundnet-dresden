@@ -12,6 +12,7 @@ export const tukan = (fontName, colors, darkModeColors) => {
     --white: #ffffff;
     --light-grey: #f4f4f4;
     --medium-grey: #dcdcdc;
+    --dark-grey: #999999;
     --dark: ${colors.dark};
 	--background: ${colors.background};
     --font-color: ${colors.font};
@@ -295,7 +296,7 @@ iframe {
 
 @media (max-width: 512px) {
     .stage-container h1 {
-        font-size: 2.25em;
+        font-size: 1.75em;
     }
 
     .stage-container {

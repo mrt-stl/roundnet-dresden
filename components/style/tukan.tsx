@@ -433,6 +433,11 @@ iframe {
 .logo-img img {
     height: 100%;
 }
+@media (max-width: 768px) {
+    .large-text {
+        font-size: 1em;
+    }
+}
 
 /* Pattern */
 

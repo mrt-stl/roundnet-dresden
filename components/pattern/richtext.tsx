@@ -17,8 +17,8 @@ const Richtext = (props: IRichtextProps) => {
             </div>
             <style jsx>{`
                 .richtext-container {
-                    margin-top: var(--standard-spacing);
-                    margin-bottom: var(--standard-spacing);
+                    margin-top: var(--large-spacing);
+                    margin-bottom: var(--large-spacing);
                 }
             `}</style>
         </div>

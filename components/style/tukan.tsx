@@ -30,6 +30,9 @@ export const tukan = (fontName, colors, darkModeColors) => {
     --standard-spacing: 3em;
     --medium-spacing: 4em;
     --large-spacing: 6em;
+
+    --image-height: 340px;
+    --image-height-mobile: 340px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -523,7 +526,7 @@ textarea::-ms-input-placeholder {
 }
 
 .selection-container img {
-   height: 336px;
+   height: var(--image-height);
 }
 
 @media (max-width: 768px) {
@@ -577,7 +580,7 @@ textarea::-ms-input-placeholder {
 }
 
 .card-container img {
-    height: 328px;
+    height: var(--image-height);
 }
 
 .cart-link-container a {

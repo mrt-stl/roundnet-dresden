@@ -512,13 +512,24 @@ textarea::-ms-input-placeholder {
     box-shadow: 0 2px 5px rgba(0,0,0,.25);
 }
 
-.selection {
-    margin-top: var(--standard-spacing);
-    margin-bottom: var(--standard-spacing);
+.selection-container {
+    padding-top: calc(var(--standard-spacing) + 24px);
+    padding-bottom: var(--standard-spacing);
+    background-color: var(--primary);
 }
 
-.selection img {
-    max-height: 480px;
+.selection-container p {
+    color: var(--background);
+}
+
+.selection-container img {
+   height: 336px;
+}
+
+@media (max-width: 768px) {
+    .selection-container {
+        display: none;
+    }
 }
 
 /* Lazy load opacity effect */

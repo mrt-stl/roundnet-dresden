@@ -36,7 +36,7 @@ const Selection = (props: ISelectionProps) => {
         } else {
             return (
                 <div className="col-4" key={index}>
-                    <div>
+                    <div className="height">
                         <TukanImage
                             src={col.ImgSrc}
                             alt={col.ImgAlt}
@@ -51,8 +51,8 @@ const Selection = (props: ISelectionProps) => {
     })
 
     return (
-        <div className="selection">
-            <div className="grid-alt">
+        <div className="selection-container">
+            <div className="grid">
                 {contentCols}
             </div>
         </div>

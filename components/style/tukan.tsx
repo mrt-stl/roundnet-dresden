@@ -28,7 +28,7 @@ export const tukan = (fontName, colors, darkModeColors) => {
 
     --small-spacing: 1em;
     --standard-spacing: 3em;
-    --medium-spacing:5em;
+    --medium-spacing: 4em;
     --large-spacing: 6em;
 }
 
@@ -273,12 +273,12 @@ iframe {
 
 .stage-container {
     padding-top: var(--large-spacing);
-    padding-bottom: 1em;
+    padding-bottom: var(--standard-spacing);
 }
 
 .stage-blog-container {
     padding-top: var(--large-spacing);
-    padding-bottom: 1em;
+    padding-bottom: var(--standard-spacing);
 }
 
 .stage-blog-sub-title {
@@ -294,7 +294,7 @@ iframe {
     height: 544px;
 }
 
-@media (max-width: 512px) {
+@media (max-width: 768px) {
     .stage-container h1 {
         font-size: 1.75em;
     }
@@ -305,7 +305,7 @@ iframe {
     }
 
     .stage-blog-container h1 {
-        font-size: 2.25em;
+        font-size: 1.75em;
     }
 
     .stage-blog-container {
@@ -321,22 +321,23 @@ iframe {
 /* Lab Pattern */
 
 .lab-container {
-    margin-bottom: var(--medium-spacing);
-    margin-top: var(--medium-spacing);
+    margin-bottom: var(--standard-spacing);
+    margin-top: var(--standard-spacing);
 }
 
 .lab-spotlight-content {
-    max-width: 1000px;
-    margin: auto;
-    text-align: right;
-}
+    padding-left: calc(50% + 12px);
+    margin-left: 24px;
+    margin-right: 24px;
+    margin: auto;}
 
 .lab-container img {
-    height: 560px;
+    height: 576px;
 }
 
 @media (max-width: 768px) {
     .lab-spotlight-content {
+        padding-left: 0%;
         margin-left: 24px;
         margin-right: 24px;
         text-align: left;
@@ -627,13 +628,13 @@ textarea::-ms-input-placeholder {
 }
 
 .multi-functional-container {
-    margin-bottom: var(--standard-spacing);
     padding-top: var(--large-spacing);
+    padding-bottom: var(--standard-spacing);
 }
 
 @media (max-width: 512px) {
     .multi-functional-container h1 {
-        font-size: 2.25em;
+        font-size: 1.75em;
     }
 }
 

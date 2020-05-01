@@ -19,8 +19,8 @@ const ColRichtext = (props: IColRichtextProps) => {
 
             <style jsx>{`
                 .col-richtext-container {
-                    padding-top: var(--standard-spacing);
-                    padding-bottom: var(--standard-spacing);
+                    margin-top: var(--large-spacing);
+                    margin-bottom: var(--large-spacing);
                 }
             `}</style>
         </div>

@@ -35,7 +35,7 @@ const MultiFunctional = (props: IMultiFunctionalProps) => {
         <div className="multi-functional-container">
             {props.title ?
                 <div className="grid">
-                    <div className="col-4">
+                    <div className="col-6">
                         {parse(props.title)}
                     </div>
                 </div> :

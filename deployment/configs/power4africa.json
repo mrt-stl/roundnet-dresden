@@ -35,11 +35,11 @@
         },
         {
             "src": "/ar/(?<id>[^/]+)$",
-            "dest": "/index?id=$id&lang=pl"
+            "dest": "/index?id=$id&lang=ar"
         },
         {
             "src": "/ar/",
-            "dest": "/index?id=home&lang=pl"
+            "dest": "/index?id=home&lang=ar"
         }
     ]
 }

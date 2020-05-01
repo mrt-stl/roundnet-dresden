@@ -17,7 +17,7 @@ describe("Index", () => {
     it("fill in contact form", () => {
         cy.get(".contact-container").within(() => {
             cy.get("input[name=fname]").type("Test Example")
-            cy.get("input[name=email]").type("dev@stadtteilliebe.de")
+            cy.get("input[name=email]").type("florian@stadtteilliebe.de")
             cy.get("textarea").type("Stadtteilliebe ist kein Verbrechen")
 
             cy.get("button").click()

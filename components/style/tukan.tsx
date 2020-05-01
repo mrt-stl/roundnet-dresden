@@ -276,12 +276,12 @@ iframe {
 
 .stage-container {
     padding-top: var(--large-spacing);
-    padding-bottom: var(--standard-spacing);
+    margin-bottom: var(--large-spacing);
 }
 
 .stage-blog-container {
     padding-top: var(--large-spacing);
-    padding-bottom: var(--standard-spacing);
+    margin-bottom: var(--large-spacing);
 }
 
 .stage-blog-sub-title {
@@ -648,7 +648,7 @@ textarea::-ms-input-placeholder {
 
 .multi-functional-container {
     padding-top: var(--large-spacing);
-    padding-bottom: var(--standard-spacing);
+    margin-bottom: var(--large-spacing);
 }
 
 @media (max-width: 512px) {

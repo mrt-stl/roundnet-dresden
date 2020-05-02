@@ -16,6 +16,8 @@ const Stage = (props: IStageProps) => {
                         <div>
                             <h1>{title}</h1>
                         </div>
+                    </div>
+                    <div className="col">
                         <div>
                             {parse(content)}
                         </div>

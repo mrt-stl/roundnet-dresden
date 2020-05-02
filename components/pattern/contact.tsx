@@ -96,8 +96,8 @@ class Contact extends Component<IContactProps, {}> {
 
                 <style jsx>{`
                     .contact-container {
-                        margin-top: var(--standard-spacing);
-                        margin-bottom: var(--standard-spacing);
+                        margin-top: var(--large-spacing);
+                        margin-bottom: var(--large-spacing);
                     }
 
                     input[type=text], input[type=email] {

@@ -29,7 +29,7 @@ export const tukan = (fontName, colors, darkModeColors) => {
     --small-spacing: 1em;
     --standard-spacing: 3em;
     --medium-spacing: 4em;
-    --large-spacing: 6em;
+    --large-spacing: 5em;
 
     --image-height: 340px;
     --image-height-mobile: 340px;
@@ -55,6 +55,7 @@ export const tukan = (fontName, colors, darkModeColors) => {
 @media (max-width: 768px) {
     :root {
         --standard-spacing: 3em;
+        --large-spacing: 3em;
     }
 }
 
@@ -66,6 +67,8 @@ html, body {
     font-family: ${fontName}, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
+
+/* Typo */
 
 h1, h2, h3, h4, h5, h6, p {
 	font-style: normal;
@@ -139,6 +142,12 @@ p {
     line-height: 1.5;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.75em;
+    }
 }
 
 ul {
@@ -298,17 +307,10 @@ iframe {
 }
 
 @media (max-width: 768px) {
-    .stage-container h1 {
-        font-size: 1.75em;
-    }
 
     .stage-container {
         padding-top: 3em;
         padding-bottom: 1em;
-    }
-
-    .stage-blog-container h1 {
-        font-size: 1.75em;
     }
 
     .stage-blog-container {
@@ -649,12 +651,6 @@ textarea::-ms-input-placeholder {
 .multi-functional-container {
     padding-top: var(--large-spacing);
     margin-bottom: var(--large-spacing);
-}
-
-@media (max-width: 512px) {
-    .multi-functional-container h1 {
-        font-size: 1.75em;
-    }
 }
 
 @keyframes zoomIn {

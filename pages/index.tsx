@@ -7,6 +7,7 @@ import { asText } from "../utils/prismic-utils"
 import Love from "../components/pattern/love"
 import EditButton from "../components/elements/edit-button"
 import { cacheControlHeader, createEtag } from "../utils/cache-utils"
+import Error from "./_error"
 import { prismicPageToComponentModels } from "../controller/prismic-controller"
 import Project, { ShowBannerType } from "../models/config/project"
 import parser from "accept-language-parser"
@@ -27,7 +28,11 @@ interface IIndexProps {
 }
 
 const Index = (props: IIndexProps) => {
-    const { docId, meta, componentModels, footer } = props
+    const { docId, meta, componentModels, footer, error } = props
+
+    if (error) {
+        return (<Error />)
+    }
 
     const project = Project.getInstance()
 

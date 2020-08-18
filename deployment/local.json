@@ -29,7 +29,7 @@
             "CACHING_TIME": "0",
             "PROJECT_ID": "stl",
             "HAS_BANNER": "on",
-            "USE_SHOP_VIEW": "true",
+            "USE_SHOP_VIEW": "false",
             "SHOPIFY_STORE_DOMAIN": "stadtteilshop.myshopify.com",
             "SHOPIFY_ACCESS_TOKEN": "8a1375fb56d36b6ed4aed75934b9051e"
         }

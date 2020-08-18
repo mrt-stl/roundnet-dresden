@@ -51,15 +51,15 @@ const getTotalFromShopify = async () => {
         checkout = await client.checkout.fetch(savedCheckoutID)
     }
 
-    const lineItems = checkout.lineItems
+    /* const lineItems = checkout.lineItems */
     let total = 0
-    for (const lineItem of lineItems) {
+    /* for (const lineItem of lineItems) {
         const amount = lineItem.quantity
         const price = lineItem.variant.priceV2.amount
         const parsedPrice = parseFloat(price)
 
         total += (amount * parsedPrice)
-    }
+    } */
 
     return total
 }

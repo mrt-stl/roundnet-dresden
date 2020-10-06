@@ -51,19 +51,3 @@ jobs:
       
       env:
         CI: true
-
-    - name: Slack Notification Success
-      if: success()
-      uses: rtCamp/action-slack-notify@master
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_USERNAME: Stadtteilbot
-        SLACK_COLOR: good
-
-    - name: Slack Notification Failure
-      if: failure()
-      uses: rtCamp/action-slack-notify@master
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_USERNAME: Stadtteilbot
-        SLACK_COLOR: danger

@@ -17,21 +17,21 @@
     ],
     "build": {
         "env": {
-            "URL": "https://standard.stl-dev.now.sh/",
-            "NAME": "standard-stl",
-            "PRISMIC_ENDPOINT": "https://standard.cdn.prismic.io/api/v2",
-            "ACCESS_TOKEN": "MC5YTWJpUFJFQUFDSUF0MzB2.77-977-977-977-9ae-_ve-_ve-_ve-_ve-_vWzvv70a77-9Yu-_vRvvv73vv71m77-977-977-9fGFE77-9Q0Hvv73vv70k",
-            "NAV": "[ {\"name\": \"Start\", \"link\": \"/\"}, {\"name\": \"Shop\", \"link\": \"/home\"} ]",
+            "URL": "https://stadtteilliebe.de/",
+            "NAME": "stl",
+            "PRISMIC_ENDPOINT": "https://stadtteilliebe2.cdn.prismic.io/api/v2",
+            "ACCESS_TOKEN": "MC5YNVFWYnhBQUFDSUFiZ2Za.Ig3vv70Q77-977-977-9N--_ve-_ve-_vVDvv73vv70M77-977-977-977-977-9de-_ve-_ve-_ve-_ve-_vUoB77-977-9Dmo",
+            "NAV": "[ {\"name\": \"Start\", \"link\": \"/\"}, {\"name\": \"Agentur\", \"link\": \"/agentur\"}, {\"name\": \"Blog\", \"link\": \"/blog\"}, {\"name\": \"Projekte\", \"link\": \"/projekte\"} ]",
             "FONT": "{\"url\": \"https://use.typekit.net/zvs7feh.css\", \"name\": \"neue-haas-unica\" }",
             "COOKIE": "{\"link\": \"https://stadtteilliebe.de/datenschutz\"}",
             "COLORS": "{ \"primary\": \"\", \"secondary\": \"\", \"accent\": \"\" }",
             "DARK_MODE": "auto",
             "CACHING_TIME": "0",
             "PROJECT_ID": "stl",
-            "HAS_BANNER": "on",
-            "USE_SHOP_VIEW": "false",
-            "SHOPIFY_STORE_DOMAIN": "stadtteilshop.myshopify.com",
-            "SHOPIFY_ACCESS_TOKEN": "8a1375fb56d36b6ed4aed75934b9051e"
+            "HAS_BANNER": "off",
+            "USE_SHOP_VIEW": "",
+            "SHOPIFY_STORE_DOMAIN": "",
+            "SHOPIFY_ACCESS_TOKEN": ""
         }
     },
     "routes": [

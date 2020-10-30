@@ -1,1 +1,11 @@
 ## This is the new repository for the TUKAN rebuild, based on create-next-project :wrench:
+
+### Integration styled-components-grid
+
+Dokumentation: https://github.com/jameslnewell/styled-components-grid
+
+- Das Theme und der Theme-Provider wurden in Index.tsx hinzugefügt
+- Über das Theme werden aktuell nur die breakpoints ausgespielt
+- Breackpoints sind nun allerdings min-width, das muss beachtet werden!
+
+- styles entlang der breackpoints werden mithilfe von styled-components-breakpoint direkt in der styled-component realisiert

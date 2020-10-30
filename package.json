@@ -5,7 +5,7 @@
         "node": ">=10.0.0"
     },
     "scripts": {
-        "local": "now dev -A deployment/local.json",
+        "local": "vercel dev -A deployment/local.json",
         "build": "next build",
         "start": "next start -p $PORT",
         "deploy-dev": "node deployment/development.js",
@@ -47,7 +47,11 @@
         "react-lazyload": "^2.6.2",
         "rollbar": "^2.12.2",
         "shopify-buy": "^2.9.0",
-        "sitemap": "^5.0.0"
+        "sitemap": "^5.0.0",
+        "styled-components": "^5.2.0",
+        "styled-components-breakpoint": "^3.0.0-preview.20",
+        "styled-components-grid": "^2.2.2",
+        "vercel": "^20.1.2"
     },
     "devDependencies": {
         "@babel/core": "^7.7.5",

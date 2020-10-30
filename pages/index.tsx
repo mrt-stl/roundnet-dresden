@@ -18,6 +18,7 @@ import Banner from "../components/navigation/banner"
 import FooterModel from "../models/tukan/footer-model"
 import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
 import Footer from "../components/pattern/footer"
+import { ThemeProvider } from "styled-components"
 
 interface IIndexProps {
     docId?: string
@@ -39,41 +40,53 @@ const Index = (props: IIndexProps) => {
     const showCookieNotification = project.cookieLink !== null
     const showBanner = project.showBanner === ShowBannerType.ON
 
+    const theme = {
+        breakpoints: {
+          xs: 0,
+          sm: 576,
+          md: 768,
+          lg: 992,
+          xl: 1200
+        }
+      }
+
     return (
         <div className="gemacht-mit-stadtteilliebe">
-            <Meta
-                data={meta} />
+            <ThemeProvider theme={theme}>
+                <Meta
+                    data={meta} />
 
-            <Nav />
+                <Nav />
 
-            {meta.metaBanner ?
-                <Banner content={meta.metaBanner} /> :
-                <></>
-            }
+                {meta.metaBanner ?
+                    <Banner content={meta.metaBanner} /> :
+                    <></>
+                }
 
-            <TukanContainer
-                tukanModels={componentModels} />
+                <TukanContainer
+                    tukanModels={componentModels} />
 
-            {footer ?
-                <Footer
-                    rows={footer.rows}
-                    backgroundColor={footer.backgroundColor} /> :
-                <></>
-            }
+                {footer ?
+                    <Footer
+                        rows={footer.rows}
+                        backgroundColor={footer.backgroundColor} /> :
+                    <></>
+                }
 
-            {showCookieNotification ?
-                <CookieNotification
-                    link={project.cookieLink} /> :
-                <div />
-            }
+                {showCookieNotification ?
+                    <CookieNotification
+                        link={project.cookieLink} /> :
+                    <div />
+                }
 
-            <EditButton
-                docId={docId} />
+                <EditButton
+                    docId={docId} />
 
-            {showBanner ?
-                <Love /> :
-                <div />
-            }
+                {showBanner ?
+                    <Love /> :
+                    <div />
+                }
+            </ThemeProvider>
         </div>
     )
 }

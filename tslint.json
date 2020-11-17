@@ -26,8 +26,7 @@
         "ordered-imports": false,
         "object-literal-sort-keys": false,
         "arrow-parens": [
-            false,
-            "as-needed"
+            false
         ],
         "eofline": false,
         "max-line-length": [

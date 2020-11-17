@@ -1,34 +1,21 @@
 // eslint-disable-next-line security/detect-child-process
 const { exec } = require("child_process")
 
-const admin = require("firebase-admin")
-const serviceAccount = require("./firebase-deploy.json")
-
 const createCmd = require("./deploy-utils")
 
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-})
+const projectId = process.argv[2]
 
-const token = process.argv[3]
+const doc = require(`./configs/${projectId}.json`)
 
-const db = admin.firestore()
+const token = "qPACYOXNHdECEhvuHdqyiDbZ"
 
-const projectsRef = db.collection("projects")
-projectsRef.where("branch", "=", "master").get()
-    .then((snapshot) => {
-        snapshot.forEach((doc) => {
-            deployToNow(doc.data())
-        })
-    })
-    .catch((err) => {
-        console.log("Error getting documents", err)
-    })
+deployToNow(doc.build.env)
 
 function deployToNow(project) {
     console.log("Start deploying:", project.url)
 
-    let deployCmd = "now --prod -A [FILE] --token [TOKEN]"
+    let deployCmd = "vercel --prod -A [FILE] --token [TOKEN]"
+
     deployCmd = deployCmd.replace("[TOKEN]", token)
 
     const cmd = createCmd(deployCmd, project)

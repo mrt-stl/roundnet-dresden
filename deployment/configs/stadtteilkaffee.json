@@ -18,18 +18,22 @@
     ],
     "build": {
         "env": {
-            "URL": "https://stadtteilkaffee.de/",
-            "NAME": "stl",
-            "PRISMIC_ENDPOINT": "https://stadtteilkaffee.cdn.prismic.io/api/v2",
-            "ACCESS_TOKEN": "MC5YN09MOWhJQUFDQUFmZl9H.VkTvv70N77-9be-_vSTvv71F77-9Y--_vQvvv71M77-9FzDvv73vv73vv73vv73vv70kXwIl77-9O--_vXk",
-            "NAV": "[ {\"name\": \"Start\", \"link\": \"/\"}, {\"name\": \"Das Café\", \"link\": \"/projekte\"}, {\"name\": \"Wir\", \"link\": \"/wir\"}, {\"name\": \"Blog\", \"link\": \"/blog\"} ]",
-            "FONT": "{\"url\": \"https://use.typekit.net/zvs7feh.css\", \"name\": \"neue-haas-unica\" }",
-            "COOKIE": "{\"link\": \"https://stadtteilliebe.de/datenschutz\"}",
-            "COLORS": "{ \"primary\": \"\", \"secondary\": \"\", \"accent\": \"\" }",
-            "DARK_MODE": "auto",
-            "CACHING_TIME": "0",
-            "PROJECT_ID": "stadtteilcafe",
-            "HAS_BANNER": "off"
+            "url": "https://stadtteilkaffee.de/",
+            "name": "stl",
+            "prismic_endpoint": "https://stadtteilkaffee.cdn.prismic.io/api/v2",
+            "prismic_access_token": "MC5YN09MOWhJQUFDQUFmZl9H.VkTvv70N77-9be-_vSTvv71F77-9Y--_vQvvv71M77-9FzDvv73vv73vv73vv73vv70kXwIl77-9O--_vXk",
+            "nav": "[ {\"name\": \"https://images.prismic.io/stadtteilkaffee/7b98a15e-fee5-48bb-bd31-8fb34d4bde79_Group+9.png?auto=compress,format\", \"link\": \"/\"}, {\"name\": \"Start\", \"link\": \"/\"}, {\"name\": \"Die/Rösterei\", \"link\": \"/die-roesterei\"}]",
+            "font": "{\"url\": \"https://use.typekit.net/zvs7feh.css\", \"name\": \"neue-haas-unica\" }",
+            "cookie": "{\"link\": \"https://stadtteilliebe.de/datenschutz\"}",
+            "colors": "{ \"primary\": \"#744244\", \"secondary\": \"#ffffff\", \"accent\": \"#D47479\" }",
+            "dark_mode": "on",
+            "caching_duration": "0",
+            "project_id": "stadtteilkaffee",
+            "show_banner": "off",
+            "shopify_acces_token": "",
+            "shopify_store_domain": "",
+            "ga_id": "",
+            "use_shop_view": "false"
         }
     },
     "routes": [

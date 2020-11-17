@@ -48,24 +48,24 @@ export default class Project {
     }
 
     private init() {
-        this.projectId = process.env.PROJECT_ID ? process.env.PROJECT_ID : ""
-        this.cachingTime = this.parseCacheTime(process.env.CACHING_TIME)
-        this.colors = this.parse(process.env.COLORS) ? JSON.parse(process.env.COLORS) : {}
-        this.cookieLink = process.env.COOKIE ? process.env.COOKIE : null
-        this.darkMode = process.env.DARK_MODE ? process.env.DARK_MODE : DarkModeType.OFF
-        this.font = this.parse(process.env.FONT)
-        this.googleAnalyticsID = process.env.GA ? process.env.GA : null
-        this.name = process.env.NAME ? process.env.NAME : null
-        this.nav = this.parse(process.env.NAV) ? JSON.parse(process.env.NAV) : [standardNav]
-        this.prismicAccessToken = process.env.ACCESS_TOKEN ? process.env.ACCESS_TOKEN : null
-        this.prismicEndpoint = process.env.PRISMIC_ENDPOINT ? process.env.PRISMIC_ENDPOINT : null
-        this.showBanner = process.env.HAS_BANNER ? process.env.HAS_BANNER : ShowBannerType.OFF
-        this.url = process.env.URL ? process.env.URL : null
+        this.projectId = process.env.project_id ? process.env.project_id : ""
+        this.cachingTime = this.parseCacheTime(process.env.caching_duration)
+        this.colors = this.parse(process.env.color) ? JSON.parse(process.env.color) : {}
+        this.cookieLink = process.env.cookie ? process.env.cookie : null
+        this.darkMode = process.env.dark_mode ? process.env.dark_mode : DarkModeType.OFF
+        this.font = this.parse(process.env.font)
+        this.googleAnalyticsID = process.env.ga_id ? process.env.ga_id : null
+        this.name = process.env.name ? process.env.name : null
+        this.nav = this.parse(process.env.nav) ? JSON.parse(process.env.nav) : [standardNav]
+        this.prismicAccessToken = process.env.prismic_access_token ? process.env.prismic_access_token : null
+        this.prismicEndpoint = process.env.prismic_endpoint ? process.env.prismic_endpoint : null
+        this.showBanner = process.env.show_banner ? process.env.show_banner : ShowBannerType.OFF
+        this.url = process.env.url ? process.env.url : null
 
         // Shop variables
-        this.useShopView = Boolean(process.env.USE_SHOP_VIEW) ?? false
-        this.shopifyAccessToken = process.env.SHOPIFY_ACCESS_TOKEN ?? null
-        this.shopifyStoreDomain = process.env.SHOPIFY_STORE_DOMAIN ?? null
+        this.useShopView = Boolean(process.env.use_shop_view) ?? false
+        this.shopifyAccessToken = process.env.shopify_access_token ?? null
+        this.shopifyStoreDomain = process.env.shopify_store_domain ?? null
 
         // Meta variables
         this.metaTitle = process.env.META_TITLE ?? null

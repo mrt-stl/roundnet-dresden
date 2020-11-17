@@ -17,21 +17,22 @@
     ],
     "build": {
         "env": {
-            "URL": "https://stadtteilliebe.de/",
-            "NAME": "stl",
-            "PRISMIC_ENDPOINT": "https://stadtteilliebe2.cdn.prismic.io/api/v2",
-            "ACCESS_TOKEN": "MC5YNVFWYnhBQUFDSUFiZ2Za.Ig3vv70Q77-977-977-9N--_ve-_ve-_vVDvv73vv70M77-977-977-977-977-9de-_ve-_ve-_ve-_ve-_vUoB77-977-9Dmo",
-            "NAV": "[ {\"name\": \"Start\", \"link\": \"/\"}, {\"name\": \"Projekte\", \"link\": \"/projekte\"}, {\"name\": \"Wir\", \"link\": \"/wir\"}, {\"name\": \"Blog\", \"link\": \"/blog\"} ]",
-            "FONT": "{\"url\": \"https://use.typekit.net/zvs7feh.css\", \"name\": \"neue-haas-unica\" }",
-            "COOKIE": "{\"link\": \"https://stadtteilliebe.de/datenschutz\"}",
-            "COLORS": "{ \"primary\": \"\", \"secondary\": \"\", \"accent\": \"\" }",
-            "DARK_MODE": "auto",
-            "CACHING_TIME": "0",
-            "PROJECT_ID": "stl",
-            "HAS_BANNER": "off",
-            "USE_SHOP_VIEW": "",
-            "SHOPIFY_STORE_DOMAIN": "",
-            "SHOPIFY_ACCESS_TOKEN": ""
+            "url": "https://stadtteilliebe.de/",
+            "name": "stl",
+            "prismic_endpoint": "https://stadtteilliebe2.cdn.prismic.io/api/v2",
+            "prismic_access_token": "MC5YNVFWYnhBQUFDSUFiZ2Za.Ig3vv70Q77-977-977-9N--_ve-_ve-_vVDvv73vv70M77-977-977-977-977-9de-_ve-_ve-_ve-_ve-_vUoB77-977-9Dmo",
+            "nav": "[ {\"name\": \"Start\", \"link\": \"/\"}, {\"name\": \"Projekte\", \"link\": \"/projekte\"}, {\"name\": \"Wir\", \"link\": \"/wir\"}, {\"name\": \"Blog\", \"link\": \"/blog\"}, {\"name\": \"Unser%20Blog\", \"link\": \"/blog\"} ]",
+            "font": "{\"url\": \"https://use.typekit.net/zvs7feh.css\", \"name\": \"neue-haas-unica\" }",
+            "cookie": "{\"link\": \"https://stadtteilliebe.de/datenschutz\"}",
+            "color": "{ \"primary\": \"#8345e5\", \"secondary\": \"#9aa7c1\", \"accent\": \"#ec29b9\" }",
+            "dark_mode": "auto",
+            "caching_duration": "0",
+            "project_id": "stl",
+            "show_banner": "off",
+            "use_shop_view": "false",
+            "shopify_store_domain": "",
+            "shopify_access_token": "",
+            "ga_id": ""
         }
     },
     "routes": [

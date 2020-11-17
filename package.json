@@ -5,7 +5,7 @@
         "node": ">=10.0.0"
     },
     "scripts": {
-        "local": "vercel dev -A deployment/local.json",
+        "local": "vercel dev --local-config ./deployment/local.json",
         "build": "next build",
         "start": "next start -p $PORT",
         "deploy-dev": "node deployment/development.js",
@@ -29,8 +29,10 @@
         "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
     },
     "dependencies": {
+        "@types/styled-components": "^5.1.4",
         "accept-language-parser": "^1.5.0",
         "axios": "^0.19.2",
+        "babel-plugin-styled-components": "^1.11.1",
         "google-map-react": "^1.1.5",
         "html-react-parser": "^0.10.0",
         "local-storage": "^2.0.0",
@@ -50,7 +52,9 @@
         "sitemap": "^5.0.0",
         "styled-components": "^5.2.0",
         "styled-components-breakpoint": "^3.0.0-preview.20",
+        "styled-components-breakpoints": "^1.0.0",
         "styled-components-grid": "^2.2.2",
+        "use-dark-mode": "^2.3.1",
         "vercel": "^20.1.2"
     },
     "devDependencies": {

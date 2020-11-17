@@ -9,3 +9,4 @@ Dokumentation: https://github.com/jameslnewell/styled-components-grid
 - Breackpoints sind nun allerdings min-width, das muss beachtet werden!
 
 - styles entlang der breackpoints werden mithilfe von styled-components-breakpoint direkt in der styled-component realisiert
+- styled-components-breakpoint können eigentlich über das theme in ./index.tsx angepasst werden, allerdings wirft dies aktuell einen TypeScript-Fehler, weswegen auf die DefaultBreakpoints "mobile", "tablet" und "desktop" zurückgegriffen wird

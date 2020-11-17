@@ -1,4 +1,4 @@
-import Meta from "../components/meta"
+import Meta, { finalTheme } from "../components/meta"
 import Nav from "../components/navigation/nav"
 import { getByUid } from "../networking/prismic-api"
 import TukanContainer from "../components/tukan-container"
@@ -19,6 +19,7 @@ import FooterModel from "../models/tukan/footer-model"
 import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
 import Footer from "../components/pattern/footer"
 import { ThemeProvider } from "styled-components"
+import { GlobalStyles } from "../components/style/tukan"
 
 interface IIndexProps {
     docId?: string
@@ -40,38 +41,32 @@ const Index = (props: IIndexProps) => {
     const showCookieNotification = project.cookieLink !== null
     const showBanner = project.showBanner === ShowBannerType.ON
 
-    const theme = {
-        breakpoints: {
-          xs: 0,
-          sm: 576,
-          md: 768,
-          lg: 992,
-          xl: 1200
-        }
-      }
-
     return (
         <div className="gemacht-mit-stadtteilliebe">
-            <ThemeProvider theme={theme}>
                 <Meta
                     data={meta} />
 
-                <Nav />
+                <ThemeProvider theme={finalTheme}>
+                    <GlobalStyles/>
 
-                {meta.metaBanner ?
-                    <Banner content={meta.metaBanner} /> :
-                    <></>
-                }
+                    <Nav />
 
-                <TukanContainer
-                    tukanModels={componentModels} />
+                    {meta.metaBanner ?
+                        <Banner content={meta.metaBanner} /> :
+                        <></>
+                    }
 
-                {footer ?
-                    <Footer
-                        rows={footer.rows}
-                        backgroundColor={footer.backgroundColor} /> :
-                    <></>
-                }
+                    <TukanContainer
+                        tukanModels={componentModels} />
+
+                    {footer ?
+                        <Footer
+                            rows={footer.rows}
+                            backgroundColor={footer.backgroundColor} /> :
+                        <></>
+                    }
+
+                </ThemeProvider>
 
                 {showCookieNotification ?
                     <CookieNotification
@@ -86,7 +81,6 @@ const Index = (props: IIndexProps) => {
                     <Love /> :
                     <div />
                 }
-            </ThemeProvider>
         </div>
     )
 }

@@ -1,21 +1,22 @@
 import parse from "html-react-parser"
 import styled from "styled-components"
-import { TukanGrid, TukanCol } from "../style/binary-grid"
-import { breakpoint } from "styled-components-breakpoint"
+import { TGrid, TCol } from "../style/sc-grid"
+import { media } from "../style/tukan"
 
 export interface IStageProps {
     title: string
     content: string
 }
-const StageContainer = styled.div`
-padding-top: 3em;
-padding-bottom: 1em;
 
-    ${breakpoint("md")`
-    padding-top: var(--large-spacing);
-    margin-bottom: var(--large-spacing);
-    padding-bottom: 0;
-  `};
+const StageContainer = styled.div`
+    padding-top: ${(props) => props.theme.spacing.standard};
+    margin-bottom: ${(props) => props.theme.spacing.standard};
+    background-color: var(--background) !important;
+
+        ${media.maxWidth("md")`
+        padding-top: 3em;
+        padding-bottom: 1em;
+    `};
 
 `
 const Stage = (props: IStageProps) => {
@@ -24,38 +25,20 @@ const Stage = (props: IStageProps) => {
     const content = props.content
 
     return (
-        <div>
-            <StageContainer>
-                <TukanGrid valign="center">
-                    <TukanCol size={{md: 6 / 8}} >
+        <StageContainer>
+                <TGrid valign="center">
+                    <TCol size={6 / 8} >
                         <div>
                             <h1>{title}</h1>
                         </div>
-                    </TukanCol>
-                    <TukanCol>
+                    </TCol>
+                    <TCol>
                         <div>
                             {parse(content)}
                         </div>
-                    </TukanCol>
-                </TukanGrid>
+                    </TCol>
+                </TGrid>
             </StageContainer>
-            <div className="stage-container">
-                <div className="grid align-items-center">
-                    <div className="col-6">
-                        <div>
-                            <h1>{title}</h1>
-                        </div>
-                    </div>
-                </div>
-                <div className="grid">
-                    <div className="col">
-                        <div>
-                            {parse(content)}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         )
     }
 

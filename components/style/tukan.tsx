@@ -1,6 +1,260 @@
+import breakpoints from "styled-components-breakpoints"
+import { createGlobalStyle, DefaultTheme } from "styled-components"
+
 export const tukanConfig = {
     navHeight: "48px"
 }
+
+export const GlobalStyles = createGlobalStyle`
+html, body {
+    background-color: var(--background);
+    font-family: ${({ theme }) => theme.font.name}, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%
+}
+h1 {
+	font-size: 3em;
+    color: var(--font-color);
+    letter-spacing: 0.1px;
+    line-height: 1.25;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    font-weight: var(--bold);
+}
+
+h2 {
+	font-size: 2.25em;
+    color: var(--font-color);
+    letter-spacing: 0;
+    line-height: 1.25;
+    font-weight: var(--medium);
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+h3 {
+	font-size: 2em;
+    color: var(--font-color);
+    letter-spacing: 0.1px;
+    line-height: 1.25;
+    font-weight: var(--regular);
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+h4 {
+	font-size: 1.5em;
+    color: var(--font-color);
+    letter-spacing: 0.1px;
+    font-weight: var(--bold);
+    line-height: 1.25em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+h5 {
+	font-size: 1.25em;
+	font-weight: var(--regular);
+	letter-spacing: 0.1px;
+	color: var(--all-gray-30);
+	line-height: 1.5em;
+	margin-bottom: 0.8em;
+	margin-top: 0.8em;
+}
+
+h6 {
+    font-size: 1.25em;
+	font-weight: var(--regular);
+	letter-spacing: 0.1px;
+	color: var(--all-gray-30);
+	line-height: 1.5em;
+	margin-bottom: 0em;
+	margin-top: 0em;
+}
+
+p {
+	color: var(--font-color);
+	font-size: 1em;
+	letter-spacing: 0.2px;
+    line-height: 1.5;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.75em;
+    }
+}
+
+ul {
+    background-color: var(--all-gray-10);
+    padding-top: 32px;
+    padding-right: 24px;
+    padding-bottom: 32px;
+    padding-left: 60px !important;
+    line-height: 2;
+    color: var(--font-color);
+}
+
+li {
+    padding-left: 8px;
+}
+
+@media (max-width: 768px) {
+    ul {
+        font-size: 14px;
+    }
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	font-weight: regular;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size .4s;
+}
+
+a:hover {
+    background-size: 100% 1px;
+}
+
+h2 a {
+    color: var(--font-color);
+}
+
+h2 a:hover {
+    background-size: 100% 2px;
+}
+
+hr {
+	background-color: #000000;
+	height: 4px;
+	margin-bottom: 3em;
+	margin-top: 3em;
+	width: 90%;
+	border: 0px;
+	box-sizing: content-box;
+}
+
+pre {
+    word-wrap: break-word;
+    word-break: break-word;
+    padding: 16px;
+    margin: 1em 0;
+    line-height: 1.65;
+    border: 1px solid var(--all-gray-20);
+    color: #bd10e0;
+    background: #f8f8f8;
+    overflow: auto;
+    border-radius: 4px;
+}
+
+.code {
+    font-family: monospace,monospace;
+    color: #bd10e0
+}
+
+img {
+	max-width: 100%;
+	object-fit: cover;
+}
+
+iframe {
+    max-width: 100%;
+}
+`
+
+export const media = breakpoints({
+    xxs: 0,
+    xs: 320,
+    sm: 576,
+    md: 768,
+    lg: 992,
+    xl: 1200,
+  })
+
+const light = {
+    color: {
+        primary: "#121212",
+        secondary: "#303030",
+        accent: "#F83850",
+        dark: "#121212",
+        background: "#FFFFFF",
+        font: "#080808",
+        allGray10: "#F5F5F5",
+        allGray20: "#ECEDEE",
+        allGray30: "#C8CBCE",
+        allGray40: "#7E8082",
+        white: "#123456"
+    }
+  }
+
+const dark = {
+    color: {
+        primary: "#f0f0f0",
+        secondary: "#d0d0d0",
+        accent: "#F83850",
+        background: "#202428",
+        font: "#ffffff",
+        allGray10: "#404040",
+        allGray20: "#808080",
+        allGray30: "#d0d0d0",
+        allGray40: "#f0f0f0",
+        white: "#123456"
+    }
+}
+
+const defaultTheme = {
+    colors: {
+        primary: "#121212",
+        secondary: "#303030",
+        accent: "#F83850",
+        white: "#123456"
+    },
+
+    font: {
+        name: "https://use.typekit.net/zvs7feh.css",
+        url: "neue-haas-unica"
+    },
+
+    gridConfig: {
+        gridWidth: "",
+        gridPadding: "20px",
+        colPadding: "20px"
+    },
+
+    spacing: {
+        small: "1em",
+        standard: "3em",
+        medium: "4em",
+        large: "5em"
+    },
+
+    patternSpacing: {
+        small: "1em",
+        standard: "3em",
+        medium: "4em",
+        large: "5em"
+    },
+
+    fontWeight: {
+        regular: "400",
+        medium: "500",
+        bold: "600"
+    }
+}
+
+export const lightTheme: DefaultTheme = { ...defaultTheme, ...light }
+export const darkTheme: DefaultTheme = { ...defaultTheme, ...dark }
 
 export const tukan = (fontName, colors, darkModeColors) => {
     return <style jsx global>{`
@@ -358,7 +612,7 @@ iframe {
     width: 48px;
     height: 48px;
     top: 0;
-    right: 12px;
+    left: 12px;
 }
 
 .bm-cross-button {
@@ -366,7 +620,7 @@ iframe {
     width: 48px !important;
     height: 48px !important;
     top: 0 !important;
-    right: 12x !important;
+    left: 12px !important;
 }
 
 .bm-burger-bars {
@@ -626,15 +880,6 @@ textarea::-ms-input-placeholder {
     border-radius: 0px;
     cursor: pointer;
     color: var(--white);
-}
-
-.footer-container {
-    padding-top: var(--large-spacing);
-    padding-bottom: var(--large-spacing);
-}
-
-.footer-container a {
-    color: var(--font-color);
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,9 +1,10 @@
 {
     "version": 2,
-    "name": "local",
+    "name": "stadtteilkaffee",
+    "alias": "stadtteilkaffee.de",
     "public": false,
     "regions": [
-        "dev1"
+        "all"
     ],
     "builds": [
         {
@@ -17,21 +18,18 @@
     ],
     "build": {
         "env": {
-            "URL": "https://stadtteilliebe.de/",
+            "URL": "https://stadtteilkaffee.de/",
             "NAME": "stl",
-            "PRISMIC_ENDPOINT": "https://stadtteilliebe2.cdn.prismic.io/api/v2",
-            "ACCESS_TOKEN": "MC5YNVFWYnhBQUFDSUFiZ2Za.Ig3vv70Q77-977-977-9N--_ve-_ve-_vVDvv73vv70M77-977-977-977-977-9de-_ve-_ve-_ve-_ve-_vUoB77-977-9Dmo",
-            "NAV": "[ {\"name\": \"Start\", \"link\": \"/\"}, {\"name\": \"Projekte\", \"link\": \"/projekte\"}, {\"name\": \"Wir\", \"link\": \"/wir\"}, {\"name\": \"Blog\", \"link\": \"/blog\"} ]",
+            "PRISMIC_ENDPOINT": "https://stadtteilkaffee.cdn.prismic.io/api/v2",
+            "ACCESS_TOKEN": "MC5YN09MOWhJQUFDQUFmZl9H.VkTvv70N77-9be-_vSTvv71F77-9Y--_vQvvv71M77-9FzDvv73vv73vv73vv73vv70kXwIl77-9O--_vXk",
+            "NAV": "[ {\"name\": \"Start\", \"link\": \"/\"}, {\"name\": \"Das Café\", \"link\": \"/projekte\"}, {\"name\": \"Wir\", \"link\": \"/wir\"}, {\"name\": \"Blog\", \"link\": \"/blog\"} ]",
             "FONT": "{\"url\": \"https://use.typekit.net/zvs7feh.css\", \"name\": \"neue-haas-unica\" }",
             "COOKIE": "{\"link\": \"https://stadtteilliebe.de/datenschutz\"}",
             "COLORS": "{ \"primary\": \"\", \"secondary\": \"\", \"accent\": \"\" }",
             "DARK_MODE": "auto",
             "CACHING_TIME": "0",
-            "PROJECT_ID": "stl",
-            "HAS_BANNER": "off",
-            "USE_SHOP_VIEW": "",
-            "SHOPIFY_STORE_DOMAIN": "",
-            "SHOPIFY_ACCESS_TOKEN": ""
+            "PROJECT_ID": "stadtteilcafe",
+            "HAS_BANNER": "off"
         }
     },
     "routes": [
@@ -44,28 +42,12 @@
             "dest": "/api/sitemap"
         },
         {
-            "src": "/jobs/(?<id>[^/]+)$",
-            "dest": "/index?id=$id&type=jobs"
-        },
-        {
-            "src": "/en/blog/(?<id>[^/]+)$",
-            "dest": "/index?id=$id&type=blog&lang=en"
-        },
-        {
-            "src": "/blog/(?<id>[^/]+)$",
-            "dest": "/index?id=$id&type=blog"
-        },
-        {
             "src": "/en/(?<id>[^/]+)$",
             "dest": "/index?id=$id&lang=en"
         },
         {
             "src": "/en/",
             "dest": "/index?id=home&lang=en"
-        },
-        {
-            "src": "/cart",
-            "dest": "/cart"
         },
         {
             "src": "/(?<id>[^/]+)$",

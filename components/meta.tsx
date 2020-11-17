@@ -4,10 +4,13 @@ import { grid } from "./style/binary-grid"
 import Project, { DarkModeType } from "../models/config/project"
 import { isUndefinedOrNullOrEmpty } from "../utils/object-utils"
 import { IMetaData } from "../models/config/meta-data"
+import { lightTheme, darkTheme } from "../components/style/tukan"
+import useDarkMode from "use-dark-mode"
 
 interface IMetaProps {
     data: IMetaData
 }
+let theme: any = lightTheme
 
 const Meta = (props: IMetaProps) => {
     const project = Project.getInstance()
@@ -28,6 +31,7 @@ const Meta = (props: IMetaProps) => {
         case DarkModeType.ON:
             colors = defaultDarkModeColors
             darkModeColors = defaultDarkModeColors
+            theme = darkTheme
             break
 
         case DarkModeType.AUTO:
@@ -36,6 +40,10 @@ const Meta = (props: IMetaProps) => {
             colors.accent = projectColors.accent !== "" ? projectColors.accent : defaultColors.accent
 
             darkModeColors = defaultDarkModeColors
+
+            // setting up dark mode by uyers system preferences
+            const { value } = useDarkMode(false, { storageKey: null, onChange: null })
+            theme = value ? darkTheme : lightTheme
             break
 
         default:
@@ -51,8 +59,13 @@ const Meta = (props: IMetaProps) => {
     let fontUrl = "https://fonts.googleapis.com/css?family=Muli:400,700&display=swap"
     let fontName = "Muli"
     if (project.font) {
+        // fontUrl will be imported down
         fontUrl = project.font.url
         fontName = project.font.name
+        theme.font = {
+            url: project.font.url,
+            name: project.font.name
+        }
     }
 
     const gaID = project.googleAnalyticsID
@@ -121,6 +134,8 @@ const Meta = (props: IMetaProps) => {
     )
 }
 
+export const finalTheme = theme
+
 // Default colors
 const defaultColors = {
     primary: "#121212",
@@ -128,7 +143,7 @@ const defaultColors = {
     accent: "#F83850",
     dark: "#121212",
     background: "#FFFFFF",
-    font: "#121212",
+    font: "#080808",
     allGray10: "#F5F5F5",
     allGray20: "#ECEDEE",
     allGray30: "#C8CBCE",

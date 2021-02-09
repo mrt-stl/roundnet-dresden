@@ -15,6 +15,11 @@ declare module 'styled-components' {
         allGray40: string
         white: string
     },
+    projectColors: { 
+        primary: string
+        secondary: string
+        accent: string
+    },
     spacing: {
         small?: string
         standard?: string

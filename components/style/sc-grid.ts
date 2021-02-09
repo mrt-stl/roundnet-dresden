@@ -6,8 +6,8 @@ export const TGrid = styled.div<{ valign?: string, halign?: string }>`
     display: flex;
     flex-wrap: wrap;
     max-width: ${(props) => props.theme.gridConfig.gridWidth};
-    margin-right: 20px;
-    margin-left: calc( 100% / 7.2 );
+    margin-right: auto;
+    margin-left: auto;
     ${(props) => props.halign && Tutils.halign[props.halign](`
     left`)};
     ${(props) => props.valign && Tutils.valign[props.valign]()};
@@ -20,7 +20,7 @@ export const TCol = styled.div<{ collapse?: string, size?: number }>`
     flex-basis: ${(props) => Math.round((props.size ? props.size : 1) * 100 * 10000) / 10000}%;
     max-width: ${(props) => Math.round((props.size ? props.size : 1) * 100 * 10000) / 10000}%;
     ${(props) => props.collapse && Tutils.media[props.collapse](`
-        flex-basis: 100%
+        flex-basis: 100%;
         max-width: 100%`)};
     padding: 12px ${(props) => props.theme.gridConfig.gridPadding};
     min-height: 1px;

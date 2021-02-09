@@ -50,7 +50,7 @@ export default class Project {
     private init() {
         this.projectId = process.env.project_id ? process.env.project_id : ""
         this.cachingTime = this.parseCacheTime(process.env.caching_duration)
-        this.colors = this.parse(process.env.color) ? JSON.parse(process.env.color) : {}
+        this.colors = this.parse(process.env.colors) ? JSON.parse(process.env.colors) : {}
         this.cookieLink = process.env.cookie ? process.env.cookie : null
         this.darkMode = process.env.dark_mode ? process.env.dark_mode : DarkModeType.OFF
         this.font = this.parse(process.env.font)

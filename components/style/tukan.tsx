@@ -214,7 +214,7 @@ const dark = {
 }
 
 const defaultTheme = {
-    colors: {
+    projectColors: {
         primary: "#121212",
         secondary: "#303030",
         accent: "#F83850",
@@ -227,7 +227,7 @@ const defaultTheme = {
     },
 
     gridConfig: {
-        gridWidth: "",
+        gridWidth: "1024px",
         gridPadding: "20px",
         colPadding: "20px"
     },
@@ -498,10 +498,6 @@ iframe {
 
 .text-center {
 	text-align: center;
-}
-
-.tukan-container {
-	margin-top: ${tukanConfig.navHeight};
 }
 
 .richtext-container hr {

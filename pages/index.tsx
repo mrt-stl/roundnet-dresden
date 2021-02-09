@@ -27,16 +27,22 @@ interface IIndexProps {
     componentModels?: TukanModel[]
     footer?: FooterModel
     error?: string
+    navData: any
 }
 
 const Index = (props: IIndexProps) => {
-    const { docId, meta, componentModels, footer, error } = props
+    const { docId, meta, componentModels, footer, error, navData } = props
 
     if (error) {
         return (<Error />)
     }
 
     const project = Project.getInstance()
+
+    const Theme = {
+        ...finalTheme,
+        projectColors: project.colors
+    }
 
     const showCookieNotification = project.cookieLink !== null
     const showBanner = project.showBanner === ShowBannerType.ON
@@ -46,10 +52,10 @@ const Index = (props: IIndexProps) => {
                 <Meta
                     data={meta} />
 
-                <ThemeProvider theme={finalTheme}>
+                <ThemeProvider theme={Theme}>
                     <GlobalStyles/>
 
-                    <Nav />
+                    <Nav data={navData}/>
 
                     {meta.metaBanner ?
                         <Banner content={meta.metaBanner} /> :
@@ -99,6 +105,9 @@ Index.getInitialProps = async ({ query, res }) => {
         }
     }
 
+    const prismicNavRes = await getByUid("navigation", "main")
+    const navData = prismicNavRes.data.results[0]
+
     const results = docs.results
     if (res) {
         const etag = createEtag(docs.results)
@@ -118,6 +127,7 @@ Index.getInitialProps = async ({ query, res }) => {
         meta,
         componentModels,
         footer,
+        navData
     }
 }
 

@@ -1,4 +1,4 @@
 export default interface INavLink {
-    link: string
-    name: string
+    nav_link: string
+    nav_label: string
 }

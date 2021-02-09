@@ -48,6 +48,10 @@ import PaypalExpressProductModel from "../models/tukan/paypal-express-product-mo
 import PaypalExpressProduct from "./shop/paypal-express-product"
 import PortfolioModel from "../models/tukan/portfolio-model"
 import Portfolio from "./pattern/portfolio"
+import SliderModel from "../models/tukan/slider-model"
+import Slider from "./pattern/slider"
+import CompositionModel from "../models/tukan/composition-model"
+import Composition from "./pattern/composition"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -109,6 +113,18 @@ const matchComponent = (model: TukanModel, index: number) => {
                     content={contactModel.content} />
             break
 
+        case TukanType.Slider:
+            const sliderModel = model as SliderModel
+            component =
+                <Slider
+                    key={index}
+                    autoPlay={sliderModel.autoPlay}
+                    randomStart={sliderModel.randomStart}
+                    data={sliderModel.data}
+                    fullsize={sliderModel.fullsize}
+                    transitionDuration={sliderModel.transitionDuration} />
+            break
+
         case TukanType.Details:
             const detailsModel = model as DetailsModel
             component =
@@ -124,6 +140,24 @@ const matchComponent = (model: TukanModel, index: number) => {
                 <Focus
                     key={index}
                     content={focusModel.content} />
+            break
+
+        case TukanType.Composition:
+            const compositionModel = model as CompositionModel
+            component =
+                <Composition
+                    key={index}
+                    compositionBackground1={compositionModel.compositionBackground1}
+                    compositionBackground2={compositionModel.compositionBackground2}
+                    compositionGallery1={compositionModel.compositionGallery1}
+                    compositionGallery2={compositionModel.compositionGallery2}
+                    compositionGallery3={compositionModel.compositionGallery3}
+                    compositionHeadline={compositionModel.compositionHeadline}
+                    compositionSubtitle={compositionModel.compositionSubtitle}
+                    compositionContent={compositionModel.compositionContent}
+                    compositionStatement={compositionModel.compositionStatement}
+                    compositionStatementContent={compositionModel.compositionStatementContent}
+                    />
             break
 
         case TukanType.Footer:

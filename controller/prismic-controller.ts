@@ -26,6 +26,8 @@ import ShopifyProductModel from "../models/tukan/shopify-product-model"
 import MultiFunctionalModel from "../models/tukan/multi-functional-model"
 import PaypalExpressProductModel from "../models/tukan/paypal-express-product-model"
 import PortfolioModel from "../models/tukan/portfolio-model"
+import SliderModel from "../models/tukan/slider-model"
+import CompositionModel from "../models/tukan/composition-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -78,6 +80,18 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const contact = new ContactModel(contactMail, contactTitle, contactContent)
             return contact
 
+        case "slider":
+            const sliderPrimary = slice.primary
+
+            const autoPlay = sliderPrimary.slider_autoplay
+            const randomStart = sliderPrimary.slider_random_start
+            const data = sliderPrimary.data
+            const fullsize = sliderPrimary.slider_fullsize
+            const transitionDuration = sliderPrimary.slider_transition
+
+            const slider = new SliderModel(autoPlay, randomStart, data, fullsize, transitionDuration)
+            return slider
+
         case "details":
             const detailsPrimary = slice.primary
             const detailsItems: any[] = slice.items
@@ -116,6 +130,23 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const heroImage = new HeroImageModel(heroImageImgSrc, heroImageImgAlt, heroImageTitle, heroImageLink, heroImageLinkContent, heroImageLinkIsBlank)
             return heroImage
+
+        case "composition":
+            const compositionPrimary = slice.primary
+
+            const compositionBackground1 = compositionPrimary.composition_background_1
+            const compositionBackground2 = compositionPrimary.composition_background_2
+            const compositionGallery1 = compositionPrimary.composition_gallery_1
+            const compositionGallery2 = compositionPrimary.composition_gallery_2
+            const compositionGallery3 = compositionPrimary.composition_gallery_3
+            const compositionHeadline = asHtml(compositionPrimary.composition_headline)
+            const compositionSubtitle = asHtml(compositionPrimary.composition_subtitle)
+            const compositionContent = asHtml(compositionPrimary.composition_content)
+            const compositionStatement = asHtml(compositionPrimary.composition_statement)
+            const compositionStatementContent = asHtml(compositionPrimary.composition_statement_content)
+
+            const composition = new CompositionModel(compositionBackground1, compositionBackground2, compositionGallery1, compositionGallery2, compositionGallery3, compositionHeadline, compositionSubtitle, compositionContent, compositionStatement, compositionStatementContent)
+            return composition
 
         case "image_and_text":
             const iatPrimary = slice.primary

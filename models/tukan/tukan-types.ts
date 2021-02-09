@@ -24,4 +24,6 @@ export enum TukanType {
     StageBlog = "stage-blog",
     ShopifyProduct = "shopify-product",
     Portfolio = "portfolio",
+    Slider = "slider",
+    Composition = "composition"
 }

@@ -5,7 +5,7 @@ import breakpoints from "styled-components-breakpoints"
 export const TGrid = styled.div<{ valign?: string, halign?: string }>`
     display: flex;
     flex-wrap: wrap;
-    max-width: ${(props) => props.theme.gridConfig.gridWidth};
+    max-width: ${(props) => props.theme ? props.theme.gridConfig.gridWidth : "1024px"};
     margin-right: auto;
     margin-left: auto;
     ${(props) => props.halign && Tutils.halign[props.halign](`

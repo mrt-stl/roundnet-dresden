@@ -52,7 +52,7 @@ const StyledNavLinks = styled.div`
     padding-right: 12px;
 
     a {
-        color: ${(props) => props.theme.projectColors.accent};
+        color: ${(props) => props.theme.projectColors ? props.theme.projectColors.accent : ""};
         background-image: none;
     }
     a:hover {

@@ -1,7 +1,6 @@
 import NavLink from "./nav-link"
 import MobileMenu from "./mobile-menu"
 import Project from "../../models/config/project"
-import { gridConfig } from "../style/binary-grid"
 import { tukanConfig } from "../style/tukan"
 import { linkResolver } from "../../utils/prismic-utils"
 import styled from "styled-components"
@@ -47,16 +46,16 @@ const Nav = (props: INavProps) => {
 
     return (
         <nav>
-            <StyledNav>
+            <NavContainer>
                 <NavGrid halign="right">
-                    <StyledLogo href="/">
+                    <Branding href="/">
                         <TukanImage
                             src={navLogo.src}
                             alt={navLogo.alt}
                             height="48px"
                             width="auto"
                         />
-                    </StyledLogo>
+                    </Branding>
                     {navLinks.map((element, index) => {
                         const hideMobileIndex = project.useShopView ? -1 : 0
                         const hideMobile = index !== hideMobileIndex ? "desktop-nav" : "h-100"
@@ -66,40 +65,28 @@ const Nav = (props: INavProps) => {
                             </div>
                         )
                     })}
-                    {/*
-                    {project.useShopView ?
-                        <CartLink /> :
-                        <></>
-                    }
- */}
                 </NavGrid>
-            </StyledNav>
+            </NavContainer>
 
             <MobileMenu links={navLinks} />
-
-            <style jsx>{`
-                @media only screen and (max-width: 768px) {
-                    .desktop-nav {
-                        display: none;
-                    }
-
-                    .inner-nav {
-                        padding-left: ${gridConfig.gridPadding};
-                    }
-                }
-            `}</style>
         </nav>
     )
 }
 
-const StyledNav = styled.div`
+const NavContainer = styled.div`
     z-index: 100;
     overflow: hidden;
-    position: fixed;
     top: 0;
     width: 100%;
     height: ${tukanConfig.navHeight};
-    background-color: transparent;
+    background-color: #000000;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    position: absolut;
+
+    a {
+        background-image: none;
+    }
 `
 
 const NavGrid = styled(TGrid)`
@@ -107,7 +94,7 @@ const NavGrid = styled(TGrid)`
     height: 100%;
 `
 
-const StyledLogo = styled.a`
+const Branding = styled.a`
     margin-right: auto;
     width: auto;
     img {

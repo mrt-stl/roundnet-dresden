@@ -33,37 +33,39 @@ const Composition = (props: ICompositionProps) => {
 
     return (
         <CompositionContainer>
-            <StyledBackground background={compositionBackground1.url} height="100vh">
-                <StyledCompositionGrid valign="bottom" height="100vh" alignContent="flex-end">
-                    <StyledCompositionCol size={1 / 2} collapse="md">
-                        <div>{parse(compositionHeadline)}</div>
-                    </StyledCompositionCol>
-                    <StyledCompositionCol size={2 / 3} collapse="md">
-                        <div>{parse(compositionSubtitle)}</div>
-                    </StyledCompositionCol>
-                </StyledCompositionGrid>
-            </StyledBackground>
+            <StageContainer>
+                <StyledBackground background={compositionBackground1.url} height="100vh">
+                    <CompositionGrid valign="center" height="100vh" alignContent="flex-center">
+                        <CompositionCol size={1 / 1} collapse="md">
+                            <StageContent>
+                                {parse(compositionHeadline)}
+                                {parse(compositionSubtitle)}
+                            </StageContent>
+                        </CompositionCol>
+                    </CompositionGrid>
+                </StyledBackground>
+            </StageContainer>
 
             <StyledBackground background={compositionBackground2.url} height="200vh">
-                <StyledCompositionGrid valign="center" height="80vh">
-                    <StyledCompositionCol size={1 / 2} collapse="md">
+                <CompositionGrid valign="center" height="80vh">
+                    <CompositionCol size={1 / 2} collapse="md">
                         <StyledDivider />
                         <div>{parse(compositionContent)}</div>
-                    </StyledCompositionCol>
-                </StyledCompositionGrid>
+                    </CompositionCol>
+                </CompositionGrid>
 
-                <StyledCompositionGrid valign="center" halign="center" height="20vh" style={{ textAlign: "center" }}>
+                <CompositionGrid valign="center" halign="center" height="20vh" style={{ textAlign: "center" }}>
                     <StyledDivider />
-                    <StyledCompositionCol size={1} collapse="md">
+                    <CompositionCol size={1} collapse="md">
                         <div>{parse(compositionStatement)}</div>
-                    </StyledCompositionCol>
+                    </CompositionCol>
 
-                    <StyledCompositionCol size={2 / 3} collapse="md">
+                    <CompositionCol size={2 / 3} collapse="md">
                         <div>{parse(compositionStatementContent)}</div>
-                    </StyledCompositionCol>
-                </StyledCompositionGrid>
+                    </CompositionCol>
+                </CompositionGrid>
 
-                <StyledCompositionGrid valign="center" height="60vh">
+                <CompositionGrid valign="center" height="60vh">
                     <GalleryCol01>
                         <TukanImage src={compositionGallery1.url} alt={compositionGallery1.alt} height="auto" />
                     </GalleryCol01>
@@ -73,7 +75,7 @@ const Composition = (props: ICompositionProps) => {
                     <GalleryCol03>
                         <TukanImage src={compositionGallery3.url} alt={compositionGallery3.alt} height="auto" />
                     </GalleryCol03>
-                </StyledCompositionGrid>
+                </CompositionGrid>
             </StyledBackground>
         </CompositionContainer>
     )
@@ -84,22 +86,46 @@ const CompositionContainer = styled.div`
         padding-top: 3em;
         padding-bottom: 1em;
     `};
+
     h1,
-    h2 {
-        color: white;
-        font-family: "playfair-display", roboto, "sans-serif";
-        font-style: normal;
-        font-weight: normal;
-        font-size: 80px;
-        line-height: 104px;
-        letter-spacing: 0.04em;
+h2 {
+    color: white;
+    font-family: "playfair-display", roboto, "sans-serif";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 80px;
+    line-height: 104px;
+    letter-spacing: 0.04em;
+    background: linear-gradient(-45deg, #55DBD4, #000000);
+    animation: gradient 10s ease infinite;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-size: 800% 800%;
+}
+h2 {
+    font-size: 60px;
+}
+p {
+    color: white;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
     }
-    h2 {
-        font-size: 60px;
+    50% {
+        background-position: 100% 50%;
     }
-    p {
-        color: white;
+    100% {
+        background-position: 0% 50%;
     }
+}
+`
+
+const StageContainer = styled.div `
+`
+
+const StageContent = styled.div `
 `
 
 const StyledBackground = styled.div<{ background: string; height: string }>`
@@ -108,12 +134,12 @@ const StyledBackground = styled.div<{ background: string; height: string }>`
     height: ${(props) => props.height};
 `
 
-const StyledCompositionGrid = styled(TGrid)<{ height: string; alignContent?: string }>`
+const CompositionGrid = styled(TGrid)<{ height: string; alignContent?: string }>`
     height: ${(props) => props.height};
     align-content: ${(props) => props.alignContent};
 `
 
-const StyledCompositionCol = styled(TCol)`
+const CompositionCol = styled(TCol)`
     padding: 0;
 `
 

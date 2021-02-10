@@ -21,28 +21,6 @@ const NavLink = (props: INavLinkProps) => {
     return (
         <StyledNavLinks className="nav-link">
             <a href={href}>{content}</a>
-
-            <style jsx>{`
-                .nav-link {
-                    padding-left: 12px;
-                    padding-right: 12px;
-                }
-                .nav-link a {
-                    color: var(--accent);
-                    background-image: none;
-                }
-
-                .nav-link a:hover {
-                    color: var(--accent);
-                    transition: 0.2s;
-                }
-                @media (max-width: 768px) {
-                    .nav-link {
-                        padding-left: 24px;
-                        padding-right: 12px;
-                    }
-                }
-            `}</style>
         </StyledNavLinks>
     )
 }
@@ -51,12 +29,14 @@ const StyledNavLinks = styled.div`
     padding-left: 12px;
     padding-right: 12px;
 
+    text-transform: uppercase;
+
     a {
         color: ${(props) => props.theme.projectColors ? props.theme.projectColors.accent : ""};
         background-image: none;
     }
     a:hover {
-        color: var(--accent);
+        color: #abcdef;
         transition: 0.2s;
     }
 

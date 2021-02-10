@@ -222,8 +222,8 @@ const defaultTheme = {
     },
 
     font: {
-        name: "https://use.typekit.net/zvs7feh.css",
-        url: "neue-haas-unica"
+        name: "https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap",
+        url: "Signika', sans-serif;"
     },
 
     gridConfig: {

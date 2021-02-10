@@ -20,9 +20,11 @@ const Nav = (props: INavProps) => {
     const project = Project.getInstance()
 
     const [navLinks, setNavLinks] = useState([{ href: "/", linkContent: "Start" }])
+    const [navLogo, setNavLogo] = useState({src: "", alt: "Logo"})
 
     useEffect(() => {
         const navLinksArr = []
+        let navLogoObject: any = {}
         if (props.data) {
             const navData = props.data.data.nav_links
             navData.map((element) => {
@@ -32,8 +34,15 @@ const Nav = (props: INavProps) => {
                 }
                 navLinksArr.push(link)
             })
+
+            const navLogoData = props.data.data.nav_logo
+            navLogoObject = {
+                src: navLogoData.url,
+                alt: navLogoData.alt
+            }
         }
         setNavLinks(navLinksArr)
+        setNavLogo(navLogoObject)
     }, [props])
 
     return (
@@ -42,10 +51,8 @@ const Nav = (props: INavProps) => {
                 <NavGrid halign="right">
                     <StyledLogo href="/">
                         <TukanImage
-                            // src={props ? props.data.data.nav_logo.url : ""}
-                            // alt={props ? props.data.data.nav_logo.alt : ""}
-                            src={""}
-                            alt={""}
+                            src={navLogo.src}
+                            alt={navLogo.alt}
                             height="48px"
                             width="auto"
                         />

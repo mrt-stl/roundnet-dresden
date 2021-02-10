@@ -1,23 +1,8 @@
-import Grid from "styled-components-grid"
-import styled from "styled-components"
-
 export const gridConfig = {
     gridWidth: "1024px",
     gridPadding: "12px",
     colPadding: "12px"
 }
-
-export const TukanGrid = styled(Grid)`
-    padding-left: ${gridConfig.gridPadding};
-    padding-right: ${gridConfig.gridPadding};
-    max-width: ${gridConfig.gridWidth};
-    margin-right: auto;
-    margin-left: auto;
-    `
-export const TukanCol = styled(Grid.Unit)`
-    padding: 12px ${gridConfig.gridPadding};
-    min-height: 1px;
-`
 
 export const grid = <style jsx global>{`
 

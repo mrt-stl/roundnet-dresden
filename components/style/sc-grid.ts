@@ -1,4 +1,3 @@
-import Grid from "styled-components-grid"
 import styled from "styled-components"
 import breakpoints from "styled-components-breakpoints"
 
@@ -84,15 +83,3 @@ export const media = breakpoints({
   l: 992,
   xl: 1200,
 })
-
-export const TukanGrid = styled(Grid)`
-    padding-left: ${(props) => props.theme.gridConfig.gridPadding};
-    padding-right: ${(props) => props.theme.gridConfig.gridPadding};
-    max-width: ${(props) => props.theme.gridConfig.gridWidth};
-    margin-right: auto;
-    margin-left: auto;
-    `
-export const TukanCol = styled(Grid.Unit)`
-    padding: 12px ${(props) => props.theme.gridConfig.gridPadding};
-    min-height: 1px;
-`

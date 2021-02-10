@@ -7,6 +7,7 @@ import { linkResolver } from "../../utils/prismic-utils"
 import styled from "styled-components"
 import { TGrid } from "../style/sc-grid"
 import TukanImage from "../elements/tukan-image"
+import { useState, useEffect } from "react"
 {
     /* import CartLink from "../shop/cart-link" */
 }
@@ -18,23 +19,41 @@ interface INavProps {
 const Nav = (props: INavProps) => {
     const project = Project.getInstance()
 
-    const { data } = props
+    const [navLinks, setNavLinks] = useState([{ href: "/", linkContent: "Start" }])
 
-    const navLinksNew = data.data.nav_links
+    useEffect(() => {
+        const navLinksArr = []
+        if (props.data) {
+            const navData = props.data.data.nav_links
+            navData.map((element) => {
+                const link = {
+                    href: linkResolver(element.nav_link),
+                    linkContent: element.nav_label,
+                }
+                navLinksArr.push(link)
+            })
+        }
+        setNavLinks(navLinksArr)
+    }, [props])
 
     return (
         <nav>
             <StyledNav>
                 <NavGrid halign="right">
                     <StyledLogo href="/">
-                        <TukanImage src={data.data.nav_logo.url} alt={data.data.nav_logo.alt} height="48px" />
+                        <TukanImage
+                            src={props ? props.data.data.nav_logo.url : ""}
+                            alt={props ? props.data.data.nav_logo.alt : ""}
+                            height="48px"
+                            width="auto"
+                        />
                     </StyledLogo>
-                    {navLinksNew.map((element, index) => {
+                    {navLinks.map((element, index) => {
                         const hideMobileIndex = project.useShopView ? -1 : 0
                         const hideMobile = index !== hideMobileIndex ? "desktop-nav" : "h-100"
                         return (
                             <div className={"align-items-center " + hideMobile} key={index}>
-                                <NavLink href={linkResolver(element.nav_link)} linkContent={element.nav_label} />
+                                <NavLink href={element.href} linkContent={element.linkContent} />
                             </div>
                         )
                     })}
@@ -47,10 +66,9 @@ const Nav = (props: INavProps) => {
                 </NavGrid>
             </StyledNav>
 
-            <MobileMenu links={navLinksNew} />
+            <MobileMenu links={navLinks} />
 
             <style jsx>{`
-
                 @media only screen and (max-width: 768px) {
                     .desktop-nav {
                         display: none;
@@ -82,10 +100,15 @@ const NavGrid = styled(TGrid)`
 
 const StyledLogo = styled.a`
     margin-right: auto;
-    width: 90px;
+    width: auto;
     img {
         object-fit: contain;
     }
+
+    @media only screen and (max-width: 768px) {
+        img {
+            display: none;
+        }
 `
 
 export default Nav

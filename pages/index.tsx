@@ -105,6 +105,7 @@ Index.getInitialProps = async ({ query, res }) => {
         }
     }
 
+    // get nav data out of prismic
     const prismicNavRes = await getByUid("navigation", "main")
     const navData = prismicNavRes.data.results[0]
 

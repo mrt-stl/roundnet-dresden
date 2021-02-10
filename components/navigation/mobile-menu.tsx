@@ -1,7 +1,6 @@
 import { slide as Menu } from "react-burger-menu"
 import INavLink from "../../models/nav/nav-link"
 import Project from "../../models/config/project"
-import { linkResolver } from "../../utils/prismic-utils"
 interface IMobileMenuProps {
     links: INavLink[]
 }
@@ -24,7 +23,7 @@ const MobileMenu = (props: IMobileMenuProps) => {
 
                     return (
                         <div className={"align-items-center " + visibilityClass} key={index}>
-                            <a className="menu-item" href={linkResolver(element.nav_link)}>{element.nav_label}</a>
+                            <a className="menu-item" href={element.href}>{element.linkContent}</a>
                         </div>
                     )
                 })}

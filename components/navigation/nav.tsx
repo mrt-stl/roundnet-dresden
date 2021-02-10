@@ -42,8 +42,10 @@ const Nav = (props: INavProps) => {
                 <NavGrid halign="right">
                     <StyledLogo href="/">
                         <TukanImage
-                            src={props ? props.data.data.nav_logo.url : ""}
-                            alt={props ? props.data.data.nav_logo.alt : ""}
+                            // src={props ? props.data.data.nav_logo.url : ""}
+                            // alt={props ? props.data.data.nav_logo.alt : ""}
+                            src={""}
+                            alt={""}
                             height="48px"
                             width="auto"
                         />

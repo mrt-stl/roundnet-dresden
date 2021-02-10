@@ -6,9 +6,9 @@ import { asHtml } from "../../utils/prismic-utils"
 // this is a little helper to debounce the browser resizing and to optimize performance, if you have a collection of utils somewhere, pass it there
 const debounceLeading = (fn, ms) => {
     let timer
-    return (_) => {
+    return () => {
         clearTimeout(timer)
-        timer = setTimeout((_) => {
+        timer = setTimeout(function() {
             timer = null
             fn.apply(this, arguments)
         }, ms)
@@ -127,25 +127,21 @@ const Slider = (props: ISliderProps) => {
 
     // set new _slides array after every transition to always show the one in the middle
     const smoothTransition = () => {
-        let _slides = []
+        let newSlides = []
 
         // We're at the last slide.
         if (activeSlide === data.length - 1) {
-            _slides = [data[data.length - 2], lastSlide, firstSlide]
-        }
-        // We're back at the first slide. Just reset to how it was on initial render
-        else if (activeSlide === 0) {
-            _slides = [lastSlide, firstSlide, secondSlide]
-        }
-        // Create an array of the previous last slide, and the next two slides that follow it.
-        else {
-            _slides = data.slice(activeSlide - 1, activeSlide + 2)
+            newSlides = [data[data.length - 2], lastSlide, firstSlide]
+        } else if (activeSlide === 0) { // We're back at the first slide. Just reset to how it was on initial render
+            newSlides = [lastSlide, firstSlide, secondSlide]
+        } else { // Create an array of the previous last slide, and the next two slides that follow it.
+            newSlides = data.slice(activeSlide - 1, activeSlide + 2)
         }
 
         // transition has to be set to 0 to avoid unwanted side effect, alsways translate to the slide in the middle
         setState({
             ...state,
-            _slides,
+            _slides: newSlides,
             transition: 0,
             translate: fullsize ? window.innerWidth : window.innerWidth < 1000 ? window.innerWidth : 1000,
         })
@@ -204,35 +200,35 @@ const Slider = (props: ISliderProps) => {
             if (activeSlide - 1 === i || (activeSlide === 0 && i === data.length - 1)) {
                 return prevSlide()
             } else if (i > activeSlide) {
-                const firstSlide = data[activeSlide]
-                const secondSlide = data[i]
-                const lastSlide = data[i === 0 ? data.length - 1 : i - 1]
+                const newFirstSlide = data[activeSlide]
+                const newSecondSlide = data[i]
+                const newLastSlide = data[i === 0 ? data.length - 1 : i - 1]
                 setState({
                     ...state,
                     activeSlide: i,
                     translate: translate + (fullsize ? window.innerWidth : window.innerWidth < 1000 ? window.innerWidth : 1000),
-                    _slides: [lastSlide, firstSlide, secondSlide],
+                    _slides: [newLastSlide, newFirstSlide, newSecondSlide],
                 })
                 setDebounce(true)
             } else if (i < activeSlide) {
-                const firstSlide = data[activeSlide]
-                const secondSlide = data[i]
-                const lastSlide = data[i]
+                const newFirstSlide = data[activeSlide]
+                const newSecondSlide = data[i]
+                const newLastSlide = data[i]
                 setState({
                     ...state,
                     activeSlide: i,
                     translate: 0,
-                    _slides: [lastSlide, firstSlide, secondSlide],
+                    _slides: [newLastSlide, newFirstSlide, newSecondSlide],
                 })
                 setDebounce(true)
             } else {
-                const firstSlide = data[i]
-                const secondSlide = data[i === data.length - 1 ? 0 : i + 1]
-                const lastSlide = data[i === 0 ? data.length - 1 : i - 1]
+                const newFirstSlide = data[i]
+                const newSecondSlide = data[i === data.length - 1 ? 0 : i + 1]
+                const newLastSlide = data[i === 0 ? data.length - 1 : i - 1]
                 setState({
                     ...state,
                     activeSlide: i,
-                    _slides: [lastSlide, firstSlide, secondSlide],
+                    _slides: [newLastSlide, newFirstSlide, newSecondSlide],
                 })
                 setDebounce(true)
             }
@@ -247,12 +243,14 @@ const Slider = (props: ISliderProps) => {
             width={width}
             slides={_slides}
             className="slider"
+            // tslint:disable-next-line: jsx-no-lambda
             onMouseEnter={() =>
                 setState({
                     ...state,
                     autoplay: false,
                 })
             }
+            // tslint:disable-next-line: jsx-no-lambda
             onMouseLeave={() =>
                 setState({
                     ...state,
@@ -262,13 +260,14 @@ const Slider = (props: ISliderProps) => {
         >
             <div
                 className="slider-content"
+                // tslint:disable-next-line: jsx-no-lambda
                 onTouchStart={(e) => {
                     touchStartingPoint = e.changedTouches[0].clientX
                 }}
                 onTouchEnd={handleTouchMove}
             >
-                {_slides.map((_slide, index) => {
-                    return <Slide key={index} data={_slide} fullsize={fullsize} />
+                {_slides.map((slide, index) => {
+                    return <Slide key={index} data={slide} fullsize={fullsize} />
                 })}
             </div>
 
@@ -532,7 +531,8 @@ const StyledDots = styled.div<{ fullsize: boolean }>`
 const Dot = ({ active, tooltip, handleDotClick, dotIndex, narrow }) => {
     return (
         <>
-            <StyledDot narrow={narrow} active={active} className="wrapper" onClick={() => handleDotClick(dotIndex)}>
+        {/* next line has a error to make linter happy: onClick={() => handleDotClick(dotIndex)} */}
+            <StyledDot narrow={narrow} active={active} className="wrapper" onClick={handleDotClick(dotIndex)}>
                 <span className="dot">
                     <span className="tooltip">{tooltip}</span>
                 </span>

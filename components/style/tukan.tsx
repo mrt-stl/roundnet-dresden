@@ -720,9 +720,9 @@ iframe {
 
 /* This is needed twice, first for Firefox and second for other browsers */
 .button a, a .button {
-    background-color: var(--primary);
+    background-color: var(--accent);
     padding: 13px 24px 16px 24px;
-    color: var(--background);
+    color: #000000;
     margin-top: 1em;
     display: inline-block;
 }

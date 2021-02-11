@@ -19,7 +19,7 @@ const Nav = (props: INavProps) => {
     const project = Project.getInstance()
 
     const [navLinks, setNavLinks] = useState([{ href: "/", linkContent: "Start" }])
-    const [navLogo, setNavLogo] = useState({src: "", alt: "Logo"})
+    const [navLogo, setNavLogo] = useState({ src: "", alt: "Logo" })
 
     useEffect(() => {
         const navLinksArr = []
@@ -37,7 +37,7 @@ const Nav = (props: INavProps) => {
             const navLogoData = props.data.data.nav_logo
             navLogoObject = {
                 src: navLogoData.url,
-                alt: navLogoData.alt
+                alt: navLogoData.alt,
             }
         }
         setNavLinks(navLinksArr)
@@ -49,12 +49,7 @@ const Nav = (props: INavProps) => {
             <NavContainer>
                 <NavGrid halign="right">
                     <Branding href="/">
-                        <TukanImage
-                            src={navLogo.src}
-                            alt={navLogo.alt}
-                            height="48px"
-                            width="auto"
-                        />
+                        <TukanImage src={navLogo.src} alt={navLogo.alt} height="48px" width="auto" />
                     </Branding>
                     {navLinks.map((element, index) => {
                         const hideMobileIndex = project.useShopView ? -1 : 0
@@ -87,6 +82,10 @@ const NavContainer = styled.div`
     a {
         background-image: none;
     }
+
+    @media only screen and (max-width: 768px) {
+        display: none;
+    }
 `
 
 const NavGrid = styled(TGrid)`
@@ -100,11 +99,6 @@ const Branding = styled.a`
     img {
         object-fit: contain;
     }
-
-    @media only screen and (max-width: 768px) {
-        img {
-            display: none;
-        }
 `
 
 export default Nav

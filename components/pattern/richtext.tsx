@@ -15,7 +15,7 @@ const Richtext = (props: IRichtextProps) => {
         <RichtextContainer>
             <TGrid>
                 <TCol size={2 / 3} collapse="md">
-                    <Divider />
+                    <Divider marginTop="100px" />
                 </TCol>
                 <TCol size={2 / 3} collapse="md">
                     {parse(content)}

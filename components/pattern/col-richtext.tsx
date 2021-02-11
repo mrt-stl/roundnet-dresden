@@ -1,4 +1,7 @@
 import parse from "html-react-parser"
+import styled from "styled-components"
+import { isColorLight } from "../../utils/color-utils"
+import { media } from "../style/tukan"
 
 export interface IColRichtextProps {
     cols: string[]
@@ -6,25 +9,52 @@ export interface IColRichtextProps {
 
 const ColRichtext = (props: IColRichtextProps) => {
     return (
-        <div className="col-richtext-container">
-            <div className="grid">
-                {props.cols.map((col, index) => {
-                    return (
-                        <div className="col" key={index}>
-                            {parse(col)}
-                        </div>
-                    )
-                })}
-            </div>
-
-            <style jsx>{`
-                .col-richtext-container {
-                    margin-top: var(--large-spacing);
-                    margin-bottom: var(--large-spacing);
-                }
-            `}</style>
-        </div>
+        <ColRichtextContainer>
+            {props.cols.map((col, index) => {
+                return (
+                    <ColRichtextCol className="" key={index}>
+                        {parse(col)}
+                    </ColRichtextCol>
+                )
+            })}
+        </ColRichtextContainer>
     )
 }
+
+const ColRichtextContainer = styled.div`
+    display: flex;
+    background-color: ${(props) => props.theme.projectColors.background};
+    flex-wrap: wrap;
+    p:not(.block-img) {
+        padding-left: ${props => props.theme.spacing.large};
+        padding-right: ${props => props.theme.spacing.large};
+        color: ${(props) => (isColorLight(props.theme.projectColors.background) ? "#000000" : "#FFFFFF")};
+        position: relative;
+        bottom: 130px;
+    }
+    div:nth-child(2):before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 50px;
+        background-color: white;
+    }
+
+    ${media.maxWidth("md")`
+    div:nth-child(2):before {
+        display: none;
+    }
+    `};
+`
+
+const ColRichtextCol = styled.div`
+    flex-basis: 50%;
+    max-width: 50%;
+
+    ${media.maxWidth("md")`
+    flex-basis: 100%;
+    max-width: 100%;
+    `};
+`
 
 export default ColRichtext

@@ -35,8 +35,8 @@ const Composition = (props: ICompositionProps) => {
     return (
         <CompositionContainer>
             <StageContainer>
-                <StyledBackground background={compositionBackground1.url} height="100vh">
-                    <CompositionGrid valign="center" height="100vh" alignContent="flex-center">
+                <StyledBackground background={compositionBackground1.url} height="800px">
+                    <CompositionGrid valign="center" height="100%" alignContent="flex-center">
                         <CompositionCol size={1 / 1} collapse="md">
                             <StageContent>
                                 {parse(compositionHeadline)}
@@ -47,16 +47,18 @@ const Composition = (props: ICompositionProps) => {
                 </StyledBackground>
             </StageContainer>
 
-            <StyledBackground background={compositionBackground2.url} height="200vh">
-                <CompositionGrid valign="center" height="80vh">
+            <StyledBackground background={compositionBackground2.url} height="100%">
+                <CompositionGrid valign="center" height="100%">
                     <CompositionCol size={1 / 2} collapse="md">
-                        <Divider />
+
+                        <Divider marginTop="100px" marginBottom="50px" />
                         <div>{parse(compositionContent)}</div>
                     </CompositionCol>
                 </CompositionGrid>
 
-                <CompositionGrid valign="center" halign="center" height="20vh" style={{ textAlign: "center" }}>
-                    <Divider />
+                <CompositionGrid valign="center" halign="center" height="100%" style={{ textAlign: "center" }}>
+
+                    <Divider marginTop="250px" />
                     <CompositionCol size={1} collapse="md">
                         <div>{parse(compositionStatement)}</div>
                     </CompositionCol>
@@ -66,7 +68,7 @@ const Composition = (props: ICompositionProps) => {
                     </CompositionCol>
                 </CompositionGrid>
 
-                <CompositionGrid valign="center" height="60vh">
+                <CompositionGrid valign="center" height="660px">
                     <GalleryCol01>
                         <TukanImage src={compositionGallery1.url} alt={compositionGallery1.alt} height="auto" />
                     </GalleryCol01>
@@ -83,10 +85,6 @@ const Composition = (props: ICompositionProps) => {
 }
 
 const CompositionContainer = styled.div`
-    ${media.maxWidth("md")`
-        padding-top: 3em;
-        padding-bottom: 1em;
-    `};
 
     h1,
 h2 {
@@ -148,7 +146,7 @@ const GalleryCol01 = styled(TCol)`
     flex-basis: 40%;
     max-width: 40%;
     padding-right: 80px;
-    padding-top: 120px;
+    padding-top: 230px;
 
     img {
         height: 480px;
@@ -168,7 +166,8 @@ const GalleryCol01 = styled(TCol)`
 const GalleryCol02 = styled(TCol)`
     flex-basis: 50%;
     max-width: 50%;
-    padding-left: 130px;
+    padding-left: 80px;
+    margin-top: -150px;
 
     img {
         height: 260px;
@@ -188,9 +187,9 @@ const GalleryCol02 = styled(TCol)`
 const GalleryCol03 = styled(TCol)`
     flex-basis: 50%;
     max-width: 50%;
-    margin-left: 40%;
-    padding-right: 160px;
-    margin-top: -120px;
+    margin-left: 60%;
+    padding-right: 100px;
+    margin-top: -250px;
 
     img {
         height: auto;

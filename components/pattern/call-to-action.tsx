@@ -29,7 +29,7 @@ const CallToAction = (props: ICallToActionProps) => {
                     <div>{parse(content)}</div>
                 </TCol>
                 <TCol>
-                    <Button href={btnLink} label={btnLabel}/>
+                    <Button href={btnLink} label={btnLabel} />
                 </TCol>
             </TGrid>
         </CallToActionContainer>

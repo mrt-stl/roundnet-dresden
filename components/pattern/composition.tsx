@@ -51,7 +51,7 @@ const Composition = (props: ICompositionProps) => {
                 <CompositionGrid valign="center" height="100%">
                     <CompositionCol size={1 / 2} collapse="md">
 
-                        <Divider marginTop="100px" marginBottom="50px" />
+                        <Divider marginTop="100px" marginBottom="50px" marginLeft="20px"/>
                         <div>{parse(compositionContent)}</div>
                     </CompositionCol>
                 </CompositionGrid>

@@ -18,8 +18,9 @@ interface INavProps {
 const Nav = (props: INavProps) => {
     const project = Project.getInstance()
 
-    const [navLinks, setNavLinks] = useState([{ href: "/", linkContent: "Start" }])
+    const [navLinks, setNavLinks] = useState([{ href: "/", linkContent: "Loading..." }])
     const [navLogo, setNavLogo] = useState({ src: "", alt: "Logo" })
+    const [navLoading, setNavLoading] = useState(true)
 
     useEffect(() => {
         const navLinksArr = []
@@ -42,6 +43,7 @@ const Nav = (props: INavProps) => {
         }
         setNavLinks(navLinksArr)
         setNavLogo(navLogoObject)
+        setNavLoading(false)
     }, [props])
 
     return (
@@ -51,7 +53,7 @@ const Nav = (props: INavProps) => {
                     <Branding href="/">
                         <TukanImage src={navLogo.src} alt={navLogo.alt} height="48px" width="auto" />
                     </Branding>
-                    {navLinks.map((element, index) => {
+                    {navLoading ? "" : navLinks.map((element, index) => {
                         const hideMobileIndex = project.useShopView ? -1 : 0
                         const hideMobile = index !== hideMobileIndex ? "desktop-nav" : "h-100"
                         return (

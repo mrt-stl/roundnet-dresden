@@ -25,7 +25,7 @@
             "nav": "[ {\"name\": \"Start\", \"link\": \"/\"} ]",
             "font": "{\"url\": \"https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap\", \"name\": \"playfair-display\" }",
             "cookie": "{\"link\": \"\"}",
-            "colors": "{ \"primary\": \"#000000\", \"secondary\": \"#ffffff\", \"accent\": \"#55DBD4\" }",
+            "colors": "{ \"primary\": \"#000000\", \"secondary\": \"#ffffff\", \"accent\": \"#55DBD4\", \"background\": \"#000000\" }",
             "dark_mode": "off",
             "caching_duration": "0",
             "project_id": "derjugendchor",

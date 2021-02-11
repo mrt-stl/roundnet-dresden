@@ -52,6 +52,8 @@ import SliderModel from "../models/tukan/slider-model"
 import Slider from "./pattern/slider"
 import CompositionModel from "../models/tukan/composition-model"
 import Composition from "./pattern/composition"
+import CallToActionModel from "../models/tukan/call-to-action-model"
+import CallToAction from "./pattern/call-to-action"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -175,6 +177,17 @@ const matchComponent = (model: TukanModel, index: number) => {
                 <Headline
                     key={index}
                     content={headlineModel.content} />
+            break
+
+        case TukanType.CallToAction:
+            const callToActionModel = model as CallToActionModel
+            component =
+                <CallToAction
+                    key={index}
+                    headline={callToActionModel.headline}
+                    content={callToActionModel.content}
+                    btnLabel={callToActionModel.btnLabel}
+                    btnLink={callToActionModel.btnLink} />
             break
 
         case TukanType.HeroImage:

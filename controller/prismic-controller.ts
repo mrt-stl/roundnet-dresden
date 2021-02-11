@@ -28,6 +28,7 @@ import PaypalExpressProductModel from "../models/tukan/paypal-express-product-mo
 import PortfolioModel from "../models/tukan/portfolio-model"
 import SliderModel from "../models/tukan/slider-model"
 import CompositionModel from "../models/tukan/composition-model"
+import CallToActionModel from "../models/tukan/call-to-action-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -130,6 +131,17 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const heroImage = new HeroImageModel(heroImageImgSrc, heroImageImgAlt, heroImageTitle, heroImageLink, heroImageLinkContent, heroImageLinkIsBlank)
             return heroImage
+
+        case "call_to_action":
+            const callToActionPrimary = slice.primary
+
+            const headline = asHtml(callToActionPrimary.cta_headline)
+            const content = asHtml(callToActionPrimary.cta_content)
+            const btnLabel = callToActionPrimary.cta_btn_label
+            const btnLink = linkResolver(callToActionPrimary.cta_btn_link)
+
+            const callToAction = new CallToActionModel(headline, content, btnLabel, btnLink)
+            return callToAction
 
         case "composition":
             const compositionPrimary = slice.primary

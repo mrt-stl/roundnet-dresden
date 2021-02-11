@@ -25,5 +25,6 @@ export enum TukanType {
     ShopifyProduct = "shopify-product",
     Portfolio = "portfolio",
     Slider = "slider",
-    Composition = "composition"
+    Composition = "composition",
+    CallToAction = "call-to-action"
 }

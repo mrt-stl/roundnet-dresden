@@ -28,8 +28,8 @@ const StyledButton = styled.a<{ bgColor?: string, color?: string }>`
         transition: background 0.3s;
 
         :hover {
-            padding-left: 24px;
-            padding-right: 24px;
+            padding-left: 36px;
+            padding-right: 36px;
         }
     `};
 `

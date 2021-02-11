@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { TGrid, TCol } from "../style/sc-grid"
 import { media } from "../style/tukan"
 import TukanImage from "../elements/tukan-image"
+import Divider from "../elements/divider"
 
 export interface ICompositionProps {
     compositionBackground1: any
@@ -49,13 +50,13 @@ const Composition = (props: ICompositionProps) => {
             <StyledBackground background={compositionBackground2.url} height="200vh">
                 <CompositionGrid valign="center" height="80vh">
                     <CompositionCol size={1 / 2} collapse="md">
-                        <StyledDivider />
+                        <Divider />
                         <div>{parse(compositionContent)}</div>
                     </CompositionCol>
                 </CompositionGrid>
 
                 <CompositionGrid valign="center" halign="center" height="20vh" style={{ textAlign: "center" }}>
-                    <StyledDivider />
+                    <Divider />
                     <CompositionCol size={1} collapse="md">
                         <div>{parse(compositionStatement)}</div>
                     </CompositionCol>
@@ -204,15 +205,6 @@ const GalleryCol03 = styled(TCol)`
             height: 160px;
         }
     `}
-`
-
-const StyledDivider = styled.span`
-    display: block;
-    width: 120px;
-    height: 2px;
-    margin-bottom: ${(props) => props.theme.spacing.medium};
-    margin-left: ${(props) => props.theme.spacing.small};
-    background-color: ${(props) => props.theme.projectColors.accent};
 `
 
 export default Composition

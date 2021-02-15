@@ -26,20 +26,21 @@ const Richtext = (props: IRichtextProps) => {
 }
 
 const RichtextContainer = styled.div`
-    padding-bottom: ${(props) => props.theme.spacing.small};
+    padding-bottom: ${(props) => props.theme.spacing.xxl};
     background-color: ${(props) => props.theme.projectColors.background};
     p {
         color: ${props => isColorLight(props.theme.projectColors.background) ? "#000000" : "#FFFFFF"};
         line-height: 32px;
-        padding-bottom: ${(props) => props.theme.spacing.small};
+        padding-bottom: ${(props) => props.theme.spacing.xs};
     }
 
     h1, h2, h3, h4, h5, h6 {
         color: ${props => isColorLight(props.theme.projectColors.background) ? "#000000" : "#FFFFFF"};
-        font-family: "playfair-display", roboto, "sans-serif";
+        font-family: ${(props) => props.theme.secondaryFont.name};
+        font-size: ${(props) => props.theme.fontSize.xxxl};
         font-style: normal;
         font-weight: normal;
-        padding-bottom: ${(props) => props.theme.spacing.small};
+        padding-bottom: ${(props) => props.theme.spacing.xs};
     }
 
     .highlight {

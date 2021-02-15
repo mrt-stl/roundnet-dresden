@@ -62,7 +62,11 @@ const Meta = (props: IMetaProps) => {
         // fontUrl will be imported down
         fontUrl = project.font.url
         fontName = project.font.name
-        theme.font = {
+        theme.primaryFont = {
+            url: project.font.url,
+            name: project.font.name
+        }
+        theme.secondaryFont = {
             url: project.font.url,
             name: project.font.name
         }

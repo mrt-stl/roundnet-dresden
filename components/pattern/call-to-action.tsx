@@ -1,9 +1,9 @@
+import { media } from "../style/tukan"
+import { TGrid, TCol } from "../style/sc-grid"
+import Button from "../elements/button"
+import Divider from "../elements/divider"
 import parse from "html-react-parser"
 import styled from "styled-components"
-import { TGrid, TCol } from "../style/sc-grid"
-import { media } from "../style/tukan"
-import Divider from "../elements/divider"
-import Button from "../elements/button"
 
 export interface ICallToActionProps {
     headline: string
@@ -23,10 +23,10 @@ const CallToAction = (props: ICallToActionProps) => {
             <TGrid valign="center" halign="center">
                 <Divider marginTop="150px" marginBottom="20px" />
                 <TCol size={1}>
-                    <div>{parse(headline)}</div>
+                    {parse(headline)}
                 </TCol>
                 <TCol size={2 / 3}>
-                    <div>{parse(content)}</div>
+                    {parse(content)}
                 </TCol>
                 <TCol>
                     <Button href={btnLink} label={btnLabel} />
@@ -37,24 +37,28 @@ const CallToAction = (props: ICallToActionProps) => {
 }
 
 const CallToActionContainer = styled.div`
-    padding-top: ${(props) => props.theme.spacing.standard};
-    margin-bottom: ${(props) => props.theme.spacing.standard};
-    background-color: var(--background) !important;
+    background-color: ${(props) => props.theme.color.background};
+    margin-bottom: ${(props) => props.theme.spacing.xxl};
+    padding-top: ${(props) => props.theme.spacing.xl};
     text-align: center;
 
-    h1 {
-        font-family: "playfair-display", roboto, "sans-serif";
-        font-style: normal;
-        font-weight: normal;
-        font-size: 70px;
-        line-height: 104px;
-        letter-spacing: 0.04em;
-        margin: 0;
+    h1,
+    h2,
+    h3 {
+        font-family: ${(props) => props.theme.secondaryFont.name};
+        font-size: calc(2 * ${(props) => props.theme.fontSize.xxl});
+        font-weight: ${(props) => props.theme.fontWeight.regular};
+        margin-bottom: ${(props) => props.theme.spacing.none};
+        margin-top: ${(props) => props.theme.spacing.none};
+    }
+
+    p {
+        font-size: ${(props) => props.theme.fontSize.l};
     }
 
     ${media.maxWidth("md")`
-    padding-top: 3em;
-    padding-bottom: 1em;
+        padding-top: ${(props) => props.theme.spacing.m};
+        padding-bottom: ${(props) => props.theme.spacing.m};
 `};
 `
 

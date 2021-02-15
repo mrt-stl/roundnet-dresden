@@ -9,8 +9,8 @@ export interface IStageProps {
 }
 
 const StageContainer = styled.div`
-    padding-top: ${(props) => props.theme.spacing.standard};
-    margin-bottom: ${(props) => props.theme.spacing.standard};
+    padding-top: ${(props) => props.theme.spacing.m};
+    margin-bottom: ${(props) => props.theme.spacing.m};
     background-color: var(--background) !important;
 
         ${media.maxWidth("md")`

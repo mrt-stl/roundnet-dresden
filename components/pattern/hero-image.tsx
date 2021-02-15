@@ -128,11 +128,9 @@ const HeroImageContentContainer = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    font-family: "playfair-display", roboto, "sans-serif";
-    font-style: normal;
-    font-weight: normal;
-    letter-spacing: 0.04em;
-`
+    font-family: ${(props) => props.theme.secondaryFont.name};
+    font-weight: ${(props) => props.theme.fontWeight.regular};
+    `
 
 const LinkContent = styled.a`
     color: var(--white);

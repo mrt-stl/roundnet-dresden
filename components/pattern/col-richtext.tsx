@@ -26,8 +26,8 @@ const ColRichtextContainer = styled.div`
     background-color: ${(props) => props.theme.projectColors.background};
     flex-wrap: wrap;
     p:not(.block-img) {
-        padding-left: ${props => props.theme.spacing.large};
-        padding-right: ${props => props.theme.spacing.large};
+        padding-left: ${props => props.theme.spacing.l};
+        padding-right: ${props => props.theme.spacing.l};
         color: ${(props) => (isColorLight(props.theme.projectColors.background) ? "#000000" : "#FFFFFF")};
         position: relative;
         bottom: 130px;

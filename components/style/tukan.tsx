@@ -8,7 +8,7 @@ export const tukanConfig = {
 export const GlobalStyles = createGlobalStyle`
 html, body {
     background-color: var(--background);
-    font-family: ${({ theme }) => theme.font.name}, sans-serif;
+    font-family: ${({ theme }) => theme.primaryFont.name}, sans-serif;
     -webkit-font-smoothing: antialiased;
     margin: 0 auto;
     width: 100%;
@@ -185,7 +185,10 @@ export const media = breakpoints({
 const light = {
     color: {
         primary: "#121212",
+        primaryVariant: "",
         secondary: "#303030",
+        secondaryVariant: "",
+        onBackground: "#dcdcdc",
         accent: "#F83850",
         dark: "#121212",
         background: "#FFFFFF",
@@ -201,7 +204,10 @@ const light = {
 const dark = {
     color: {
         primary: "#f0f0f0",
+        primaryVariant: "",
         secondary: "#d0d0d0",
+        secondaryVariant: "",
+        onBackground: "#dcdcdc",
         accent: "#F83850",
         background: "#202428",
         font: "#ffffff",
@@ -221,35 +227,45 @@ const defaultTheme = {
         white: "#123456"
     },
 
-    font: {
-        name: "https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap",
-        url: "Signika', sans-serif;"
+    primaryFont: {
+        name: "Kulim Park",
+        url: "https://fonts.googleapis.com/css2?family=Kulim+Park:wght@300&display=swap"
     },
-
+    secondaryFont: {
+        name: "Playfair Display",
+        url: "https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+    },
     gridConfig: {
         gridWidth: "1024px",
         gridPadding: "20px",
         colPadding: "20px"
     },
-
+    fontSize: {
+        xxs: "0.75em",
+        xs: "0.875em",
+        s: "1em",
+        m: "1.125em",
+        l: "1.5em",
+        xl: "1.75em",
+        xxl: "2em",
+        xxxl: "3em"
+    },
     spacing: {
-        small: "1em",
-        standard: "3em",
-        medium: "4em",
-        large: "5em"
+        none: "0em",
+        xxs: "0.5em",
+        xs: "1em",
+        s: "2em",
+        m: "3em",
+        l: "4em",
+        xl: "6em",
+        xxl: "8em"
     },
-
-    patternSpacing: {
-        small: "1em",
-        standard: "3em",
-        medium: "4em",
-        large: "5em"
-    },
-
     fontWeight: {
+        light: "300",
         regular: "400",
         medium: "500",
-        bold: "600"
+        semiBold: "600",
+        bold: "700"
     }
 }
 
@@ -336,7 +352,6 @@ h1 {
     line-height: 1.25;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
-    font-weight: var(--bold);
 }
 
 h2 {

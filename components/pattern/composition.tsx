@@ -51,7 +51,7 @@ const Composition = (props: ICompositionProps) => {
                 <CompositionGrid valign="center" height="100%">
                     <CompositionCol size={1 / 2} collapse="md">
 
-                        <Divider marginTop="100px" marginBottom="50px" marginLeft="20px"/>
+                        <Divider marginTop="100px" marginBottom="50px"/>
                         <div>{parse(compositionContent)}</div>
                     </CompositionCol>
                 </CompositionGrid>
@@ -87,26 +87,30 @@ const Composition = (props: ICompositionProps) => {
 const CompositionContainer = styled.div`
 
     h1,
-h2 {
-    color: white;
-    font-family: "playfair-display", roboto, "sans-serif";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 80px;
-    line-height: 104px;
-    letter-spacing: 0.04em;
-    background: linear-gradient(-45deg, #55DBD4, #000000);
-    animation: gradient 10s ease infinite;
+    h2,
+    h3 {
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
+    animation: gradient 10s ease infinite;
     background-size: 800% 800%;
+    background: linear-gradient(-45deg, #55DBD4, #000000);
+    color: white;
+    font-family: ${(props) => props.theme.secondaryFont.name};
+    font-size: calc(2 * ${(props) => props.theme.fontSize.xl});
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 0.04em;
+    margin-bottom: ${(props) => props.theme.spacing.xxs};
+    margin-top: ${(props) => props.theme.spacing.xxs};
 }
 h2 {
     font-size: 60px;
 }
-p {
-    color: white;
-}
+    p {
+        font-family: ${(props) => props.theme.primaryFont.name}, sans-serif;
+        color: ${(props) => props.theme.color.onBackground};
+        font-size: ${(props) => props.theme.fontSize.m};
+    }
 
 @keyframes gradient {
     0% {

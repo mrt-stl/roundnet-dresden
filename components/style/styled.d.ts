@@ -4,7 +4,10 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     color: { 
         primary: string
+        primaryVariant: string
         secondary: string
+        secondaryVariant: string
+        onBackground: string
         accent: string
         dark?: string
         background: string
@@ -21,13 +24,11 @@ declare module 'styled-components' {
         accent: string
         background?: string
     },
-    spacing: {
-        small?: string
-        standard?: string
-        medium?: string
-        large?: string
+    primaryFont: {
+        name?: string
+        url?: string
     },
-    font: {
+    secondaryFont: {
         name?: string
         url?: string
     },
@@ -37,22 +38,30 @@ declare module 'styled-components' {
         colPadding?: string
     },
     spacing: {
-        small: string
-        standard: string
-        medium: string
-        large: string
+        none: string
+        xxs: string
+        xs: string
+        s: string
+        m: string
+        l: string
+        xl: string
+        xxl: string
     },
-
-    patternSpacing: {
-        small: string
-        standard: string
-        medium: string
-        large: string
+    fontSize: {
+        xxs?: string
+        xs?: string
+        s?: string
+        m?: string
+        l?: string
+        xl?: string
+        xxl?: string
+        xxxl?: string
     },
-
     fontWeight: {
+        light: string
         regular: string
         medium: string
+        semiBold: string
         bold: string
     }
    }

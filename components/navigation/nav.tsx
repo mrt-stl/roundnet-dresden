@@ -20,11 +20,13 @@ const Nav = (props: INavProps) => {
 
     const [navLinks, setNavLinks] = useState([{ href: "/", linkContent: "Loading..." }])
     const [navLogo, setNavLogo] = useState({ src: "", alt: "Logo" })
+    const [navAlignment, setNavAlignment] = useState(true)
     const [navLoading, setNavLoading] = useState(true)
 
     useEffect(() => {
         const navLinksArr = []
         let navLogoObject: any = {}
+        let navAlign: boolean
         if (props.data) {
             const navData = props.data.data.nav_links
             navData.map((element) => {
@@ -40,17 +42,20 @@ const Nav = (props: INavProps) => {
                 src: navLogoData.url,
                 alt: navLogoData.alt,
             }
+
+            navAlign = props.data.data.nav_alignment
         }
         setNavLinks(navLinksArr)
         setNavLogo(navLogoObject)
+        setNavAlignment(navAlign)
         setNavLoading(false)
     }, [props])
 
     return (
         <nav>
             <NavContainer>
-                <NavGrid halign="right">
-                    <Branding href="/">
+                <NavGrid halign={navAlignment ? "right" : "left"}>
+                    <Branding href="/" halign={navAlignment}>
                         <TukanImage src={navLogo.src} alt={navLogo.alt} height="48px" width="auto" />
                     </Branding>
                     {navLoading ? "" : navLinks.map((element, index) => {
@@ -95,8 +100,8 @@ const NavGrid = styled(TGrid)`
     height: 100%;
 `
 
-const Branding = styled.a`
-    margin-right: auto;
+const Branding = styled.a<{ halign: boolean; }>`
+    margin-right: ${props => props.halign ? "auto" : "10px"};
     width: auto;
     img {
         object-fit: contain;

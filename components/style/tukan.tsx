@@ -10,18 +10,16 @@ html, body {
     background-color: var(--background);
     font-family: ${({ theme }) => theme.primaryFont.name}, sans-serif;
     -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
     margin: 0 auto;
     width: 100%;
     height: 100%
 }
 h1 {
-	font-size: 3em;
     color: var(--font-color);
-    letter-spacing: 0.1px;
     line-height: 1.25;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
-    font-weight: var(--bold);
 }
 
 h2 {
@@ -113,7 +111,6 @@ a {
 	color: var(--accent);
 	text-decoration: none;
 	font-weight: regular;
-    letter-spacing: 0.5px;
     line-height: 1.2;
 
     background-image: linear-gradient(currentColor, currentColor);
@@ -185,7 +182,7 @@ export const media = breakpoints({
 const light = {
     color: {
         primary: "#121212",
-        primaryVariant: "",
+        primaryVariant: "#22a19a",
         secondary: "#303030",
         secondaryVariant: "",
         onBackground: "#dcdcdc",
@@ -228,8 +225,8 @@ const defaultTheme = {
     },
 
     primaryFont: {
-        name: "Kulim Park",
-        url: "https://fonts.googleapis.com/css2?family=Kulim+Park:wght@300&display=swap"
+        name: "Inter",
+        url: "https://fonts.googleapis.com/css2?family=Inter&display=swap"
     },
     secondaryFont: {
         name: "Playfair Display",

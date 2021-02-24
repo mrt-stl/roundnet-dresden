@@ -25,7 +25,7 @@ const CallToAction = (props: ICallToActionProps) => {
                 <TCol size={1}>
                     {parse(headline)}
                 </TCol>
-                <TCol size={2 / 3}>
+                <TCol size={2 / 3} collapse="md">
                     {parse(content)}
                 </TCol>
                 <TCol>
@@ -50,15 +50,44 @@ const CallToActionContainer = styled.div`
         font-weight: ${(props) => props.theme.fontWeight.regular};
         margin-bottom: ${(props) => props.theme.spacing.none};
         margin-top: ${(props) => props.theme.spacing.none};
+        background: linear-gradient(45deg, rgba(85,219,212,1) 0%, rgba(51,131,127,1) 64%, rgba(85,219,212,0.2) 83%, rgba(68,175,169,1) 100%);
+        animation: gradient 4s ease infinite;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-size: 400% 400%;
+
     }
 
     p {
         font-size: ${(props) => props.theme.fontSize.l};
+        color: #606060;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 0%;
+        }
+        50% {
+            background-position: 100% 100%;
+        }
+        100% {
+            background-position: 0% 0%;
+        }
     }
 
     ${media.maxWidth("md")`
         padding-top: ${(props) => props.theme.spacing.m};
         padding-bottom: ${(props) => props.theme.spacing.m};
+
+        h1,
+        h2,
+        h3 {
+            font-size: 2.5em;
+        }
+
+        p {
+            font-size: ${(props) => props.theme.fontSize.s};
+        }
 `};
 `
 

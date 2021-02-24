@@ -35,7 +35,7 @@ const Composition = (props: ICompositionProps) => {
     return (
         <CompositionContainer>
             <StageContainer>
-                <StyledBackground background={compositionBackground1.url} height="800px">
+                <StyledBackground background={compositionBackground1.url} height="600px">
                     <CompositionGrid valign="center" height="100%" alignContent="flex-center">
                         <CompositionCol size={1 / 1} collapse="md">
                             <StageContent>
@@ -47,7 +47,7 @@ const Composition = (props: ICompositionProps) => {
                 </StyledBackground>
             </StageContainer>
 
-            <StyledBackground background={compositionBackground2.url} height="100%">
+            <StyledBackground background={compositionBackground2.url} height="auto">
                 <CompositionGrid valign="center" height="100%">
                     <CompositionCol size={1 / 2} collapse="md">
 
@@ -89,28 +89,38 @@ const CompositionContainer = styled.div`
     h1,
     h2,
     h3 {
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    animation: gradient 10s ease infinite;
-    background-size: 800% 800%;
-    background: linear-gradient(-45deg, #55DBD4, #000000);
-    color: white;
-    font-family: ${(props) => props.theme.secondaryFont.name};
-    font-size: calc(2 * ${(props) => props.theme.fontSize.xl});
-    font-style: normal;
-    font-weight: normal;
-    letter-spacing: 0.04em;
-    margin-bottom: ${(props) => props.theme.spacing.xxs};
-    margin-top: ${(props) => props.theme.spacing.xxs};
-}
-h2 {
-    font-size: 60px;
-}
+        background: linear-gradient(45deg, rgba(85,219,212,1) 0%, rgba(51,131,127,1) 64%, rgba(85,219,212,0.2) 83%, rgba(68,175,169,1) 100%);
+        animation: gradient 4s ease infinite;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-size: 400% 400%;
+        color: white;
+        font-family: ${(props) => props.theme.secondaryFont.name};
+        font-size: calc(2 * ${(props) => props.theme.fontSize.xl});
+        font-style: normal;
+        font-weight: normal;
+        letter-spacing: 0.04em;
+        margin-bottom: ${(props) => props.theme.spacing.xxs};
+        margin-top: ${(props) => props.theme.spacing.xxs};
+    }
     p {
         font-family: ${(props) => props.theme.primaryFont.name}, sans-serif;
         color: ${(props) => props.theme.color.onBackground};
         font-size: ${(props) => props.theme.fontSize.m};
     }
+
+    ${media.maxWidth("md")`
+    h1,
+    h2,
+    h3 {
+
+        font-size: ${(props) => props.theme.fontSize.xxl};
+    }
+
+        p {
+            font-size: ${(props) => props.theme.fontSize.s};
+        }
+    `}
 
 @keyframes gradient {
     0% {
@@ -129,17 +139,30 @@ const StageContainer = styled.div `
 `
 
 const StageContent = styled.div `
+    h1 {
+        font-size: calc(2 * ${(props) => props.theme.fontSize.xxl});
+    }
+
+    p {
+        font-size: ${(props) => props.theme.fontSize.l};
+    } 
 `
 
 const StyledBackground = styled.div<{ background: string; height: string }>`
     background-image: url(${(props) => props.background});
     background-size: cover;
+    background-position: center;
     height: ${(props) => props.height};
 `
 
 const CompositionGrid = styled(TGrid)<{ height: string; alignContent?: string }>`
     height: ${(props) => props.height};
     align-content: ${(props) => props.alignContent};
+
+    ${media.maxWidth("md")`
+        margin-left: 20px;
+        margin-right: 20px;
+    `}
 `
 
 const CompositionCol = styled(TCol)`
@@ -151,6 +174,7 @@ const GalleryCol01 = styled(TCol)`
     max-width: 40%;
     padding-right: 80px;
     padding-top: 230px;
+    padding-left: 0px;
 
     img {
         height: 480px;

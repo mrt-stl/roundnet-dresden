@@ -129,7 +129,15 @@ const HeroImageContentContainer = styled.div`
     transform: translate(-50%, -50%);
     text-align: center;
     font-family: ${(props) => props.theme.secondaryFont.name};
-    font-weight: ${(props) => props.theme.fontWeight.regular};
+
+    h1 {
+        background: linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.8) 64%, rgba(255,255,255,0.2) 83%, rgba(255,255,255,0.5) 100%);
+        animation: gradient 4s ease infinite;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-size: 400% 400%;
+        font-weight: ${(props) => props.theme.fontWeight.regular};
+    }
     `
 
 const LinkContent = styled.a`

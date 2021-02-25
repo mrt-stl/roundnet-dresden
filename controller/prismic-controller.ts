@@ -18,7 +18,6 @@ import SelectionModel from "../models/tukan/selection-model"
 import StageModel from "../models/tukan/stage-model"
 import StageBlogModel from "../models/tukan/stage-blog-model"
 import HighlightTextModel from "../models/tukan/highlight-text-model"
-import FooterModel from "../models/tukan/footer-model"
 import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
 import HeadlineModel from "../models/tukan/headline-model"
 import ColRichtextModel from "../models/tukan/col-richtext-model"
@@ -280,21 +279,6 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const highlightModel = new HighlightTextModel(highlightContent)
             return highlightModel
-
-        case "footer":
-            const footerPrimary = slice.primary
-            const footerItems = slice.items
-
-            const footerRows: string[] = []
-            for (const item of footerItems) {
-                const itemContent = asHtml(item.footer_row)
-                footerRows.push(itemContent)
-            }
-
-            const footerBgColor = footerPrimary.footer_bg_color
-
-            const footerModel = new FooterModel(footerRows, footerBgColor)
-            return footerModel
 
         case "image_with_caption":
             const iwcPrimary = slice.primary

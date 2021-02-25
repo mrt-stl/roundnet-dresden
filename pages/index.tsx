@@ -1,5 +1,6 @@
 import Meta, { finalTheme } from "../components/meta"
 import Nav from "../components/navigation/nav"
+import Footer from "../components/footer/footer"
 import { getByUid } from "../networking/prismic-api"
 import TukanContainer from "../components/tukan-container"
 import CookieNotification from "../components/pattern/cookie-notification"
@@ -16,8 +17,6 @@ import TukanModel from "../models/tukan/tukan-model"
 import { IMetaData } from "../models/config/meta-data"
 import Banner from "../components/navigation/banner"
 import FooterModel from "../models/tukan/footer-model"
-import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
-import Footer from "../components/pattern/footer"
 import { ThemeProvider } from "styled-components"
 import { GlobalStyles } from "../components/style/tukan"
 
@@ -25,13 +24,13 @@ interface IIndexProps {
     docId?: string
     meta?: IMetaData
     componentModels?: TukanModel[]
-    footer?: FooterModel
+    footerData?: FooterModel
     error?: string
     navData: any
 }
 
 const Index = (props: IIndexProps) => {
-    const { docId, meta, componentModels, footer, error, navData } = props
+    const { docId, meta, componentModels, footerData, error, navData } = props
 
     if (error) {
         return (<Error />)
@@ -65,12 +64,7 @@ const Index = (props: IIndexProps) => {
                     <TukanContainer
                         tukanModels={componentModels} />
 
-                    {footer ?
-                        <Footer
-                            rows={footer.rows}
-                            backgroundColor={footer.backgroundColor} /> :
-                        <></>
-                    }
+                    <Footer data={footerData}/>
 
                 </ThemeProvider>
 
@@ -98,6 +92,8 @@ Index.getInitialProps = async ({ query, res }) => {
 
     const prismicRes = await getByUid(docType, queryId)
     const docs = prismicRes.data
+    const navData = prismicRes.navigation.results[0]
+    const footerData = prismicRes.footer.results[0]
 
     if (prismicRes.error || docs?.results?.length < 1) {
         return {
@@ -105,9 +101,6 @@ Index.getInitialProps = async ({ query, res }) => {
         }
     }
 
-    // get nav data out of prismic
-    const prismicNavRes = await getByUid("navigation", "main")
-    const navData = prismicNavRes.data.results[0]
 
     const results = docs.results
     if (res) {
@@ -121,14 +114,13 @@ Index.getInitialProps = async ({ query, res }) => {
 
     const meta = createMeta(docByLang)
     const componentModels = prismicPageToComponentModels(docByLang)
-    const footer = createFooter(prismicRes.footer, lang)
 
     return {
         docId,
         meta,
         componentModels,
-        footer,
-        navData
+        footerData,
+        navData,
     }
 }
 
@@ -163,19 +155,6 @@ const createMeta = (docs: Document): IMetaData => {
         metaOgImg,
         metaBanner
     }
-}
-
-const createFooter = (data: ApiSearchResponse, langFilter: string) => {
-    const results = data?.results
-    if (!results || results.length < 1) {
-        return null
-    }
-
-    const filteredResult = filterByLanguage(langFilter, results)
-    const components = prismicPageToComponentModels(filteredResult)
-    const footerModel = components?.[0] as FooterModel
-
-    return footerModel
 }
 
 export default Index

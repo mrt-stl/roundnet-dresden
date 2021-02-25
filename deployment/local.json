@@ -28,7 +28,7 @@
             "dark_mode": "off",
             "caching_duration": "0",
             "project_id": "derjugendchor",
-            "show_banner": "on",
+            "show_banner": "off",
             "shopify_acces_token": "",
             "shopify_store_domain": "",
             "ga_id": "",

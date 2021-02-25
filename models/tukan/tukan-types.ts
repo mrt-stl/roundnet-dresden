@@ -6,7 +6,6 @@ export enum TukanType {
     Contact = "contact",
     Details = "details",
     Focus = "focus",
-    Footer = "footer",
     Headline = "headline",
     HeroImage = "hero-image",
     HighlightText = "highlight-text",

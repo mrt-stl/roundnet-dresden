@@ -39,6 +39,9 @@ export const getByUid = async (type: string, uid: string) => {
         const footer = res.find(result => result?.value?.key === "footer")
         prismicRes.footer = footer?.value?.data
 
+        const navigation = res.find(result => result?.value?.key === "navigation")
+        prismicRes.navigation = navigation?.value?.data
+
     } catch (e) {
         logError(e)
         prismicRes.error = "Could not get data"
@@ -61,6 +64,10 @@ const getDataFromPrismic = (api: ResolvedApi, type: string, uid: string): any =>
     // Query for footer
     const footerPredicate = Prismic.Predicates.at("document.type", "footer")
     queries.push(performPrismicRequest(api, "footer", footerPredicate))
+
+    // Query for nav
+    const navPredicate = Prismic.Predicates.at("document.type", "navigation")
+    queries.push(performPrismicRequest(api, "navigation", navPredicate))
 
     const promise = Promise.allSettled(queries)
     return promise

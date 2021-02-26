@@ -12,7 +12,7 @@ const Footer = (props: IFooterProps) => {
     const [footerLinks, setFooterLinks] = useState([{ href: "/", linkContent: "Loading..." }])
     const [footerSM, setFooterSM] = useState([{ href: "", img: { src: "Logo", alt: "social Media" } }])
     const [footerLoading, setFooterLoading] = useState(true)
-    const [footerWatermark, setFooterWatermark] = useState("")
+    // const [footerWatermark, setFooterWatermark] = useState("")
     const typewriter = useRef()
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const Footer = (props: IFooterProps) => {
     useEffect(() => {
         const footerLinksArr = []
         const footerSMArr = []
-        let footerWaterMarkString = ""
+        // let footerWaterMarkString = ""
         if (props.data) {
             const footerData = props.data.data.footer_links_left
             footerData.map((element) => {
@@ -39,7 +39,7 @@ const Footer = (props: IFooterProps) => {
                 footerLinksArr.push(link)
             })
 
-            footerWaterMarkString = props.data.data.footer_watermark
+            // footerWaterMarkString = props.data.data.footer_watermark
 
             const footerSMData = props.data.data.footer_links_right
             footerSMData.map((element) => {
@@ -55,7 +55,7 @@ const Footer = (props: IFooterProps) => {
         }
         setFooterLinks(footerLinksArr)
         setFooterSM(footerSMArr)
-        setFooterWatermark(footerWaterMarkString)
+        // setFooterWatermark(footerWaterMarkString)
         setFooterLoading(false)
     }, [])
 

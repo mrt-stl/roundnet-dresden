@@ -890,12 +890,6 @@ textarea::-ms-input-placeholder {
     color: var(--white);
 }
 
-@media (prefers-color-scheme: dark) {
-    .footer-container {
-        background-color: var(--background);
-    }
-}
-
 .multi-functional-container {
     padding-top: var(--large-spacing);
     margin-bottom: var(--large-spacing);

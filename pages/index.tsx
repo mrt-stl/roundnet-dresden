@@ -16,7 +16,6 @@ import { Document } from "prismic-javascript/d.ts/documents"
 import TukanModel from "../models/tukan/tukan-model"
 import { IMetaData } from "../models/config/meta-data"
 import Banner from "../components/navigation/banner"
-import FooterModel from "../models/tukan/footer-model"
 import { ThemeProvider } from "styled-components"
 import { GlobalStyles } from "../components/style/tukan"
 
@@ -24,7 +23,7 @@ interface IIndexProps {
     docId?: string
     meta?: IMetaData
     componentModels?: TukanModel[]
-    footerData?: FooterModel
+    footerData?: any
     error?: string
     navData: any
 }
@@ -100,7 +99,6 @@ Index.getInitialProps = async ({ query, res }) => {
             error: "Page not found"
         }
     }
-
 
     const results = docs.results
     if (res) {

@@ -28,14 +28,14 @@ const StyledButton = styled.a<{ bgColor?: string, color?: string }>`
     padding-top: 20px;
     padding-bottom: 21px;
     color: ${(props) => props.color ? props.color : "#ffffff"};
+    transition: all 0.15s ease-in-out;
 
     background-image: none;
     line-height: default;
     :hover {
-        padding-left: ${(props) => props.theme.spacing.m};
-        padding-right: ${(props) => props.theme.spacing.m};
-        transition: all 0.1s ease-in-out;
-        background-color: ${(props) => (props.bgColor ? props.bgColor : props.theme.color.primaryVariant)};
+        padding-left: calc(${(props) => props.theme.spacing.m});
+        padding-right: calc(${(props) => props.theme.spacing.m});
+        transition: all 0.25s ease-in-out;
     }
 
     ${media.maxWidth("md")`

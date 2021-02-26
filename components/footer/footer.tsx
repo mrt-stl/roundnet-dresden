@@ -61,7 +61,7 @@ const Footer = (props: IFooterProps) => {
 
     const Typewriting = () => {
         // const watermark = footerWatermark ? footerWatermark : " Euch"
-        new TxtType(typewriter.current, ["Gemacht mit Liebe", "Gemacht mit Stadtteilliebe"], "2000")
+        new TxtType(typewriter.current, ["Gemacht mit Liebe", "♥︎", "Gemacht mit Stadtteilliebe", "♥︎"], "2000")
     }
 
     const TxtType = function(el, toRotate, period) {
@@ -115,7 +115,7 @@ const Footer = (props: IFooterProps) => {
                         ""
                     ) : (
                         <>
-                            <TCol size={1 / 3} collapse="md">
+                            <TCol size={1 / 3} collapse="md" talign="left">
                                 {footerLinks.map((element, index) => {
                                     return (
                                         <div key={index}>
@@ -125,24 +125,24 @@ const Footer = (props: IFooterProps) => {
                                 })}
                             </TCol>
 
-                            <TCol size={1 / 3} collapse="md">
-                            <STLBanner href="https://www.stadtteilliebe.de" ref={typewriter}>
-                                <span className="wrap" />
-                            </STLBanner>
+                            <TCol size={1 / 3} collapse="md" talign="center">
+                                <STLBanner href="https://www.stadtteilliebe.de" ref={typewriter}>
+                                    <span className="wrap" />
+                                </STLBanner>
                             </TCol>
 
                             {/* <STLBanner>Gemacht mit Stadtteilliebe</STLBanner> */}
 
-                            <TCol size={1 / 3} collapse="md">
-                            <SMContainer>
-                                {footerSM.map((element, index) => {
-                                    return (
-                                        <a href={element.href} key={index}>
-                                            <TukanImage src={element.img.src} alt={element.img.alt} height="auto" width="auto" />
-                                        </a>
-                                    )
-                                })}
-                            </SMContainer>
+                            <TCol size={1 / 3} collapse="md" talign="right">
+                                <SMContainer>
+                                    {footerSM.map((element, index) => {
+                                        return (
+                                            <a href={element.href} key={index}>
+                                                <TukanImage src={element.img.src} alt={element.img.alt} height="auto" width="auto" />
+                                            </a>
+                                        )
+                                    })}
+                                </SMContainer>
                             </TCol>
                         </>
                     )}
@@ -155,7 +155,6 @@ const Footer = (props: IFooterProps) => {
 const FooterGrid = styled(TGrid)`
     max-width: 1024px;
     height: 100%;
-    text-align: center;
 `
 
 const FooterContainer = styled.div`

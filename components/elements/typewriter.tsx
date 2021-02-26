@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useState, useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 
 interface ITypewriterProps {
     strArr?: string[]
@@ -15,7 +15,7 @@ const Typewriter = (props: ITypewriterProps) => {
     const periodFormatted = period || 2000
     let txt = ""
     let isDeleting = false
-    
+
     useEffect(() => {
         const el = typewriter.current
         const tick = () => {

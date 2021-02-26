@@ -145,11 +145,12 @@ const StageContent = styled.div `
 
     p {
         font-size: ${(props) => props.theme.fontSize.l};
-    } 
+    }
 `
 
 const StyledBackground = styled.div<{ background: string; height: string }>`
     background-image: url(${(props) => props.background});
+    background-color: ${({ theme }) => theme.projectColors.background};
     background-size: cover;
     background-position: center;
     height: ${(props) => props.height};

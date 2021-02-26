@@ -29,7 +29,7 @@ const CallToAction = (props: ICallToActionProps) => {
                     {parse(content)}
                 </TCol>
                 <TCol>
-                    <Button href={btnLink} label={btnLabel} />
+                    <Button href={btnLink} label={btnLabel}/>
                 </TCol>
             </TGrid>
         </CallToActionContainer>
@@ -38,7 +38,7 @@ const CallToAction = (props: ICallToActionProps) => {
 
 const CallToActionContainer = styled.div`
     background-color: ${(props) => props.theme.color.background};
-    margin-bottom: ${(props) => props.theme.spacing.xxl};
+    padding-bottom: ${(props) => props.theme.spacing.xxl};
     padding-top: ${(props) => props.theme.spacing.xl};
     text-align: center;
 

@@ -13,7 +13,8 @@ html, body {
     font-smoothing: antialiased;
     margin: 0 auto;
     width: 100%;
-    height: 100%
+    height: 100%;
+    background-color: ${({ theme }) => theme.projectColors.background}
 }
 h1 {
     color: var(--font-color);
@@ -728,20 +729,6 @@ iframe {
     .text-container {
         padding: 12px;
     }
-}
-
-/* This is needed twice, first for Firefox and second for other browsers */
-.button a, a .button {
-    background-color: var(--accent);
-    padding: 13px 24px 16px 24px;
-    color: #000000;
-    margin-top: 1em;
-    display: inline-block;
-}
-
-.button a:hover, a .button:hover {
-    background-color: var(--accent);
-    transition: 0s;
 }
 
 textarea {

@@ -14,12 +14,12 @@ const Footer = (props: IFooterProps) => {
     const [footerLinks, setFooterLinks] = useState([{ href: "/", linkContent: "Loading..." }])
     const [footerSM, setFooterSM] = useState([{ href: "", img: { src: "Logo", alt: "social Media" } }])
     const [footerLoading, setFooterLoading] = useState(true)
-    // const [footerWatermark, setFooterWatermark] = useState("")
+    const [footerWatermark, setFooterWatermark] = useState("")
 
     useEffect(() => {
         const footerLinksArr = []
         const footerSMArr = []
-        // let footerWaterMarkString = ""
+        let footerWaterMarkString = ""
         if (props.data) {
             const footerData = props.data.data.footer_links_left
             footerData.map((element) => {
@@ -30,7 +30,7 @@ const Footer = (props: IFooterProps) => {
                 footerLinksArr.push(link)
             })
 
-            // footerWaterMarkString = props.data.data.footer_watermark
+            footerWaterMarkString = `Gemacht für ${props.data.data.footer_watermark}`
 
             const footerSMData = props.data.data.footer_links_right
             footerSMData.map((element) => {
@@ -46,7 +46,7 @@ const Footer = (props: IFooterProps) => {
         }
         setFooterLinks(footerLinksArr)
         setFooterSM(footerSMArr)
-        // setFooterWatermark(footerWaterMarkString)
+        setFooterWatermark(footerWaterMarkString)
         setFooterLoading(false)
     }, [])
 
@@ -69,7 +69,7 @@ const Footer = (props: IFooterProps) => {
                             </TCol>
 
                             <TCol size={1 / 3} collapse="md" talign="center">
-                                <Typewriter strArr={["Gemacht mit Liebe", "♥︎", "Gemacht mit Stadtteilliebe", "♥︎"]} />
+                                <Typewriter strArr={[footerWatermark, "Gemacht mit Stadtteilliebe", "♡"]} />
                             </TCol>
 
                             {/* <STLBanner>Gemacht mit Stadtteilliebe</STLBanner> */}

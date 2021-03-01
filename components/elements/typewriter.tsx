@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useEffect, useRef } from "react"
+import { useEffect, useState } from "react"
 
 interface ITypewriterProps {
     strArr?: string[]
@@ -8,7 +8,8 @@ interface ITypewriterProps {
 
 const Typewriter = (props: ITypewriterProps) => {
     const { strArr, period } = props
-    const typewriter = useRef()
+
+    const [typeText, setTypeText] = useState("")
 
     const toRotate = strArr
     let loopNum = 0
@@ -17,7 +18,6 @@ const Typewriter = (props: ITypewriterProps) => {
     let isDeleting = false
 
     useEffect(() => {
-        const el = typewriter.current
         const tick = () => {
             const i = loopNum % toRotate.length
             const fullTxt = toRotate[i]
@@ -28,7 +28,7 @@ const Typewriter = (props: ITypewriterProps) => {
                 txt = fullTxt.substring(0, txt.length + 1)
             }
 
-            el.innerHTML = `<span class="wrap">${txt}</span>`
+            setTypeText(txt)
 
             let delta = 200 - Math.random() * 100
 
@@ -54,8 +54,8 @@ const Typewriter = (props: ITypewriterProps) => {
     }, [])
 
     return (
-        <STLBanner href="https://www.stadtteilliebe.de" ref={typewriter}>
-            <span className="wrap" />
+        <STLBanner href="https://www.stadtteilliebe.de">
+            <span className="wrap">{typeText}</span>
         </STLBanner>
     )
 }

@@ -146,6 +146,12 @@ const StageContent = styled.div `
     p {
         font-size: ${(props) => props.theme.fontSize.l};
     }
+
+    ${media.maxWidth("md")`
+    h1 {
+        font-size: calc(2 * ${(props) => props.theme.fontSize.s});
+    }
+    `};
 `
 
 const StyledBackground = styled.div<{ background: string; height: string }>`
@@ -161,8 +167,8 @@ const CompositionGrid = styled(TGrid)<{ height: string; alignContent?: string }>
     align-content: ${(props) => props.alignContent};
 
     ${media.maxWidth("md")`
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: 60px;
+        margin-right: 60px;
     `}
 `
 

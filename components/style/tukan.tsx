@@ -80,6 +80,7 @@ p {
     line-height: 1.5;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
+    font-weight: light;
 }
 
 @media (max-width: 768px) {
@@ -113,16 +114,10 @@ a {
 	text-decoration: none;
 	font-weight: regular;
     line-height: 1.2;
-
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 1px;
-    transition: background-size .4s;
 }
 
 a:hover {
-    background-size: 100% 1px;
+	color: var(--accent);
 }
 
 h2 a {
@@ -409,6 +404,7 @@ p {
     line-height: 1.5;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
+    font-weight: 300;
 }
 
 @media (max-width: 768px) {
@@ -443,16 +439,10 @@ a {
 	font-weight: regular;
     letter-spacing: 0.5px;
     line-height: 1.2;
-
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 1px;
-    transition: background-size .4s;
 }
 
 a:hover {
-    background-size: 100% 1px;
+	color: var(--accent);
 }
 
 h2 a {

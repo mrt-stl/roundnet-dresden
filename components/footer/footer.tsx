@@ -1,10 +1,10 @@
 import { linkResolver } from "../../utils/prismic-utils"
-import styled from "styled-components"
-import { TGrid, TCol } from "../style/sc-grid"
 import { media } from "../style/tukan"
+import { TGrid, TCol } from "../style/sc-grid"
+import { useState, useEffect } from "react"
+import styled from "styled-components"
 import TukanImage from "../elements/tukan-image"
 import Typewriter from "../elements/typewriter"
-import { useState, useEffect } from "react"
 
 interface IFooterProps {
     data: any
@@ -69,13 +69,11 @@ const Footer = (props: IFooterProps) => {
                             </TCol>
 
                             <TCol size={1 / 3} collapse="md" talign="center">
-                                <Typewriter strArr={["Gemacht mit Liebe", "♥︎", "Gemacht mit Stadtteilliebe", "♥︎"]} />
+                                <Typewriter strArr={["Gemacht mit Stadtteilliebe", "STL x Der Jugendchor"]} />
                             </TCol>
 
-                            {/* <STLBanner>Gemacht mit Stadtteilliebe</STLBanner> */}
-
                             <TCol size={1 / 3} collapse="md" talign="right">
-                                <SMContainer>
+                                <SocialMediaContainer>
                                     {footerSM.map((element, index) => {
                                         return (
                                             <a href={element.href} key={index}>
@@ -83,7 +81,7 @@ const Footer = (props: IFooterProps) => {
                                             </a>
                                         )
                                     })}
-                                </SMContainer>
+                                </SocialMediaContainer>
                             </TCol>
                         </>
                     )}
@@ -94,18 +92,25 @@ const Footer = (props: IFooterProps) => {
 }
 
 const FooterGrid = styled(TGrid)`
-    max-width: 1024px;
     height: 100%;
-    }
+    padding-bottom: ${(props) => props.theme.spacing.m};
+    padding-top: ${(props) => props.theme.spacing.m};
 `
 
 const FooterContainer = styled.div`
     background-color: ${(props) => props.theme.projectColors.background};
     height: auto;
+    font-size: 14px;
 
     a {
         text-transform: uppercase;
         color: ${(props) => props.theme.projectColors.accent};
+        transition: all 0.1s ease-in-out;
+    }
+
+    a:hover {
+        opacity: 0.7;
+        transition: all 0.1s ease-in-out;
     }
 
     ${media.maxWidth("md")`
@@ -117,11 +122,28 @@ const FooterContainer = styled.div`
     `};
 `
 
-const SMContainer = styled.div`
+const SocialMediaContainer = styled.div`
     a:not(:first-child) {
-        margin-left: 24px;
+        margin-left: ${(props) => props.theme.spacing.xs};
+        transition: all 0.1s ease-in-out;
     }
 
+    a:hover {
+        opacity: 0.7;
+        transition: all 0.1s ease-in-out;
+    }
+
+    img {
+        height: 32px;
+        width: 32px;
+    }
+
+    ${media.maxWidth("md")`
+        img {
+            height: 36px;
+            width: 36px;
+        }
+    `};
 `
 
 export default Footer

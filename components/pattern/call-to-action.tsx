@@ -47,7 +47,7 @@ const CallToActionContainer = styled.div`
     h3 {
         font-family: ${(props) => props.theme.secondaryFont.name};
         font-size: calc(2 * ${(props) => props.theme.fontSize.xxl});
-        font-weight: ${(props) => props.theme.fontWeight.regular};
+        font-weight: ${(props) => props.theme.fontWeight.light};
         margin-bottom: ${(props) => props.theme.spacing.none};
         margin-top: ${(props) => props.theme.spacing.none};
         background: linear-gradient(45deg, rgba(85,219,212,1) 0%, rgba(51,131,127,1) 64%, rgba(85,219,212,0.2) 83%, rgba(68,175,169,1) 100%);

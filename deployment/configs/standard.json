@@ -1,0 +1,62 @@
+{
+    "version": 2,
+    "name": "standard",
+    "alias": "standard.tukan.dev",
+    "public": false,
+    "regions": [
+        "all"
+    ],
+    "builds": [
+        {
+            "src": "next.config.js",
+            "use": "@now/next"
+        },
+        {
+            "src": "static/*",
+            "use": "@now/static"
+        }
+    ],
+    "build": {
+        "env": {
+            "url":
+                "https://standard.tukan.dev/",
+            "name":
+                "standard",
+            "prismic_endpoint":
+                "https://standard.cdn.prismic.io/api/v2",
+            "prismic_access_token": 
+                "MC5YTWJpUFJFQUFDSUF0MzB2.77-977-977-977-9ae-_ve-_ve-_ve-_ve-_vWzvv70a77-9Yu-_vRvvv73vv71m77-977-977-9fGFE77-9Q0Hvv73vv70k",
+            "font":
+                "{\"url\": \"https://fonts.googleapis.com/css2?family=Inter&display=swap\", \"name\": \"Inter\" }",
+            "cookie": "{\"link\": \"\"}",
+            "colors": "{ \"primary\": \"#abcdef\", \"secondary\": \"#ffffff\", \"accent\": \"#55DBD4\", \"background\": \"#000000\" }",
+            "dark_mode": "off",
+            "caching_duration": "0",
+            "project_id": "standard",
+            "show_banner": "off",
+            "ga_id": ""
+        }
+    },
+    "routes": [
+        {
+            "src": "^/robots.txt",
+            "dest": "/static/robots.txt"
+        },
+        {
+            "src": "^/sitemap.xml",
+            "dest": "/api/sitemap"
+        },
+        {
+            "src": "/en/(?<id>[^/]+)$",
+            "dest": "/index?id=$id&lang=en"
+        },
+        {
+            "src": "/en/",
+            "dest": "/index?id=home&lang=en"
+        },
+        {
+            "src": "/(?<id>[^/]+)$",
+            "dest": "/index?id=$id"
+        }
+    ]
+}

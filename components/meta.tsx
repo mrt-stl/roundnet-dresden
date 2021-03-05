@@ -56,8 +56,8 @@ const Meta = (props: IMetaProps) => {
     }
 
     // Set font or go to default font
-    let fontUrl = "https://fonts.googleapis.com/css?family=Muli:400,700&display=swap"
-    let fontName = "Muli"
+    let fontUrl = "https://fonts.googleapis.com/css2?family=Inter&display=swap"
+    let fontName = "Inter"
     if (project.font) {
         // fontUrl will be imported down
         fontUrl = project.font.url

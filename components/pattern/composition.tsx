@@ -56,7 +56,7 @@ const Composition = (props: ICompositionProps) => {
                     </CompositionCol>
                 </CompositionGrid>
 
-                <CompositionGrid valign="center" halign="center" height="100%" style={{ textAlign: "center" }}>
+                <CompositionGrid valign="center" halign="center" height="100%" style={{ textAlign: "left" }}>
 
                     <Divider marginTop="250px" />
                     <CompositionCol size={1} collapse="md">
@@ -68,7 +68,7 @@ const Composition = (props: ICompositionProps) => {
                     </CompositionCol>
                 </CompositionGrid>
 
-                <CompositionGrid valign="center" height="660px">
+                <GalleryGrid valign="center">
                     <GalleryCol01>
                         <TukanImage src={compositionGallery1.url} alt={compositionGallery1.alt} height="auto" />
                     </GalleryCol01>
@@ -78,7 +78,7 @@ const Composition = (props: ICompositionProps) => {
                     <GalleryCol03>
                         <TukanImage src={compositionGallery3.url} alt={compositionGallery3.alt} height="auto" />
                     </GalleryCol03>
-                </CompositionGrid>
+                </GalleryGrid>
             </StyledBackground>
         </CompositionContainer>
     )
@@ -148,9 +148,12 @@ const StageContent = styled.div `
     }
 
     ${media.maxWidth("md")`
-    h1 {
-        font-size: calc(2 * ${(props) => props.theme.fontSize.s});
-    }
+        h1 {
+            font-size: calc(2 * ${(props) => props.theme.fontSize.s});
+        }
+        p {
+            font-size: ${(props) => props.theme.fontSize.m};
+        }
     `};
 `
 
@@ -176,6 +179,11 @@ const CompositionCol = styled(TCol)`
     padding: 0;
 `
 
+const GalleryGrid = styled(TGrid)`
+    ${media.maxWidth("md")`
+        margin: 0px;`};
+`
+
 const GalleryCol01 = styled(TCol)`
     flex-basis: 40%;
     max-width: 40%;
@@ -188,7 +196,7 @@ const GalleryCol01 = styled(TCol)`
     }
 
     ${media.maxWidth("md")`
-        padding-right: 20px;
+        padding-right: 0px;
         padding-left: 0px;
         padding-top: 60px;
 
@@ -231,12 +239,12 @@ const GalleryCol03 = styled(TCol)`
     }
 
     ${media.maxWidth("md")`
-        padding-right: 20px;
+        padding-right: 0px;
         padding-top: 40px;
         margin-top: -140px;
 
         img {
-            height: 160px;
+            height: 200px;
         }
     `}
 `

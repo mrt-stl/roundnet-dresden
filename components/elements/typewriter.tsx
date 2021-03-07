@@ -17,7 +17,7 @@ const Typewriter = (props: ITypewriterProps) => {
     let isDeleting = false
 
     useEffect(() => {
-        const el = typewriter.current
+        // const el = typewriter.current
         const tick = () => {
             const i = loopNum % toRotate.length
             const fullTxt = toRotate[i]
@@ -28,7 +28,7 @@ const Typewriter = (props: ITypewriterProps) => {
                 txt = fullTxt.substring(0, txt.length + 1)
             }
 
-            el.innerHTML = `<span class="wrap">${txt}</span>`
+            // el.innerHTML = `<span class="wrap">${txt}</span>`
 
             let delta = 200 - Math.random() * 100
 

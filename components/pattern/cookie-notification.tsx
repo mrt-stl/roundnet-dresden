@@ -35,7 +35,7 @@ class CookieNotification extends Component<ICookieNotificationProps, {}> {
         }
 
         return (
-            <div className="cookie-container">
+            <div className="cookie-container" style={{ display: "none" }}>
                 <div className="align-items-center">
                     <div className="grid cookie-content-container">
                         <div className="col-6">

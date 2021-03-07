@@ -160,7 +160,7 @@ const StyledBurger = styled.button<{ open?: boolean }>`
 
     span {
         height: 2px;
-        background: ${(props) => props.theme.color.background};
+        background: #ffffff;
         transition: all 0.2s linear;
         position: relative;
         transform-origin: 4.5px;
@@ -181,7 +181,7 @@ const MenuContainer = styled.nav<{ open?: boolean }>`
         display: none;
     `};
 
-    background: #333333;
+    background: #000000;
     background-image: url(../static/img/bg.svg);
     background-size: cover;
     background-position: center center;
@@ -210,6 +210,7 @@ const MenuContent = styled.div`
         font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 2px;
+        margin-bottom: 20px;
     }
 `
 

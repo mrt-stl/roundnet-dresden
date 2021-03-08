@@ -1,7 +1,6 @@
 {
     "version": 2,
     "name": "standard",
-    "alias": "standard.tukan.dev",
     "public": false,
     "regions": [
         "all"

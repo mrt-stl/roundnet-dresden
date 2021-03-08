@@ -52,105 +52,111 @@ const Composition = (props: ICompositionProps) => {
                 </StyledBackground>
             </StageContainer>
 
-                <CompositionGrid height="100%">
-                    <CompositionCol size={1 / 2} collapse="md">
+            <CompositionGrid height="100%">
+                <CompositionCol size={1 / 2} collapse="md">
+                    <Divider marginTop="8em" marginBottom="3em" />
+                    <div>{parse(compositionContent)}</div>
+                </CompositionCol>
+            </CompositionGrid>
 
-                    <Divider marginTop="8em" marginBottom="3em"/>
-                        <div>{parse(compositionContent)}</div>
-                    </CompositionCol>
-                </CompositionGrid>
+            <XBackground background={compositionBackground2.url} height="600px" style={{ marginTop: "4em" }} />
 
-                    <XBackground background={compositionBackground2.url} height="600px" style={{ marginTop: "4em" }} />
+            <CompositionGrid height="100%" style={{ textAlign: "left" }}>
+                <Divider marginTop="20em" marginBottom="2em" />
+                <CompositionCol size={1} collapse="md">
+                    <div>{parse(compositionStatement)}</div>
+                </CompositionCol>
 
-                <CompositionGrid height="100%" style={{ textAlign: "left" }}>
+                <CompositionCol size={2 / 3} collapse="md">
+                    <div>{parse(compositionStatementContent)}</div>
+                </CompositionCol>
+            </CompositionGrid>
 
-                    <Divider marginTop="20em" marginBottom="2em"/>
-                        <CompositionCol size={1} collapse="md">
-                            <div>{parse(compositionStatement)}</div>
-                        </CompositionCol>
+            {/* Gallery Pattern */}
 
-                    <CompositionCol size={2 / 3} collapse="md">
-                        <div>{parse(compositionStatementContent)}</div>
-                    </CompositionCol>
-                </CompositionGrid>
-
-
-                {/* Gallery Pattern */}
-
-                <GalleryGrid valign="center">
-                    <GalleryCol01 ref={ref} size={1 / 2}>
-                        {isVisible ? (
-                            <div className="fadeInUp">
-                                <img src={compositionGallery1.url} alt={compositionGallery1.alt} height="auto" />
-                            </div>) : (
-                            <div style={{ display: "none" }}>
-                                <img src={compositionGallery1.url} alt={compositionGallery1.alt} height="auto" />
-                            </div>)
-                        }
-                    </GalleryCol01>
-                    <GalleryCol02 ref={ref} size={1 / 2}>
-                        {isVisible ? (
-                            <div className="fadeInUp1">
-                                <img src={compositionGallery2.url} alt={compositionGallery2.alt} height="auto" />
-                            </div>) : (
-                            <div style={{ display: "none" }}>
-                                <img src={compositionGallery2.url} alt={compositionGallery2.alt} height="auto" />
-                            </div>)
-                        }
-                    </GalleryCol02>
-                    <GalleryCol03 ref={ref} size={1 / 2} collapse="md">
-                        {isVisible ? (
-                            <div className="fadeInUp2">
-                                <img src={compositionGallery3.url} alt={compositionGallery3.alt} height="auto" />
-                            </div>) : (
-                            <div style={{ display: "none" }}>
-                                <img src={compositionGallery3.url} alt={compositionGallery3.alt} height="auto" />
-                            </div>)
-                        }
-                    </GalleryCol03>
-                </GalleryGrid>
+            <GalleryGrid valign="center">
+                <GalleryCol01 ref={ref} size={1 / 2}>
+                    {isVisible ? (
+                        <div className="fadeInUp">
+                            <img src={compositionGallery1.url} alt={compositionGallery1.alt} height="auto" />
+                        </div>
+                    ) : (
+                        <div style={{ display: "none" }}>
+                            <img src={compositionGallery1.url} alt={compositionGallery1.alt} height="auto" />
+                        </div>
+                    )}
+                </GalleryCol01>
+                <GalleryCol02 ref={ref} size={1 / 2}>
+                    {isVisible ? (
+                        <div className="fadeInUp1">
+                            <img src={compositionGallery2.url} alt={compositionGallery2.alt} height="auto" />
+                        </div>
+                    ) : (
+                        <div style={{ display: "none" }}>
+                            <img src={compositionGallery2.url} alt={compositionGallery2.alt} height="auto" />
+                        </div>
+                    )}
+                </GalleryCol02>
+                <GalleryCol03 ref={ref} size={1 / 2} collapse="md">
+                    {isVisible ? (
+                        <div className="fadeInUp2">
+                            <img src={compositionGallery3.url} alt={compositionGallery3.alt} height="auto" />
+                        </div>
+                    ) : (
+                        <div style={{ display: "none" }}>
+                            <img src={compositionGallery3.url} alt={compositionGallery3.alt} height="auto" />
+                        </div>
+                    )}
+                </GalleryCol03>
+            </GalleryGrid>
         </CompositionContainer>
     )
 }
 
 const CompositionContainer = styled.div`
-
     h1 {
         font-size: calc(2 * ${(props) => props.theme.fontSize.xl});
     }
 
-h2 {
-    font-size: calc(2 * ${(props) => props.theme.fontSize.l});
-}
+    h2 {
+        font-size: calc(2 * ${(props) => props.theme.fontSize.l});
+    }
 
-h3 {
-    font-size: calc(${(props) => props.theme.fontSize.l});
-} 
+    h3 {
+        font-size: calc(${(props) => props.theme.fontSize.l});
+    }
 
     h1,
     h2,
     h3 {
-        background: linear-gradient(45deg, rgba(85,219,212,1) 5%, rgba(85,219,212,0.6) 30%, rgba(85,219,212,0.2) 60%, rgba(85,219,212,0.6) 70%, rgba(85,219,212,1) 95%);
+        background: linear-gradient(
+            45deg,
+            rgba(85, 219, 212, 1) 5%,
+            rgba(85, 219, 212, 0.6) 30%,
+            rgba(85, 219, 212, 0.2) 60%,
+            rgba(85, 219, 212, 0.6) 70%,
+            rgba(85, 219, 212, 1) 95%
+        );
         background-size: 200% 200%;
         animation: gradient 12s ease infinite;
-    
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 100% 50%;
+            }
+            50% {
+                background-position: 100% 0%;
+            }
+            75% {
+                background-position: 50% 100%;
+            }
+            100% {
+                background-position: 50% 0%;
+            }
         }
-        25% {
-            background-position: 100% 50%;
-        }
-        50% {
-            background-position: 100% 0%;
-        }
-        75% {
-            background-position: 50% 100%;
-        }
-        100% {
-            background-position: 50% 0%;
-        }
-    }
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
         background-size: 400% 400%;
@@ -180,23 +186,22 @@ h3 {
         }
     `}
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
     }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
 `
 
-const StageContainer = styled.div `
-`
+const StageContainer = styled.div``
 
-const StageContent = styled.div `
+const StageContent = styled.div`
     h1 {
         font-size: calc(2 * ${(props) => props.theme.fontSize.xxl});
     }
@@ -224,7 +229,7 @@ const StyledBackground = styled.div<{ background: string; height: string }>`
 `
 
 const XBackground = styled.div<{ background: string; height: string }>`
-    background-image: linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 95%), url(${(props) => props.background});
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 95%), url(${(props) => props.background});
     background-color: ${({ theme }) => theme.projectColors.background};
     background-size: cover;
     background-position: bottom center;
@@ -282,75 +287,75 @@ const GalleryGrid = styled(TGrid)`
         }
     }
 
-@-webkit-keyframes fadeInUp1 {
-    from {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 20%, 0);
-        transform: translate3d(0, 20%, 0);
+    @-webkit-keyframes fadeInUp1 {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 20%, 0);
+            transform: translate3d(0, 20%, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
     }
 
-    to {
-        opacity: 1;
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-    }
-}
+    @keyframes fadeInUp1 {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 20%, 0);
+            transform: translate3d(0, 20%, 0);
+        }
 
-@keyframes fadeInUp1 {
-    from {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 20%, 0);
-        transform: translate3d(0, 20%, 0);
-    }
-
-    to {
-        opacity: 1;
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-.fadeInUp1 {
-    animation-name: fadeInUp;
-    animation-duration: 1.5s;
-    animation-fill-mode: both;
-    animation-delay: 0.8s;
-}
-
-@-webkit-keyframes fadeInUp2 {
-    from {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 600%, 0);
-        transform: translate3d(0, 600%, 0);
+        to {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
     }
 
-    to {
-        opacity: 1;
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-@keyframes fadeInUp2 {
-    from {
-        opacity: 0;
-        -webkit-transform: translate3d(0, 60%, 0);
-        transform: translate3d(0, 60%, 0);
+    .fadeInUp1 {
+        animation-name: fadeInUp;
+        animation-duration: 1.5s;
+        animation-fill-mode: both;
+        animation-delay: 0.8s;
     }
 
-    to {
-        opacity: 1;
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-    }
-}
+    @-webkit-keyframes fadeInUp2 {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 600%, 0);
+            transform: translate3d(0, 600%, 0);
+        }
 
-.fadeInUp2 {
-    animation-name: fadeInUp;
-    animation-duration: 1.5s;
-    animation-fill-mode: both;
-    animation-delay: 0.2s;
-}
+        to {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes fadeInUp2 {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 60%, 0);
+            transform: translate3d(0, 60%, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .fadeInUp2 {
+        animation-name: fadeInUp;
+        animation-duration: 1.5s;
+        animation-fill-mode: both;
+        animation-delay: 0.2s;
+    }
 
     ${media.maxWidth("md")`
         margin: 0px;`};

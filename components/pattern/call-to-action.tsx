@@ -51,7 +51,7 @@ const CallToActionContainer = styled.div`
         background: linear-gradient(45deg, rgba(85,219,212,1) 5%, rgba(85,219,212,0.6) 30%, rgba(85,219,212,0.2) 60%, rgba(85,219,212,0.6) 70%, rgba(85,219,212,1) 95%);
         background-size: 200% 200%;
         animation: gradient 12s ease infinite;
-    
+
     @keyframes gradient {
         0% {
             background-position: 0% 50%;

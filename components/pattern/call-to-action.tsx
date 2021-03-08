@@ -37,42 +37,52 @@ const CallToAction = (props: ICallToActionProps) => {
 }
 
 const CallToActionContainer = styled.div`
-    background-color: ${(props) => props.theme.color.background};
     padding-bottom: ${(props) => props.theme.spacing.xxl};
     padding-top: ${(props) => props.theme.spacing.xl};
     text-align: center;
 
+    h2 {
+        font-size: calc(2 * ${(props) => props.theme.fontSize.l});
+    }
+
     h1,
     h2,
     h3 {
-        font-family: ${(props) => props.theme.secondaryFont.name};
-        font-size: calc(2 * ${(props) => props.theme.fontSize.xxl});
-        font-weight: ${(props) => props.theme.fontWeight.light};
-        margin-bottom: ${(props) => props.theme.spacing.none};
-        margin-top: ${(props) => props.theme.spacing.none};
-        background: linear-gradient(45deg, rgba(85,219,212,1) 0%, rgba(51,131,127,1) 64%, rgba(85,219,212,0.2) 83%, rgba(68,175,169,1) 100%);
-        animation: gradient 4s ease infinite;
+        background: linear-gradient(45deg, rgba(85,219,212,1) 5%, rgba(85,219,212,0.6) 30%, rgba(85,219,212,0.2) 60%, rgba(85,219,212,0.6) 70%, rgba(85,219,212,1) 95%);
+        background-size: 200% 200%;
+        animation: gradient 12s ease infinite;
+    
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        25% {
+            background-position: 100% 50%;
+        }
+        50% {
+            background-position: 100% 0%;
+        }
+        75% {
+            background-position: 50% 100%;
+        }
+        100% {
+            background-position: 50% 0%;
+        }
+    }
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
         background-size: 400% 400%;
-
+        color: white;
+        font-family: ${(props) => props.theme.secondaryFont.name};
+        font-style: normal;
+        font-weight: 300;
+        margin-bottom: ${(props) => props.theme.spacing.xxs};
+        margin-top: ${(props) => props.theme.spacing.xxs};
     }
 
     p {
         font-size: ${(props) => props.theme.fontSize.l};
         color: #606060;
-    }
-
-    @keyframes gradient {
-        0% {
-            background-position: 0% 0%;
-        }
-        50% {
-            background-position: 100% 100%;
-        }
-        100% {
-            background-position: 0% 0%;
-        }
     }
 
     ${media.maxWidth("md")`

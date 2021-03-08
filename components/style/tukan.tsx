@@ -81,6 +81,7 @@ p {
     margin-bottom: 0.5em;
     margin-top: 0.5em;
     font-weight: light;
+    letter-spacing: 0.05em;
 }
 
 @media (max-width: 768px) {
@@ -226,7 +227,7 @@ const defaultTheme = {
     },
     secondaryFont: {
         name: "Playfair Display",
-        url: "https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+        url: "https://fonts.googleapis.com/css2?family=Playfair&display=swap"
     },
     gridConfig: {
         gridWidth: "1024px",

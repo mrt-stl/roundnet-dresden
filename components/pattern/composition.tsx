@@ -1,8 +1,8 @@
 import parse from "html-react-parser"
+import { useInView } from "react-hook-inview"
 import styled from "styled-components"
 import { TGrid, TCol } from "../style/sc-grid"
 import { media } from "../style/tukan"
-import TukanImage from "../elements/tukan-image"
 import Divider from "../elements/divider"
 
 export interface ICompositionProps {
@@ -32,6 +32,11 @@ const Composition = (props: ICompositionProps) => {
         compositionStatementContent,
     } = props
 
+    const [ref, isVisible] = useInView({
+        unobserveOnEnter: true,
+        threshold: 0.2,
+    })
+
     return (
         <CompositionContainer>
             <StageContainer>
@@ -47,59 +52,112 @@ const Composition = (props: ICompositionProps) => {
                 </StyledBackground>
             </StageContainer>
 
-            <StyledBackground background={compositionBackground2.url} height="auto">
-                <CompositionGrid valign="center" height="100%">
+                <CompositionGrid height="100%">
                     <CompositionCol size={1 / 2} collapse="md">
 
-                        <Divider marginTop="100px" marginBottom="50px"/>
+                    <Divider marginTop="8em" marginBottom="3em"/>
                         <div>{parse(compositionContent)}</div>
                     </CompositionCol>
                 </CompositionGrid>
 
-                <CompositionGrid valign="center" halign="center" height="100%" style={{ textAlign: "left" }}>
+                    <XBackground background={compositionBackground2.url} height="600px" style={{ marginTop: "4em" }} />
 
-                    <Divider marginTop="250px" />
-                    <CompositionCol size={1} collapse="md">
-                        <div>{parse(compositionStatement)}</div>
-                    </CompositionCol>
+                <CompositionGrid height="100%" style={{ textAlign: "left" }}>
+
+                    <Divider marginTop="20em" marginBottom="2em"/>
+                        <CompositionCol size={1} collapse="md">
+                            <div>{parse(compositionStatement)}</div>
+                        </CompositionCol>
 
                     <CompositionCol size={2 / 3} collapse="md">
                         <div>{parse(compositionStatementContent)}</div>
                     </CompositionCol>
                 </CompositionGrid>
 
+
+                {/* Gallery Pattern */}
+
                 <GalleryGrid valign="center">
-                    <GalleryCol01>
-                        <TukanImage src={compositionGallery1.url} alt={compositionGallery1.alt} height="auto" />
+                    <GalleryCol01 ref={ref} size={1 / 2}>
+                        {isVisible ? (
+                            <div className="fadeInUp">
+                                <img src={compositionGallery1.url} alt={compositionGallery1.alt} height="auto" />
+                            </div>) : (
+                            <div style={{ display: "none" }}>
+                                <img src={compositionGallery1.url} alt={compositionGallery1.alt} height="auto" />
+                            </div>)
+                        }
                     </GalleryCol01>
-                    <GalleryCol02>
-                        <TukanImage src={compositionGallery2.url} alt={compositionGallery2.alt} height="auto" />
+                    <GalleryCol02 ref={ref} size={1 / 2}>
+                        {isVisible ? (
+                            <div className="fadeInUp1">
+                                <img src={compositionGallery2.url} alt={compositionGallery2.alt} height="auto" />
+                            </div>) : (
+                            <div style={{ display: "none" }}>
+                                <img src={compositionGallery2.url} alt={compositionGallery2.alt} height="auto" />
+                            </div>)
+                        }
                     </GalleryCol02>
-                    <GalleryCol03>
-                        <TukanImage src={compositionGallery3.url} alt={compositionGallery3.alt} height="auto" />
+                    <GalleryCol03 ref={ref} size={1 / 2} collapse="md">
+                        {isVisible ? (
+                            <div className="fadeInUp2">
+                                <img src={compositionGallery3.url} alt={compositionGallery3.alt} height="auto" />
+                            </div>) : (
+                            <div style={{ display: "none" }}>
+                                <img src={compositionGallery3.url} alt={compositionGallery3.alt} height="auto" />
+                            </div>)
+                        }
                     </GalleryCol03>
                 </GalleryGrid>
-            </StyledBackground>
         </CompositionContainer>
     )
 }
 
 const CompositionContainer = styled.div`
 
+    h1 {
+        font-size: calc(2 * ${(props) => props.theme.fontSize.xl});
+    }
+
+h2 {
+    font-size: calc(2 * ${(props) => props.theme.fontSize.l});
+}
+
+h3 {
+    font-size: calc(${(props) => props.theme.fontSize.l});
+} 
+
     h1,
     h2,
     h3 {
-        background: linear-gradient(45deg, rgba(85,219,212,1) 0%, rgba(51,131,127,1) 64%, rgba(85,219,212,0.2) 83%, rgba(68,175,169,1) 100%);
-        animation: gradient 4s ease infinite;
+        background: linear-gradient(45deg, rgba(85,219,212,1) 5%, rgba(85,219,212,0.6) 30%, rgba(85,219,212,0.2) 60%, rgba(85,219,212,0.6) 70%, rgba(85,219,212,1) 95%);
+        background-size: 200% 200%;
+        animation: gradient 12s ease infinite;
+    
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        25% {
+            background-position: 100% 50%;
+        }
+        50% {
+            background-position: 100% 0%;
+        }
+        75% {
+            background-position: 50% 100%;
+        }
+        100% {
+            background-position: 50% 0%;
+        }
+    }
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
         background-size: 400% 400%;
         color: white;
         font-family: ${(props) => props.theme.secondaryFont.name};
-        font-size: calc(2 * ${(props) => props.theme.fontSize.xl});
         font-style: normal;
-        font-weight: normal;
-        letter-spacing: 0.04em;
+        font-weight: 300;
         margin-bottom: ${(props) => props.theme.spacing.xxs};
         margin-top: ${(props) => props.theme.spacing.xxs};
     }
@@ -165,6 +223,15 @@ const StyledBackground = styled.div<{ background: string; height: string }>`
     height: ${(props) => props.height};
 `
 
+const XBackground = styled.div<{ background: string; height: string }>`
+    background-image: linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(0,0,0,0) 50%, rgba(0,0,0,1) 95%), url(${(props) => props.background});
+    background-color: ${({ theme }) => theme.projectColors.background};
+    background-size: cover;
+    background-position: bottom center;
+    width: 100%;
+    height: ${(props) => props.height};
+`
+
 const CompositionGrid = styled(TGrid)<{ height: string; alignContent?: string }>`
     height: ${(props) => props.height};
     align-content: ${(props) => props.alignContent};
@@ -180,13 +247,116 @@ const CompositionCol = styled(TCol)`
 `
 
 const GalleryGrid = styled(TGrid)`
+    .fadeInUp {
+        animation-name: fadeInUp;
+        animation-duration: 1.5s;
+        animation-fill-mode: both;
+        animation-delay: 0.6s;
+    }
+
+    @-webkit-keyframes fadeInUp {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 40%, 0);
+            transform: translate3d(0, 40%, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 40%, 0);
+            transform: translate3d(0, 40%, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+@-webkit-keyframes fadeInUp1 {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 20%, 0);
+        transform: translate3d(0, 20%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeInUp1 {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 20%, 0);
+        transform: translate3d(0, 20%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInUp1 {
+    animation-name: fadeInUp;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+    animation-delay: 0.8s;
+}
+
+@-webkit-keyframes fadeInUp2 {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 600%, 0);
+        transform: translate3d(0, 600%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeInUp2 {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 60%, 0);
+        transform: translate3d(0, 60%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInUp2 {
+    animation-name: fadeInUp;
+    animation-duration: 1.5s;
+    animation-fill-mode: both;
+    animation-delay: 0.2s;
+}
+
     ${media.maxWidth("md")`
         margin: 0px;`};
 `
 
 const GalleryCol01 = styled(TCol)`
-    flex-basis: 40%;
-    max-width: 40%;
     padding-right: 80px;
     padding-top: 230px;
     padding-left: 0px;
@@ -198,7 +368,7 @@ const GalleryCol01 = styled(TCol)`
     ${media.maxWidth("md")`
         padding-right: 0px;
         padding-left: 0px;
-        padding-top: 60px;
+        padding-top: 120px;
 
         img {
             height: 200px;
@@ -207,8 +377,6 @@ const GalleryCol01 = styled(TCol)`
 `
 
 const GalleryCol02 = styled(TCol)`
-    flex-basis: 50%;
-    max-width: 50%;
     padding-left: 80px;
     margin-top: -150px;
 
@@ -220,6 +388,8 @@ const GalleryCol02 = styled(TCol)`
         padding-right: 0px;
         padding-top: 0px;
         padding-left: 60px;
+        margin-top: 0px;
+
 
         img {
             height: 140px;
@@ -228,8 +398,6 @@ const GalleryCol02 = styled(TCol)`
 `
 
 const GalleryCol03 = styled(TCol)`
-    flex-basis: 50%;
-    max-width: 50%;
     margin-left: 60%;
     padding-right: 100px;
     margin-top: -250px;
@@ -240,11 +408,14 @@ const GalleryCol03 = styled(TCol)`
 
     ${media.maxWidth("md")`
         padding-right: 0px;
-        padding-top: 40px;
-        margin-top: -140px;
+        padding-top: 20px;
+        margin-top: 0px;
+        margin-left: 20px;
+        margin-right: 20px;
 
         img {
-            height: 200px;
+            height: 220px;
+            width: 100%;
         }
     `}
 `

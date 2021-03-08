@@ -9,7 +9,7 @@
     "builds": [
         {
             "src": "next.config.js",
-            "use": "@now/next"
+            "use": "@vercel/next"
         },
         {
             "src": "static/*",
@@ -23,7 +23,7 @@
             "prismic_endpoint": "https://derjugendchorde.cdn.prismic.io/api/v2",
             "prismic_access_token": "MC5ZQ0VJUVJFQUFDZ0FxNjVI.77-977-9H3fvv73vv71977-9NhXvv70c77-9XBMJTzfvv70a77-977-9BVt_Je-_ve-_vVLvv70KRA",
             "nav": "[ {\"name\": \"Start\", \"link\": \"/\"} ]",
-            "font": "{\"url\": \"https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap\", \"name\": \"playfair-display\" }",
+            "font": "{\"url\": \"https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap\", \"name\": \"Cormorant Garamond\" }",
             "cookie": "{\"link\": \"\"}",
             "colors": "{ \"primary\": \"#000000\", \"secondary\": \"#ffffff\", \"accent\": \"#55DBD4\", \"background\": \"#000000\" }",
             "dark_mode": "off",

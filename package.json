@@ -50,9 +50,7 @@
         "shopify-buy": "^2.9.0",
         "sitemap": "^5.0.0",
         "styled-components": "^5.2.0",
-        "styled-components-breakpoint": "^3.0.0-preview.20",
         "styled-components-breakpoints": "^1.0.0",
-        "styled-components-grid": "^2.2.2",
         "use-dark-mode": "^2.3.1",
         "vercel": "^20.1.2"
     },
@@ -75,7 +73,6 @@
         "eslint-plugin-security": "^1.4.0",
         "firebase-admin": "^8.3.0",
         "jest": "^24.9.0",
-        "now": "^19.2.0",
         "react-addons-test-utils": "^15.6.2",
         "react-test-renderer": "^16.10.2",
         "start-server-and-test": "^1.10.11",

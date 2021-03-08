@@ -68,7 +68,7 @@ const Index = (props: IIndexProps) => {
                 </ThemeProvider>
 
                 {showCookieNotification ?
-                    <CookieNotification
+                    <CookieNotification 
                         link={project.cookieLink} /> :
                     <div />
                 }

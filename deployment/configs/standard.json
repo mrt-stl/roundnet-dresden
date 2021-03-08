@@ -1,6 +1,7 @@
 {
     "version": 2,
-    "name": "local",
+    "name": "standard",
+    "alias": "standard.tukan.dev",
     "public": false,
     "regions": [
         "all"
@@ -17,14 +18,14 @@
     ],
     "build": {
         "env": {
-            "url": "https://derjugendchor.de/",
-            "name": "derjugendchor",
-            "prismic_endpoint": "https://derjugendchorde.cdn.prismic.io/api/v2",
-            "prismic_access_token": "MC5ZQ0VJUVJFQUFDZ0FxNjVI.77-977-9H3fvv73vv71977-9NhXvv70c77-9XBMJTzfvv70a77-977-9BVt_Je-_ve-_vVLvv70KRA",
+            "url": "https://standard.tukan.dev/",
+            "name": "standard",
+            "prismic_endpoint": "https://standard.cdn.prismic.io/api/v2",
+            "prismic_access_token": "MC5YTWJpUFJFQUFDSUF0MzB2.77-977-977-977-9ae-_ve-_ve-_ve-_ve-_vWzvv70a77-9Yu-_vRvvv73vv71m77-977-977-9fGFE77-9Q0Hvv73vv70k",
             "nav": "[ {\"name\": \"Start\", \"link\": \"/\"} ]",
             "font": "{\"url\": \"https://fonts.googleapis.com/css2?family=Inter&display=swap\", \"name\": \"Inter\" }",
             "cookie": "{\"link\": \"\"}",
-            "colors": "{ \"primary\": \"#744244\", \"secondary\": \"#ffffff\", \"accent\": \"#55DBD4\", \"background\": \"#000000\" }",
+            "colors": "{ \"primary\": \"#000000\", \"secondary\": \"#ffffff\", \"accent\": \"#55DBD4\", \"background\": \"#000000\" }",
             "dark_mode": "off",
             "caching_duration": "0",
             "project_id": "derjugendchor",

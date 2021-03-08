@@ -136,7 +136,7 @@ const HeroImageContentContainer = styled.div`
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
         background-size: 400% 400%;
-        font-weight: ${(props) => props.theme.fontWeight.regular};
+        font-weight: ${(props) => props.theme.fontWeight.light};
     }
     `
 

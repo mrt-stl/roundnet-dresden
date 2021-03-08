@@ -62,7 +62,7 @@ const Nav = (props: INavProps) => {
             </StyledBurger>
             <MenuContainer open={open}>
                 <MenuContent>
-                        <p className="test">Übersicht</p>
+                        <p className="menu-title">Übersicht</p>
 
                         {navLoading ? "" : navLinks.map((element, index) => {
                         return (
@@ -162,7 +162,7 @@ const StyledBurger = styled.button<{ open?: boolean }>`
         transition: all 0.2s linear;
         position: relative;
         transform-origin: 4.5px;
-    
+
         :first-child {
           transform: ${({ open }) => open ? "rotate(45deg)" : "rotate(0)"};
           width: ${({ open }) => open ? "24px" : "24px"}
@@ -191,8 +191,9 @@ const MenuContainer = styled.nav<{ open?: boolean }>`
     z-index: 10;
     align-items: center;
     display: flex;
+    visibility: ${({open}) => open ? "visible" : "hidden"};
 
-    .test {
+    .menu-title {
         transition: transform 0.4s ease-in-out 0.15s, opacity 0.4s ease-in-out 0.15s;
         opacity: ${({ open }) => open ? "1" : "0"};
         color: #ffffff;
@@ -203,7 +204,6 @@ const MenuContainer = styled.nav<{ open?: boolean }>`
         transform: ${({ open }) => open ? "translateX(0px)" : "translateX(-12px)"};
     }
 
-    transform: ${({ open }) => open ? "translateX(0)" : "translateX(0)"};
     opacity: ${({ open }) => open ? "1" : "0"};
 `
 

@@ -30,7 +30,7 @@ const Footer = (props: IFooterProps) => {
                 footerLinksArr.push(link)
             })
 
-            footerWaterMarkString = `Gemacht für ${props.data.data.footer_watermark}`
+            footerWaterMarkString = `${props.data.data.footer_watermark}`
 
             const footerSMData = props.data.data.footer_links_right
             footerSMData.map((element) => {
@@ -69,7 +69,7 @@ const Footer = (props: IFooterProps) => {
                             </TCol>
 
                             <TCol size={1 / 3} collapse="md" talign="center">
-                                <Typewriter strArr={["Gemacht mit Stadtteilliebe", "STL x Der Jugendchor"]} />
+                                <Typewriter strArr={["Gemacht mit Stadtteilliebe", footerWatermark]} />
                             </TCol>
 
                             <TCol size={1 / 3} collapse="md" talign="right">

@@ -8,7 +8,7 @@
     "builds": [
         {
             "src": "next.config.js",
-            "use": "@now/next"
+            "use": "@vercel/next"
         },
         {
             "src": "static/*",

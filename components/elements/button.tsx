@@ -21,7 +21,7 @@ const Button = (props: IButtonProps) => {
 const StyledButton = styled.a<{ bgColor?: string, color?: string }>`
     text-decoration: none;
     transition: all 0.3s ease-in-out;
-    background-color: ${(props) => (props.bgColor ? props.bgColor : props.theme.projectColors.accent)};
+    border: 1px solid ${(props) => (props.bgColor ? props.bgColor : props.theme.projectColors.accent)};
     display: inline-block;
     padding-left: ${(props) => props.theme.spacing.s};
     padding-right: ${(props) => props.theme.spacing.s};

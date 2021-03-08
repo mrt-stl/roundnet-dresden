@@ -62,17 +62,15 @@ const Nav = (props: INavProps) => {
             </StyledBurger>
             <MenuContainer open={open}>
                 <MenuContent>
-                    
-                <p className="test">Menu</p>
+                        <p className="test">Übersicht</p>
 
-                        {navLinks.map((element) => {
-                            return (
-                    
+                        {navLoading ? "" : navLinks.map((element, index) => {
+                        return (
+                            <div key={index}>
                                 <NavLink href={element.href} linkContent={element.linkContent} />
-                                )
-                            })
-                        }
-
+                            </div>
+                        )
+                    })}
                 </MenuContent>
             </MenuContainer>
 
@@ -194,6 +192,17 @@ const MenuContainer = styled.nav<{ open?: boolean }>`
     align-items: center;
     display: flex;
 
+    .test {
+        transition: transform 0.4s ease-in-out 0.15s, opacity 0.4s ease-in-out 0.15s;
+        opacity: ${({ open }) => open ? "1" : "0"};
+        color: #ffffff;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        transform: ${({ open }) => open ? "translateX(0px)" : "translateX(-12px)"};
+    }
+
     transform: ${({ open }) => open ? "translateX(0)" : "translateX(0)"};
     opacity: ${({ open }) => open ? "1" : "0"};
 `
@@ -204,14 +213,6 @@ const MenuContent = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 20vh;
-
-    .test {
-        color: #ffffff;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 20px;
-    }
 `
 
 export default Nav

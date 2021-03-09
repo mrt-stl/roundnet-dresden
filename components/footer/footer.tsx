@@ -98,7 +98,7 @@ const FooterGrid = styled(TGrid)`
 `
 
 const FooterContainer = styled.div`
-    background-color: ${(props) => props.theme.projectColors.background};
+    background-color: #55dbd4;
     height: auto;
     font-size: 14px;
 
@@ -114,11 +114,16 @@ const FooterContainer = styled.div`
     }
 
     ${media.maxWidth("md")`
-        * {
-            text-align: center !important;
+        a {
+            color: #000000;
         }
 
-        margin: ${(props) => props.theme.spacing.m} ${(props) => props.theme.spacing.s};
+        * {
+            text-align: left !important;
+            color: #000000;
+        }
+
+        /* margin: ${(props) => props.theme.spacing.m} ${(props) => props.theme.spacing.s}; */
     `};
 `
 

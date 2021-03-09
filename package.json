@@ -6,6 +6,7 @@
     },
     "scripts": {
         "local": "vercel dev -A ./deployment/local.json",
+        "standard": "vercel dev -A ./deployment/standard.json",
         "build": "next build",
         "start": "next start -p $PORT",
         "deploy-dev": "node deployment/development.js",

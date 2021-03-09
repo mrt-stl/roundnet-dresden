@@ -40,6 +40,9 @@ const StyledButton = styled.a<{ bgColor?: string, color?: string }>`
 
     ${media.maxWidth("md")`
 
+        padding-top: 16px;
+        padding-bottom: 16px;
+        font-size: 14px;
         background-position: center;
         transition: background 0.3s;
 

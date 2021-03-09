@@ -302,8 +302,9 @@ const matchComponent = (model: TukanModel, index: number) => {
             component =
                 <Stage
                     key={index}
-                    title={stageModel.title}
-                    content={stageModel.content} />
+                    headline={stageModel.headline}
+                    content={stageModel.content}
+                    backgroundImage={stageModel.backgroundImage} />
             break
 
         case TukanType.StageBlog:

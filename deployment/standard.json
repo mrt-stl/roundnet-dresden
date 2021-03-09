@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "standard",
+    "name": "local",
     "public": false,
     "regions": [
         "all"

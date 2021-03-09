@@ -46,7 +46,7 @@ const Index = (props: IIndexProps) => {
     const showBanner = project.showBanner === ShowBannerType.ON
 
     return (
-        <div className="gemacht-mit-stadtteilliebe">
+        <div className="tukan">
                 <Meta
                     data={meta} />
 

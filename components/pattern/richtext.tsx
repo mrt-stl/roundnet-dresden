@@ -28,7 +28,7 @@ const Richtext = (props: IRichtextProps) => {
 
 const RichtextContainer = styled.div`
     padding-bottom: ${(props) => props.theme.spacing.xxl};
-    background-color: ${(props) => props.theme.projectColors.background};
+    background-color: #202020;
     p {
         color: ${(props) => (isColorLight(props.theme.projectColors.background) ? "#000000" : "#FFFFFF")};
         line-height: 32px;

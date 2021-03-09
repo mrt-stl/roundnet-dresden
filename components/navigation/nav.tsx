@@ -1,6 +1,5 @@
 import NavLink from "./nav-link"
 import Project from "../../models/config/project"
-import { tukanConfig } from "../style/tukan"
 import { linkResolver } from "../../utils/prismic-utils"
 import styled from "styled-components"
 import { TGrid } from "../style/sc-grid"
@@ -30,6 +29,7 @@ const Nav = (props: INavProps) => {
         const navLinksArr = []
         let navLogoObject: any = {}
         let navAlign: boolean
+
         if (props.data) {
             const navData = props.data.data.nav_links
             navData.map((element) => {
@@ -56,6 +56,9 @@ const Nav = (props: INavProps) => {
 
     return (
         <nav>
+            <Branding1 href="/">
+                <TukanImage src={navLogo.src} alt={navLogo.alt} height="auto" width="auto" />
+            </Branding1>
             <StyledBurger open={open} onClick={handleClick}>
                 <span />
                 <span />
@@ -66,7 +69,7 @@ const Nav = (props: INavProps) => {
 
                         {navLoading ? "" : navLinks.map((element, index) => {
                         return (
-                            <div key={index}>
+                            <div className="menu-item" key={index}>
                                 <NavLink href={element.href} linkContent={element.linkContent} />
                             </div>
                         )
@@ -76,18 +79,18 @@ const Nav = (props: INavProps) => {
 
             <NavContainer>
                 <NavGrid halign={navAlignment ? "right" : "left"}>
-                    <Branding href="/" halign={navAlignment}>
-                        <TukanImage src={navLogo.src} alt={navLogo.alt} height="48px" width="auto" />
-                    </Branding>
-                    {navLoading ? "" : navLinks.map((element, index) => {
-                        const hideMobileIndex = project.useShopView ? -1 : 0
-                        const hideMobile = index !== hideMobileIndex ? "desktop-nav" : "h-100"
-                        return (
-                            <div className={"align-items-center " + hideMobile} key={index}>
-                                <NavLink href={element.href} linkContent={element.linkContent} />
-                            </div>
-                        )
-                    })}
+                        <Branding href="/" halign={navAlignment}>
+                            <TukanImage src={navLogo.src} alt={navLogo.alt} height="48px" width="auto" />
+                        </Branding>
+                        {navLoading ? "" : navLinks.map((element, index) => {
+                            const hideMobileIndex = project.useShopView ? -1 : 0
+                            const hideMobile = index !== hideMobileIndex ? "desktop-nav" : "h-100"
+                            return (
+                                <div className={"align-items-center " + hideMobile} key={index}>
+                                    <NavLink href={element.href} linkContent={element.linkContent} />
+                                </div>
+                            )
+                        })}
                 </NavGrid>
             </NavContainer>
         </nav>
@@ -95,15 +98,14 @@ const Nav = (props: INavProps) => {
 }
 
 const NavContainer = styled.div`
-    z-index: 100;
+    /* background-color: ${(props) => props.color ? props.color : props.theme.projectColors.secondary}; */
     overflow: hidden;
+    padding-bottom: ${(props) => props.theme.spacing.l};
+    padding-top: ${(props) => props.theme.spacing.l};
+    position: absolute;
     top: 0;
     width: 100%;
-    height: ${tukanConfig.navHeight};
-    background-color: #000000;
-    padding-top: 60px;
-    padding-bottom: 60px;
-    position: absolut;
+    z-index: 100;
 
     a {
         background-image: none;
@@ -122,8 +124,23 @@ const NavGrid = styled(TGrid)`
 const Branding = styled.a<{ halign: boolean; }>`
     margin-right: ${props => props.halign ? "auto" : "10px"};
     width: auto;
+
     img {
         object-fit: contain;
+    }
+`
+
+const Branding1 = styled.a `
+    ${media.minWidth("md")`
+        display: none;
+    `};
+
+        position: absolute;
+        top: 62px;
+        left: 60px;
+
+    img {
+        height: 32px;
     }
 `
 
@@ -194,14 +211,41 @@ const MenuContainer = styled.nav<{ open?: boolean }>`
     visibility: ${({open}) => open ? "visible" : "hidden"};
 
     .menu-title {
-        transition: transform 0.4s ease-in-out 0.15s, opacity 0.4s ease-in-out 0.15s;
-        opacity: ${({ open }) => open ? "1" : "0"};
         color: #ffffff;
         font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 2px;
         margin-bottom: 20px;
-        transform: ${({ open }) => open ? "translateX(0px)" : "translateX(-12px)"};
+    }
+
+    .menu-item:nth-child(2) {
+        transition: transform 0.25s ease-in-out 0.15s, opacity 0.25s ease-in-out 0.15s;
+        color: #ffffff;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: ${({ open }) => open ? "1" : "0"};
+        transform: ${({ open }) => open ? "translateY(0px)" : "translateY(-8px)"};
+    } 
+
+    .menu-item:nth-child(3) {
+        transition: transform 0.25s ease-in-out 0.25s, opacity 0.25s ease-in-out 0.25s;
+        color: #ffffff;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: ${({ open }) => open ? "1" : "0"};
+        transform: ${({ open }) => open ? "translateY(0px)" : "translateY(-8px)"};
+    }
+
+    .menu-item:nth-child(3) {
+        transition: transform 0.25s ease-in-out 0.35s, opacity 0.25s ease-in-out 0.35s;
+        color: #ffffff;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: ${({ open }) => open ? "1" : "0"};
+        transform: ${({ open }) => open ? "translateY(0px)" : "translateY(-8px)"};
     }
 
     opacity: ${({ open }) => open ? "1" : "0"};

@@ -231,10 +231,11 @@ const mapResultToModel = (slice: any): TukanModel | null => {
         case "stage":
             const stagePrimary = slice.primary
 
-            const stageTitle = asText(stagePrimary.stage_title)
-            const stageContent = asHtml(stagePrimary.stage_sub_title)
+            const stageHeadline = asText(stagePrimary.stage_headline)
+            const stageContent = asHtml(stagePrimary.stage_content)
+            const stageBackgroundImage = stagePrimary.stage_background_image
 
-            const stageModel = new StageModel(stageTitle, stageContent)
+            const stageModel = new StageModel(stageHeadline, stageContent, stageBackgroundImage)
             return stageModel
 
         case "stage_blog":

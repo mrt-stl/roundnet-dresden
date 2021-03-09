@@ -7,7 +7,6 @@ export const tukanConfig = {
 
 export const GlobalStyles = createGlobalStyle`
 html, body {
-    background-color: var(--background);
     font-family: ${({ theme }) => theme.primaryFont.name}, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;

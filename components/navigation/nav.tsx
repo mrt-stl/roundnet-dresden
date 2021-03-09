@@ -100,8 +100,8 @@ const Nav = (props: INavProps) => {
 const NavContainer = styled.div`
     /* background-color: ${(props) => props.color ? props.color : props.theme.projectColors.secondary}; */
     overflow: hidden;
-    padding-bottom: ${(props) => props.theme.spacing.l};
-    padding-top: ${(props) => props.theme.spacing.l};
+    padding-bottom: 4em;
+    padding-top: 4em;
     position: absolute;
     top: 0;
     width: 100%;
@@ -121,7 +121,7 @@ const NavGrid = styled(TGrid)`
     height: 100%;
 `
 
-const Branding = styled.a<{ halign: boolean; }>`
+const Branding = styled.a<{ halign: boolean }>`
     margin-right: ${props => props.halign ? "auto" : "10px"};
     width: auto;
 

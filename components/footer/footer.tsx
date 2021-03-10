@@ -62,6 +62,11 @@ const Footer = (props: IFooterProps) => {
                                 {footerLinks.map((element, index) => {
                                     return (
                                         <div key={index}>
+                                                                                    <div>
+                                            Stadtteilliebe
+                                            Schweriner Straße 63
+                                            01067 Dresden
+                                        </div>
                                             <a href={element.href}>{element.linkContent}</a>
                                         </div>
                                     )
@@ -98,13 +103,12 @@ const FooterGrid = styled(TGrid)`
 `
 
 const FooterContainer = styled.div`
-    background-color: #55dbd4;
+    background-color: #ffffff;
     height: auto;
     font-size: 14px;
 
     a {
-        text-transform: uppercase;
-        color: ${(props) => props.theme.projectColors.accent};
+        color: #000000;
         transition: all 0.1s ease-in-out;
     }
 

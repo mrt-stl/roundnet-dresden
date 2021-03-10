@@ -36,6 +36,7 @@ const StyledButton = styled.a<{ bgColor?: string, color?: string }>`
         padding-left: calc(${(props) => props.theme.spacing.m});
         padding-right: calc(${(props) => props.theme.spacing.m});
         transition: all 0.25s ease-in-out;
+        backdrop-filter: blur(10px);
     }
 
     ${media.maxWidth("md")`

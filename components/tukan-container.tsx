@@ -304,6 +304,8 @@ const matchComponent = (model: TukanModel, index: number) => {
                     key={index}
                     headline={stageModel.headline}
                     content={stageModel.content}
+                    btnLabel={stageModel.btnLabel}
+                    btnLink={stageModel.btnLink}
                     backgroundImage={stageModel.backgroundImage} />
             break
 

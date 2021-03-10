@@ -1,11 +1,12 @@
+import { isUndefinedOrNullOrEmpty } from "../../utils/object-utils"
+import { linkResolver } from "../../utils/prismic-utils"
+import { media } from "../style/tukan"
+import { TGrid } from "../style/sc-grid"
+import { useState, useEffect } from "react"
 import NavLink from "./nav-link"
 import Project from "../../models/config/project"
-import { linkResolver } from "../../utils/prismic-utils"
 import styled from "styled-components"
-import { TGrid } from "../style/sc-grid"
 import TukanImage from "../elements/tukan-image"
-import { useState, useEffect } from "react"
-import { media } from "../style/tukan"
 
 interface INavProps {
     data: any
@@ -13,6 +14,8 @@ interface INavProps {
 
 const Nav = (props: INavProps) => {
     const project = Project.getInstance()
+
+    const projectId = !isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "standard"
 
     const [navLinks, setNavLinks] = useState([{ href: "/", linkContent: "Loading..." }])
     const [navLogo, setNavLogo] = useState({ src: "", alt: "Logo" })
@@ -63,7 +66,7 @@ const Nav = (props: INavProps) => {
                 <span />
                 <span />
             </StyledBurger>
-            <MenuContainer open={open}>
+            <MenuContainer open={open} background={"https://s3.eu-central-1.amazonaws.com/kranich/icons/" + projectId + "/" + "test.jpeg"}>
                 <MenuContent>
                         <p className="menu-title">Übersicht</p>
 
@@ -100,15 +103,14 @@ const Nav = (props: INavProps) => {
 const NavContainer = styled.div`
     /* background-color: ${(props) => props.color ? props.color : props.theme.projectColors.secondary}; */
     overflow: hidden;
-    padding-bottom: 4em;
-    padding-top: 4em;
+    top: 64px;
     position: absolute;
-    top: 0;
     width: 100%;
     z-index: 100;
 
     a {
         background-image: none;
+        color: #ffffff;
     }
 
     @media only screen and (max-width: 768px) {
@@ -191,13 +193,13 @@ const StyledBurger = styled.button<{ open?: boolean }>`
     }
 `
 
-const MenuContainer = styled.nav<{ open?: boolean }>`
+const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
     ${media.minWidth("md")`
         display: none;
     `};
 
     background: #000000;
-    background-image: url(../static/img/bg.svg);
+    background-image: url(${(props) => props.background});
     background-size: cover;
     background-position: center center;
     height: 100vh;

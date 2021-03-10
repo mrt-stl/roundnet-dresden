@@ -25,7 +25,7 @@
             "nav": "[ {\"name\": \"Start\", \"link\": \"/\"} ]",
             "font": "{\"url\": \"https://fonts.googleapis.com/css2?family=Inter&display=swap\", \"name\": \"Inter\" }",
             "cookie": "{\"link\": \"\"}",
-            "colors": "{ \"primary\": \"#000000\", \"secondary\": \"#ffffff\", \"accent\": \"#55DBD4\", \"background\": \"#abcdef\" }",
+            "colors": "{ \"primary\": \"#000000\", \"primaryVariant\": \"#000000\", \"secondary\": \"#ffffff\", \"secondaryVariant\": \"#ffffff\", \"background\": \"#ffffff\", \"surface\": \"#ffffff\", \"onPrimary\": \"#000000\", \"onSecondary\": \"#000000\", \"onBackground\": \"#000000\" }",
             "dark_mode": "off",
             "caching_duration": "0",
             "project_id": "standard",

@@ -233,9 +233,11 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const stageHeadline = asText(stagePrimary.stage_headline)
             const stageContent = asHtml(stagePrimary.stage_content)
+            const stageBtnLabel = stagePrimary.stage_btn_label
+            const stageBtnLink = linkResolver(stagePrimary.stage_btn_link)
             const stageBackgroundImage = stagePrimary.stage_background_image
 
-            const stageModel = new StageModel(stageHeadline, stageContent, stageBackgroundImage)
+            const stageModel = new StageModel(stageHeadline, stageContent, stageBtnLabel, stageBtnLink, stageBackgroundImage)
             return stageModel
 
         case "stage_blog":

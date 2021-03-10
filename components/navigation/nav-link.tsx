@@ -34,7 +34,7 @@ const StyledNavLinks = styled.div`
     text-transform: uppercase;
 
     a {
-        color: ${(props) => props.theme.projectColors ? props.theme.projectColors.accent : ""};
+        color: #000000};
         background-image: none;
     }
 

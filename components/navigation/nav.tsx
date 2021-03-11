@@ -152,7 +152,7 @@ const StyledBurger = styled.button<{ open?: boolean }>`
     `};
 
     align-items: center;
-    background: none;
+    background: transparent;
     border: none;
     cursor: pointer;
     display: flex;
@@ -173,6 +173,7 @@ const StyledBurger = styled.button<{ open?: boolean }>`
 
     &:focus {
         outline: none;
+        background: transparent;
     }
 
     span {

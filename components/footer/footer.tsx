@@ -101,7 +101,7 @@ const Footer = (props: IFooterProps) => {
 const FooterContainer = styled.div`
     padding-bottom: ${(props) => props.theme.spacing.xl};
     padding-top: ${(props) => props.theme.spacing.xl};
-    background-color: #ffffff;
+    background-color: ${(props) => props.theme.projectColors.background};
     height: auto;
     font-size: 14px;
 

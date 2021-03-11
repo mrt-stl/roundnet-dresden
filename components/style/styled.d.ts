@@ -20,9 +20,15 @@ declare module 'styled-components' {
     },
     projectColors: { 
         primary: string
+        primaryVariant?: string
+        onPrimary?: string
         secondary: string
-        accent: string
+        secondaryVariant?: string
+        onSecondary?: string
+        surface?: string
         background?: string
+        onBackground?: string
+        accent?: string
     },
     primaryFont: {
         name?: string

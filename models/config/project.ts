@@ -105,7 +105,14 @@ export default class Project {
 
 interface IColors {
     primary?: string
+    primaryVariant?: string
+    onPrimary?: string
     secondary?: string
+    secondaryVariant?: string
+    onSecondary?: string
+    surface?: string
+    background?: string
+    onBackground?: string
     accent?: string
 }
 

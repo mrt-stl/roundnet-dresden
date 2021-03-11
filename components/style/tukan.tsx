@@ -217,8 +217,15 @@ const dark = {
 
 const defaultTheme = {
     projectColors: {
-        primary: "#121212",
-        secondary: "#303030",
+        primary: project.colors.primary,
+        primaryVariant: project.colors.primaryVariant,
+        onPrimary: project.colors.primary,
+        secondary: project.colors.secondary,
+        secondaryVariant: project.colors.primary,
+        onSecondary: project.colors.primary,
+        background: project.colors.primary,
+        onBackground: project.colors.primary,
+        surface: project.colors.primary,
         accent: project.colors.accent,
         white: "#123456"
     },

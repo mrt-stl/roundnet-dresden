@@ -1,5 +1,8 @@
 import breakpoints from "styled-components-breakpoints"
 import { createGlobalStyle, DefaultTheme } from "styled-components"
+import Project from "../../models/config/project"
+
+const project = Project.getInstance()
 
 export const tukanConfig = {
     navHeight: "48px"
@@ -216,7 +219,7 @@ const defaultTheme = {
     projectColors: {
         primary: "#121212",
         secondary: "#303030",
-        accent: "#F83850",
+        accent: project.colors.accent,
         white: "#123456"
     },
 

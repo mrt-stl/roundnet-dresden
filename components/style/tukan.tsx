@@ -403,7 +403,7 @@ h6 {
 p {
 	color: var(--font-color);
 	font-size: 1em;
-	letter-spacing: 0.1px;
+	letter-spacing: 0.05px;
     line-height: 1.5;
     margin-bottom: 0.5em;
     margin-top: 0.5em;

@@ -58,30 +58,29 @@ const Footer = (props: IFooterProps) => {
                         ""
                     ) : (
                         <>
-                            <TCol size={1 / 3} collapse="md" talign="left">
-                                {footerLinks.map((element, index) => {
+                            <TCol size={1 / 5} collapse="md" talign="left">
+                                <div><p>
+                                            Stadtteilliebe<br />
+                                            Schweriner Straße 63<br />
+                                            01067 Dresden</p>
+                                        </div>
+                            </TCol>
+
+                            <TCol size={1 / 5} collapse="md" talign="left">
+                            {footerLinks.map((element, index) => {
                                     return (
                                         <div key={index}>
-                                                                                    <div>
-                                            Stadtteilliebe
-                                            Schweriner Straße 63
-                                            01067 Dresden
-                                        </div>
                                             <a href={element.href}>{element.linkContent}</a>
                                         </div>
                                     )
                                 })}
                             </TCol>
 
-                            <TCol size={1 / 3} collapse="md" talign="center">
-                                <Typewriter strArr={["Gemacht mit Stadtteilliebe", footerWatermark]} />
-                            </TCol>
-
-                            <TCol size={1 / 3} collapse="md" talign="right">
+                            <TCol size={3 / 5} collapse="md" talign="right">
                                 <SocialMediaContainer>
                                     {footerSM.map((element, index) => {
                                         return (
-                                            <a href={element.href} key={index}>
+                                            <a href={element.href} key={index} target="_blank">
                                                 <TukanImage src={element.img.src} alt={element.img.alt} height="auto" width="auto" />
                                             </a>
                                         )
@@ -90,19 +89,18 @@ const Footer = (props: IFooterProps) => {
                             </TCol>
                         </>
                     )}
+                    <TCol size={ 1 }>
+                        <Typewriter strArr={["Gemacht mit Stadtteilliebe", footerWatermark]} />
+                    </TCol>
                 </FooterGrid>
             </FooterContainer>
         </footer>
     )
 }
 
-const FooterGrid = styled(TGrid)`
-    height: 100%;
-    padding-bottom: ${(props) => props.theme.spacing.m};
-    padding-top: ${(props) => props.theme.spacing.m};
-`
-
 const FooterContainer = styled.div`
+    padding-bottom: ${(props) => props.theme.spacing.xl};
+    padding-top: ${(props) => props.theme.spacing.xl};
     background-color: #ffffff;
     height: auto;
     font-size: 14px;
@@ -131,9 +129,18 @@ const FooterContainer = styled.div`
     `};
 `
 
+const FooterGrid = styled(TGrid)`
+    height: 100%;
+
+        ${media.maxWidth("md")`
+        margin-left: 40px;
+        margin-right: 40px;
+    `}
+`
+
 const SocialMediaContainer = styled.div`
     a:not(:first-child) {
-        margin-left: ${(props) => props.theme.spacing.xs};
+        margin-left: ${(props) => props.theme.spacing.s};
         transition: all 0.1s ease-in-out;
     }
 
@@ -148,9 +155,19 @@ const SocialMediaContainer = styled.div`
     }
 
     ${media.maxWidth("md")`
+        a:not(:first-child) {
+            margin-left: calc( 3 * ${(props) => props.theme.spacing.xxs});
+            transition: all 0.1s ease-in-out;
+        }
+
+        a:hover {
+            opacity: 1;
+            transition: all 0.1s ease-in-out;
+        }
+
         img {
-            height: 36px;
-            width: 36px;
+            height: 28px;
+            width: 28px;
         }
     `};
 `

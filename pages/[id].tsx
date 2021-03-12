@@ -1,21 +1,13 @@
-import Meta from "../components/meta"
-import Nav from "../components/navigation/nav"
-import Footer from "../components/footer/footer"
 import { getByUid } from "../networking/prismic-api"
-import TukanContainer from "../components/tukan-container"
-import CookieNotification from "../components/pattern/cookie-notification"
 import { asText } from "../utils/prismic-utils"
-import Love from "../components/pattern/love"
-import EditButton from "../components/elements/edit-button"
 import { cacheControlHeader, createEtag } from "../utils/cache-utils"
 import Error from "./_error"
 import { prismicPageToComponentModels } from "../controller/prismic-controller"
-import Project, { ShowBannerType } from "../models/config/project"
 import parser from "accept-language-parser"
 import { Document } from "prismic-javascript/d.ts/documents"
 import TukanModel from "../models/tukan/tukan-model"
 import { IMetaData } from "../models/config/meta-data"
-import Banner from "../components/navigation/banner"
+import Index from "./index"
 
 interface IIndexProps {
     docId?: string
@@ -26,53 +18,19 @@ interface IIndexProps {
     navData: any
 }
 
-const Index = (props: IIndexProps) => {
+const Page = (props: IIndexProps) => {
     const { docId, meta, componentModels, footerData, error, navData } = props
 
     if (error) {
         return (<Error />)
     }
 
-    const project = Project.getInstance()
-
-    const showCookieNotification = project.cookieLink !== null
-    const showBanner = project.showBanner === ShowBannerType.ON
-
     return (
-        <div className="tukan">
-                <Meta
-                    data={meta} />
-
-                    <Nav data={navData}/>
-
-                    {meta.metaBanner ?
-                        <Banner content={meta.metaBanner} /> :
-                        <></>
-                    }
-
-                    <TukanContainer
-                        tukanModels={componentModels} />
-
-                    <Footer data={footerData}/>
-
-                {showCookieNotification ?
-                    <CookieNotification
-                        link={project.cookieLink} /> :
-                    <div />
-                }
-
-                <EditButton
-                    docId={docId} />
-
-                {showBanner ?
-                    <Love /> :
-                    <div />
-                }
-        </div>
+        <Index docId={docId} meta={meta} componentModels={componentModels} footerData={footerData} navData={navData}/>
     )
 }
 
-Index.getInitialProps = async ({ query, res }) => {
+Page.getInitialProps = async ({ query, res }) => {
     const queryId = query.id ? query.id : "home"
     const docType = query.type ? query.type : "standard"
     const lang = query.lang ? query.lang : "de-de"
@@ -143,4 +101,4 @@ const createMeta = (docs: Document): IMetaData => {
     }
 }
 
-export default Index
+export default Page

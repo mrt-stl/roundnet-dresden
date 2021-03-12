@@ -14,35 +14,5 @@
             "src": "static/*",
             "use": "@vercel/static"
         }
-    ],
-    "routes": [
-        {
-            "src": "^/robots.txt",
-            "dest": "/static/robots.txt"
-        },
-        {
-            "src": "^/sitemap.xml",
-            "dest": "/api/sitemap"
-        },
-        {
-            "src": "/jobs/(?<id>[^/]+)$",
-            "dest": "/index?id=$id&type=jobs"
-        },
-        {
-            "src": "/en/blog/(?<id>[^/]+)$",
-            "dest": "/index?id=$id&type=blog&lang=en"
-        },
-        {
-            "src": "/en/(?<id>[^/]+)$",
-            "dest": "/index?id=$id&lang=en"
-        },
-        {
-            "src": "/en/",
-            "dest": "/index?id=home&lang=en"
-        },
-        {
-            "src": "/(?<id>[^/]+)$",
-            "dest": "/index?id=$id"
-        }
     ]
 }

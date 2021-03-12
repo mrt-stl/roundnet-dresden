@@ -9,11 +9,11 @@
     "builds": [
         {
             "src": "next.config.js",
-            "use": "@now/next"
+            "use": "@vercel/next"
         },
         {
             "src": "static/*",
-            "use": "@now/static"
+            "use": "@vercel/static"
         }
     ],
     "build": {
@@ -35,27 +35,5 @@
             "ga_id": "",
             "use_shop_view": "false"
         }
-    },
-    "routes": [
-        {
-            "src": "^/robots.txt",
-            "dest": "/static/robots.txt"
-        },
-        {
-            "src": "^/sitemap.xml",
-            "dest": "/api/sitemap"
-        },
-        {
-            "src": "/en/(?<id>[^/]+)$",
-            "dest": "/index?id=$id&lang=en"
-        },
-        {
-            "src": "/en/",
-            "dest": "/index?id=home&lang=en"
-        },
-        {
-            "src": "/(?<id>[^/]+)$",
-            "dest": "/index?id=$id"
-        }
-    ]
+    }
 }

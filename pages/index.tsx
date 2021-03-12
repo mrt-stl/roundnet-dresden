@@ -1,4 +1,4 @@
-import Meta, { finalTheme } from "../components/meta"
+import Meta from "../components/meta"
 import Nav from "../components/navigation/nav"
 import Footer from "../components/footer/footer"
 import { getByUid } from "../networking/prismic-api"
@@ -16,8 +16,6 @@ import { Document } from "prismic-javascript/d.ts/documents"
 import TukanModel from "../models/tukan/tukan-model"
 import { IMetaData } from "../models/config/meta-data"
 import Banner from "../components/navigation/banner"
-import { ThemeProvider } from "styled-components"
-import { GlobalStyles } from "../components/style/tukan"
 
 interface IIndexProps {
     docId?: string
@@ -37,11 +35,6 @@ const Index = (props: IIndexProps) => {
 
     const project = Project.getInstance()
 
-    const Theme = {
-        ...finalTheme,
-        projectColors: project.colors
-    }
-
     const showCookieNotification = project.cookieLink !== null
     const showBanner = project.showBanner === ShowBannerType.ON
 
@@ -49,9 +42,6 @@ const Index = (props: IIndexProps) => {
         <div className="tukan">
                 <Meta
                     data={meta} />
-
-                <ThemeProvider theme={Theme}>
-                    <GlobalStyles/>
 
                     <Nav data={navData}/>
 
@@ -64,8 +54,6 @@ const Index = (props: IIndexProps) => {
                         tukanModels={componentModels} />
 
                     <Footer data={footerData}/>
-
-                </ThemeProvider>
 
                 {showCookieNotification ?
                     <CookieNotification

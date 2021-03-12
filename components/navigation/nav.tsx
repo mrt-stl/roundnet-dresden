@@ -165,8 +165,7 @@ const StyledBurger = styled.button<{ open?: boolean }>`
     padding-top: 20px;
     position: fixed;
     right: 0px;
-    top: 20px;
-    top: var(--standard-spacing);
+    top: ${(props) => props.theme.spacing.m};
     transition: all 0.3s linear;
     width: 60px;
     z-index: 11;

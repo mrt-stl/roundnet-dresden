@@ -60,10 +60,10 @@ const Footer = (props: IFooterProps) => {
                         <>
                             <TCol size={1 / 4} collapse="md" talign="left">
                                 <p>
-                                    Der Jugendchor des Pestalozzi-Gymnasiums Heidenau<br />
+                                    Der Jugendchor<br />
                                     Hauptstraße 37<br />
                                     01809 Heidenau<br />
-                                    M   kontakt@derjugendchor.de
+                                    M kontakt@derjugendchor.de
                                 </p>
                             </TCol>
 

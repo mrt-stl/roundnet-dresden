@@ -59,7 +59,7 @@ const Composition = (props: ICompositionProps) => {
                 </CompositionCol>
             </CompositionGrid>
 
-            <XBackground background={compositionBackground2.url} height="800px" style={{ marginTop: "4em" }} />
+            <XBackground background={compositionBackground2.url} height="100vh" style={{ marginTop: "4em" }} />
 
             <CompositionGrid height="100%" style={{ textAlign: "left" }}>
                 <Divider marginTop="20em" marginBottom="2em" />
@@ -114,12 +114,16 @@ const Composition = (props: ICompositionProps) => {
 }
 
 const CompositionContainer = styled.div`
+    background: url(https://derjugendchorde.cdn.prismic.io/derjugendchorde/c71119c5-da47-48a9-9242-84a43accbd1e_derjugendchor-02.svg);
+    background-size: cover;
+    background-position: center center;
+
     h1 {
         font-size: calc(2 * ${(props) => props.theme.fontSize.xl});
     }
 
     h2 {
-        font-size: calc(2 * ${(props) => props.theme.fontSize.l});
+        font-size: calc(2 * ${(props) => props.theme.fontSize.m});
     }
 
     h3 {
@@ -129,6 +133,7 @@ const CompositionContainer = styled.div`
     h1,
     h2,
     h3 {
+        text-transform: uppercase;
         background: linear-gradient(
             45deg,
             rgba(85, 219, 212, 1) 5%,

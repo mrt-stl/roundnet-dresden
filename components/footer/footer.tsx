@@ -1,5 +1,7 @@
 import { linkResolver } from "../../utils/prismic-utils"
 import { media } from "../style/tukan"
+import parse from "html-react-parser"
+import { asHtml } from "../../utils/prismic-utils"
 import { TGrid, TCol } from "../style/sc-grid"
 import { useState, useEffect } from "react"
 import styled from "styled-components"
@@ -14,12 +16,14 @@ const Footer = (props: IFooterProps) => {
     const [footerLinks, setFooterLinks] = useState([{ href: "/", linkContent: "Loading..." }])
     const [footerSM, setFooterSM] = useState([{ href: "", img: { src: "Logo", alt: "social Media" } }])
     const [footerLoading, setFooterLoading] = useState(true)
+    const [footerContent, setFooterContent] = useState()
     const [footerWatermark, setFooterWatermark] = useState("")
 
     useEffect(() => {
         const footerLinksArr = []
         const footerSMArr = []
         let footerWaterMarkString = ""
+        let footerContentObj
         if (props.data) {
             const footerData = props.data.data.footer_links
             footerData.map((element) => {
@@ -31,6 +35,7 @@ const Footer = (props: IFooterProps) => {
             })
 
             footerWaterMarkString = `${props.data.data.footer_watermark}`
+            footerContentObj = asHtml(props.data.data.footer_content)
 
             const footerSMData = props.data.data.footer_links_social
             footerSMData.map((element) => {
@@ -45,6 +50,7 @@ const Footer = (props: IFooterProps) => {
             })
         }
         setFooterLinks(footerLinksArr)
+        setFooterContent(footerContentObj)
         setFooterSM(footerSMArr)
         setFooterWatermark(footerWaterMarkString)
         setFooterLoading(false)
@@ -59,16 +65,11 @@ const Footer = (props: IFooterProps) => {
                     ) : (
                         <>
                             <TCol size={1 / 4} collapse="md" talign="left">
-                                <p>
-                                    Der Jugendchor<br />
-                                    Hauptstraße 37<br />
-                                    01809 Heidenau<br />
-                                    M kontakt@derjugendchor.de
-                                </p>
+                                {parse(footerContent)}
                             </TCol>
 
                             <TCol size={1 / 4} collapse="md" talign="left">
-                            {footerLinks.map((element, index) => {
+                                {footerLinks.map((element, index) => {
                                     return (
                                         <div key={index}>
                                             <a href={element.href}>{element.linkContent}</a>
@@ -88,11 +89,11 @@ const Footer = (props: IFooterProps) => {
                                     })}
                                 </SocialMediaContainer>
                             </TCol>
+                            <TCol size={1}>
+                                <Typewriter strArr={["Gemacht mit Stadtteilliebe", footerWatermark]} />
+                            </TCol>
                         </>
                     )}
-                    <TCol size={ 1 }>
-                        <Typewriter strArr={["Gemacht mit Stadtteilliebe", footerWatermark]} />
-                    </TCol>
                 </FooterGrid>
             </FooterContainer>
         </footer>
@@ -134,7 +135,7 @@ const FooterContainer = styled.div`
 const FooterGrid = styled(TGrid)`
     height: 100%;
 
-        ${media.maxWidth("md")`
+    ${media.maxWidth("md")`
         margin-left: 40px;
         margin-right: 40px;
     `}

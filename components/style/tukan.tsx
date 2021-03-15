@@ -19,8 +19,7 @@ html, body {
     background-color: ${({ theme }) => theme.projectColors.background}
 }
 h1 {
-    color: var(--font-color);
-    line-height: 1.25;
+    line-height: 1.5;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
 }
@@ -76,14 +75,12 @@ h6 {
 }
 
 p {
-	color: var(--font-color);
 	font-size: 1em;
 	letter-spacing: 0.2px;
     line-height: 1.5;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
-    font-weight: light;
-    letter-spacing: 0.05em;
+    font-weight: 400;
 }
 
 @media (max-width: 768px) {
@@ -113,14 +110,9 @@ li {
 }
 
 a {
-	color: var(--accent);
 	text-decoration: none;
 	font-weight: regular;
     line-height: 1.2;
-}
-
-a:hover {
-	color: var(--accent);
 }
 
 h2 a {
@@ -350,9 +342,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 h1 {
 	font-size: 3em;
-    color: var(--font-color);
-    letter-spacing: 0.1px;
-    line-height: 1.25;
+    line-height: 1.5;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
 }
@@ -408,13 +398,11 @@ h6 {
 }
 
 p {
-	color: var(--font-color);
 	font-size: 1em;
-	letter-spacing: 0.05px;
     line-height: 1.5;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 @media (max-width: 768px) {
@@ -444,15 +432,10 @@ li {
 }
 
 a {
-	color: var(--accent);
 	text-decoration: none;
 	font-weight: regular;
     letter-spacing: 0.5px;
     line-height: 1.2;
-}
-
-a:hover {
-	color: var(--accent);
 }
 
 h2 a {

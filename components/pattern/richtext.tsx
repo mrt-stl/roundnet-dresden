@@ -1,87 +1,63 @@
 import parse from "html-react-parser"
 import styled from "styled-components"
-import Divider from "../elements/divider"
 import { TGrid, TCol } from "../style/sc-grid"
 import { media } from "../style/tukan"
-import { isColorLight } from "../../utils/color-utils"
 
 export interface IRichtextProps {
     content: string
+    index?: number
 }
 
 const Richtext = (props: IRichtextProps) => {
-    const content = props.content
+    const {content, index} = props
 
     return (
-        <RichtextContainer>
-            <TGrid>
-                <TCol size={2 / 3} collapse="md">
-                    <Divider marginTop="100px" />
-                </TCol>
-                <TCol size={2 / 3} collapse="md">
-                    {parse(content)}
-                </TCol>
-            </TGrid>
+        <RichtextContainer index={index}>
+            <RichtextGrid>
+                <RichtextCol size={ 1 } collapse="md">
+                    <RichtextContent>
+                        {parse(content)}
+                    </RichtextContent>
+                </RichtextCol>
+            </RichtextGrid>
         </RichtextContainer>
     )
 }
 
-const RichtextContainer = styled.div`
-    padding-bottom: ${(props) => props.theme.spacing.xxl};
-    background-color: #202020;
-    p {
-        color: ${(props) => (isColorLight(props.theme.projectColors.background) ? "#000000" : "#FFFFFF")};
-        line-height: 32px;
-        padding-bottom: ${(props) => props.theme.spacing.xs};
-    }
+const RichtextContainer = styled.div<{index: number}>`
+    padding-top: ${(props) => props.theme.spacing.xxl};
+    margin-bottom: ${(props) => props.theme.spacing.xl};
 
-    h1, h2, h3, h4, h5, h6 {
-        color: ${(props) => (isColorLight(props.theme.projectColors.background) ? "#000000" : "#FFFFFF")};
-        font-family: ${(props) => props.theme.secondaryFont.name};
-        font-size: ${(props) => props.theme.fontSize.xxxl};
-        font-style: normal;
-        font-weight: normal;
-        padding-bottom: ${(props) => props.theme.spacing.xs};
-    }
+    ${media.maxWidth("md")`
+        padding-top: ${(props) => props.index === 0 ? "400px" : props.theme.spacing.xxl};
+    `}
+`
 
-    .highlight {
-        color: ${(props) => props.theme.projectColors.accent};
-        font-weight: bold;
-        padding-left: 14px;
-    }
+const RichtextGrid = styled(TGrid)`
+    ${media.maxWidth("md")`
+        margin-left: 40px;
+        margin-right: 40px;
+    `}
+`
 
-    .button a,
-    a .button {
-        text-decoration: none;
-        transition: all 0.3s ease-in-out;
-        background-color: ${(props) => props.theme.projectColors.accent};
-        display: inline-block;
-        padding-left: ${(props) => props.theme.spacing.s};
-        padding-right: ${(props) => props.theme.spacing.s};
-        padding-top: 20px;
-        padding-bottom: 21px;
-        color: ${(props) => (props.color ? props.color : "#ffffff")};
-        transition: all 0.15s ease-in-out;
+const RichtextCol = styled(TCol)`
+    padding-left: 0px;
+    padding-right; 0px;
 
-        background-image: none;
-        line-height: default;
-        :hover {
-            padding-left: calc(${(props) => props.theme.spacing.m});
-            padding-right: calc(${(props) => props.theme.spacing.m});
-            transition: all 0.25s ease-in-out;
+    ${media.maxWidth("md")`
+        padding-left: 20px;
+        padding-right; 220px;
+    `}
+`
+
+const RichtextContent = styled.div `
+    color: ${(props) => props.theme.color.onBackground};
+
+    ${media.maxWidth("md")`
+        p {
+            font-size: ${(props) => props.theme.fontSize.xxs};
         }
-
-        ${media.maxWidth("md")`
-
-        background-position: center;
-        transition: background 0.3s;
-
-        :hover {
-            padding-left: 36px;
-            padding-right: 36px;
-        }
-    `};
-    }
+    `}
 `
 
 export default Richtext

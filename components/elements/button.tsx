@@ -21,13 +21,13 @@ const Button = (props: IButtonProps) => {
 const StyledButton = styled.a<{ bgColor?: string, color?: string }>`
     text-decoration: none;
     transition: all 0.3s ease-in-out;
-    border: 1px solid ${(props) => (props.bgColor ? props.bgColor : props.theme.projectColors.accent)};
+    border: 1px solid ${(props) => (props.bgColor ? props.bgColor : props.theme.projectColors.onBackground)};
     display: inline-block;
     padding-left: ${(props) => props.theme.spacing.s};
     padding-right: ${(props) => props.theme.spacing.s};
     padding-top: 20px;
     padding-bottom: 21px;
-    color: ${(props) => props.color ? props.color : "#ffffff"};
+    color: ${(props) => props.color ? props.color : props.theme.projectColors.onBackground};
     transition: all 0.15s ease-in-out;
 
     background-image: none;

@@ -21,7 +21,7 @@ const Footer = (props: IFooterProps) => {
         const footerSMArr = []
         let footerWaterMarkString = ""
         if (props.data) {
-            const footerData = props.data.data.footer_links_left
+            const footerData = props.data.data.footer_links
             footerData.map((element) => {
                 const link = {
                     href: linkResolver(element.footer_link),
@@ -32,10 +32,10 @@ const Footer = (props: IFooterProps) => {
 
             footerWaterMarkString = `${props.data.data.footer_watermark}`
 
-            const footerSMData = props.data.data.footer_links_right
+            const footerSMData = props.data.data.footer_links_social
             footerSMData.map((element) => {
                 const link = {
-                    href: linkResolver(element.footer_link),
+                    href: linkResolver(element.social_link),
                     img: {
                         src: element.footer_image.url,
                         alt: element.footer_image.alt,
@@ -58,15 +58,16 @@ const Footer = (props: IFooterProps) => {
                         ""
                     ) : (
                         <>
-                            <TCol size={1 / 5} collapse="md" talign="left">
-                                <div><p>
-                                            Stadtteilliebe<br />
-                                            Schweriner Straße 63<br />
-                                            01067 Dresden</p>
-                                        </div>
+                            <TCol size={1 / 4} collapse="md" talign="left">
+                                <p>
+                                    Der Jugendchor des Pestalozzi-Gymnasiums Heidenau<br />
+                                    Hauptstraße 37<br />
+                                    01809 Heidenau<br />
+                                    M   kontakt@derjugendchor.de
+                                </p>
                             </TCol>
 
-                            <TCol size={1 / 5} collapse="md" talign="left">
+                            <TCol size={1 / 4} collapse="md" talign="left">
                             {footerLinks.map((element, index) => {
                                     return (
                                         <div key={index}>
@@ -76,7 +77,7 @@ const Footer = (props: IFooterProps) => {
                                 })}
                             </TCol>
 
-                            <TCol size={3 / 5} collapse="md" talign="right">
+                            <TCol size={2 / 4} collapse="md" talign="right">
                                 <SocialMediaContainer>
                                     {footerSM.map((element, index) => {
                                         return (
@@ -101,12 +102,13 @@ const Footer = (props: IFooterProps) => {
 const FooterContainer = styled.div`
     padding-bottom: ${(props) => props.theme.spacing.xl};
     padding-top: ${(props) => props.theme.spacing.xl};
-    background-color: ${(props) => props.theme.projectColors.background};
+    background-color: ${(props) => props.theme.projectColors.secondary};
     height: auto;
     font-size: 14px;
+    color: ${(props) => props.theme.projectColors.onSecondary};
 
     a {
-        color: #000000;
+        color: ${(props) => props.theme.projectColors.onSecondary};
         transition: all 0.1s ease-in-out;
     }
 
@@ -117,12 +119,12 @@ const FooterContainer = styled.div`
 
     ${media.maxWidth("md")`
         a {
-            color: #000000;
+            color: ${(props) => props.theme.projectColors.onSecondary};
         }
 
         * {
             text-align: left !important;
-            color: #000000;
+            color: ${(props) => props.theme.projectColors.onSecondary};
         }
 
         /* margin: ${(props) => props.theme.spacing.m} ${(props) => props.theme.spacing.s}; */

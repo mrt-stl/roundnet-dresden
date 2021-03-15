@@ -66,7 +66,7 @@ const Nav = (props: INavProps) => {
                 <span />
                 <span />
             </StyledBurger>
-            <MenuContainer open={open} background={"https://s3.eu-central-1.amazonaws.com/kranich/icons/" + projectId + "/" + "test.jpeg"}>
+            <MenuContainer open={open} background={"https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + projectId + "/assets/" + "menu-background.svg"}>
                 <MenuContent>
                         <p className="menu-title">Übersicht</p>
 

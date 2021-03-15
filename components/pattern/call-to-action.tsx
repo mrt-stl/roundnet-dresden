@@ -1,8 +1,9 @@
+import { isUndefinedOrNullOrEmpty } from "../../utils/object-utils"
 import { media } from "../style/tukan"
 import { TGrid, TCol } from "../style/sc-grid"
 import Button from "../elements/button"
-import Divider from "../elements/divider"
 import parse from "html-react-parser"
+import Project from "../../models/config/project"
 import styled from "styled-components"
 
 export interface ICallToActionProps {
@@ -13,33 +14,42 @@ export interface ICallToActionProps {
 }
 
 const CallToAction = (props: ICallToActionProps) => {
+    const project = Project.getInstance()
+
+    const projectId = !isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "standard"
+
     const headline = props.headline
     const content = props.content
     const btnLabel = props.btnLabel
     const btnLink = props.btnLink
 
     return (
-        <CallToActionContainer>
-            <TGrid valign="center" halign="center">
-                <Divider marginTop="150px" marginBottom="20px" />
-                <TCol size={1}>
-                    {parse(headline)}
-                </TCol>
+        <CallToActionContainer background={"https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + projectId + "/assets/" + "call-to-action-background.svg"}>
+            <CallToActionGrid valign="center" halign="center">
                 <TCol size={2 / 3} collapse="md">
-                    {parse(content)}
-                </TCol>
-                <TCol>
+                    <CallToActionContent>
+                        <div>
+                            {parse(headline)}
+                        </div>
+                        <div>
+                            {parse(content)}
+                        </div>
+                    </CallToActionContent>
                     <Button href={btnLink} label={btnLabel}/>
                 </TCol>
-            </TGrid>
+            </CallToActionGrid>
         </CallToActionContainer>
     )
 }
 
-const CallToActionContainer = styled.div`
-    padding-bottom: ${(props) => props.theme.spacing.xxl};
-    padding-top: ${(props) => props.theme.spacing.xl};
+const CallToActionContainer = styled.div<{ background: string }>`
+    padding-bottom: calc( 2 * ${(props) => props.theme.spacing.xl});
+    padding-top: calc( 2 * ${(props) => props.theme.spacing.xl});
     text-align: center;
+    background: ${(props) => props.theme.color.background};
+    background-image: url(${(props) => props.background});
+    background-size: cover;
+    background-position: center center;
 
     h2 {
         font-size: calc(2 * ${(props) => props.theme.fontSize.l});
@@ -78,27 +88,39 @@ const CallToActionContainer = styled.div`
         font-weight: 300;
         margin-bottom: ${(props) => props.theme.spacing.xxs};
         margin-top: ${(props) => props.theme.spacing.xxs};
-    }
+text-transform: uppercase;    }
 
     p {
         font-size: ${(props) => props.theme.fontSize.l};
-        color: #606060;
+        color: ${(props) => props.theme.color.onBackground};
     }
 
     ${media.maxWidth("md")`
-        padding-top: ${(props) => props.theme.spacing.m};
-        padding-bottom: ${(props) => props.theme.spacing.m};
+        padding-top: ${(props) => props.theme.spacing.xl};
+        padding-bottom: ${(props) => props.theme.spacing.xl};
 
         h1,
         h2,
         h3 {
-            font-size: 2.5em;
+            font-size: ${(props) => props.theme.fontSize.m};
         }
 
         p {
             font-size: ${(props) => props.theme.fontSize.s};
         }
 `};
+`
+
+const CallToActionGrid = styled(TGrid)`
+    ${media.maxWidth("md")`
+        margin-left: 40px;
+        margin-right: 40px;
+    `}
+
+`
+
+const CallToActionContent = styled.div`
+    margin-bottom: ${(props) => props.theme.spacing.m};
 `
 
 export default CallToAction

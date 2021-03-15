@@ -59,7 +59,7 @@ const Composition = (props: ICompositionProps) => {
                 </CompositionCol>
             </CompositionGrid>
 
-            <XBackground background={compositionBackground2.url} height="600px" style={{ marginTop: "4em" }} />
+            <XBackground background={compositionBackground2.url} height="800px" style={{ marginTop: "4em" }} />
 
             <CompositionGrid height="100%" style={{ textAlign: "left" }}>
                 <Divider marginTop="20em" marginBottom="2em" />
@@ -199,7 +199,9 @@ const CompositionContainer = styled.div`
     }
 `
 
-const StageContainer = styled.div``
+const StageContainer = styled.div`
+    display: none;
+`
 
 const StageContent = styled.div`
     h1 {
@@ -235,6 +237,10 @@ const XBackground = styled.div<{ background: string; height: string }>`
     background-position: bottom center;
     width: 100%;
     height: ${(props) => props.height};
+
+    ${media.maxWidth("md")`
+        height: 340px;
+    `}
 `
 
 const CompositionGrid = styled(TGrid)<{ height: string; alignContent?: string }>`

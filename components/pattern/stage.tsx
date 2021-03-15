@@ -51,11 +51,6 @@ const StageContainer = styled.div<{ background: string }>`
     color: #ffffff;
     align-items: center;
 
-    h1 {
-        font-size: ${(props) => props.theme.fontSize.m};
-        color: #ffffff;
-    }
-
     p {        font-size: calc( 2 * ${(props) => props.theme.fontSize.xl});
     margin-top: 0.25em;
 
@@ -81,6 +76,65 @@ const StageGrid = styled(TGrid)`
 `
 
 const StageContent = styled.div `
+    h1 {
+        font-size: ${(props) => props.theme.fontSize.s};
+        color: white;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    p {
+        background: linear-gradient(
+            45deg,
+            rgba(85, 219, 212, 1) 5%,
+            rgba(85, 219, 212, 0.6) 30%,
+            rgba(85, 219, 212, 0.2) 60%,
+            rgba(85, 219, 212, 0.6) 70%,
+            rgba(85, 219, 212, 1) 95%
+        );
+        background-size: 200% 200%;
+        animation: gradient 12s ease infinite;
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 100% 50%;
+            }
+            50% {
+                background-position: 100% 0%;
+            }
+            75% {
+                background-position: 50% 100%;
+            }
+            100% {
+                background-position: 50% 0%;
+            }
+        }
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-size: 400% 400%;
+        color: white;
+        font-weight: 300 !important;
+        text-transform: uppercase;
+    }
+
+    ${media.maxWidth("md")`
+        p {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: ${(props) => props.theme.fontSize.xxs};
+            color: white;
+            font-weight: 300 !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+`}
 `
 
 export default Stage

@@ -114,23 +114,6 @@ const Meta = (props: IMetaProps) => {
                     <script />
                 }
 
-                {gaID && gaID !== "" ?
-                    <script dangerouslySetInnerHTML={{
-                        __html: `
-                    window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${gaID}');
-                    `}} /> :
-                    <script />
-                }
-
-                <script dangerouslySetInnerHTML={{
-                    __html: `
-                    window.prismic = {
-                        endpoint: "${project.prismicEndpoint}"
-                    };`
-                }} />
-
-                <script type="text/javascript" src="https://static.cdn.prismic.io/prismic.min.js" async />
-
             </Head>
             {grid}
             {tukan(fontName, colors, darkModeColors)}

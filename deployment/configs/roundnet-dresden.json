@@ -1,0 +1,61 @@
+{
+    "version": 2,
+    "name": "roundnet-dresden",
+    "alias": "roundnet-dresden.de",
+    "public": false,
+    "regions": [
+        "all"
+    ],
+    "builds": [
+        {
+            "src": "next.config.js",
+            "use": "@vercel/next"
+        },
+        {
+            "src": "static/*",
+            "use": "@vercel/static"
+        }
+    ],
+    "build": {
+        "env": {
+            "url": "https://roundnet-dresden.de/",
+            "name": "roundnet-dresden",
+            "prismic_endpoint": "https://roundnet-dresden.cdn.prismic.io/api/v2",
+            "prismic_access_token": "MC5ZRm1yeWhJQUFDRUFGMzc4.77-9Hu-_ve-_vStt77-9Fe-_vXjvv70l77-977-977-977-977-9eu-_vSvvv71AY--_ve-_vXPvv73vv73vv73vv70S77-9",
+            "nav": "[ {\"name\": \"Start\", \"link\": \"/\"} ]",
+            "font": "{\"url\": \"https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap\", \"name\": \"Roboto\" }",
+            "cookie": "{\"link\": \"\"}",
+            "colors": "{ \"primary\": \"#ffffff\", \"primaryVariant\": \"#c7c7c7\", \"secondary\": \"#CDAB54\", \"secondaryVariant\": \"#F2D99A\", \"background\": \"#000000\", \"surface\": \"#ffffff\", \"onPrimary\": \"#000000\", \"onSecondary\": \"#ffffff\", \"onBackground\": \"#ffffff\" }",
+            "dark_mode": "off",
+            "caching_duration": "0",
+            "project_id": "roundnet-dresden",
+            "show_banner": "off",
+            "shopify_acces_token": "",
+            "shopify_store_domain": "",
+            "ga_id": "",
+            "use_shop_view": "false"
+        }
+    },
+    "routes": [
+        {
+            "src": "^/robots.txt",
+            "dest": "/static/robots.txt"
+        },
+        {
+            "src": "^/sitemap.xml",
+            "dest": "/api/sitemap"
+        },
+        {
+            "src": "/en/(?<id>[^/]+)$",
+            "dest": "/index?id=$id&lang=en"
+        },
+        {
+            "src": "/en/",
+            "dest": "/index?id=home&lang=en"
+        },
+        {
+            "src": "/(?<id>[^/]+)$",
+            "dest": "/index?id=$id"
+        }
+    ]
+}

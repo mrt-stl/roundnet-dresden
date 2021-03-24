@@ -26,7 +26,6 @@ h1 {
 
 h2 {
 	font-size: 2.25em;
-    color: var(--font-color);
     letter-spacing: 0;
     line-height: 1.25;
     font-weight: var(--medium);
@@ -36,7 +35,6 @@ h2 {
 
 h3 {
 	font-size: 2em;
-    color: var(--font-color);
     letter-spacing: 0.1px;
     line-height: 1.25;
     font-weight: var(--regular);
@@ -46,7 +44,6 @@ h3 {
 
 h4 {
 	font-size: 1.5em;
-    color: var(--font-color);
     letter-spacing: 0.1px;
     font-weight: var(--bold);
     line-height: 1.25em;
@@ -58,7 +55,6 @@ h5 {
 	font-size: 1.25em;
 	font-weight: var(--regular);
 	letter-spacing: 0.1px;
-	color: var(--all-gray-30);
 	line-height: 1.5em;
 	margin-bottom: 0.8em;
 	margin-top: 0.8em;
@@ -68,7 +64,6 @@ h6 {
     font-size: 1.25em;
 	font-weight: var(--regular);
 	letter-spacing: 0.1px;
-	color: var(--all-gray-30);
 	line-height: 1.5em;
 	margin-bottom: 0em;
 	margin-top: 0em;
@@ -113,10 +108,6 @@ a {
 	text-decoration: none;
 	font-weight: regular;
     line-height: 1.2;
-}
-
-h2 a {
-    color: var(--font-color);
 }
 
 h2 a:hover {
@@ -331,156 +322,6 @@ html, body {
 	width: 100%;
     font-family: ${fontName}, sans-serif;
     -webkit-font-smoothing: antialiased;
-}
-
-/* Typo */
-
-h1, h2, h3, h4, h5, h6, p {
-	font-style: normal;
-	margin: 0px;
-}
-
-h1 {
-	font-size: 3em;
-    line-height: 1.5;
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
-}
-
-h2 {
-	font-size: 2.25em;
-    color: var(--font-color);
-    letter-spacing: 0;
-    line-height: 1.25;
-    font-weight: var(--medium);
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
-}
-
-h3 {
-	font-size: 2em;
-    color: var(--font-color);
-    letter-spacing: 0.1px;
-    line-height: 1.25;
-    font-weight: var(--regular);
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
-}
-
-h4 {
-	font-size: 1.5em;
-    color: var(--font-color);
-    letter-spacing: 0.1px;
-    font-weight: var(--bold);
-    line-height: 1.25em;
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
-}
-
-h5 {
-	font-size: 1.25em;
-	font-weight: var(--regular);
-	letter-spacing: 0.1px;
-	color: var(--all-gray-30);
-	line-height: 1.5em;
-	margin-bottom: 0.8em;
-	margin-top: 0.8em;
-}
-
-h6 {
-    font-size: 1.25em;
-	font-weight: var(--regular);
-	letter-spacing: 0.1px;
-	color: var(--all-gray-30);
-	line-height: 1.5em;
-	margin-bottom: 0em;
-	margin-top: 0em;
-}
-
-p {
-	font-size: 1em;
-    line-height: 1.5;
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
-    font-weight: 400;
-}
-
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.75em;
-    }
-}
-
-ul {
-    background-color: var(--all-gray-10);
-    padding-top: 32px;
-    padding-right: 24px;
-    padding-bottom: 32px;
-    padding-left: 60px !important;
-    line-height: 2;
-    color: var(--font-color);
-}
-
-li {
-    padding-left: 8px;
-}
-
-@media (max-width: 768px) {
-    ul {
-        font-size: 14px;
-    }
-}
-
-a {
-	text-decoration: none;
-	font-weight: regular;
-    letter-spacing: 0.5px;
-    line-height: 1.2;
-}
-
-h2 a {
-    color: var(--font-color);
-}
-
-h2 a:hover {
-    background-size: 100% 2px;
-}
-
-hr {
-	background-color: #000000;
-	height: 4px;
-	margin-bottom: 3em;
-	margin-top: 3em;
-	width: 90%;
-	border: 0px;
-	box-sizing: content-box;
-}
-
-pre {
-    word-wrap: break-word;
-    word-break: break-word;
-    padding: 16px;
-    margin: 1em 0;
-    line-height: 1.65;
-    border: 1px solid var(--all-gray-20);
-    color: #bd10e0;
-    background: #f8f8f8;
-    overflow: auto;
-    border-radius: 4px;
-}
-
-.code {
-    font-family: monospace,monospace;
-    color: #bd10e0
-}
-
-img {
-	max-width: 100%;
-	object-fit: cover;
-}
-
-iframe {
-    max-width: 100%;
 }
 
 .block-img {

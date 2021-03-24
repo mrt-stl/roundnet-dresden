@@ -120,6 +120,10 @@ const HeroImageContainer = styled.div`
     position: relative;
     height: 90vh;
     width: 100%;
+
+    .lazyload-wrapper  {
+        height: 100%;
+    }
 `
 
 const HeroImageContentContainer = styled.div`

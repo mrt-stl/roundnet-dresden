@@ -3,7 +3,7 @@ import { TGrid, TCol } from "../style/sc-grid"
 import Button from "../elements/button"
 import parse from "html-react-parser"
 import styled from "styled-components"
-
+import { getGradient } from "../../utils/color-utils"
 export interface IStageProps {
     headline: string
     content: string
@@ -13,7 +13,6 @@ export interface IStageProps {
 }
 
 const Stage = (props: IStageProps) => {
-
     const {
         headline,
         content,
@@ -85,14 +84,7 @@ const StageContent = styled.div `
     }
 
     p {
-        background: linear-gradient(
-            45deg,
-            rgba(85, 219, 212, 1) 5%,
-            rgba(85, 219, 212, 0.6) 30%,
-            rgba(85, 219, 212, 0.2) 60%,
-            rgba(85, 219, 212, 0.6) 70%,
-            rgba(85, 219, 212, 1) 95%
-        );
+        background: ${props => getGradient(props.theme.projectColors.secondary)};
         background-size: 200% 200%;
         animation: gradient 12s ease infinite;
 

@@ -5,6 +5,7 @@ import Button from "../elements/button"
 import parse from "html-react-parser"
 import Project from "../../models/config/project"
 import styled from "styled-components"
+import { getGradient } from "../../utils/color-utils"
 
 export interface ICallToActionProps {
     headline: string
@@ -46,10 +47,11 @@ const CallToActionContainer = styled.div<{ background: string }>`
     padding-bottom: calc( 2 * ${(props) => props.theme.spacing.xl});
     padding-top: calc( 2 * ${(props) => props.theme.spacing.xl});
     text-align: center;
-    background: ${(props) => props.theme.color.background};
+    background: ${(props) => props.theme.projectColors.background};
     background-image: url(${(props) => props.background});
     background-size: cover;
     background-position: center center;
+    overflow: hidden;
 
     h2 {
         font-size: calc(2 * ${(props) => props.theme.fontSize.l});
@@ -58,7 +60,7 @@ const CallToActionContainer = styled.div<{ background: string }>`
     h1,
     h2,
     h3 {
-        background: linear-gradient(45deg, rgba(85,219,212,1) 5%, rgba(85,219,212,0.6) 30%, rgba(85,219,212,0.2) 60%, rgba(85,219,212,0.6) 70%, rgba(85,219,212,1) 95%);
+        background: ${props => getGradient(props.theme.projectColors.secondary)};
         background-size: 200% 200%;
         animation: gradient 12s ease infinite;
 

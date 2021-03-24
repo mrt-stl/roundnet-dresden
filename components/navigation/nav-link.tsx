@@ -34,12 +34,12 @@ const StyledNavLinks = styled.div`
     text-transform: uppercase;
 
     a {
-        color: #000000};
+        color: ${(props) => props.theme.projectColors.onBackground};
         background-image: none;
     }
 
     a:hover {
-        color: ${(props) => props.theme.color.primaryVariant};
+        color: ${(props) => props.theme.projectColors.primaryVariant};
         transition: 0.2s;
     }
 

@@ -124,7 +124,7 @@ const NavGrid = styled(TGrid)`
 `
 
 const Branding = styled.a<{ halign: boolean }>`
-    margin-right: ${props => props.halign ? "auto" : "10px"};
+    margin-right: ${props => props.halign ? "auto" : "20px"};
     width: auto;
 
     img {
@@ -240,7 +240,7 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
         transform: ${({ open }) => open ? "translateY(0px)" : "translateY(-8px)"};
     }
 
-    .menu-item:nth-child(3) {
+    .menu-item:nth-child(4) {
         transition: transform 0.25s ease-in-out 0.35s, opacity 0.25s ease-in-out 0.35s;
         color: #ffffff;
         font-size: 12px;

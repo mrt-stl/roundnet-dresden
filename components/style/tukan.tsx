@@ -209,6 +209,7 @@ const defaultTheme = {
         background: project.colors.background,
         onBackground: project.colors.onBackground,
         surface: project.colors.surface,
+        gradient: Boolean(project.colors.gradient === "true"),
         accent: project.colors.accent,
         white: "#123456"
     },

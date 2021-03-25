@@ -25,7 +25,7 @@
             "nav": "[ {\"name\": \"Start\", \"link\": \"/\"} ]",
             "font": "{\"url\": \"https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap\", \"name\": \"Roboto\" }",
             "cookie": "{\"link\": \"\"}",
-            "colors": "{ \"primary\": \"#ffffff\", \"primaryVariant\": \"#c7c7c7\", \"secondary\": \"#CDAB54\", \"secondaryVariant\": \"#F2D99A\", \"background\": \"#000000\", \"surface\": \"#ffffff\", \"onPrimary\": \"#000000\", \"onSecondary\": \"#ffffff\", \"onBackground\": \"#ffffff\" }",
+            "colors": "{ \"primary\": \"#ffffff\", \"primaryVariant\": \"#c7c7c7\", \"secondary\": \"#CDAB54\", \"secondaryVariant\": \"#F2D99A\", \"background\": \"#000000\", \"surface\": \"#ffffff\", \"onPrimary\": \"#000000\", \"onSecondary\": \"#ffffff\", \"onBackground\": \"#ffffff\", \"gradient\": \"false\" }",
             "dark_mode": "off",
             "caching_duration": "0",
             "project_id": "roundnet-dresden",

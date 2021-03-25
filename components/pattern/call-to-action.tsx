@@ -5,7 +5,7 @@ import Button from "../elements/button"
 import parse from "html-react-parser"
 import Project from "../../models/config/project"
 import styled from "styled-components"
-import { getGradient } from "../../utils/color-utils"
+import { getGradientAnimation } from "../../utils/color-utils"
 
 export interface ICallToActionProps {
     headline: string
@@ -25,18 +25,16 @@ const CallToAction = (props: ICallToActionProps) => {
     const btnLink = props.btnLink
 
     return (
-        <CallToActionContainer background={"https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + projectId + "/assets/" + "call-to-action-background.svg"}>
+        <CallToActionContainer
+            background={"https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + projectId + "/assets/" + "call-to-action-background.svg"}
+        >
             <CallToActionGrid valign="center" halign="center">
                 <TCol size={2 / 3} collapse="md">
                     <CallToActionContent>
-                        <div>
-                            {parse(headline)}
-                        </div>
-                        <div>
-                            {parse(content)}
-                        </div>
+                        <div>{parse(headline)}</div>
+                        <div>{parse(content)}</div>
                     </CallToActionContent>
-                    <Button href={btnLink} label={btnLabel}/>
+                    <Button href={btnLink} label={btnLabel} />
                 </TCol>
             </CallToActionGrid>
         </CallToActionContainer>
@@ -44,8 +42,8 @@ const CallToAction = (props: ICallToActionProps) => {
 }
 
 const CallToActionContainer = styled.div<{ background: string }>`
-    padding-bottom: calc( 2 * ${(props) => props.theme.spacing.xl});
-    padding-top: calc( 2 * ${(props) => props.theme.spacing.xl});
+    padding-bottom: calc(2 * ${(props) => props.theme.spacing.xl});
+    padding-top: calc(2 * ${(props) => props.theme.spacing.xl});
     text-align: center;
     background: ${(props) => props.theme.projectColors.background};
     background-image: url(${(props) => props.background});
@@ -60,37 +58,17 @@ const CallToActionContainer = styled.div<{ background: string }>`
     h1,
     h2,
     h3 {
-        background: ${props => getGradient(props.theme.projectColors.secondary)};
-        background-size: 200% 200%;
-        animation: gradient 12s ease infinite;
-
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        25% {
-            background-position: 100% 50%;
-        }
-        50% {
-            background-position: 100% 0%;
-        }
-        75% {
-            background-position: 50% 100%;
-        }
-        100% {
-            background-position: 50% 0%;
-        }
-    }
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        background-size: 400% 400%;
-        color: white;
+        ${(props) =>
+            props.theme.projectColors.gradient
+                ? getGradientAnimation(props.theme.projectColors.secondary)
+                : `color: ${props.theme.projectColors.secondary};`}
         font-family: ${(props) => props.theme.secondaryFont.name};
         font-style: normal;
         font-weight: 300;
         margin-bottom: ${(props) => props.theme.spacing.xxs};
         margin-top: ${(props) => props.theme.spacing.xxs};
-text-transform: uppercase;    }
+        text-transform: uppercase;
+    }
 
     p {
         font-size: ${(props) => props.theme.fontSize.l};
@@ -118,7 +96,6 @@ const CallToActionGrid = styled(TGrid)`
         margin-left: 40px;
         margin-right: 40px;
     `}
-
 `
 
 const CallToActionContent = styled.div`

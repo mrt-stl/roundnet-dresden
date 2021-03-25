@@ -24,15 +24,39 @@ export const hexToRgb = (color: string) => {
     return RgbArr
 }
 
-export const getGradient = (color: string) => {
+export const getGradientAnimation = (color: string) => {
     const RgbArr = hexToRgb(color)
-    const gradientStr = `linear-gradient(45deg, 
+    const gradientAnimationStr = `background= linear-gradient(45deg,
                             rgba(${RgbArr[0]}, ${RgbArr[1]}, ${RgbArr[2]}, 1) 5%,
                             rgba(${RgbArr[0]}, ${RgbArr[1]}, ${RgbArr[2]}, 0.6) 30%,
                             rgba(${RgbArr[0]}, ${RgbArr[1]}, ${RgbArr[2]}, 0.2) 60%,
                             rgba(${RgbArr[0]}, ${RgbArr[1]}, ${RgbArr[2]}, 0.6) 70%,
                             rgba(${RgbArr[0]}, ${RgbArr[1]}, ${RgbArr[2]}, 1) 95%
-                            )`
+                            );
+                            background-size: 200% 200%;
+                            animation: gradient 12s ease infinite;
 
-    return gradientStr
+                            @keyframes gradient {
+                                0% {
+                                    background-position: 0% 50%;
+                                }
+                                25% {
+                                    background-position: 100% 50%;
+                                }
+                                50% {
+                                    background-position: 100% 0%;
+                                }
+                                75% {
+                                    background-position: 50% 100%;
+                                }
+                                100% {
+                                    background-position: 50% 0%;
+                                }
+                            }
+                            -webkit-background-clip: text !important;
+                            -webkit-text-fill-color: transparent !important;
+                            background-size: 400% 400%;
+                            color: white;`
+
+    return gradientAnimationStr
 }

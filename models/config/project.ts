@@ -113,6 +113,7 @@ interface IColors {
     surface?: string
     background?: string
     onBackground?: string
+    gradient?: boolean
     accent?: string
 }
 

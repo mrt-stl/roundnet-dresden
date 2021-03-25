@@ -28,7 +28,7 @@ declare module 'styled-components' {
         surface?: string
         background?: string
         onBackground?: string
-        accent?: string
+        gradient?: boolean
     },
     primaryFont: {
         name?: string

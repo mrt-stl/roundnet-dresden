@@ -26,7 +26,7 @@ export const hexToRgb = (color: string) => {
 
 export const getGradientAnimation = (color: string) => {
     const RgbArr = hexToRgb(color)
-    const gradientAnimationStr = `background= linear-gradient(45deg,
+    const gradientAnimationStr = `background: linear-gradient(45deg,
                             rgba(${RgbArr[0]}, ${RgbArr[1]}, ${RgbArr[2]}, 1) 5%,
                             rgba(${RgbArr[0]}, ${RgbArr[1]}, ${RgbArr[2]}, 0.6) 30%,
                             rgba(${RgbArr[0]}, ${RgbArr[1]}, ${RgbArr[2]}, 0.2) 60%,

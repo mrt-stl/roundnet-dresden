@@ -17,7 +17,7 @@ const Meta = (props: IMetaProps) => {
 
     // Icon urls
     const projectId = !isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "kranich-stl"
-    const iconCDN = "https://s3.eu-central-1.amazonaws.com/kranich/icons/" + projectId + "/"
+    const iconCDN = "https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + projectId + "/favicon/"
 
     const metaTitle = !isUndefinedOrNullOrEmpty(props.data.metaTitle) ? props.data.metaTitle : project.metaTitle
     const metaDescription = !isUndefinedOrNullOrEmpty(props.data.metaDescription) ? props.data.metaDescription : project.metaDescription

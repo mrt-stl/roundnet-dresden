@@ -4,6 +4,7 @@ import Button from "../elements/button"
 import parse from "html-react-parser"
 import styled from "styled-components"
 import { getGradientAnimation } from "../../utils/color-utils"
+import InstagramCol from "../elements/instagramCol"
 export interface IStageProps {
     headline: string
     content: string
@@ -34,7 +35,6 @@ const Stage = (props: IStageProps) => {
 
 const StageContainer = styled.div<{ background: string }>`
     background-image: url(${(props) => props.background});
-    background-color: var(--background) !important;
     background-position: center;
     height: 100vh;
     background-size: cover;

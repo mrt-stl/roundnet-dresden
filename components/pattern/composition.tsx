@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { TGrid, TCol } from "../style/sc-grid"
 import { media } from "../style/tukan"
 import Divider from "../elements/divider"
+import { getVerticalGradient, getGradientAnimation } from "../../utils/color-utils"
 
 export interface ICompositionProps {
     compositionBackground1: any
@@ -62,7 +63,7 @@ const Composition = (props: ICompositionProps) => {
             <XBackground background={compositionBackground2.url} height="100vh" style={{ marginTop: "4em" }} />
 
             <CompositionGrid height="100%" style={{ textAlign: "left" }}>
-                <Divider marginTop="20em" marginBottom="2em" />
+                <Divider marginTop="10em" marginBottom="2em" />
                 <CompositionCol size={1} collapse="md">
                     <div>{parse(compositionStatement)}</div>
                 </CompositionCol>
@@ -114,7 +115,7 @@ const Composition = (props: ICompositionProps) => {
 }
 
 const CompositionContainer = styled.div`
-    background: url(https://derjugendchorde.cdn.prismic.io/derjugendchorde/c71119c5-da47-48a9-9242-84a43accbd1e_derjugendchor-02.svg);
+    background: ${props => props.theme.projectColors.background};
     background-size: cover;
     background-position: center center;
 
@@ -133,39 +134,10 @@ const CompositionContainer = styled.div`
     h1,
     h2,
     h3 {
-        text-transform: uppercase;
-        background: linear-gradient(
-            45deg,
-            rgba(85, 219, 212, 1) 5%,
-            rgba(85, 219, 212, 0.6) 30%,
-            rgba(85, 219, 212, 0.2) 60%,
-            rgba(85, 219, 212, 0.6) 70%,
-            rgba(85, 219, 212, 1) 95%
-        );
-        background-size: 200% 200%;
-        animation: gradient 12s ease infinite;
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            25% {
-                background-position: 100% 50%;
-            }
-            50% {
-                background-position: 100% 0%;
-            }
-            75% {
-                background-position: 50% 100%;
-            }
-            100% {
-                background-position: 50% 0%;
-            }
-        }
-        -webkit-background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
-        background-size: 400% 400%;
-        color: white;
+        ${(props) =>
+            props.theme.projectColors.gradient
+                ? getGradientAnimation(props.theme.projectColors.secondary)
+                : `color: ${props.theme.projectColors.secondary};`}
         font-family: ${(props) => props.theme.secondaryFont.name};
         font-style: normal;
         font-weight: 300;
@@ -190,17 +162,6 @@ const CompositionContainer = styled.div`
             font-size: ${(props) => props.theme.fontSize.s};
         }
     `}
-
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
     }
 `
 
@@ -236,7 +197,7 @@ const StyledBackground = styled.div<{ background: string; height: string }>`
 `
 
 const XBackground = styled.div<{ background: string; height: string }>`
-    background-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 95%), url(${(props) => props.background});
+    background-image: ${(props) => getVerticalGradient(props.theme.projectColors.background)}, url(${(props) => props.background});
     background-color: ${({ theme }) => theme.projectColors.background};
     background-size: cover;
     background-position: bottom center;

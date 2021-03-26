@@ -24,6 +24,17 @@ export const hexToRgb = (color: string) => {
     return RgbArr
 }
 
+export const getVerticalGradient = (color: string) => {
+    const RgbArr = hexToRgb(color)
+    const gradientStr = `linear-gradient(0deg,
+        rgba(${RgbArr[0]}, ${RgbArr[1]}, ${RgbArr[2]}, 1) 5%,
+        rgba(${RgbArr[0]}, ${RgbArr[1]}, ${RgbArr[2]}, 0) 50%,
+        rgba(${RgbArr[0]}, ${RgbArr[1]}, ${RgbArr[2]}, 1) 95%
+        )`
+
+    return gradientStr
+}
+
 export const getGradientAnimation = (color: string) => {
     const RgbArr = hexToRgb(color)
     const gradientAnimationStr = `background: linear-gradient(45deg,

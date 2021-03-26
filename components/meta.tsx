@@ -64,11 +64,11 @@ const Meta = (props: IMetaProps) => {
         fontName = project.font.name
         theme.primaryFont = {
             url: project.font.url,
-            name: project.font.name
+            name: project.font.name,
         }
         theme.secondaryFont = {
             url: project.font.url,
-            name: project.font.name
+            name: project.font.name,
         }
     }
 
@@ -109,11 +109,8 @@ const Meta = (props: IMetaProps) => {
                 <link rel="icon" type="image/png" sizes="96x96" href={iconCDN + "favicon-96x96.png"} />
                 <link rel="icon" type="image/png" sizes="16x16" href={iconCDN + "favicon-16x16.png"} />
 
-                {gaID && gaID !== "" ?
-                    <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaID} async /> :
-                    <script />
-                }
-
+                {gaID && gaID !== "" ? <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaID} async /> : <script />}
+                <script async src="//www.instagram.com/embed.js" />
             </Head>
             {grid}
             {tukan(fontName, colors, darkModeColors)}
@@ -134,7 +131,7 @@ const defaultColors = {
     allGray10: "#F5F5F5",
     allGray20: "#ECEDEE",
     allGray30: "#C8CBCE",
-    allGray40: "#7E8082"
+    allGray40: "#7E8082",
 }
 
 // Colors for dark mode
@@ -146,7 +143,7 @@ const defaultDarkModeColors = {
     allGray10: "#404040",
     allGray20: "#808080",
     allGray30: "#d0d0d0",
-    allGray40: "#f0f0f0"
+    allGray40: "#f0f0f0",
 }
 
 export default Meta

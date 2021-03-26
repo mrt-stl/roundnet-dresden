@@ -51,6 +51,9 @@ module.exports = withBundleAnalyzer({
                             defaultSrc: [
                                 "'self'",
                                 "'unsafe-eval'",
+                                "https://api.rollbar.com/api/1/item/",
+                                "https://maps.googleapis.com/",
+                                "http://www.instagram.com/"
                             ],
                             fontSrc: ["'self'", "https://fonts.googleapis.com/", "https://use.typekit.net/", "https://fonts.gstatic.com/"],
                             styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com/"],
@@ -60,6 +63,9 @@ module.exports = withBundleAnalyzer({
                                 "https://www.youtube.com/",
                                 "https://images.prismic.io/",
                                 "https://*.cdn.prismic.io/",
+                                "https://maps.gstatic.com/",
+                                "https://maps.googleapis.com/",
+                                "data:"
                             ],
                             objectSrc: "'none'",
                             baseURI: "'self'",

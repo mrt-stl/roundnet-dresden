@@ -25,33 +25,29 @@ const Richtext = (props: IRichtextProps) => {
 }
 
 const RichtextContainer = styled.div<{index: number}>`
-    padding-top: ${(props) => props.theme.spacing.xxl};
-    margin-bottom: ${(props) => props.theme.spacing.xl};
+    padding-top: ${(props) => props.theme.spacing.l};
+    margin-bottom: ${(props) => props.theme.spacing.m};
 
     ${media.maxWidth("md")`
-        padding-top: ${(props) => props.index === 0 ? "400px" : props.theme.spacing.xxl};
+        padding-top: ${(props) => props.index === 0 ? "400px" : props.theme.spacing.m};
     `}
 `
 
 const RichtextGrid = styled(TGrid)`
-    ${media.maxWidth("md")`
-        margin-left: 40px;
-        margin-right: 40px;
-    `}
 `
 
 const RichtextCol = styled(TCol)`
     padding-left: 0px;
-    padding-right; 0px;
+    padding-right: 0px;
 
     ${media.maxWidth("md")`
         padding-left: 20px;
-        padding-right; 220px;
+        padding-right: 20px;
     `}
 `
 
 const RichtextContent = styled.div `
-    color: ${(props) => props.theme.color.onBackground};
+    color: ${(props) => props.theme.projectColors.onBackground};
 
     ${media.maxWidth("md")`
         p {

@@ -250,6 +250,16 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
         transform: ${({ open }) => open ? "translateY(0px)" : "translateY(-8px)"};
     }
 
+    .menu-item:nth-child(5) {
+        transition: transform 0.25s ease-in-out 0.45s, opacity 0.25s ease-in-out 0.45s;
+        color: #ffffff;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: ${({ open }) => open ? "1" : "0"};
+        transform: ${({ open }) => open ? "translateY(0px)" : "translateY(-8px)"};
+    }
+
     opacity: ${({ open }) => open ? "1" : "0"};
 `
 

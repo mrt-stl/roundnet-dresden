@@ -108,6 +108,7 @@ a {
 	text-decoration: none;
 	font-weight: regular;
     line-height: 1.2;
+    color: ${props => props.theme.projectColors.secondary};
 }
 
 h2 a:hover {

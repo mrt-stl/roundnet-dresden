@@ -1,7 +1,7 @@
 {
     "version": 2,
-    "name": "roundnet-dresden",
-    "alias": "roundnet-dresden.de",
+    "name": "lederpflege-nawrot",
+    "alias": "lederpflege-nawrot.de",
     "public": false,
     "regions": [
         "all"
@@ -18,17 +18,17 @@
     ],
     "build": {
         "env": {
-            "url": "https://roundnet-dresden.de/",
-            "name": "roundnet-dresden",
-            "prismic_endpoint": "https://roundnet-dresden.cdn.prismic.io/api/v2",
-            "prismic_access_token": "MC5ZRm1yeWhJQUFDRUFGMzc4.77-9Hu-_ve-_vStt77-9Fe-_vXjvv70l77-977-977-977-977-9eu-_vSvvv71AY--_ve-_vXPvv73vv73vv73vv70S77-9",
+            "url": "https://lederpflege-nawrot.de/",
+            "name": "lederpflege-nawrot",
+            "prismic_endpoint": "https://lederpflege-nawrot.cdn.prismic.io/api/v2",
+            "prismic_access_token": "MC5YTGIyYXhBQUFQQWp1Qy1q.aApoS--_ve-_vUvvv73vv71bb0zvv70Y77-977-977-977-9JO-_vV_vv73vv70zPHnvv71NAe-_ve-_ve-_vQ",
             "nav": "[ {\"name\": \"Start\", \"link\": \"/\"} ]",
-            "font": "{\"url\": \"https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap\", \"name\": \"Roboto\" }",
+            "font": "{\"url\": \"https://fonts.googleapis.com/css?family=Muli:400,700&display=swap\", \"name\": \"Muli\" }",
             "cookie": "{\"link\": \"\"}",
-            "colors": "{ \"primary\": \"#ffffff\", \"primaryVariant\": \"#c7c7c7\", \"secondary\": \"#D9B04A\", \"secondaryVariant\": \"#F2D99A\", \"background\": \"#00071A\", \"surface\": \"#ffffff\", \"onPrimary\": \"#000000\", \"onSecondary\": \"#ffffff\", \"onBackground\": \"#ffffff\", \"gradient\": \"true\" }",
+            "colors": "{ \"primary\": \"#000000\", \"primaryVariant\": \"#c7c7c7\", \"secondary\": \"#404860\", \"secondaryVariant\": \"#F2D99A\", \"background\": \"#ffffff\", \"surface\": \"#ffffff\", \"onPrimary\": \"#ffffff\", \"onSecondary\": \"#ffffff\", \"onBackground\": \"#000000\", \"gradient\": \"false\" }",
             "dark_mode": "off",
             "caching_duration": "0",
-            "project_id": "roundnet-dresden",
+            "project_id": "lederpflege-nawrot",
             "show_banner": "off",
             "shopify_acces_token": "",
             "shopify_store_domain": "",

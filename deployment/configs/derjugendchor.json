@@ -25,7 +25,7 @@
             "nav": "[ {\"name\": \"Start\", \"link\": \"/\"} ]",
             "font": "{\"url\": \"https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700&display=swap\", \"name\": \"Inter\" }",
             "cookie": "{\"link\": \"\"}",
-            "colors": "{ \"primary\": \"#000000\", \"primaryVariant\": \"#D4D4D4\", \"secondary\": \"#55dbd4\", \"secondaryVariant\": \"#ffffff\", \"background\": \"#000000\", \"surface\": \"#ffffff\", \"onPrimary\": \"#000000\", \"onSecondary\": \"#000000\", \"onBackground\": \"#ffffff\" }",
+            "colors": "{ \"primary\": \"#000000\", \"primaryVariant\": \"#D4D4D4\", \"secondary\": \"#55dbd4\", \"secondaryVariant\": \"#ffffff\", \"background\": \"#000000\", \"surface\": \"#ffffff\", \"onPrimary\": \"#000000\", \"onSecondary\": \"#000000\", \"onBackground\": \"#ffffff\", \"gradient\": \"true\" }",
             "dark_mode": "off",
             "caching_duration": "0",
             "project_id": "derjugendchor",

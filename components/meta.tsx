@@ -73,7 +73,7 @@ const Meta = (props: IMetaProps) => {
     }
 
     const gaID = project.googleAnalyticsID
-
+    const gsv = project.googleSiteVerification
     return (
         <div>
             <Head>
@@ -110,7 +110,7 @@ const Meta = (props: IMetaProps) => {
                 <link rel="icon" type="image/png" sizes="16x16" href={iconCDN + "favicon-16x16.png"} />
 
                 {gaID && gaID !== "" ? <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaID} async /> : <script />}
-                <script async src="//www.instagram.com/embed.js" />
+                {gsv && gsv !== "" ? <meta name="google-site-verification" content={gsv} /> : ""}
             </Head>
             {grid}
             {tukan(fontName, colors, darkModeColors)}

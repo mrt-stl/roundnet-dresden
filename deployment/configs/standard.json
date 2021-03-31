@@ -33,6 +33,7 @@
             "shopify_acces_token": "",
             "shopify_store_domain": "",
             "ga_id": "",
+            "google_verification": "",
             "use_shop_view": "false"
         }
     }

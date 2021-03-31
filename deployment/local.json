@@ -1,6 +1,7 @@
 {
     "version": 2,
-    "name": "local",
+    "name": "standard",
+    "alias": "standard.tukan.dev",
     "public": false,
     "regions": [
         "all"
@@ -17,44 +18,23 @@
     ],
     "build": {
         "env": {
-            "url": "https://roundnet-dresden.de/",
-            "name": "roundnet-dresden",
-            "prismic_endpoint": "https://roundnet-dresden.cdn.prismic.io/api/v2",
-            "prismic_access_token": "MC5ZRm1yeWhJQUFDRUFGMzc4.77-9Hu-_ve-_vStt77-9Fe-_vXjvv70l77-977-977-977-977-9eu-_vSvvv71AY--_ve-_vXPvv73vv73vv73vv70S77-9",
+            "url": "https://standard.tukan.dev/",
+            "name": "standard",
+            "prismic_endpoint": "https://standard.cdn.prismic.io/api/v2",
+            "prismic_access_token": "MC5YTWJpUFJFQUFDSUF0MzB2.77-977-977-977-9ae-_ve-_ve-_ve-_ve-_vWzvv70a77-9Yu-_vRvvv73vv71m77-977-977-9fGFE77-9Q0Hvv73vv70k",
             "nav": "[ {\"name\": \"Start\", \"link\": \"/\"} ]",
-            "font": "{\"url\": \"https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap\", \"name\": \"Roboto\" }",
+            "font": "{\"url\": \"https://fonts.googleapis.com/css2?family=Inter&display=swap\", \"name\": \"Inter\" }",
             "cookie": "{\"link\": \"\"}",
-            "colors": "{ \"primary\": \"#ffffff\", \"primaryVariant\": \"#c7c7c7\", \"secondary\": \"#CDAB54\", \"secondaryVariant\": \"#F2D99A\", \"background\": \"#000000\", \"surface\": \"#ffffff\", \"onPrimary\": \"#000000\", \"onSecondary\": \"#ffffff\", \"onBackground\": \"#ffffff\" }",
+            "colors": "{ \"primary\": \"#000000\", \"primaryVariant\": \"#D4D4D4\", \"secondary\": \"#ffffff\", \"secondaryVariant\": \"#ffffff\", \"background\": \"#ffffff\", \"surface\": \"#ffffff\", \"onPrimary\": \"#000000\", \"onSecondary\": \"#000000\", \"onBackground\": \"#000000\" }",
             "dark_mode": "off",
             "caching_duration": "0",
-            "project_id": "roundnet-dresden",
+            "project_id": "standard",
             "show_banner": "off",
             "shopify_acces_token": "",
             "shopify_store_domain": "",
             "ga_id": "",
+            "google_verification": "",
             "use_shop_view": "false"
         }
-    },
-    "routes": [
-        {
-            "src": "^/robots.txt",
-            "dest": "/static/robots.txt"
-        },
-        {
-            "src": "^/sitemap.xml",
-            "dest": "/api/sitemap"
-        },
-        {
-            "src": "/en/(?<id>[^/]+)$",
-            "dest": "/index?id=$id&lang=en"
-        },
-        {
-            "src": "/en/",
-            "dest": "/index?id=home&lang=en"
-        },
-        {
-            "src": "/(?<id>[^/]+)$",
-            "dest": "/index?id=$id"
-        }
-    ]
+    }
 }

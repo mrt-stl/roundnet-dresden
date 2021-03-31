@@ -27,6 +27,7 @@ export default class Project {
     public darkMode: string
     public font?: IFont | null
     public googleAnalyticsID?: string | null
+    public googleSiteVerification?: string | null
     public name?: string | null
     public nav: INavLink[]
     public prismicAccessToken?: string | null
@@ -55,6 +56,7 @@ export default class Project {
         this.darkMode = process.env.dark_mode ? process.env.dark_mode : DarkModeType.OFF
         this.font = this.parse(process.env.font)
         this.googleAnalyticsID = process.env.ga_id ? process.env.ga_id : null
+        this.googleSiteVerification = process.env.google_verification ? process.env.google_verification : null
         this.name = process.env.name ? process.env.name : null
         this.nav = this.parse(process.env.nav) ? JSON.parse(process.env.nav) : [standardNav]
         this.prismicAccessToken = process.env.prismic_access_token ? process.env.prismic_access_token : null

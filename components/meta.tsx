@@ -1,6 +1,4 @@
 import Head from "next/head"
-import { tukan } from "./style/tukan"
-import { grid } from "./style/binary-grid"
 import Project, { DarkModeType } from "../models/config/project"
 import { isUndefinedOrNullOrEmpty } from "../utils/object-utils"
 import { IMetaData } from "../models/config/meta-data"
@@ -25,12 +23,10 @@ const Meta = (props: IMetaProps) => {
     // Set colors
     const projectColors = project.colors
     let colors: any = defaultColors
-    let darkModeColors: any = defaultDarkModeColors
 
     switch (project.darkMode) {
         case DarkModeType.ON:
             colors = defaultDarkModeColors
-            darkModeColors = defaultDarkModeColors
             theme = darkTheme
             break
 
@@ -39,9 +35,7 @@ const Meta = (props: IMetaProps) => {
             colors.secondary = projectColors.secondary !== "" ? projectColors.secondary : defaultColors.secondary
             colors.accent = projectColors.accent !== "" ? projectColors.accent : defaultColors.accent
 
-            darkModeColors = defaultDarkModeColors
-
-            // setting up dark mode by uyers system preferences
+            // setting up dark mode by users system preferences
             const { value } = useDarkMode(false, { storageKey: null, onChange: null })
             theme = value ? darkTheme : lightTheme
             break
@@ -50,18 +44,14 @@ const Meta = (props: IMetaProps) => {
             colors.primary = projectColors.primary !== "" ? projectColors.primary : defaultColors.primary
             colors.secondary = projectColors.secondary !== "" ? projectColors.secondary : defaultColors.secondary
             colors.accent = projectColors.accent !== "" ? projectColors.accent : defaultColors.accent
-
-            darkModeColors = colors
             break
     }
 
     // Set font or go to default font
     let fontUrl = "https://fonts.googleapis.com/css2?family=Inter&display=swap"
-    let fontName = "Inter"
     if (project.font) {
         // fontUrl will be imported down
         fontUrl = project.font.url
-        fontName = project.font.name
         theme.primaryFont = {
             url: project.font.url,
             name: project.font.name,
@@ -112,8 +102,6 @@ const Meta = (props: IMetaProps) => {
                 {gaID && gaID !== "" ? <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaID} async /> : <script />}
                 {gsv && gsv !== "" ? <meta name="google-site-verification" content={gsv} /> : ""}
             </Head>
-            {grid}
-            {tukan(fontName, colors, darkModeColors)}
         </div>
     )
 }

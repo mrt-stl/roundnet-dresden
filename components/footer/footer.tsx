@@ -3,7 +3,6 @@ import { media } from "../style/tukan"
 import parse from "html-react-parser"
 import { asHtml } from "../../utils/prismic-utils"
 import { TGrid, TCol } from "../style/sc-grid"
-import { useState, useEffect } from "react"
 import styled from "styled-components"
 import TukanImage from "../elements/tukan-image"
 import Typewriter from "../elements/typewriter"
@@ -13,91 +12,55 @@ interface IFooterProps {
 }
 
 const Footer = (props: IFooterProps) => {
-    const [footerLinks, setFooterLinks] = useState([{ href: "/", linkContent: "Loading..." }])
-    const [footerSM, setFooterSM] = useState([{ href: "", img: { src: "Logo", alt: "social Media" } }])
-    const [footerLoading, setFooterLoading] = useState(true)
-    const [footerContent, setFooterContent] = useState()
-    const [footerWatermark, setFooterWatermark] = useState("")
-
-    useEffect(() => {
-        const footerLinksArr = []
-        const footerSMArr = []
-        let footerWaterMarkString = ""
-        let footerContentObj
-        if (props.data) {
-            const footerData = props.data.data.footer_links
-            footerData.map((element) => {
-                const link = {
-                    href: linkResolver(element.footer_link),
-                    linkContent: element.footer_label,
-                }
-                footerLinksArr.push(link)
-            })
-
-            footerWaterMarkString = `${props.data.data.footer_watermark}`
-            footerContentObj = asHtml(props.data.data.footer_content)
-
-            const footerSMData = props.data.data.footer_links_social
-            footerSMData.map((element) => {
-                const link = {
-                    href: linkResolver(element.social_link),
-                    img: {
-                        src: element.footer_image.url,
-                        alt: element.footer_image.alt,
-                    },
-                }
-                footerSMArr.push(link)
-            })
-        }
-        setFooterLinks(footerLinksArr)
-        setFooterContent(footerContentObj)
-        setFooterSM(footerSMArr)
-        setFooterWatermark(footerWaterMarkString)
-        setFooterLoading(false)
-    }, [])
-
-    return (
-        <footer>
-            <FooterContainer>
-                <FooterGrid valign="center" halign="center">
-                    {footerLoading ? (
-                        ""
-                    ) : (
+    if (props.data) {
+        const { footer_content, footer_links, footer_links_social, footer_watermark } = props.data
+        return (
+            <footer>
+                <FooterContainer>
+                    <FooterGrid valign="top" halign="center">
                         <>
                             <TCol size={1 / 4} collapse="md" talign="left">
-                                {parse(footerContent)}
+                                {parse(asHtml(footer_content))}
                             </TCol>
 
                             <TCol size={1 / 4} collapse="md" talign="left">
-                                {footerLinks.map((element, index) => {
+                                {footer_links.map((element, index) => {
                                     return (
                                         <div key={index}>
-                                            <a href={element.href}>{element.linkContent}</a>
+                                            <a href={linkResolver(element.footer_link)}>
+                                                <p>{element.footer_label}</p>
+                                            </a>
                                         </div>
                                     )
                                 })}
                             </TCol>
 
-                            <TCol size={2 / 4} collapse="md" talign="right">
+                            <TCol size={2 / 4} collapse="md" talign="right" salign="center">
                                 <SocialMediaContainer>
-                                    {footerSM.map((element, index) => {
+                                    {footer_links_social.map((element, index) => {
                                         return (
-                                            <a href={element.href} key={index} target="_blank">
-                                                <TukanImage src={element.img.src} alt={element.img.alt} height="auto" width="auto" />
+                                            <a href={linkResolver(element.social_link)} key={index} target="_blank">
+                                                <TukanImage
+                                                    src={element.footer_image.url}
+                                                    alt={element.footer_image.alt}
+                                                    height="auto"
+                                                    width="auto"
+                                                />
                                             </a>
                                         )
                                     })}
                                 </SocialMediaContainer>
                             </TCol>
                             <TCol size={1}>
-                                <Typewriter strArr={["Gemacht mit Stadtteilliebe", footerWatermark]} />
+                                <Typewriter strArr={["Gemacht mit Stadtteilliebe", `${footer_watermark}`]} />
                             </TCol>
                         </>
-                    )}
-                </FooterGrid>
-            </FooterContainer>
-        </footer>
-    )
+                    </FooterGrid>
+                </FooterContainer>
+            </footer>
+        )
+    }
+    return null
 }
 
 const FooterContainer = styled.div`
@@ -142,6 +105,8 @@ const FooterGrid = styled(TGrid)`
 `
 
 const SocialMediaContainer = styled.div`
+    align-self: center;
+
     a:not(:first-child) {
         margin-left: ${(props) => props.theme.spacing.s};
         transition: all 0.1s ease-in-out;

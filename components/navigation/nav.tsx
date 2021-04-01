@@ -2,7 +2,7 @@ import { isUndefinedOrNullOrEmpty } from "../../utils/object-utils"
 import { linkResolver } from "../../utils/prismic-utils"
 import { media } from "../style/tukan"
 import { TGrid } from "../style/sc-grid"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import NavLink from "./nav-link"
 import Project from "../../models/config/project"
 import styled from "styled-components"
@@ -17,94 +17,60 @@ const Nav = (props: INavProps) => {
 
     const projectId = !isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "standard"
 
-    const [navLinks, setNavLinks] = useState([{ href: "/", linkContent: "Loading..." }])
-    const [navLogo, setNavLogo] = useState({ src: "", alt: "Logo" })
-    const [navAlignment, setNavAlignment] = useState(true)
-    const [navLoading, setNavLoading] = useState(true)
-
     const [open, setOpen] = useState(false)
 
     const handleClick = () => {
         setOpen(!open)
     }
 
-    useEffect(() => {
-        const navLinksArr = []
-        let navLogoObject: any = {}
-        let navAlign: boolean
+    if (props.data) {
+        const {nav_alignment, nav_links, nav_logo} = props.data
+        return (
+            <nav>
+                <Branding1 href="/">
+                    <TukanImage src={nav_logo.url} alt={nav_logo.alt} height="auto" width="auto" />
+                </Branding1>
+                <StyledBurger open={open} onClick={handleClick}>
+                    <span />
+                    <span />
+                </StyledBurger>
+                <MenuContainer
+                    open={open}
+                    background={"https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + projectId + "/assets/" + "menu-background.svg"}
+                >
+                    <MenuContent>
+                        <p className="menu-title">Übersicht</p>
 
-        if (props.data) {
-            const navData = props.data.data.nav_links
-            navData.map((element) => {
-                const link = {
-                    href: linkResolver(element.nav_link),
-                    linkContent: element.nav_label,
-                }
-                navLinksArr.push(link)
-            })
+                        {nav_links.map((element, index) => {
+                                  return (
+                                      <div className="menu-item" key={index}>
+                                          <NavLink href={linkResolver(element.nav_link)} linkContent={element.nav_label} />
+                                      </div>
+                                  )
+                              })}
+                    </MenuContent>
+                </MenuContainer>
 
-            const navLogoData = props.data.data.nav_logo
-            navLogoObject = {
-                src: navLogoData.url,
-                alt: navLogoData.alt,
-            }
-
-            navAlign = props.data.data.nav_alignment
-        }
-        setNavLinks(navLinksArr)
-        setNavLogo(navLogoObject)
-        setNavAlignment(navAlign)
-        setNavLoading(false)
-    }, [props])
-
-    return (
-        <nav>
-            <Branding1 href="/">
-                <TukanImage src={navLogo.src} alt={navLogo.alt} height="auto" width="auto" />
-            </Branding1>
-            <StyledBurger open={open} onClick={handleClick}>
-                <span />
-                <span />
-            </StyledBurger>
-            <MenuContainer
-                open={open}
-                background={"https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + projectId + "/assets/" + "menu-background.svg"}
-            >
-                <MenuContent>
-                    <p className="menu-title">Übersicht</p>
-
-                    {navLoading
-                        ? ""
-                        : navLinks.map((element, index) => {
-                              return (
-                                  <div className="menu-item" key={index}>
-                                      <NavLink href={element.href} linkContent={element.linkContent} />
-                                  </div>
-                              )
-                          })}
-                </MenuContent>
-            </MenuContainer>
-
-            <NavContainer>
-                <NavGrid halign={navAlignment ? "right" : "left"}>
-                    <Branding href="/" halign={navAlignment}>
-                        <TukanImage src={navLogo.src} alt={navLogo.alt} height="48px" width="auto" />
-                    </Branding>
-                    {navLoading
-                        ? ""
-                        : navLinks.map((element, index) => {
-                              const hideMobileIndex = project.useShopView ? -1 : 0
-                              const hideMobile = index !== hideMobileIndex ? "desktop-nav" : "h-100"
-                              return (
-                                  <div className={"align-items-center " + hideMobile} key={index}>
-                                      <NavLink href={element.href} linkContent={element.linkContent} />
-                                  </div>
-                              )
-                          })}
-                </NavGrid>
-            </NavContainer>
-        </nav>
-    )
+                <NavContainer>
+                    <NavGrid halign={nav_alignment ? "right" : "left"}>
+                        <Branding href="/" halign={nav_alignment}>
+                            <TukanImage src={nav_logo.url} alt={nav_logo.alt} height="48px" width="auto" />
+                        </Branding>
+                        {nav_links.map((element, index) => {
+                                  const hideMobileIndex = project.useShopView ? -1 : 0
+                                  const hideMobile = index !== hideMobileIndex ? "desktop-nav" : "h-100"
+                                  return (
+                                      <div className={"align-items-center " + hideMobile} key={index}>
+                                          <NavLink href={linkResolver(element.nav_link)} linkContent={element.nav_label} />
+                                      </div>
+                                  )
+                              })}
+                    </NavGrid>
+                </NavContainer>
+            </nav>
+        )
+    }
+    return null
 }
 
 const NavContainer = styled.div`
@@ -193,7 +159,6 @@ const StyledBurger = styled.button<{ open?: boolean }>`
             transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
             width: ${({ open }) => (open ? "24px" : "24px")};
             background-color: ${(props) => (props.open ? props.theme.projectColors.background : props.theme.projectColors.onBackground)};
-
         }
         :nth-child(2) {
             transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};

@@ -37,9 +37,13 @@ Page.getInitialProps = async ({ query, res }) => {
 
     const prismicRes = await getByUid(docType, queryId)
     const docs = prismicRes.data
-    const navData = prismicRes.navigation.results[0]
-    const footerData = prismicRes.footer.results[0]
 
+    const navRes = prismicRes.navigation.results[0]
+    const navData = navRes.data
+
+    const footerRes = prismicRes.footer.results[0]
+    const footerData = footerRes.data
+    
     if (prismicRes.error || docs?.results?.length < 1) {
         return {
             error: "Page not found"

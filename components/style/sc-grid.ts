@@ -14,7 +14,7 @@ export const TRow = styled.div`
     display: flex;
 `
 
-export const TCol = styled.div<{ collapse?: string, size?: number, talign?: string }>`
+export const TCol = styled.div<{ collapse?: string, size?: number, talign?: string, salign?: string }>`
     flex-basis: ${(props) => Math.round((props.size ? props.size : 1) * 100 * 10000) / 10000}%;
     max-width: ${(props) => Math.round((props.size ? props.size : 1) * 100 * 10000) / 10000}%;
     ${(props) => props.collapse && Tutils.media[props.collapse](`
@@ -24,6 +24,7 @@ export const TCol = styled.div<{ collapse?: string, size?: number, talign?: stri
     min-height: 1px;
     box-sizing: border-box;
     text-align: ${(props) => props.talign ? props.talign : null };
+    align-self: ${(props) => props.salign ? props.salign : null };
 `
 
 const Tutils  = {

@@ -54,7 +54,7 @@ const Typewriter = (props: ITypewriterProps) => {
     }, [])
 
     return (
-        <STLBanner href="https://www.stadtteilliebe.de">
+        <STLBanner href="https://www.stadtteilliebe.de/tukan">
             <span className="wrap">{typeText}</span>
         </STLBanner>
     )

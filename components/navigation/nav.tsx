@@ -66,34 +66,41 @@ const Nav = (props: INavProps) => {
                 <span />
                 <span />
             </StyledBurger>
-            <MenuContainer open={open} background={"https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + projectId + "/assets/" + "menu-background.svg"}>
+            <MenuContainer
+                open={open}
+                background={"https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + projectId + "/assets/" + "menu-background.svg"}
+            >
                 <MenuContent>
-                        <p className="menu-title">Übersicht</p>
+                    <p className="menu-title">Übersicht</p>
 
-                        {navLoading ? "" : navLinks.map((element, index) => {
-                        return (
-                            <div className="menu-item" key={index}>
-                                <NavLink href={element.href} linkContent={element.linkContent} />
-                            </div>
-                        )
-                    })}
+                    {navLoading
+                        ? ""
+                        : navLinks.map((element, index) => {
+                              return (
+                                  <div className="menu-item" key={index}>
+                                      <NavLink href={element.href} linkContent={element.linkContent} />
+                                  </div>
+                              )
+                          })}
                 </MenuContent>
             </MenuContainer>
 
             <NavContainer>
                 <NavGrid halign={navAlignment ? "right" : "left"}>
-                        <Branding href="/" halign={navAlignment}>
-                            <TukanImage src={navLogo.src} alt={navLogo.alt} height="48px" width="auto" />
-                        </Branding>
-                        {navLoading ? "" : navLinks.map((element, index) => {
-                            const hideMobileIndex = project.useShopView ? -1 : 0
-                            const hideMobile = index !== hideMobileIndex ? "desktop-nav" : "h-100"
-                            return (
-                                <div className={"align-items-center " + hideMobile} key={index}>
-                                    <NavLink href={element.href} linkContent={element.linkContent} />
-                                </div>
-                            )
-                        })}
+                    <Branding href="/" halign={navAlignment}>
+                        <TukanImage src={navLogo.src} alt={navLogo.alt} height="48px" width="auto" />
+                    </Branding>
+                    {navLoading
+                        ? ""
+                        : navLinks.map((element, index) => {
+                              const hideMobileIndex = project.useShopView ? -1 : 0
+                              const hideMobile = index !== hideMobileIndex ? "desktop-nav" : "h-100"
+                              return (
+                                  <div className={"align-items-center " + hideMobile} key={index}>
+                                      <NavLink href={element.href} linkContent={element.linkContent} />
+                                  </div>
+                              )
+                          })}
                 </NavGrid>
             </NavContainer>
         </nav>
@@ -101,7 +108,7 @@ const Nav = (props: INavProps) => {
 }
 
 const NavContainer = styled.div`
-    /* background-color: ${(props) => props.color ? props.color : props.theme.projectColors.secondary}; */
+    /* background-color: ${(props) => (props.color ? props.color : props.theme.projectColors.secondary)}; */
     overflow: hidden;
     top: 64px;
     position: absolute;
@@ -124,7 +131,7 @@ const NavGrid = styled(TGrid)`
 `
 
 const Branding = styled.a<{ halign: boolean }>`
-    margin-right: ${props => props.halign ? "auto" : "20px"};
+    margin-right: ${(props) => (props.halign ? "auto" : "20px")};
     width: auto;
 
     img {
@@ -132,14 +139,14 @@ const Branding = styled.a<{ halign: boolean }>`
     }
 `
 
-const Branding1 = styled.a `
+const Branding1 = styled.a`
     ${media.minWidth("md")`
         display: none;
     `};
 
-        position: absolute;
-        top: 62px;
-        left: 60px;
+    position: absolute;
+    top: 62px;
+    left: 60px;
 
     img {
         height: 32px;
@@ -183,12 +190,15 @@ const StyledBurger = styled.button<{ open?: boolean }>`
         transform-origin: 4.5px;
 
         :first-child {
-          transform: ${({ open }) => open ? "rotate(45deg)" : "rotate(0)"};
-          width: ${({ open }) => open ? "24px" : "24px"}
+            transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
+            width: ${({ open }) => (open ? "24px" : "24px")};
+            background-color: ${(props) => (props.open ? props.theme.projectColors.background : props.theme.projectColors.onBackground)};
+
         }
         :nth-child(2) {
-          transform: ${({ open }) => open ? "rotate(-45deg)" : "rotate(0)"};
-          width: ${({ open }) => open ? "24px" : "24px"}
+            transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
+            width: ${({ open }) => (open ? "24px" : "24px")};
+            background-color: ${(props) => (props.open ? props.theme.projectColors.background : props.theme.projectColors.onBackground)};
         }
     }
 `
@@ -198,7 +208,7 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
         display: none;
     `};
 
-    background: #000000;
+    background: ${(props) => props.theme.projectColors.onBackground};
     background-image: url(${(props) => props.background});
     background-size: cover;
     background-position: center center;
@@ -210,57 +220,42 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
     z-index: 10;
     align-items: center;
     display: flex;
-    visibility: ${({open}) => open ? "visible" : "hidden"};
+    visibility: ${({ open }) => (open ? "visible" : "hidden")};
 
     .menu-title {
-        color: #ffffff;
+        color: ${(props) => props.theme.projectColors.background};
         font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 2px;
         margin-bottom: 20px;
     }
 
-    .menu-item:nth-child(2) {
-        transition: transform 0.25s ease-in-out 0.15s, opacity 0.25s ease-in-out 0.15s;
-        color: #ffffff;
+    .menu-item {
+        color: ${(props) => props.theme.projectColors.background};
         font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 2px;
-        opacity: ${({ open }) => open ? "1" : "0"};
-        transform: ${({ open }) => open ? "translateY(0px)" : "translateY(-8px)"};
-    } 
+        opacity: ${({ open }) => (open ? "1" : "0")};
+        transform: ${({ open }) => (open ? "translateY(0px)" : "translateY(-8px)")};
+    }
+
+    .menu-item:nth-child(2) {
+        transition: transform 0.25s ease-in-out 0.15s, opacity 0.25s ease-in-out 0.15s;
+    }
 
     .menu-item:nth-child(3) {
         transition: transform 0.25s ease-in-out 0.25s, opacity 0.25s ease-in-out 0.25s;
-        color: #ffffff;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        opacity: ${({ open }) => open ? "1" : "0"};
-        transform: ${({ open }) => open ? "translateY(0px)" : "translateY(-8px)"};
     }
 
     .menu-item:nth-child(4) {
         transition: transform 0.25s ease-in-out 0.35s, opacity 0.25s ease-in-out 0.35s;
-        color: #ffffff;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        opacity: ${({ open }) => open ? "1" : "0"};
-        transform: ${({ open }) => open ? "translateY(0px)" : "translateY(-8px)"};
     }
 
     .menu-item:nth-child(5) {
         transition: transform 0.25s ease-in-out 0.45s, opacity 0.25s ease-in-out 0.45s;
-        color: #ffffff;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        opacity: ${({ open }) => open ? "1" : "0"};
-        transform: ${({ open }) => open ? "translateY(0px)" : "translateY(-8px)"};
     }
 
-    opacity: ${({ open }) => open ? "1" : "0"};
+    opacity: ${({ open }) => (open ? "1" : "0")};
 `
 
 const MenuContent = styled.div`

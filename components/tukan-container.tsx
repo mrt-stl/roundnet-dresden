@@ -52,6 +52,8 @@ import CompositionModel from "../models/tukan/composition-model"
 import Composition from "./pattern/composition"
 import CallToActionModel from "../models/tukan/call-to-action-model"
 import CallToAction from "./pattern/call-to-action"
+import InstagramModel from "../models/tukan/instagram-model"
+import Instagram from "./pattern/instagram"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -132,6 +134,14 @@ const matchComponent = (model: TukanModel, index: number) => {
                     key={index}
                     backgroundColor={detailsModel.backgroundColor}
                     cards={detailsModel.cards} />
+            break
+
+        case TukanType.Instagram:
+            const instagramModel = model as InstagramModel
+            component =
+                <Instagram
+                    key={index}
+                    links={instagramModel.links}/>
             break
 
         case TukanType.Focus:

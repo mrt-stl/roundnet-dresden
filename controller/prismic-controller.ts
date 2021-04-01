@@ -28,6 +28,7 @@ import PortfolioModel from "../models/tukan/portfolio-model"
 import SliderModel from "../models/tukan/slider-model"
 import CompositionModel from "../models/tukan/composition-model"
 import CallToActionModel from "../models/tukan/call-to-action-model"
+import InstagramModel from "../models/tukan/instagram-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -117,6 +118,14 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const focus = new FocusModel(focusContent)
             return focus
+
+        case "instagram":
+            const instagramItems = slice.items
+
+            const links = instagramItems
+
+            const instagram = new InstagramModel(links)
+            return instagram
 
         case "startbild":
             const heroImagePrimary = slice.primary

@@ -1,6 +1,6 @@
-import { media } from "../style/tukan"
 import styled from "styled-components"
 import { TCol } from "../style/sc-grid"
+import { media } from "../style/tukan"
 
 interface IInstagramColProps {
     link: string
@@ -10,14 +10,10 @@ const InstagramCol = (props: IInstagramColProps) => {
     const { link } = props
 
     return (
-        <InstaCol size={1 / 3}>
-            <Blockquote
-                className="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/p/CHS1L_MgQSx/"
-                data-instgrm-version="13"
-            >
+        <InstaCol size={1 / 3} collapse="md">
+            <Blockquote className="instagram-media" data-instgrm-permalink={link} data-instgrm-version="13">
                 <Div1>
-                    <Link1 href="https://www.instagram.com/p/CHS1L_MgQSx/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank">
+                    <Link1 href={`${{ link }}?utm_source=ig_embed&amp;utm_campaign=loading`} target="_blank">
                         <Div2>
                             <Div3 />
                             <Div4>
@@ -63,7 +59,7 @@ const InstagramCol = (props: IInstagramColProps) => {
                         </Div21>
                     </Link1>
                     <P1>
-                        <Link2 href="https://www.instagram.com/p/CHS1L_MgQSx/?utm_source=ig_embed&amp;utm_campaign=loading" target="_blank">
+                        <Link2 href={`${{ link }}?utm_source=ig_embed&amp;utm_campaign=loading`} target="_blank">
                             Ein Beitrag geteilt von Martin (@martin_codes)
                         </Link2>
                     </P1>
@@ -74,10 +70,22 @@ const InstagramCol = (props: IInstagramColProps) => {
 }
 
 const InstaCol = styled(TCol)`
-iframe {
-    height: 380px;
-    border: 0px !important;
-}
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: ${(props) => props.theme.spacing.m};
+    iframe {
+        height: 423px;
+        border: 0px !important;
+        transform: translateY(-53px);
+    }
+
+    ${media.maxWidth("md")`
+    iframe {
+        height: 623px;
+        margin: 0 auto;
+    }
+    `};
 `
 
 const Blockquote = styled.blockquote`

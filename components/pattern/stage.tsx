@@ -4,7 +4,6 @@ import Button from "../elements/button"
 import parse from "html-react-parser"
 import styled from "styled-components"
 import { getGradientAnimation } from "../../utils/color-utils"
-import InstagramCol from "../elements/instagramCol"
 export interface IStageProps {
     headline: string
     content: string

@@ -25,5 +25,6 @@ export enum TukanType {
     Portfolio = "portfolio",
     Slider = "slider",
     Composition = "composition",
-    CallToAction = "call-to-action"
+    CallToAction = "call-to-action",
+    Instagram = "instagram"
 }

@@ -9,7 +9,7 @@
     "builds": [
         {
             "src": "next.config.js",
-            "use": "@now/next"
+            "use": "@vercel/next"
         },
         {
             "src": "static/*",
@@ -33,7 +33,7 @@
             "shopify_acces_token": "",
             "shopify_store_domain": "",
             "ga_id": "",
-            "google_verification": "",
+            "google_verification": "BnMGyryd5uYo1Haggdl81q22XcUZ01jSqM5aYjiRuLs",
             "use_shop_view": "false"
         }
     }

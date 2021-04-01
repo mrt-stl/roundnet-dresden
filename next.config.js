@@ -17,6 +17,7 @@ module.exports = withBundleAnalyzer({
         font: process.env.font,
         cookie: process.env.cookie,
         ga_id: process.env.ga_id,
+        google_verification: process.env.google_verification,
         colors: process.env.colors,
         dark_mode: process.env.dark_mode,
         show_banner: process.env.show_banner,

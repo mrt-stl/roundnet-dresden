@@ -1,0 +1,40 @@
+{
+    "version": 2,
+    "name": "autopflege-nawrot",
+    "alias": "autopflege-nawrot",
+    "public": false,
+    "regions": [
+        "all"
+    ],
+    "builds": [
+        {
+            "src": "next.config.js",
+            "use": "@now/next"
+        },
+        {
+            "src": "static/*",
+            "use": "@vercel/static"
+        }
+    ],
+    "build": {
+        "env": {
+            "url": "https://autopflege-nawrot.de",
+            "name": "autopflege-nawrot",
+            "prismic_endpoint": "https://autopflege-nawrot.cdn.prismic.io/api/v2",
+            "prismic_access_token": "MC5YM3c2amhVQUFDZ0FoY2Uw.BE_vv71uPyPvv73vv73vv73vv70zJO-_vQF7F3tv77-9YHDvv70DEDtM77-977-9MO-_ve-_vSc",
+            "nav": "[ {\"name\": \"Start\", \"link\": \"/\"} ]",
+            "font": "{\"url\": \"https://fonts.googleapis.com/css?family=Muli:400,700&display=swap\", \"name\": \"Muli\" }",
+            "cookie": "{\"link\": \"\"}",
+            "colors": "{ \"primary\": \"#121212\", \"primaryVariant\": \"#D4D4D4\", \"secondary\": \"#800032\", \"secondaryVariant\": \"#ffffff\", \"background\": \"#ffffff\", \"surface\": \"#ffffff\", \"onPrimary\": \"#000000\", \"onSecondary\": \"#ffffff\", \"onBackground\": \"#000000\", \"gradient\": \"false\" }",
+            "dark_mode": "off",
+            "caching_duration": "0",
+            "project_id": "autopflege-nawrot",
+            "show_banner": "off",
+            "shopify_acces_token": "",
+            "shopify_store_domain": "",
+            "ga_id": "",
+            "google_verification": "",
+            "use_shop_view": "false"
+        }
+    }
+}

@@ -28,7 +28,7 @@ h2 {
 	font-size: 2.25em;
     letter-spacing: 0;
     line-height: 1.25;
-    font-weight: var(--medium);
+    font-weight: ${props => props.theme.fontWeight.medium};
     margin-bottom: 0.5em;
     margin-top: 0.5em;
 }
@@ -37,7 +37,7 @@ h3 {
 	font-size: 2em;
     letter-spacing: 0.1px;
     line-height: 1.25;
-    font-weight: var(--regular);
+    font-weight: ${props => props.theme.fontWeight.regular};
     margin-bottom: 0.5em;
     margin-top: 0.5em;
 }
@@ -45,7 +45,7 @@ h3 {
 h4 {
 	font-size: 1.5em;
     letter-spacing: 0.1px;
-    font-weight: var(--bold);
+    font-weight: ${props => props.theme.fontWeight.bold};
     line-height: 1.25em;
     margin-bottom: 0.5em;
     margin-top: 0.5em;
@@ -53,7 +53,7 @@ h4 {
 
 h5 {
 	font-size: 1.25em;
-	font-weight: var(--regular);
+	font-weight: ${props => props.theme.fontWeight.regular};
 	letter-spacing: 0.1px;
 	line-height: 1.5em;
 	margin-bottom: 0.8em;
@@ -62,7 +62,7 @@ h5 {
 
 h6 {
     font-size: 1.25em;
-	font-weight: var(--regular);
+	font-weight: ${props => props.theme.fontWeight.regular};
 	letter-spacing: 0.1px;
 	line-height: 1.5em;
 	margin-bottom: 0em;
@@ -85,13 +85,12 @@ p {
 }
 
 ul {
-    background-color: var(--all-gray-10);
+    background-color: #f5f5f5;
     padding-top: 32px;
     padding-right: 24px;
     padding-bottom: 32px;
     padding-left: 60px !important;
     line-height: 2;
-    color: var(--font-color);
 }
 
 li {

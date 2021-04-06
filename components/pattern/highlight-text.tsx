@@ -1,26 +1,33 @@
 import parse from "html-react-parser"
+import { TGrid, TCol } from "../style/sc-grid"
+import styled from "styled-components"
 
 export interface IHighlightTextProps {
-    content: string
+  content: string
 }
 
 const HighlightText = (props: IHighlightTextProps) => {
-    const content = props.content
+  const content = props.content
 
-    return (
-        <div className="highlight-container">
-            <div className="grid justify-content-center">
-                <div className="col-6">{parse(content)}</div>
-            </div>
-
-            <style jsx>{`
-                .highlight-container {
-                    margin-top: var(--standard-spacing);
-                    margin-bottom: var(--standard-spacing);
-                }
-            `}</style>
-        </div>
-    )
+  return (
+    <HighlightContainer>
+      <TGrid halign="center">
+        <TCol size={3 / 4} collapse="md">
+          {parse(content)}
+        </TCol>
+      </TGrid>
+    </HighlightContainer>
+  )
 }
+
+const HighlightContainer = styled.div`
+  margin-top: ${(props) => props.theme.spacing.l};
+  margin-bottom: ${(props) => props.theme.spacing.l};
+
+  .center-align {
+    display: block;
+    text-align: center;
+  }
+`
 
 export default HighlightText

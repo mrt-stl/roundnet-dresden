@@ -5,9 +5,9 @@ const emailPass = "mafca3-qicfic-jAnsyz"
 
 const transporter = nodemailer.createTransport({
     host: "smtp.ionos.de",
-    port: 25,
+    port: 587,
     auth: {
-        user: "notification@stadtteilliebe.de",
+        user: "mail@stadtteilliebe.de",
         pass: emailPass
     }
 })

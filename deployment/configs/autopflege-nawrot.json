@@ -1,7 +1,7 @@
 {
     "version": 2,
     "name": "autopflege-nawrot",
-    "alias": "autopflege-nawrot",
+    "alias": "autopflege-nawrot.de",
     "public": false,
     "regions": [
         "all"
@@ -33,7 +33,7 @@
             "shopify_acces_token": "",
             "shopify_store_domain": "",
             "ga_id": "",
-            "google_verification": "",
+            "google_verification": "Y_xYHv8bfErVpREXw9G8lOGL7TYH_zGgnL3NCYvJhXA",
             "use_shop_view": "false"
         }
     }

@@ -25,7 +25,7 @@
             "nav": "[ {\"name\": \"Start\", \"link\": \"/\"} ]",
             "font": "{\"url\": \"https://fonts.googleapis.com/css?family=Muli:400,700&display=swap\", \"name\": \"Muli\" }",
             "cookie": "{\"link\": \"\"}",
-            "colors": "{ \"primary\": \"#000000\", \"primaryVariant\": \"#c7c7c7\", \"secondary\": \"#404860\", \"secondaryVariant\": \"#F2D99A\", \"background\": \"#ffffff\", \"surface\": \"#ffffff\", \"onPrimary\": \"#ffffff\", \"onSecondary\": \"#ffffff\", \"onBackground\": \"#000000\", \"gradient\": \"false\" }",
+            "colors": "{ \"primary\": \"#D99A25\", \"primaryVariant\": \"#C78920\", \"secondary\": \"#1A385C\", \"secondaryVariant\": \"#0F233C\", \"background\": \"#ffffff\", \"surface\": \"#ffffff\", \"onPrimary\": \"#ffffff\", \"onSecondary\": \"#ffffff\", \"onBackground\": \"#000000\", \"gradient\": \"false\" }",
             "dark_mode": "off",
             "caching_duration": "0",
             "project_id": "lederpflege-nawrot",
@@ -33,30 +33,8 @@
             "shopify_acces_token": "",
             "shopify_store_domain": "",
             "ga_id": "",
-            "google_verification": "Y_xYHv8bfErVpREXw9G8lOGL7TYH_zGgnL3NCYvJhXA",
+            "google_verification": "5woJuDeVhtf5SOSekTH6GkHYNBRfXew4twIs09gcHd8",
             "use_shop_view": "false"
         }
-    },
-    "routes": [
-        {
-            "src": "^/robots.txt",
-            "dest": "/static/robots.txt"
-        },
-        {
-            "src": "^/sitemap.xml",
-            "dest": "/api/sitemap"
-        },
-        {
-            "src": "/en/(?<id>[^/]+)$",
-            "dest": "/index?id=$id&lang=en"
-        },
-        {
-            "src": "/en/",
-            "dest": "/index?id=home&lang=en"
-        },
-        {
-            "src": "/(?<id>[^/]+)$",
-            "dest": "/index?id=$id"
-        }
-    ]
+    }
 }

@@ -20,12 +20,12 @@
         "env": {
             "url": "https://roundnet-dresden.de/",
             "name": "roundnet-dresden",
-            "prismic_endpoint": "https://roundnet-dresden.cdn.prismic.io/api/v2",
-            "prismic_access_token": "MC5ZRm1yeWhJQUFDRUFGMzc4.77-9Hu-_ve-_vStt77-9Fe-_vXjvv70l77-977-977-977-977-9eu-_vSvvv71AY--_ve-_vXPvv73vv73vv73vv70S77-9",
+            "prismic_endpoint": "https://roundnet-dresden-ev.cdn.prismic.io/api/v2",
+            "prismic_access_token": "MC5ZSEFqblJJQUFIMC1mQ2d4.77-977-977-9BhDvv73vv73vv73vv71n77-977-977-9V0_vv73vv71PBFsY77-977-977-9Je-_vQweCe-_vSUk",
             "nav": "[ {\"name\": \"Start\", \"link\": \"/\"} ]",
             "font": "{\"url\": \"https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap\", \"name\": \"Roboto\" }",
             "cookie": "{\"link\": \"\"}",
-            "colors": "{ \"primary\": \"#ffffff\", \"primaryVariant\": \"#c7c7c7\", \"secondary\": \"#D9B04A\", \"secondaryVariant\": \"#F2D99A\", \"background\": \"#00071A\", \"surface\": \"#ffffff\", \"onPrimary\": \"#000000\", \"onSecondary\": \"#ffffff\", \"onBackground\": \"#ffffff\", \"gradient\": \"true\" }",
+            "colors": "{ \"primary\": \"#ffffff\", \"primaryVariant\": \"#c7c7c7\", \"secondary\": \"#D9B04A\", \"secondaryVariant\": \"#F2D99A\", \"background\": \"#01102f\", \"surface\": \"#ffffff\", \"onPrimary\": \"#000000\", \"onSecondary\": \"#ffffff\", \"onBackground\": \"#ffffff\", \"gradient\": \"true\" }",
             "dark_mode": "off",
             "caching_duration": "0",
             "project_id": "roundnet-dresden",
@@ -36,27 +36,5 @@
             "google_verification": "",
             "use_shop_view": "false"
         }
-    },
-    "routes": [
-        {
-            "src": "^/robots.txt",
-            "dest": "/static/robots.txt"
-        },
-        {
-            "src": "^/sitemap.xml",
-            "dest": "/api/sitemap"
-        },
-        {
-            "src": "/en/(?<id>[^/]+)$",
-            "dest": "/index?id=$id&lang=en"
-        },
-        {
-            "src": "/en/",
-            "dest": "/index?id=home&lang=en"
-        },
-        {
-            "src": "/(?<id>[^/]+)$",
-            "dest": "/index?id=$id"
-        }
-    ]
+    }
 }

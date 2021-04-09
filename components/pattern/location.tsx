@@ -3,45 +3,51 @@ import Marker from "../elements/marker"
 import LazyLoad from "react-lazyload"
 
 export interface ILocationProps {
-    lat: number
-    lng: number
+  items: any
 }
 
 const Location = (props: ILocationProps) => {
-    const zoom = 15
-    const lat = props.lat
-    const lng = props.lng
+  const items = props.items
 
-    const center = {
-        lat,
-        lng
-    }
+  const locationCount = items.length
+  const zoom = locationCount === 1 ? 15 : 9.5
+  let sumLat: number = 0
+  let sumLng: number = 0
 
-    return (
-        <LazyLoad
-            height="512px"
-            offset={300}>
-            <div className="location-container">
-                <GoogleMapReact
-                    bootstrapURLKeys={{ key: "AIzaSyBg2SZDYXK6Zv_UXZdVJJr5J8eRlSAVUKQ" }}
-                    defaultCenter={center}
-                    defaultZoom={zoom}>
+  items.map((item) => {
+    sumLat += item.location_coords.latitude
+    sumLng += item.location_coords.longitude
+  })
 
-                    <Marker
-                        lat={lat}
-                        lng={lng} />
+  const lat = sumLat / locationCount
+  const lng = sumLng / locationCount
 
-                </GoogleMapReact>
+  const center = {
+    lat,
+    lng,
+  }
 
-                <style jsx>{`
-                    .location-container {
-                        height: 512px;
-                        width: 100%;
-                    }
-                `}</style>
-            </div>
-        </LazyLoad>
-    )
+  return (
+    <LazyLoad height="512px" offset={300}>
+      <div className="location-container">
+        <GoogleMapReact bootstrapURLKeys={{ key: "AIzaSyBg2SZDYXK6Zv_UXZdVJJr5J8eRlSAVUKQ" }} defaultCenter={center} defaultZoom={zoom}>
+          {items.map((item, index) => {
+            const lat = item.location_coords.latitude
+            const lng = item.location_coords.longitude
+
+            return <Marker lat={lat} lng={lng} key={index} />
+          })}
+        </GoogleMapReact>
+
+        <style jsx>{`
+          .location-container {
+            height: 512px;
+            width: 100%;
+          }
+        `}</style>
+      </div>
+    </LazyLoad>
+  )
 }
 
 export default Location

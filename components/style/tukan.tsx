@@ -150,6 +150,11 @@ img {
 iframe {
     max-width: 100%;
 }
+
+.center-align {
+    display: block;
+    text-align: center;
+}
 `
 
 export const media = breakpoints({

@@ -1,4 +1,5 @@
 import parse from "html-react-parser"
+import { TGrid, TCol } from "../style/sc-grid"
 
 export interface IMultiFunctionalProps {
     title?: string
@@ -15,18 +16,18 @@ const MultiFunctional = (props: IMultiFunctionalProps) => {
     const contentCols = props.cols.map((col, index) => {
         if (col.link) {
             return (
-                <div className="col" key={index}>
+                <TCol size={1} collapse="md" key={index}>
                     <a href={col.link}>
                         {parse(col.content)}
                     </a>
-                </div>
+                </TCol>
             )
 
         } else {
             return (
-                <div className="col" key={index}>
+                <TCol size={1} collapse="md" key={index}>
                     {parse(col.content)}
-                </div>
+                </TCol>
             )
         }
     })
@@ -34,17 +35,17 @@ const MultiFunctional = (props: IMultiFunctionalProps) => {
     return (
         <div className="multi-functional-container">
             {props.title ?
-                <div className="grid">
-                    <div className="col-6">
+                <TGrid>
+                    <TCol size={3 / 4}>
                         {parse(props.title)}
-                    </div>
-                </div> :
+                    </TCol>
+                </TGrid> :
                 <></>
             }
 
-            <div className="grid">
+            <TGrid>
                 {contentCols}
-            </div>
+            </TGrid>
         </div>
     )
 }

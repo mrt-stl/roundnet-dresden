@@ -1,5 +1,6 @@
 import parse from "html-react-parser"
 import TukanImage from "../elements/tukan-image"
+import { TGrid, TCol } from "../style/sc-grid"
 
 export interface IStageBlogProps {
     title: string
@@ -16,8 +17,8 @@ const StageBlog = (props: IStageBlogProps) => {
 
     return (
             <div className="stage-blog-container">
-                <div className="grid align-items-center">
-                    <div className="col-8">
+                <TGrid halign="center">
+                    <TCol size={1}>
                         <div>
                             <h1>{title}</h1>
                         </div>
@@ -30,8 +31,8 @@ const StageBlog = (props: IStageBlogProps) => {
                                 alt={imgAlt}
                                 height="auto" />
                         </div>
-                    </div>
-                </div>
+                    </TCol>
+                </TGrid>
             </div>
         )
     }

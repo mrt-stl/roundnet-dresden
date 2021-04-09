@@ -1,4 +1,5 @@
 import parse from "html-react-parser"
+import {TGrid, TCol } from "../style/sc-grid"
 
 export interface IHeadlineProps {
     content: string
@@ -6,11 +7,11 @@ export interface IHeadlineProps {
 
 const Headline = (props: IHeadlineProps) => (
     <div className="headline-container">
-        <div className="grid">
-            <div className="col">
+        <TGrid className="grid">
+            <TCol size={1} collapse="md">
                 {parse(props.content)}
-            </div>
-        </div>
+            </TCol>
+        </TGrid>
     </div>
 )
 

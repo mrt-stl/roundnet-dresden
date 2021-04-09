@@ -4,11 +4,14 @@ import TextareaAutosize from "react-autosize-textarea"
 import { sendContactMail } from "../../networking/mail-api"
 import { TGrid, TCol } from "../style/sc-grid"
 import styled from "styled-components"
+// this is a context provider to get theme colors outside a styled component declaration to pass it to package
+import { withTheme } from 'styled-components'
 
 export interface IContactProps {
   targetMail: string
   title?: string
   content?: string
+  theme?: any
 }
 
 class Contact extends Component<IContactProps, {}> {
@@ -22,13 +25,14 @@ class Contact extends Component<IContactProps, {}> {
   }
 
   public render() {
-    const { title, content } = this.props
+    const { title, content, theme } = this.props
     const { formButtonText, formButtonDisabled, name, mail, formContent, textareaIsFocused } = this.state
 
+    const projectColors = theme.projectColors
     const contactTitle = title ? title : ""
     const contactContent = content ? content : ""
     const btnClass = formButtonDisabled ? "disabled" : ""
-    const borderBottom = textareaIsFocused ? "2px solid #800032" : "1px solid #121212"
+    const borderBottom = textareaIsFocused ? `2px solid ${projectColors.secondary}` : `1px solid ${projectColors.primary}`
 
     return (
       <ContactContainer>
@@ -179,4 +183,4 @@ const ContactContainer = styled.div`
   }
 `
 
-export default Contact
+export default withTheme(Contact)

@@ -4,13 +4,11 @@ import { ILocationProps } from "../../components/pattern/location"
 
 export default class LocationModel extends TukanModel implements ILocationProps {
 
-    public lat: number
-    public lng: number
+    public items: any
 
-    constructor(lat: number, lng: number) {
+    constructor(items: any) {
         super(TukanType.Location)
 
-        this.lat = lat
-        this.lng = lng
+        this.items = items
     }
 }

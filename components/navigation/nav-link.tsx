@@ -6,10 +6,11 @@ import styled from "styled-components"
 interface INavLinkProps {
     href: string
     linkContent: string
+    navColor?: boolean
 }
 
 const NavLink = (props: INavLinkProps) => {
-    const { href, linkContent } = props
+    const { href, linkContent, navColor } = props
 
     const content = isLink(linkContent) ? (
         <div style={{ height: tukanConfig.navHeight, width: "auto" }}>
@@ -20,21 +21,21 @@ const NavLink = (props: INavLinkProps) => {
     )
 
     return (
-        <StyledNavLinks>
+        <StyledNavLinks navColor={navColor}>
             <a href={href}>{content}</a>
         </StyledNavLinks>
     )
 }
 
-const StyledNavLinks = styled.div`
+const StyledNavLinks = styled.div<{navColor:boolean}>`
     font-family: ${(props) => props.theme.primaryFont.name}, sans-serif;
-    font-weight: ${(props) => props.theme.fontWeight.light},
+    font-weight: ${(props) => props.theme.fontWeight.light};
     padding-left: ${(props) => props.theme.spacing.xs};
     padding-right: ${(props) => props.theme.spacing.xs};
     text-transform: uppercase;
 
     a {
-        color: ${(props) => props.theme.projectColors.background};
+        color: ${(props) => props.navColor ? props.theme.projectColors.background : props.theme.projectColors.onBackground};
         background-image: none;
     }
 
@@ -46,8 +47,13 @@ const StyledNavLinks = styled.div`
     ${media.maxWidth("md")`
         padding-bottom: 10px;
         padding-top: 10px;
+        padding-left: 0;
+        padding-right: 0;
         font-size: 16px;
         font-weight: light;
+        a {
+            color: ${(props) => props.theme.projectColors.onSecondary};
+        }
     `};
 `
 

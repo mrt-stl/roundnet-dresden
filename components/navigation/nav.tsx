@@ -24,7 +24,7 @@ const Nav = (props: INavProps) => {
     }
 
     if (props.data) {
-        const {nav_alignment, nav_links, nav_logo} = props.data
+        const {nav_alignment, nav_links, nav_logo, nav_color} = props.data
         return (
             <nav>
                 <Branding1 href="/">
@@ -52,7 +52,7 @@ const Nav = (props: INavProps) => {
                 </MenuContainer>
 
                 <NavContainer>
-                    <NavGrid halign={nav_alignment ? "right" : "left"}>
+                    <NavGrid halign={nav_alignment ? "right" : "left"} valign="center">
                         <Branding href="/" halign={nav_alignment}>
                             <TukanImage src={nav_logo.url} alt={nav_logo.alt} height="48px" width="auto" />
                         </Branding>
@@ -61,7 +61,7 @@ const Nav = (props: INavProps) => {
                                   const hideMobile = index !== hideMobileIndex ? "desktop-nav" : "h-100"
                                   return (
                                       <div className={"align-items-center " + hideMobile} key={index}>
-                                          <NavLink href={linkResolver(element.nav_link)} linkContent={element.nav_label} />
+                                          <NavLink href={linkResolver(element.nav_link)} linkContent={element.nav_label} navColor={nav_color ? nav_color : false} />
                                       </div>
                                   )
                               })}
@@ -80,11 +80,6 @@ const NavContainer = styled.div`
     position: absolute;
     width: 100%;
     z-index: 100;
-
-    a {
-        background-image: none;
-        color: #ffffff;
-    }
 
     @media only screen and (max-width: 768px) {
         display: none;
@@ -113,6 +108,7 @@ const Branding1 = styled.a`
     position: absolute;
     top: 62px;
     left: 60px;
+    z-index: 10;
 
     img {
         height: 32px;

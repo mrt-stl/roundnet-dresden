@@ -86,7 +86,7 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const autoPlay = sliderPrimary.slider_autoplay
             const randomStart = sliderPrimary.slider_random_start
-            const data = sliderPrimary.data
+            const data = slice.items
             const fullsize = sliderPrimary.slider_fullsize
             const transitionDuration = sliderPrimary.slider_transition
 
@@ -210,12 +210,11 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             return labSpotlightModel
 
         case "location":
-            const locationPrimary = slice.primary
+            const locationPrimary = slice.items
 
-            const locationLat: number = locationPrimary.location_coords.latitude
-            const locationLng: number = locationPrimary.location_coords.longitude
+            const items: any = locationPrimary
 
-            const location = new LocationModel(locationLat, locationLng)
+            const location = new LocationModel(items)
             return location
 
         case "preview":

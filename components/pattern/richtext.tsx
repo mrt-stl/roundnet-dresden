@@ -25,12 +25,8 @@ const Richtext = (props: IRichtextProps) => {
 }
 
 const RichtextContainer = styled.div<{index: number}>`
-    padding-top: ${(props) => props.theme.spacing.l};
+    margin-top: ${(props) => props.index === 0 ? props.theme.spacing.xxl : props.theme.spacing.s};
     margin-bottom: ${(props) => props.theme.spacing.m};
-
-    ${media.maxWidth("md")`
-        padding-top: ${(props) => props.index === 0 ? "400px" : props.theme.spacing.m};
-    `}
 `
 
 const RichtextGrid = styled(TGrid)`

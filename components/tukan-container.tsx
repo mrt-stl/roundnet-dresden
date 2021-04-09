@@ -102,7 +102,8 @@ const matchComponent = (model: TukanModel, index: number) => {
             component =
                 <ColRichtext
                     key={index}
-                    cols={colRichtextModel.cols} />
+                    cols={colRichtextModel.cols}
+                    index={index} />
             break
 
         case TukanType.Contact:
@@ -255,8 +256,7 @@ const matchComponent = (model: TukanModel, index: number) => {
             component =
                 <Location
                     key={index}
-                    lat={locationModel.lat}
-                    lng={locationModel.lng} />
+                    items={locationModel.items} />
             break
 
         case TukanType.MultiFunctional:
@@ -304,7 +304,8 @@ const matchComponent = (model: TukanModel, index: number) => {
             component =
                 <Richtext
                     key={index}
-                    content={richtextModel.content} />
+                    content={richtextModel.content}
+                    index={index} />
             break
 
         case TukanType.Stage:

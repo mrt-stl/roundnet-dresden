@@ -32,16 +32,25 @@ const StyledNavLinks = styled.div<{navColor:boolean}>`
     font-weight: ${(props) => props.theme.fontWeight.light};
     padding-left: ${(props) => props.theme.spacing.xs};
     padding-right: ${(props) => props.theme.spacing.xs};
+    font-size: ${(props) => props.theme.fontSize.s};
+    font-weight: ${(props) => props.theme.fontWeight.light};
     text-transform: uppercase;
+    letter-spacing: 2px;
 
     a {
         color: ${(props) => props.navColor ? props.theme.projectColors.background : props.theme.projectColors.onBackground};
         background-image: none;
+        transition: all 0.15s ease-in-out;
     }
 
     a:hover {
-        color: ${(props) => props.theme.projectColors.primaryVariant};
+        opacity: 0.6;
         transition: 0.2s;
+        transition: all 0.15s ease-in-out;
+    }
+
+    :first-child {
+        padding-left: 0px;
     }
 
     ${media.maxWidth("md")`

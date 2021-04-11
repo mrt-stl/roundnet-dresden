@@ -24,7 +24,7 @@ const Stage = (props: IStageProps) => {
                             <h1>{headline}</h1>
                         </div>
                         <div>{parse(content)}</div>
-                        <Button href={btnLink} label={btnLabel} />
+                        <Button href={btnLink} label={btnLabel} color="white" />
                     </StageContent>
                 </TCol>
             </StageGrid>
@@ -34,7 +34,7 @@ const Stage = (props: IStageProps) => {
 
 const StageContainer = styled.div<{ background: string }>`
     background-image: url(${(props) => props.background});
-    background-position: center;
+    background-position: center center;
     height: 100vh;
     background-size: cover;
     display: flex;
@@ -44,13 +44,13 @@ const StageContainer = styled.div<{ background: string }>`
     p {
         font-size: calc(2 * ${(props) => props.theme.fontSize.xl});
         margin-top: 0.25em;
-
         color: #ffffff;
     }
+    
     ${media.maxWidth("md")`
             padding-top: 3em;
             padding-bottom: 1em;
-            height: 400px;
+            height: 440px;
 
         p {
             font-size: ${(props) => props.theme.fontSize.xl};
@@ -69,18 +69,17 @@ const StageContent = styled.div`
     h1 {
         font-size: ${(props) => props.theme.fontSize.s};
         color: white;
-        font-weight: 300;
+        font-weight: ${(props) => props.theme.fontWeight.light};
         text-transform: uppercase;
         letter-spacing: 2px;
     }
 
     p {
         font-weight: 300 !important;
-        text-transform: uppercase;
         ${(props) =>
             props.theme.projectColors.gradient
                 ? getGradientAnimation(props.theme.projectColors.secondary)
-                : `color: ${props.theme.projectColors.secondary};`}
+                : `color: ${props.theme.projectColors.background};`}
     }
 
     ${media.maxWidth("md")`

@@ -19,23 +19,23 @@ const Footer = (props: IFooterProps) => {
         <FooterContainer>
           <FooterGrid valign="top" halign="center">
             <>
-              <TCol size={1 / 4} collapse="md" talign="left">
+              <TCol size={1 / 3} collapse="md" talign="left">
                 {parse(asHtml(footer_content))}
               </TCol>
 
-              <TCol size={1 / 4} collapse="md" talign="left">
+              <TCol size={1 / 3} collapse="md" talign="left">
                 {footer_links.map((element, index) => {
                   return (
-                    <div key={index}>
+                    <div key={index} style={{ marginTop: "0.5em" }}>
                       <a href={linkResolver(element.footer_link)}>
-                        <p>{element.footer_label}</p>
+                        {element.footer_label}
                       </a>
                     </div>
                   )
                 })}
               </TCol>
 
-              <TCol size={2 / 4} collapse="md" talign="right" salign="center">
+              <TCol size={1 / 3} collapse="md" talign="right" salign="center">
                 <SocialMediaContainer>
                   {footer_links_social.map((element, index) => {
                     if (element.footer_image.url) {
@@ -66,17 +66,17 @@ const FooterContainer = styled.div`
   padding-top: ${(props) => props.theme.spacing.xl};
   background-color: ${(props) => props.theme.projectColors.secondary};
   height: auto;
-  font-size: 14px;
+  font-size: ${(props) => props.theme.fontSize.xs};
   color: ${(props) => props.theme.projectColors.onSecondary};
 
   a {
     color: ${(props) => props.theme.projectColors.onSecondary};
-    transition: all 0.1s ease-in-out;
+    transition: 0.15s ease-in-out;
   }
 
   a:hover {
-    opacity: 0.7;
-    transition: all 0.1s ease-in-out;
+    opacity: 0.6;
+    transition: 0.15s ease-in-out;
   }
 
   ${media.maxWidth("md")`
@@ -107,12 +107,12 @@ const SocialMediaContainer = styled.div`
 
   a:not(:first-child) {
     margin-left: ${(props) => props.theme.spacing.s};
-    transition: all 0.1s ease-in-out;
+    transition: 0.15s ease-in-out;
   }
 
   a:hover {
-    opacity: 0.7;
-    transition: all 0.1s ease-in-out;
+    opacity: 0.6;
+    transition: 0.15s ease-in-out;
   }
 
   img {

@@ -64,14 +64,14 @@ const CallToActionContainer = styled.div<{ background: string }>`
                 : `color: ${props.theme.projectColors.secondary};`}
         font-family: ${(props) => props.theme.secondaryFont.name};
         font-style: normal;
-        font-weight: 300;
-        margin-bottom: ${(props) => props.theme.spacing.xxs};
-        margin-top: ${(props) => props.theme.spacing.xxs};
+        font-size: ${(props) => props.theme.fontSize.s};
+        font-weight: ${(props) => props.theme.fontWeight.light};
         text-transform: uppercase;
+        letter-spacing: 2px;
     }
 
     p {
-        font-size: ${(props) => props.theme.fontSize.l};
+        font-size: ${(props) => props.theme.fontSize.xxl};
         color: ${(props) => props.theme.color.onBackground};
     }
 

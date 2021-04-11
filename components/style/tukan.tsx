@@ -172,7 +172,7 @@ const light = {
         primaryVariant: "#22a19a",
         secondary: "#303030",
         secondaryVariant: "",
-        onBackground: "#dcdcdc",
+        onBackground: "",
         accent: "#F83850",
         dark: "#121212",
         background: "#FFFFFF",

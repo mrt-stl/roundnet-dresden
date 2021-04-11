@@ -14,31 +14,25 @@ const Richtext = (props: IRichtextProps) => {
     return (
         <RichtextContainer index={index}>
             <RichtextGrid>
-                <RichtextCol size={ 1 } collapse="md">
+                <TCol size={1}>
                     <RichtextContent>
                         {parse(content)}
                     </RichtextContent>
-                </RichtextCol>
+                </TCol>
             </RichtextGrid>
         </RichtextContainer>
     )
 }
 
 const RichtextContainer = styled.div<{index: number}>`
-    margin-top: ${(props) => props.index === 0 ? props.theme.spacing.xxl : props.theme.spacing.s};
+    margin-top: ${(props) => props.index === 0 ? "240px" : props.theme.spacing.s};
     margin-bottom: ${(props) => props.theme.spacing.m};
 `
 
 const RichtextGrid = styled(TGrid)`
-`
-
-const RichtextCol = styled(TCol)`
-    padding-left: 0px;
-    padding-right: 0px;
-
     ${media.maxWidth("md")`
-        padding-left: 20px;
-        padding-right: 20px;
+        margin-left: 40px;
+        margin-right: 40px;
     `}
 `
 
@@ -47,7 +41,7 @@ const RichtextContent = styled.div `
 
     ${media.maxWidth("md")`
         p {
-            font-size: ${(props) => props.theme.fontSize.xxs};
+            font-size: ${(props) => props.theme.fontSize.xs};
         }
     `}
 `

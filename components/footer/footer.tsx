@@ -82,6 +82,11 @@ const FooterContainer = styled.div`
     max-height: 120px;
   }
 
+  span.contact {
+      width: 20px;
+      display: inline-block;
+  }
+
   ${media.maxWidth("md")`
         a {
             color: ${(props) => props.theme.projectColors.onSecondary};

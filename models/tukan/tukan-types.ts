@@ -14,7 +14,7 @@ export enum TukanType {
     InfiniteCards = "infinite-cards",
     LabSpotlight = "lab-spotlight",
     Location = "location",
-    MultiFunctional = "multi-functional",
+    Service = "service",
     PaypalExpressProduct = "paypal-express-product",
     Preview = "preview",
     Richtext = "richtext",

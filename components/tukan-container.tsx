@@ -40,8 +40,8 @@ import ColRichtextModel from "../models/tukan/col-richtext-model"
 import ColRichtext from "./pattern/col-richtext"
 import ShopifyProductModel from "../models/tukan/shopify-product-model"
 import ShopifyProduct from "./shop/shopify-product"
-import MultiFunctionalModel from "../models/tukan/multi-functional-model"
-import MultiFunctional from "./pattern/multi-functional"
+import ServiceModel from "../models/tukan/service-model"
+import Service from "./pattern/service"
 import PaypalExpressProductModel from "../models/tukan/paypal-express-product-model"
 import PaypalExpressProduct from "./shop/paypal-express-product"
 import PortfolioModel from "../models/tukan/portfolio-model"
@@ -259,13 +259,14 @@ const matchComponent = (model: TukanModel, index: number) => {
                     items={locationModel.items} />
             break
 
-        case TukanType.MultiFunctional:
-            const multiFunctionalModel = model as MultiFunctionalModel
+        case TukanType.Service:
+            const serviceModel = model as ServiceModel
             component =
-                <MultiFunctional
+                <Service
                     key={index}
-                    cols={multiFunctionalModel.cols}
-                    title={multiFunctionalModel.title} />
+                    headline={serviceModel.headline}
+                    content={serviceModel.content}
+                    cols={serviceModel.cols} />
             break
 
         case TukanType.Selection:

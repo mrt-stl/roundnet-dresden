@@ -22,7 +22,7 @@ import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
 import HeadlineModel from "../models/tukan/headline-model"
 import ColRichtextModel from "../models/tukan/col-richtext-model"
 import ShopifyProductModel from "../models/tukan/shopify-product-model"
-import MultiFunctionalModel from "../models/tukan/multi-functional-model"
+import ServiceModel from "../models/tukan/service-model"
 import PaypalExpressProductModel from "../models/tukan/paypal-express-product-model"
 import PortfolioModel from "../models/tukan/portfolio-model"
 import SliderModel from "../models/tukan/slider-model"
@@ -335,23 +335,22 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const productModel = new ShopifyProductModel(productName, productPrice, productImgSrc, productVariantID, productDescription)
             return productModel
 
-        case "multi_functional":
-            const multiFunctionalPrimary = slice.primary
-            const multiFunctionalItems = slice.items
+        case "service":
+            const servicePrimary = slice.primary
+            const serviceItems = slice.items
 
-            const multiFunctionalTitle = asHtml(multiFunctionalPrimary.multi_functional_title)
-            const multiFunctionalCols = []
+            const serviceHeadline = asHtml(servicePrimary.service_headline)
+            const serviceContent = asHtml(servicePrimary.service_content)
+            const serviceCols = []
 
-            for (const item of multiFunctionalItems) {
-                const content = asHtml(item.multi_functional_content)
-                const link = linkResolver(item.multi_functional_link)
-                const col = { content, link }
-                multiFunctionalCols.push(col)
+            for (const item of serviceItems) {
+                const col = asHtml(item.service_col)
+                serviceCols.push(col)
             }
 
-            const multiFunctionalModel = new MultiFunctionalModel(multiFunctionalCols, multiFunctionalTitle)
+            const serviceModel = new ServiceModel(serviceHeadline, serviceContent, serviceCols)
 
-            return multiFunctionalModel
+            return serviceModel
 
             case "selection":
                 const selectionItems = slice.items

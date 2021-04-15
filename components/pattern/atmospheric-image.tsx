@@ -1,43 +1,33 @@
-import LazyLoad from "react-lazyload"
+import { media } from "../style/tukan"
+import styled from "styled-components"
 
 export interface IAtmosphericProps {
-    imgSrc: string,
+    imgSrc: string
     imgAlt?: string
 }
 
 const AtmosphericImage = (props: IAtmosphericProps) => {
-    const imgSrc = props.imgSrc
-    const imgAlt = props.imgAlt
+    const { imgSrc } = props
 
     return (
-        <LazyLoad
-            height="60vh"
-            offset={50}>
-            <div className="atmo-image-container">
-                <img src={imgSrc} alt={imgAlt} height="100%" />
+        <AtmosphericContainer background={imgSrc}>
+            <></>
+        </AtmosphericContainer>
 
-                <style jsx>{`
-                    .atmo-image-container {
-                        position: relative;
-                        height: 560px;
-                        width: 100%;
-                        overflow: hidden;
-                    }
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        vertical-align: top;
-                    }
-                    @media (max-width: 768px) {
-                        .atmo-image-container {
-                            height: 340px;
-                        }
-                    }
-                `}</style>
-            </div>
-        </LazyLoad>
     )
 }
+
+const AtmosphericContainer = styled.div<{ background: string }>`
+    background-image: url(${(props) => props.background});
+    height: 600px;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+
+    ${media.maxWidth("md")`
+        height: 240px;
+        background-attachment: scroll;
+    `}
+`
 
 export default AtmosphericImage

@@ -15,8 +15,9 @@ export const TRow = styled.div`
 `
 
 export const TCol = styled.div<{ collapse?: string, size?: number, talign?: string, salign?: string }>`
-    flex-basis: ${(props) => Math.round((props.size ? props.size : 1) * 100 * 10000) / 10000}%;
-    max-width: ${(props) => Math.round((props.size ? props.size : 1) * 100 * 10000) / 10000}%;
+    flex-basis: ${(props) => props.size ? Math.round((props.size) * 100 * 10000) / 10000 + "%" : "0"};
+    max-width: ${(props) => props.size ? Math.round((props.size) * 100 * 10000) / 10000 + "%" : "100%"};
+    flex-grow: 1;
     ${(props) => props.collapse && Tutils.media[props.collapse](`
         flex-basis: 100%;
         max-width: 100%`)};

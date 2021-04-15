@@ -13,23 +13,22 @@ interface IFooterProps {
 
 const Footer = (props: IFooterProps) => {
   if (props.data) {
-    const { footer_content, footer_links, footer_links_social, footer_watermark } = props.data
+    const { footer_content_col_1, footer_content_col_2, footer_links, footer_links_social, footer_watermark } = props.data
     return (
       <footer>
         <FooterContainer>
           <FooterGrid valign="top" halign="center">
             <>
               <TCol size={1 / 3} collapse="md" talign="left">
-                {parse(asHtml(footer_content))}
+                {parse(asHtml(footer_content_col_1))}
               </TCol>
 
               <TCol size={1 / 3} collapse="md" talign="left">
+                {footer_content_col_2 ? parse(asHtml(footer_content_col_2)) : null}
                 {footer_links.map((element, index) => {
                   return (
                     <div key={index} style={{ marginTop: "0.5em" }}>
-                      <a href={linkResolver(element.footer_link)}>
-                        {element.footer_label}
-                      </a>
+                      <a href={linkResolver(element.footer_link)}>{element.footer_label}</a>
                     </div>
                   )
                 })}
@@ -77,6 +76,10 @@ const FooterContainer = styled.div`
   a:hover {
     opacity: 0.6;
     transition: 0.15s ease-in-out;
+  }
+
+  img {
+    max-height: 120px;
   }
 
   ${media.maxWidth("md")`

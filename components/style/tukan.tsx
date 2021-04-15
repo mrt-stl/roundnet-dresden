@@ -70,7 +70,6 @@ h6 {
 }
 
 p {
-	font-size: 1em;
 	letter-spacing: 0.2px;
     line-height: 1.5;
     margin-bottom: 0.5em;
@@ -239,9 +238,9 @@ const defaultTheme = {
         xs: "0.875em",
         s: "1em",
         m: "1.125em",
-        l: "1.5em",
-        xl: "1.75em",
-        xxl: "2em",
+        l: "1.25em",
+        xl: "1.5em",
+        xxl: "1.75em",
         xxxl: "3em"
     },
     spacing: {

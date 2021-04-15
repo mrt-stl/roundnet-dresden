@@ -18,22 +18,22 @@
     ],
     "build": {
         "env": {
-            "url": "https://standard.tukan.dev/",
-            "name": "standard",
-            "prismic_endpoint": "https://standard.cdn.prismic.io/api/v2",
-            "prismic_access_token": "MC5YTWJpUFJFQUFDSUF0MzB2.77-977-977-977-9ae-_ve-_ve-_ve-_ve-_vWzvv70a77-9Yu-_vRvvv73vv71m77-977-977-9fGFE77-9Q0Hvv73vv70k",
+            "url": "https://lederpflege-nawrot.de/",
+            "name": "lederpflege-nawrot",
+            "prismic_endpoint": "https://lederpflege-nawrot.cdn.prismic.io/api/v2",
+            "prismic_access_token": "MC5YTGIyYXhBQUFQQWp1Qy1q.aApoS--_ve-_vUvvv73vv71bb0zvv70Y77-977-977-977-9JO-_vV_vv73vv70zPHnvv71NAe-_ve-_ve-_vQ",
             "nav": "[ {\"name\": \"Start\", \"link\": \"/\"} ]",
-            "font": "{\"url\": \"https://fonts.googleapis.com/css2?family=Inter&display=swap\", \"name\": \"Inter\" }",
+            "font": "{\"url\": \"https://fonts.googleapis.com/css?family=Muli:400,700&display=swap\", \"name\": \"Muli\" }",
             "cookie": "{\"link\": \"\"}",
-            "colors": "{ \"primary\": \"#000000\", \"primaryVariant\": \"#D4D4D4\", \"secondary\": \"#ffffff\", \"secondaryVariant\": \"#ffffff\", \"background\": \"#ffffff\", \"surface\": \"#ffffff\", \"onPrimary\": \"#000000\", \"onSecondary\": \"#000000\", \"onBackground\": \"#000000\", \"gradient\": \"true\" }",
+            "colors": "{ \"primary\": \"#D99A25\", \"primaryVariant\": \"#C78920\", \"secondary\": \"#1A385C\", \"secondaryVariant\": \"#0F233C\", \"background\": \"#ffffff\", \"surface\": \"#ffffff\", \"onPrimary\": \"#ffffff\", \"onSecondary\": \"#ffffff\", \"onBackground\": \"#000000\", \"gradient\": \"false\" }",
             "dark_mode": "off",
             "caching_duration": "0",
-            "project_id": "standard",
+            "project_id": "lederpflege-nawrot",
             "show_banner": "off",
             "shopify_acces_token": "",
             "shopify_store_domain": "",
             "ga_id": "",
-            "google_verification": "",
+            "google_verification": "5woJuDeVhtf5SOSekTH6GkHYNBRfXew4twIs09gcHd8",
             "use_shop_view": "false"
         }
     }

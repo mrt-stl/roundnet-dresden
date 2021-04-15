@@ -46,7 +46,7 @@ const StageContainer = styled.div<{ background: string }>`
         margin-top: 0.25em;
         color: #ffffff;
     }
-    
+
     ${media.maxWidth("md")`
             padding-top: 3em;
             padding-bottom: 1em;
@@ -89,7 +89,7 @@ const StageContent = styled.div`
         }
 
         h1 {
-            font-size: ${(props) => props.theme.fontSize.xxs};
+            font-size: ${(props) => props.theme.fontSize.xs};
             color: white;
             font-weight: 300 !important;
             text-transform: uppercase;

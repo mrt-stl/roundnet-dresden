@@ -85,16 +85,16 @@ p {
 }
 
 ul {
-    background-color: #f5f5f5;
-    padding-top: 32px;
     padding-right: 24px;
-    padding-bottom: 32px;
-    padding-left: 60px !important;
+    padding-left: 40px !important;
+    margin-left: 10px;
     line-height: 2;
+    border-left: 1px solid black;
 }
 
 li {
     padding-left: 8px;
+    list-style: square;
 }
 
 @media (max-width: 768px) {

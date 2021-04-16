@@ -6,14 +6,9 @@
         "node": ">=10.0.0"
     },
     "scripts": {
-        "local": "vercel dev -A ./deployment/local.json",
-        "standard": "vercel dev -A ./deployment/standard.json",
+        "local": "next dev",
         "build": "next build",
         "start": "next start -p $PORT",
-        "deploy-dev": "node deployment/development.js",
-        "deploy-beta": "node deployment/beta.js",
-        "deploy-prod": "node deployment/prod.js",
-        "deploy-extra": "node deployment/extra.js",
         "lint": "yarn eslint && yarn tslint",
         "eslint": "eslint .",
         "tslint": "tslint -c ./tslint.json '**/*.{ts,tsx}'",

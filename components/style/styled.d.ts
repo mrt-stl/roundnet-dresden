@@ -2,22 +2,6 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    color: { 
-        primary: string
-        primaryVariant: string
-        secondary: string
-        secondaryVariant: string
-        onBackground: string
-        accent: string
-        dark?: string
-        background: string
-        font: string
-        allGray10: string
-        allGray20: string
-        allGray30: string
-        allGray40: string
-        white: string
-    },
     projectColors: { 
         primary: string
         primaryVariant?: string

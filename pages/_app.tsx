@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components"
 import { GlobalStyles } from "../components/style/tukan"
-import { finalTheme as theme } from "../components/meta"
+import { theme } from "../components/style/tukan"
 
 export default function App({ Component, pageProps }) {
     return (

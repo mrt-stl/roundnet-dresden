@@ -1,8 +1,5 @@
 import breakpoints from "styled-components-breakpoints"
 import { createGlobalStyle, DefaultTheme } from "styled-components"
-import Project from "../../models/config/project"
-
-const project = Project.getInstance()
 
 export const tukanConfig = {
     navHeight: "48px"
@@ -165,59 +162,18 @@ export const media = breakpoints({
     xl: 1200,
   })
 
-const light = {
-    color: {
-        primary: "#121212",
-        primaryVariant: "#22a19a",
-        secondary: "#303030",
-        secondaryVariant: "",
-        onBackground: "",
-        accent: "#F83850",
-        dark: "#121212",
-        background: "#FFFFFF",
-        font: "#080808",
-        gradient: true,
-        allGray10: "#F5F5F5",
-        allGray20: "#ECEDEE",
-        allGray30: "#C8CBCE",
-        allGray40: "#7E8082",
-        white: "#123456"
-    }
-  }
-
-const dark = {
-    color: {
-        primary: "#f0f0f0",
-        primaryVariant: "",
-        secondary: "#d0d0d0",
-        secondaryVariant: "",
-        onBackground: "#dcdcdc",
-        accent: "#F83850",
-        background: "#202428",
-        font: "#ffffff",
-        gradient: true,
-        allGray10: "#404040",
-        allGray20: "#808080",
-        allGray30: "#d0d0d0",
-        allGray40: "#f0f0f0",
-        white: "#123456"
-    }
-}
-
-const defaultTheme = {
+export const theme: DefaultTheme = {
     projectColors: {
-        primary: project.colors.primary,
-        primaryVariant: project.colors.primaryVariant,
-        onPrimary: project.colors.onPrimary,
-        secondary: project.colors.secondary,
-        secondaryVariant: project.colors.secondaryVariant,
-        onSecondary: project.colors.onSecondary,
-        background: project.colors.background,
-        onBackground: project.colors.onBackground,
-        surface: project.colors.surface,
-        gradient: Boolean(project.colors.gradient.toString() === "true"),
-        accent: project.colors.accent,
-        white: "#123456"
+        primary: "#fdc300", //yellow
+        primaryVariant: "#65c5f0", //blue
+        onPrimary: "#70b638", //green
+        secondary: "#65c5f0",
+        secondaryVariant: "#65c5f0",
+        onSecondary: "#65c5f0",
+        background: "#ffffff",
+        onBackground: "#000000",
+        surface: "#ffffff",
+        gradient: false,
     },
 
     primaryFont: {
@@ -261,6 +217,3 @@ const defaultTheme = {
         bold: "700"
     }
 }
-
-export const lightTheme: DefaultTheme = { ...defaultTheme, ...light }
-export const darkTheme: DefaultTheme = { ...defaultTheme, ...dark }

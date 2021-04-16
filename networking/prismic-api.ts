@@ -1,6 +1,5 @@
 import Prismic from "prismic-javascript"
 import { logError } from "../utils/rollbar-utils"
-import Project from "../models/config/project"
 import { config } from "../config"
 import PrismicResponse from "../models/prismic/response"
 import ResolvedApi from "prismic-javascript/d.ts/ResolvedApi"
@@ -10,10 +9,9 @@ import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
  * Prepare prismic API
  */
 const prismicApi = async () => {
-    const project = Project.getInstance()
 
-    const endpoint = project.prismicEndpoint ?? config.PRISMIC_ENDPOINT
-    const accessToken = project.prismicAccessToken ?? config.ACCESS_TOKEN
+    const endpoint = config.PRISMIC_ENDPOINT
+    const accessToken = config.ACCESS_TOKEN
 
     const api = await Prismic.api(endpoint, {
         accessToken

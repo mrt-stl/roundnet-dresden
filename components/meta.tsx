@@ -1,69 +1,25 @@
 import Head from "next/head"
-import Project, { DarkModeType } from "../models/config/project"
 import { isUndefinedOrNullOrEmpty } from "../utils/object-utils"
 import { IMetaData } from "../models/config/meta-data"
-import { lightTheme, darkTheme } from "../components/style/tukan"
-import useDarkMode from "use-dark-mode"
 
 interface IMetaProps {
     data: IMetaData
 }
-let theme: any = lightTheme
 
 const Meta = (props: IMetaProps) => {
-    const project = Project.getInstance()
 
     // Icon urls
-    const projectId = !isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "kranich-stl"
-    const iconCDN = "https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + projectId + "/favicon/"
+    const iconCDN = "https://s3.eu-central-1.amazonaws.com/tukan-frontend/dresdenhilfe/favicon/"
 
-    const metaTitle = !isUndefinedOrNullOrEmpty(props.data.metaTitle) ? props.data.metaTitle : project.metaTitle
-    const metaDescription = !isUndefinedOrNullOrEmpty(props.data.metaDescription) ? props.data.metaDescription : project.metaDescription
+    const metaTitle = !isUndefinedOrNullOrEmpty(props.data.metaTitle) ? props.data.metaTitle : "Dresdenhilfe"
+    const metaDescription = !isUndefinedOrNullOrEmpty(props.data.metaDescription) ? props.data.metaDescription : "Ihr Pflegedienst im Dresdner Zentrum"
 
-    // Set colors
-    const projectColors = project.colors
-    let colors: any = defaultColors
-
-    switch (project.darkMode) {
-        case DarkModeType.ON:
-            colors = defaultDarkModeColors
-            theme = darkTheme
-            break
-
-        case DarkModeType.AUTO:
-            colors.primary = projectColors.primary !== "" ? projectColors.primary : defaultColors.primary
-            colors.secondary = projectColors.secondary !== "" ? projectColors.secondary : defaultColors.secondary
-            colors.accent = projectColors.accent !== "" ? projectColors.accent : defaultColors.accent
-
-            // setting up dark mode by users system preferences
-            const { value } = useDarkMode(false, { storageKey: null, onChange: null })
-            theme = value ? darkTheme : lightTheme
-            break
-
-        default:
-            colors.primary = projectColors.primary !== "" ? projectColors.primary : defaultColors.primary
-            colors.secondary = projectColors.secondary !== "" ? projectColors.secondary : defaultColors.secondary
-            colors.accent = projectColors.accent !== "" ? projectColors.accent : defaultColors.accent
-            break
-    }
 
     // Set font or go to default font
     let fontUrl = "https://fonts.googleapis.com/css2?family=Inter&display=swap"
-    if (project.font) {
-        // fontUrl will be imported down
-        fontUrl = project.font.url
-        theme.primaryFont = {
-            url: project.font.url,
-            name: project.font.name,
-        }
-        theme.secondaryFont = {
-            url: project.font.url,
-            name: project.font.name,
-        }
-    }
 
-    const gaID = project.googleAnalyticsID
-    const gsv = project.googleSiteVerification
+    const gaID = "googleAnalyticsID"
+    const gsv = "googleSiteVerification"
     return (
         <div>
             <Head>
@@ -80,7 +36,7 @@ const Meta = (props: IMetaProps) => {
                 <meta property="og:image" content={props.data.metaOgImg} />
                 <meta name="twitter:card" content="summary_large_image" />
 
-                <meta name="theme-color" content={colors.primary} />
+                <meta name="theme-color" content="light" />
 
                 <link href={fontUrl} rel="stylesheet" />
                 <link rel="stylesheet" href="/static/css/normalize.css" />
@@ -99,39 +55,11 @@ const Meta = (props: IMetaProps) => {
                 <link rel="icon" type="image/png" sizes="96x96" href={iconCDN + "favicon-96x96.png"} />
                 <link rel="icon" type="image/png" sizes="16x16" href={iconCDN + "favicon-16x16.png"} />
 
-                {gaID && gaID !== "" ? <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaID} async /> : <script />}
-                {gsv && gsv !== "" ? <meta name="google-site-verification" content={gsv} /> : ""}
+                <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaID} async />
+                <meta name="google-site-verification" content={gsv} />
             </Head>
         </div>
     )
-}
-
-export const finalTheme = theme
-
-// Default colors
-const defaultColors = {
-    primary: "#121212",
-    secondary: "#303030",
-    accent: "#F83850",
-    dark: "#121212",
-    background: "#FFFFFF",
-    font: "#080808",
-    allGray10: "#F5F5F5",
-    allGray20: "#ECEDEE",
-    allGray30: "#C8CBCE",
-    allGray40: "#7E8082",
-}
-
-// Colors for dark mode
-const defaultDarkModeColors = {
-    primary: "#f0f0f0",
-    secondary: "#d0d0d0",
-    background: "#202428",
-    font: "#ffffff",
-    allGray10: "#404040",
-    allGray20: "#808080",
-    allGray30: "#d0d0d0",
-    allGray40: "#f0f0f0",
 }
 
 export default Meta

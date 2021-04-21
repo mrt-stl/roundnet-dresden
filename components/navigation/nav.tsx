@@ -23,8 +23,14 @@ const Nav = (props: INavProps) => {
         setOpen(!open)
     }
 
+    const findNavLinkColor = (index) => {
+        if (index === 0 || index === 1) return "blue"
+        else if (index === 2 || index === 3 ) return "yellow"
+        else return "green"
+    }
+
     if (props.data) {
-        const {nav_alignment, nav_links, nav_logo, nav_color} = props.data
+        const {nav_alignment, nav_links, nav_logo} = props.data
         return (
             <nav>
                 <Branding1 href="/">
@@ -44,7 +50,7 @@ const Nav = (props: INavProps) => {
                         {nav_links.map((element, index) => {
                                   return (
                                       <div className="menu-item" key={index}>
-                                          <NavLink href={linkResolver(element.nav_link)} linkContent={element.nav_label} />
+                                          <NavLink href={linkResolver(element.nav_link)} linkContent={element.nav_label} navColor={findNavLinkColor(index)} />
                                       </div>
                                   )
                               })}
@@ -54,14 +60,12 @@ const Nav = (props: INavProps) => {
                 <NavContainer>
                     <NavGrid halign={nav_alignment ? "right" : "left"} valign="center">
                         <Branding href="/" halign={nav_alignment}>
-                            <TukanImage src={nav_logo.url} alt={nav_logo.alt} height="48px" width="auto" />
+                            <TukanImage src={nav_logo.url} alt={nav_logo.alt} height="100px" width="auto" />
                         </Branding>
                         {nav_links.map((element, index) => {
-                                  const hideMobileIndex = project.useShopView ? -1 : 0
-                                  const hideMobile = index !== hideMobileIndex ? "desktop-nav" : "h-100"
                                   return (
-                                      <div className={"align-items-center " + hideMobile} key={index}>
-                                          <NavLink href={linkResolver(element.nav_link)} linkContent={element.nav_label} navColor={nav_color ? nav_color : false} />
+                                      <div key={index}>
+                                          <NavLink href={linkResolver(element.nav_link)} linkContent={element.nav_label} navColor={findNavLinkColor(index)} />
                                       </div>
                                   )
                               })}
@@ -74,10 +78,9 @@ const Nav = (props: INavProps) => {
 }
 
 const NavContainer = styled.div`
-    /* background-color: ${(props) => (props.color ? props.color : props.theme.projectColors.secondary)}; */
+    background-color: white;
+    height: 100px;
     overflow: hidden;
-    top: 64px;
-    position: absolute;
     width: 100%;
     z-index: 100;
 
@@ -169,7 +172,7 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
         display: none;
     `};
 
-    background: ${(props) => props.theme.projectColors.onBackground};
+    background: ${(props) => props.theme.projectColors.gray10};
     background-image: url(${(props) => props.background});
     background-size: cover;
     background-position: center center;
@@ -214,6 +217,10 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
 
     .menu-item:nth-child(5) {
         transition: transform 0.25s ease-in-out 0.45s, opacity 0.25s ease-in-out 0.45s;
+    }
+
+    .menu-item:nth-child(6) {
+        transition: transform 0.25s ease-in-out 0.55s, opacity 0.25s ease-in-out 0.55s;
     }
 
     opacity: ${({ open }) => (open ? "1" : "0")};

@@ -6,7 +6,7 @@ import styled from "styled-components"
 interface INavLinkProps {
     href: string
     linkContent: string
-    navColor?: boolean
+    navColor?: string
 }
 
 const NavLink = (props: INavLinkProps) => {
@@ -27,18 +27,15 @@ const NavLink = (props: INavLinkProps) => {
     )
 }
 
-const StyledNavLinks = styled.div<{navColor:boolean}>`
+const StyledNavLinks = styled.div<{navColor:string}>`
     font-family: ${(props) => props.theme.primaryFont.name}, sans-serif;
-    font-weight: ${(props) => props.theme.fontWeight.light};
     padding-left: ${(props) => props.theme.spacing.xs};
     padding-right: ${(props) => props.theme.spacing.xs};
     font-size: ${(props) => props.theme.fontSize.s};
-    font-weight: ${(props) => props.theme.fontWeight.light};
     text-transform: uppercase;
-    letter-spacing: 2px;
 
     a {
-        color: ${(props) => props.navColor ? props.theme.projectColors.background : props.theme.projectColors.onBackground};
+        color: ${(props) => props.navColor ? props.theme.projectColors[props.navColor] : props.theme.projectColors.onBackground};
         background-image: none;
         transition: all 0.15s ease-in-out;
     }
@@ -61,7 +58,7 @@ const StyledNavLinks = styled.div<{navColor:boolean}>`
         font-size: 16px;
         font-weight: light;
         a {
-            color: ${(props) => props.theme.projectColors.onSecondary};
+            color: ${(props) => props.theme.projectColors[props.navColor]};
         }
     `};
 `

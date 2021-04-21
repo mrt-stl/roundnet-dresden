@@ -146,7 +146,7 @@ const CompositionContainer = styled.div`
     }
     p {
         font-family: ${(props) => props.theme.primaryFont.name}, sans-serif;
-        color: ${(props) => props.theme.color.onBackground};
+        color: ${(props) => props.theme.projectColors.onBackground};
         font-size: ${(props) => props.theme.fontSize.m};
     }
 

@@ -72,7 +72,7 @@ const CallToActionContainer = styled.div<{ background: string }>`
 
     p {
         font-size: ${(props) => props.theme.fontSize.xxl};
-        color: ${(props) => props.theme.color.onBackground};
+        color: ${(props) => props.theme.projectColors.onBackground};
     }
 
     ${media.maxWidth("md")`

@@ -374,7 +374,7 @@ const StyledSlide = styled.div<{ fullsize: boolean }>`
   .slide-content {
     display: block;
     width: 55%;
-    color: ${(props) => props.theme.color.font};
+    color: ${(props) => props.theme.projectColors.background};
   }
 
   .slide-content h2 {

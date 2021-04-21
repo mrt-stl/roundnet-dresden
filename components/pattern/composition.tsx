@@ -136,8 +136,8 @@ const CompositionContainer = styled.div`
     h3 {
         ${(props) =>
             props.theme.projectColors.gradient
-                ? getGradientAnimation(props.theme.projectColors.secondary)
-                : `color: ${props.theme.projectColors.secondary};`}
+                ? getGradientAnimation(props.theme.projectColors.green)
+                : `color: ${props.theme.projectColors.green};`}
         font-family: ${(props) => props.theme.secondaryFont.name};
         font-style: normal;
         font-weight: 300;

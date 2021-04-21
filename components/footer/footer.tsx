@@ -63,13 +63,13 @@ const Footer = (props: IFooterProps) => {
 const FooterContainer = styled.div`
   padding-bottom: ${(props) => props.theme.spacing.xl};
   padding-top: ${(props) => props.theme.spacing.xl};
-  background-color: ${(props) => props.theme.projectColors.secondary};
+  background-color: ${(props) => props.theme.projectColors.green};
   height: auto;
   font-size: ${(props) => props.theme.fontSize.xs};
-  color: ${(props) => props.theme.projectColors.onSecondary};
+  color: ${(props) => props.theme.projectColors.yellow};
 
   a {
-    color: ${(props) => props.theme.projectColors.onSecondary};
+    color: ${(props) => props.theme.projectColors.yellow};
     transition: 0.15s ease-in-out;
   }
 
@@ -89,12 +89,12 @@ const FooterContainer = styled.div`
 
   ${media.maxWidth("md")`
         a {
-            color: ${(props) => props.theme.projectColors.onSecondary};
+            color: ${(props) => props.theme.projectColors.yellow};
         }
 
         * {
             text-align: left !important;
-            color: ${(props) => props.theme.projectColors.onSecondary};
+            color: ${(props) => props.theme.projectColors.yellow};
         }
 
         /* margin: ${(props) => props.theme.spacing.m} ${(props) => props.theme.spacing.s}; */

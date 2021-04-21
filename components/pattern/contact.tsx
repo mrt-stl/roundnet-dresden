@@ -32,7 +32,7 @@ class Contact extends Component<IContactProps, {}> {
     const contactTitle = title ? title : ""
     const contactContent = content ? content : ""
     const btnClass = formButtonDisabled ? "disabled" : ""
-    const borderBottom = textareaIsFocused ? `2px solid ${projectColors.secondary}` : `1px solid ${projectColors.primary}`
+    const borderBottom = textareaIsFocused ? `2px solid ${projectColors.green}` : `1px solid ${projectColors.blue}`
 
     return (
       <ContactContainer>
@@ -140,7 +140,7 @@ const ContactContainer = styled.div`
     width: 100%;
     border: none;
     border-radius: 0px;
-    border-bottom: 1px solid ${props => props.theme.projectColors.primary};
+    border-bottom: 1px solid ${props => props.theme.projectColors.blue};
     margin: 8px 0px;
     box-shadow: none;
     -webkit-appearance: none;
@@ -152,7 +152,7 @@ const ContactContainer = styled.div`
   input[type="text"]:focus,
   input[type="email"]:focus,
   textarea:focus {
-    border-bottom: 2px solid ${props => props.theme.projectColors.secondary};
+    border-bottom: 2px solid ${props => props.theme.projectColors.green};
     outline: none;
   }
 
@@ -167,7 +167,7 @@ const ContactContainer = styled.div`
   button {
     padding: 0px 24px;
     height: 48px;
-    background-color: ${props => props.theme.projectColors.secondary};
+    background-color: ${props => props.theme.projectColors.green};
     margin: 16px 0px;
     border: none;
     border-radius: 0px;

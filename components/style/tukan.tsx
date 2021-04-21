@@ -25,7 +25,7 @@ h2 {
 	font-size: 2.25em;
     letter-spacing: 0;
     line-height: 1.25;
-    font-weight: ${props => props.theme.fontWeight.medium};
+    font-weight: ${props => props.theme.fontWeight.regular};
     margin-bottom: 0.5em;
     margin-top: 0.5em;
 }
@@ -101,9 +101,9 @@ li {
 
 a {
 	text-decoration: none;
-	font-weight: regular;
+	font-weight: ${props => props.theme.fontWeight.regular};
     line-height: 1.2;
-    color: ${props => props.theme.projectColors.secondary};
+    color: ${props => props.theme.projectColors.blue};
 }
 
 h2 a:hover {
@@ -164,21 +164,26 @@ export const media = breakpoints({
 
 export const theme: DefaultTheme = {
     projectColors: {
-        primary: "#fdc300", //yellow
-        primaryVariant: "#65c5f0", //blue
-        onPrimary: "#70b638", //green
-        secondary: "#65c5f0",
-        secondaryVariant: "#65c5f0",
-        onSecondary: "#65c5f0",
+        yellow: "#fdc300", //yellow
+        blue: "#65c5f0", //blue
+        green: "#70b638", //green
+        gray10: "#7E8082",
+        gray20: "#C8CBCE",
+        gray30: "#ECEDEE",
+        gray40: "#F5F5F5",
+        gray50: "#646668",
+        gray60: "#4b4d4e",
+        gray70: "#4b4d4e",
+        gray80: "#4b4d4e",
+        gray90: "#4b4d4e",
         background: "#ffffff",
         onBackground: "#000000",
-        surface: "#ffffff",
         gradient: false,
     },
 
     primaryFont: {
-        name: "Inter",
-        url: "https://fonts.googleapis.com/css2?family=Inter&display=swap"
+        name: "Open Sans",
+        url: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
     },
     secondaryFont: {
         name: "Playfair Display",
@@ -212,8 +217,6 @@ export const theme: DefaultTheme = {
     fontWeight: {
         light: "300",
         regular: "400",
-        medium: "500",
-        semiBold: "600",
         bold: "700"
     }
 }

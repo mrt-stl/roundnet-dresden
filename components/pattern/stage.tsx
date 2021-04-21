@@ -78,7 +78,7 @@ const StageContent = styled.div`
         font-weight: 300 !important;
         ${(props) =>
             props.theme.projectColors.gradient
-                ? getGradientAnimation(props.theme.projectColors.secondary)
+                ? getGradientAnimation(props.theme.projectColors.green)
                 : `color: ${props.theme.projectColors.background};`}
     }
 

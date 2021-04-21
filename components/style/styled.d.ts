@@ -3,13 +3,18 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     projectColors: { 
-        primary: string
-        primaryVariant?: string
-        onPrimary?: string
-        secondary: string
-        secondaryVariant?: string
-        onSecondary?: string
-        surface?: string
+        yellow: string
+        green: string
+        blue: string
+        gray10: string
+        gray20: string
+        gray30: string
+        gray40: string
+        gray50: string
+        gray60: string
+        gray70: string
+        gray80: string
+        gray90: string
         background?: string
         onBackground?: string
         gradient?: boolean
@@ -50,8 +55,6 @@ declare module 'styled-components' {
     fontWeight: {
         light: string
         regular: string
-        medium: string
-        semiBold: string
         bold: string
     }
    }

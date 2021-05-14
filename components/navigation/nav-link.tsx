@@ -10,7 +10,7 @@ interface INavLinkProps {
 }
 
 const NavLink = (props: INavLinkProps) => {
-    const { href, linkContent, navColor } = props
+    const { href, linkContent } = props
 
     const content = isLink(linkContent) ? (
         <div style={{ height: tukanConfig.navHeight, width: "auto" }}>
@@ -21,21 +21,20 @@ const NavLink = (props: INavLinkProps) => {
     )
 
     return (
-        <StyledNavLinks navColor={navColor}>
+        <StyledNavLinks>
             <a href={href}>{content}</a>
         </StyledNavLinks>
     )
 }
 
-const StyledNavLinks = styled.div<{navColor:string}>`
+const StyledNavLinks = styled.div`
     font-family: ${(props) => props.theme.primaryFont.name}, sans-serif;
-    padding-left: ${(props) => props.theme.spacing.xs};
-    padding-right: ${(props) => props.theme.spacing.xs};
+    padding-left: ${(props) => props.theme.spacing.s};
+    padding-right: ${(props) => props.theme.spacing.s};
     font-size: ${(props) => props.theme.fontSize.s};
-    text-transform: uppercase;
 
     a {
-        color: ${(props) => props.navColor ? props.theme.projectColors[props.navColor] : props.theme.projectColors.onBackground};
+        color: ${(props) =>  props.theme.projectColors.onBackground};
         background-image: none;
         transition: all 0.15s ease-in-out;
     }

@@ -1,8 +1,10 @@
 import { isUndefinedOrNullOrEmpty } from "../../utils/object-utils"
 import { linkResolver } from "../../utils/prismic-utils"
 import { media } from "../style/tukan"
-import { TGrid } from "../style/sc-grid"
+import { TCol, TGrid } from "../style/sc-grid"
 import { useState } from "react"
+import parse from "html-react-parser"
+import { asHtml } from "../../utils/prismic-utils"
 import NavLink from "./nav-link"
 import Project from "../../models/config/project"
 import styled from "styled-components"
@@ -23,14 +25,8 @@ const Nav = (props: INavProps) => {
         setOpen(!open)
     }
 
-    const findNavLinkColor = (index) => {
-        if (index === 0 || index === 1) return "blue"
-        else if (index === 2 || index === 3 ) return "yellow"
-        else return "green"
-    }
-
     if (props.data) {
-        const {nav_alignment, nav_links, nav_logo} = props.data
+        const { nav_alignment, nav_links, nav_logo, nav_address, nav_phone } = props.data
         return (
             <nav>
                 <Branding1 href="/">
@@ -48,27 +44,35 @@ const Nav = (props: INavProps) => {
                         <p className="menu-title">Übersicht</p>
 
                         {nav_links.map((element, index) => {
-                                  return (
-                                      <div className="menu-item" key={index}>
-                                          <NavLink href={linkResolver(element.nav_link)} linkContent={element.nav_label} navColor={findNavLinkColor(index)} />
-                                      </div>
-                                  )
-                              })}
+                            return (
+                                <div className="menu-item" key={index}>
+                                    <NavLink href={linkResolver(element.nav_link)} linkContent={element.nav_label} />
+                                </div>
+                            )
+                        })}
                     </MenuContent>
                 </MenuContainer>
 
                 <NavContainer>
+
+                    <BannerGrid halign="space-around" valign="center">
+                        <TCol size={1 / 3}>{parse(asHtml(nav_address))}</TCol>
+                        <TCol size={1 / 3} talign="right">
+                            {parse(asHtml(nav_phone))}
+                        </TCol>
+                    </BannerGrid>
+
                     <NavGrid halign={nav_alignment ? "right" : "left"} valign="center">
                         <Branding href="/" halign={nav_alignment}>
                             <TukanImage src={nav_logo.url} alt={nav_logo.alt} height="100px" width="auto" />
                         </Branding>
                         {nav_links.map((element, index) => {
-                                  return (
-                                      <div key={index}>
-                                          <NavLink href={linkResolver(element.nav_link)} linkContent={element.nav_label} navColor={findNavLinkColor(index)} />
-                                      </div>
-                                  )
-                              })}
+                            return (
+                                <div key={index}>
+                                    <NavLink href={linkResolver(element.nav_link)} linkContent={element.nav_label} />
+                                </div>
+                            )
+                        })}
                     </NavGrid>
                 </NavContainer>
             </nav>
@@ -79,26 +83,55 @@ const Nav = (props: INavProps) => {
 
 const NavContainer = styled.div`
     background-color: white;
-    height: 100px;
+
+    // .tukan-container gets nav-height applied as margin-top
+    height: 108px;
     overflow: hidden;
     width: 100%;
     z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px -30px 60px;
 
     @media only screen and (max-width: 768px) {
         display: none;
     }
 `
 
+const BannerGrid = styled(TGrid)`
+    max-width: 100%;
+    background-color: ${(props) => props.theme.projectColors.blue};
+    color: white;
+    height: 38px;
+    overflow: hidden;
+
+    * {
+        color: white;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    div {
+        padding-top: 0;
+        padding-bottom: 0
+    }
+`
+
 const NavGrid = styled(TGrid)`
     max-width: 1024px;
-    height: 100%;
+    height: 70px;
 `
 
 const Branding = styled.a<{ halign: boolean }>`
     margin-right: ${(props) => (props.halign ? "auto" : "20px")};
     width: auto;
+    max-height: 48px;
 
     img {
+        height: auto;
         object-fit: contain;
     }
 `
@@ -118,7 +151,7 @@ const Branding1 = styled.a`
     }
 `
 
-const StyledBurger = styled.button<{ open?: boolean }>`
+const StyledBurger = styled.button<{ open: boolean }>`
     ${media.minWidth("md")`
         display: none;
     `};
@@ -172,7 +205,7 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
         display: none;
     `};
 
-    background: ${(props) => props.theme.projectColors.gray10};
+    background: ${(props) => props.theme.projectColors.grey10};
     background-image: url(${(props) => props.background});
     background-size: cover;
     background-position: center center;

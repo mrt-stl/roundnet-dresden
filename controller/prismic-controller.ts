@@ -144,11 +144,11 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const callToActionPrimary = slice.primary
 
             const headline = asHtml(callToActionPrimary.cta_headline)
-            const content = asHtml(callToActionPrimary.cta_content)
-            const btnLabel = callToActionPrimary.cta_btn_label
-            const btnLink = linkResolver(callToActionPrimary.cta_btn_link)
+            const subtitle = asHtml(callToActionPrimary.cta_subtitle)
+            const contentLeft = asHtml(callToActionPrimary.cta_content_left)
+            const contentRight = asHtml(callToActionPrimary.cta_content_right)
 
-            const callToAction = new CallToActionModel(headline, content, btnLabel, btnLink)
+            const callToAction = new CallToActionModel(headline, subtitle, contentLeft, contentRight)
             return callToAction
 
         case "composition":

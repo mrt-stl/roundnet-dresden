@@ -1,89 +1,46 @@
 import { isUndefinedOrNullOrEmpty } from "../../utils/object-utils"
 import { media } from "../style/tukan"
 import { TGrid, TCol } from "../style/sc-grid"
-import Button from "../elements/button"
 import parse from "html-react-parser"
 import Project from "../../models/config/project"
 import styled from "styled-components"
-import { getGradientAnimation } from "../../utils/color-utils"
 
 export interface ICallToActionProps {
     headline: string
-    content: string
-    btnLabel: string
-    btnLink: string
+    subtitle: string
+    contentLeft: string
+    contentRight: string
 }
 
 const CallToAction = (props: ICallToActionProps) => {
-    const project = Project.getInstance()
-
-    const projectId = !isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "standard"
-
     const headline = props.headline
-    const content = props.content
-    const btnLabel = props.btnLabel
-    const btnLink = props.btnLink
+    const subtitle = props.subtitle
+    const contentLeft = props.contentLeft
+    const contentRight = props.contentRight
 
     return (
-        <CallToActionContainer
-            background={"https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + projectId + "/assets/" + "call-to-action-background.svg"}
-        >
+        <CallToActionContainer>
             <CallToActionGrid valign="center" halign="center">
-                <TCol size={2 / 3} collapse="md">
-                    <CallToActionContent>
-                        <div>{parse(headline)}</div>
-                        <div>{parse(content)}</div>
-                    </CallToActionContent>
-                    <Button href={btnLink} label={btnLabel} />
+                <TCol size={3 / 4} collapse="md" talign="center">
+                    {parse(headline)}
+                    {parse(subtitle)}
                 </TCol>
+                <CallToActionCard size={3 / 4}>
+                    <TCol size={1 / 3}>{parse(contentLeft)}</TCol>
+                    <TCol size={1 / 3}>{parse(contentRight)}</TCol>
+                </CallToActionCard>
             </CallToActionGrid>
         </CallToActionContainer>
     )
 }
 
-const CallToActionContainer = styled.div<{ background: string }>`
-    padding-bottom: calc(2 * ${(props) => props.theme.spacing.xl});
-    padding-top: calc(2 * ${(props) => props.theme.spacing.xl});
-    text-align: center;
-    background: ${(props) => props.theme.projectColors.background};
-    background-image: url(${(props) => props.background});
-    background-size: cover;
-    background-position: center center;
-    overflow: hidden;
-
-    h2 {
-        font-size: calc(2 * ${(props) => props.theme.fontSize.l});
-    }
-
-    h1,
-    h2,
-    h3 {
-        ${(props) =>
-            props.theme.projectColors.gradient
-                ? getGradientAnimation(props.theme.projectColors.green)
-                : `color: ${props.theme.projectColors.green};`}
-        font-family: ${(props) => props.theme.secondaryFont.name};
-        font-style: normal;
-        font-size: ${(props) => props.theme.fontSize.s};
-        font-weight: ${(props) => props.theme.fontWeight.light};
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-
-    p {
-        font-size: ${(props) => props.theme.fontSize.xxl};
-        color: ${(props) => props.theme.projectColors.onBackground};
-    }
+const CallToActionContainer = styled.div`
+    margin-top: ${(props) => props.theme.spacing.xl};
+    margin-bottom: ${(props) => props.theme.spacing.xxl};
 
     ${media.maxWidth("md")`
         padding-top: ${(props) => props.theme.spacing.xl};
         padding-bottom: ${(props) => props.theme.spacing.xl};
-
-        h1,
-        h2,
-        h3 {
-            font-size: ${(props) => props.theme.fontSize.m};
-        }
 
         p {
             font-size: ${(props) => props.theme.fontSize.s};
@@ -92,14 +49,22 @@ const CallToActionContainer = styled.div<{ background: string }>`
 `
 
 const CallToActionGrid = styled(TGrid)`
+    p {
+        color: ${(props) => props.theme.projectColors.grey70};
+    }
     ${media.maxWidth("md")`
         margin-left: 40px;
         margin-right: 40px;
     `}
 `
 
-const CallToActionContent = styled.div`
-    margin-bottom: ${(props) => props.theme.spacing.m};
+const CallToActionCard = styled(TCol)`
+    display: flex;
+    justify-content: space-around;
+    margin-top: ${(props) => props.theme.spacing.m};
+    padding-top: ${(props) => props.theme.spacing.m};
+    box-shadow: 0px 1px 16px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
 `
 
 export default CallToAction

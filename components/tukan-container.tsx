@@ -166,9 +166,10 @@ const matchComponent = (model: TukanModel, index: number) => {
                 <CallToAction
                     key={index}
                     headline={callToActionModel.headline}
-                    content={callToActionModel.content}
-                    btnLabel={callToActionModel.btnLabel}
-                    btnLink={callToActionModel.btnLink}
+                    subtitle={callToActionModel.subtitle}
+                    contentLeft={callToActionModel.contentLeft}
+                    contentRight={callToActionModel.contentRight}
+                    
                 />
             )
             break

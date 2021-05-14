@@ -1,3 +1,4 @@
+import styled from "styled-components"
 import Action from "./pattern/action"
 import TukanModel from "../models/tukan/tukan-model"
 import ActionModel from "../models/tukan/action-model"
@@ -59,17 +60,18 @@ interface ITukanWrapperProps {
     tukanModels: TukanModel[]
 }
 
+// margin-top to move entire page content unter fixed nav
+const ComponentsContainer = styled.div`
+    margin-top: 108px;
+`
+
 const TukanContainer = (props: ITukanWrapperProps) => {
     const models = props.tukanModels
     const components = models.map((model, index) => {
         return matchComponent(model, index)
     })
 
-    return (
-        <div className="tukan-container">
-            {components}
-        </div>
-    )
+    return <ComponentsContainer className="tukan-container">{components}</ComponentsContainer>
 }
 
 const matchComponent = (model: TukanModel, index: number) => {
@@ -78,84 +80,65 @@ const matchComponent = (model: TukanModel, index: number) => {
     switch (model.type) {
         case TukanType.Action:
             const actionModel = model as ActionModel
-            component =
+            component = (
                 <Action
                     key={index}
                     backgroundColor={actionModel.backgroundColor}
                     content={actionModel.content}
                     link={actionModel.link}
                     linkContent={actionModel.linkContent}
-                    linkIsBlank={actionModel.linkIsBlank} />
+                    linkIsBlank={actionModel.linkIsBlank}
+                />
+            )
             break
 
         case TukanType.Atmospheric:
             const atmosphericModel = model as AtmosphericModel
-            component =
-                <AtmosphericImage
-                    key={index}
-                    imgSrc={atmosphericModel.imgSrc}
-                    imgAlt={atmosphericModel.imgAlt} />
+            component = <AtmosphericImage key={index} imgSrc={atmosphericModel.imgSrc} imgAlt={atmosphericModel.imgAlt} />
             break
 
         case TukanType.ColRichtext:
             const colRichtextModel = model as ColRichtextModel
-            component =
-                <ColRichtext
-                    key={index}
-                    cols={colRichtextModel.cols}
-                    index={index} />
+            component = <ColRichtext key={index} cols={colRichtextModel.cols} index={index} />
             break
 
         case TukanType.Contact:
             const contactModel = model as ContactModel
-            component =
-                <Contact
-                    key={index}
-                    targetMail={contactModel.targetMail}
-                    title={contactModel.title}
-                    content={contactModel.content} />
+            component = <Contact key={index} targetMail={contactModel.targetMail} title={contactModel.title} content={contactModel.content} />
             break
 
         case TukanType.Slider:
             const sliderModel = model as SliderModel
-            component =
+            component = (
                 <Slider
                     key={index}
                     autoPlay={sliderModel.autoPlay}
                     randomStart={sliderModel.randomStart}
                     data={sliderModel.data}
                     fullsize={sliderModel.fullsize}
-                    transitionDuration={sliderModel.transitionDuration} />
+                    transitionDuration={sliderModel.transitionDuration}
+                />
+            )
             break
 
         case TukanType.Details:
             const detailsModel = model as DetailsModel
-            component =
-                <Details
-                    key={index}
-                    backgroundColor={detailsModel.backgroundColor}
-                    cards={detailsModel.cards} />
+            component = <Details key={index} backgroundColor={detailsModel.backgroundColor} cards={detailsModel.cards} />
             break
 
         case TukanType.Instagram:
             const instagramModel = model as InstagramModel
-            component =
-                <Instagram
-                    key={index}
-                    links={instagramModel.links}/>
+            component = <Instagram key={index} links={instagramModel.links} />
             break
 
         case TukanType.Focus:
             const focusModel = model as FocusModel
-            component =
-                <Focus
-                    key={index}
-                    content={focusModel.content} />
+            component = <Focus key={index} content={focusModel.content} />
             break
 
         case TukanType.Composition:
             const compositionModel = model as CompositionModel
-            component =
+            component = (
                 <Composition
                     key={index}
                     compositionBackground1={compositionModel.compositionBackground1}
@@ -168,31 +151,31 @@ const matchComponent = (model: TukanModel, index: number) => {
                     compositionContent={compositionModel.compositionContent}
                     compositionStatement={compositionModel.compositionStatement}
                     compositionStatementContent={compositionModel.compositionStatementContent}
-                    />
+                />
+            )
             break
 
         case TukanType.Headline:
             const headlineModel = model as HeadlineModel
-            component =
-                <Headline
-                    key={index}
-                    content={headlineModel.content} />
+            component = <Headline key={index} content={headlineModel.content} />
             break
 
         case TukanType.CallToAction:
             const callToActionModel = model as CallToActionModel
-            component =
+            component = (
                 <CallToAction
                     key={index}
                     headline={callToActionModel.headline}
                     content={callToActionModel.content}
                     btnLabel={callToActionModel.btnLabel}
-                    btnLink={callToActionModel.btnLink} />
+                    btnLink={callToActionModel.btnLink}
+                />
+            )
             break
 
         case TukanType.HeroImage:
             const heroImageModel = model as HeroImageModel
-            component =
+            component = (
                 <HeroImage
                     key={index}
                     imgSrc={heroImageModel.imgSrc}
@@ -200,86 +183,70 @@ const matchComponent = (model: TukanModel, index: number) => {
                     title={heroImageModel.title}
                     link={heroImageModel.link}
                     linkContent={heroImageModel.linkContent}
-                    linkIsBlank={heroImageModel.linkIsBlank} />
+                    linkIsBlank={heroImageModel.linkIsBlank}
+                />
+            )
             break
 
         case TukanType.HighlightText:
             const highlightTextModel = model as HighlightTextModel
-            component =
-                <HighlightText
-                    key={index}
-                    content={highlightTextModel.content} />
+            component = <HighlightText key={index} content={highlightTextModel.content} />
             break
 
         case TukanType.ImageAndText:
             const iatModel = model as ImageAndTextModel
-            component =
-                <ImageAndText
-                    key={index}
-                    content={iatModel.content}
-                    imgSrc={iatModel.imgSrc}
-                    imgAlt={iatModel.imgAlt} />
+            component = <ImageAndText key={index} content={iatModel.content} imgSrc={iatModel.imgSrc} imgAlt={iatModel.imgAlt} />
             break
 
         case TukanType.ImageWithCaption:
             const iwcModel = model as ImageWithCaptionModel
-            component =
+            component = (
                 <ImageWithCaption
                     key={index}
                     videoSrc={iwcModel.videoSrc}
                     imgSrc={iwcModel.imgSrc}
                     imgAlt={iwcModel.imgAlt}
                     caption={iwcModel.caption}
-                    backgroundColor={iwcModel.backgroundColor} />
+                    backgroundColor={iwcModel.backgroundColor}
+                />
+            )
             break
 
         case TukanType.InfiniteCards:
             const infiniteCardsModel = model as InfiniteCardsModel
-            component =
-                <InfiniteCards
-                    key={index}
-                    cards={infiniteCardsModel.cards} />
+            component = <InfiniteCards key={index} cards={infiniteCardsModel.cards} />
             break
 
         case TukanType.LabSpotlight:
             const labSpotlightModel = model as LabSpotlightModel
-            component =
+            component = (
                 <LabSpotlight
                     content={labSpotlightModel.content}
                     link={labSpotlightModel.link}
                     imgSrc={labSpotlightModel.imgSrc}
-                    imgAlt={labSpotlightModel.imgAlt} />
+                    imgAlt={labSpotlightModel.imgAlt}
+                />
+            )
             break
 
         case TukanType.Location:
             const locationModel = model as LocationModel
-            component =
-                <Location
-                    key={index}
-                    items={locationModel.items} />
+            component = <Location key={index} items={locationModel.items} />
             break
 
         case TukanType.Service:
             const serviceModel = model as ServiceModel
-            component =
-                <Service
-                    key={index}
-                    headline={serviceModel.headline}
-                    content={serviceModel.content}
-                    cols={serviceModel.cols} />
+            component = <Service key={index} headline={serviceModel.headline} content={serviceModel.content} background={serviceModel.background} cols={serviceModel.cols} />
             break
 
         case TukanType.Selection:
             const selectionModel = model as SelectionModel
-            component =
-                <Selection
-                    key={index}
-                    cols={selectionModel.cols} />
+            component = <Selection key={index} cols={selectionModel.cols} />
             break
 
         case TukanType.PaypalExpressProduct:
             const paypalExpressProductModel = model as PaypalExpressProductModel
-            component =
+            component = (
                 <PaypalExpressProduct
                     key={index}
                     name={paypalExpressProductModel.name}
@@ -287,86 +254,93 @@ const matchComponent = (model: TukanModel, index: number) => {
                     description={paypalExpressProductModel.description}
                     imgSrc={paypalExpressProductModel.imgSrc}
                 />
+            )
             break
 
         case TukanType.Preview:
             const previewModel = model as PreviewModel
-            component =
+            component = (
                 <Preview
                     key={index}
                     title={previewModel.title}
                     content={previewModel.content}
                     imgSrc={previewModel.imgSrc}
-                    imgAlt={previewModel.imgAlt} />
+                    imgAlt={previewModel.imgAlt}
+                />
+            )
             break
 
         case TukanType.Richtext:
             const richtextModel = model as RichtextModel
-            component =
-                <Richtext
-                    key={index}
-                    content={richtextModel.content}
-                    index={index} />
+            component = <Richtext key={index} content={richtextModel.content} index={index} />
             break
 
         case TukanType.Stage:
             const stageModel = model as StageModel
-            component =
+            component = (
                 <Stage
                     key={index}
                     headline={stageModel.headline}
                     content={stageModel.content}
                     btnLabel={stageModel.btnLabel}
                     btnLink={stageModel.btnLink}
-                    backgroundImage={stageModel.backgroundImage} />
+                    backgroundImage={stageModel.backgroundImage}
+                />
+            )
             break
 
         case TukanType.StageBlog:
             const stageBlogModel = model as StageBlogModel
-            component =
+            component = (
                 <StageBlog
                     key={index}
                     title={stageBlogModel.title}
                     content={stageBlogModel.content}
                     imgSrc={stageBlogModel.imgSrc}
-                    imgAlt={stageBlogModel.imgAlt} />
+                    imgAlt={stageBlogModel.imgAlt}
+                />
+            )
             break
 
         case TukanType.ShopifyProduct:
             const productModel = model as ShopifyProductModel
-            component =
+            component = (
                 <ShopifyProduct
                     key={index}
                     name={productModel.name}
                     price={productModel.price}
                     imgSrc={productModel.imgSrc}
                     variantID={productModel.variantID}
-                    description={productModel.description} />
+                    description={productModel.description}
+                />
+            )
             break
 
-            case TukanType.Portfolio:
-                const portfolioModel = model as PortfolioModel
-                component =
-                    <Portfolio
-                        key={index}
-                        title={portfolioModel.title}
-                        imgSrc01={portfolioModel.imgSrc01}
-                        imgAlt01={portfolioModel.imgAlt01}
-                        imgSrc02={portfolioModel.imgSrc02}
-                        imgAlt02={portfolioModel.imgAlt02}
-                        imgSrc03={portfolioModel.imgSrc03}
-                        imgAlt03={portfolioModel.imgAlt03}
-                        imgSrc04={portfolioModel.imgSrc04}
-                        imgAlt04={portfolioModel.imgAlt04}
-                        imgSrc05={portfolioModel.imgSrc05}
-                        imgAlt05={portfolioModel.imgAlt05}
-                        imgSrc06={portfolioModel.imgSrc06}
-                        imgAlt06={portfolioModel.imgAlt06}
-                        imgSrc07={portfolioModel.imgSrc07}
-                        imgAlt07={portfolioModel.imgAlt07}
-                        imgSrc08={portfolioModel.imgSrc08}
-                        imgAlt08={portfolioModel.imgAlt08} />
-                break
+        case TukanType.Portfolio:
+            const portfolioModel = model as PortfolioModel
+            component = (
+                <Portfolio
+                    key={index}
+                    title={portfolioModel.title}
+                    imgSrc01={portfolioModel.imgSrc01}
+                    imgAlt01={portfolioModel.imgAlt01}
+                    imgSrc02={portfolioModel.imgSrc02}
+                    imgAlt02={portfolioModel.imgAlt02}
+                    imgSrc03={portfolioModel.imgSrc03}
+                    imgAlt03={portfolioModel.imgAlt03}
+                    imgSrc04={portfolioModel.imgSrc04}
+                    imgAlt04={portfolioModel.imgAlt04}
+                    imgSrc05={portfolioModel.imgSrc05}
+                    imgAlt05={portfolioModel.imgAlt05}
+                    imgSrc06={portfolioModel.imgSrc06}
+                    imgAlt06={portfolioModel.imgAlt06}
+                    imgSrc07={portfolioModel.imgSrc07}
+                    imgAlt07={portfolioModel.imgAlt07}
+                    imgSrc08={portfolioModel.imgSrc08}
+                    imgAlt08={portfolioModel.imgAlt08}
+                />
+            )
+            break
     }
 
     return component

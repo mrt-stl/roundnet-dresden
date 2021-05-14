@@ -18,13 +18,13 @@ const Stage = (props: IStageProps) => {
     return (
         <StageContainer background={backgroundImage.url}>
             <StageGrid>
-                <TCol size={1}>
+                <TCol size={1 / 2}>
                     <StageContent>
                         <div>
                             <h1>{headline}</h1>
                         </div>
                         <div>{parse(content)}</div>
-                        <Button href={btnLink} label={btnLabel} color="white" />
+                        {btnLink ? <Button href={btnLink} label={btnLabel} color="white" /> : null}
                     </StageContent>
                 </TCol>
             </StageGrid>
@@ -35,7 +35,7 @@ const Stage = (props: IStageProps) => {
 const StageContainer = styled.div<{ background: string }>`
     background-image: url(${(props) => props.background});
     background-position: center center;
-    height: 100vh;
+    height: 90vh;
     background-size: cover;
     display: flex;
     color: #ffffff;

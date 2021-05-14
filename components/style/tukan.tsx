@@ -80,19 +80,6 @@ p {
     }
 }
 
-ul {
-    padding-right: 24px;
-    padding-left: 40px !important;
-    margin-left: 10px;
-    line-height: 2;
-    border-left: 1px solid black;
-}
-
-li {
-    padding-left: 8px;
-    list-style: square;
-}
-
 @media (max-width: 768px) {
     ul {
         font-size: 14px;
@@ -167,15 +154,15 @@ export const theme: DefaultTheme = {
         yellow: "#fdc300", //yellow
         blue: "#65c5f0", //blue
         green: "#70b638", //green
-        gray10: "#7E8082",
-        gray20: "#C8CBCE",
-        gray30: "#ECEDEE",
-        gray40: "#F5F5F5",
-        gray50: "#646668",
-        gray60: "#4b4d4e",
-        gray70: "#4b4d4e",
-        gray80: "#4b4d4e",
-        gray90: "#4b4d4e",
+        grey10: "#7E8082",
+        grey20: "#C8CBCE",
+        grey30: "#ECEDEE",
+        grey40: "#F5F5F5",
+        grey50: "#646668",
+        grey60: "#4b4d4e",
+        grey70: "#4b4d4e",
+        grey80: "#4b4d4e",
+        grey90: "#4b4d4e",
         background: "#ffffff",
         onBackground: "#000000",
         gradient: false,
@@ -205,14 +192,14 @@ export const theme: DefaultTheme = {
         xxxl: "3em"
     },
     spacing: {
-        none: "0em",
-        xxs: "0.5em",
-        xs: "1em",
-        s: "2em",
-        m: "3em",
-        l: "4em",
-        xl: "6em",
-        xxl: "8em"
+        none: "0",
+        xxs: "5px",
+        xs: "10px",
+        s: "20px",
+        m: "30px",
+        l: "40px",
+        xl: "60px",
+        xxl: "80px"
     },
     fontWeight: {
         light: "300",

@@ -341,14 +341,18 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const serviceHeadline = asHtml(servicePrimary.service_headline)
             const serviceContent = asHtml(servicePrimary.service_content)
+            const serviceBackground = servicePrimary.service_background
             const serviceCols = []
 
             for (const item of serviceItems) {
-                const col = asHtml(item.service_col)
+                const col = {
+                    data: asHtml(item.service_col),
+                    background: item.service_col_background
+                }
                 serviceCols.push(col)
             }
 
-            const serviceModel = new ServiceModel(serviceHeadline, serviceContent, serviceCols)
+            const serviceModel = new ServiceModel(serviceHeadline, serviceContent, serviceBackground, serviceCols)
 
             return serviceModel
 

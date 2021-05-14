@@ -6,15 +6,15 @@ declare module 'styled-components' {
         yellow: string
         green: string
         blue: string
-        gray10: string
-        gray20: string
-        gray30: string
-        gray40: string
-        gray50: string
-        gray60: string
-        gray70: string
-        gray80: string
-        gray90: string
+        grey10: string
+        grey20: string
+        grey30: string
+        grey40: string
+        grey50: string
+        grey60: string
+        grey70: string
+        grey80: string
+        grey90: string
         background?: string
         onBackground?: string
         gradient?: boolean

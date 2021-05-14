@@ -2,51 +2,48 @@ import { media } from "../style/tukan"
 import { TGrid, TCol } from "../style/sc-grid"
 import parse from "html-react-parser"
 import styled from "styled-components"
-import { getGradientAnimation } from "../../utils/color-utils"
 
 export interface IServiceProps {
     headline?: string
     content?: string
-    cols?: string[]
+    background?: boolean
+    cols?: { data; background? }[]
 }
 
 const Service = (props: IServiceProps) => {
-
     const contentCols = props.cols.map((col, index) => {
-
-            return (
-                <TCol collapse="md" key={index}>
-                    <ServiceContent>
-                        {parse(col)}
-                    </ServiceContent>
-                </TCol>
-            )
+        return (
+            <ServiceContent collapse="md" key={index} singleCol={props.cols.length === 1} background={col.background}>
+                {parse(col.data)}
+            </ServiceContent>
+        )
     })
 
     return (
-        <ServiceContainer>
-            {props.headline ?
-                <ServiceGrid halign="left">
-                    <TCol size={3 / 4}>
+        <ServiceContainer background={props.background}>
+            {props.headline ? (
+                <ServiceGrid halign="center">
+                    <TCol size={1 / 2} talign="center">
                         <ServiceStage>
                             {parse(props.headline)}
                             {parse(props.content)}
                         </ServiceStage>
                     </TCol>
-                </ServiceGrid> :
+                </ServiceGrid>
+            ) : (
                 <></>
-            }
+            )}
 
-            <ServiceGrid halign="center">
-                {contentCols}
-            </ServiceGrid>
+            <ServiceGrid halign={props.cols.length === 1 ? "center" : "left"}>{contentCols}</ServiceGrid>
         </ServiceContainer>
     )
 }
 
-const ServiceContainer = styled.div`
+const ServiceContainer = styled.div<{background?: boolean}>`
     margin-bottom: ${(props) => props.theme.spacing.xxl};
     margin-top: ${(props) => props.theme.spacing.xl};
+    padding: ${(props) => props.theme.spacing.xl} 0;
+    background-color: ${props => props.background ? props.theme.projectColors.grey40 : null};
 
     ${media.maxWidth("md")`
         margin-bottom: ${(props) => props.theme.spacing.l};
@@ -60,43 +57,65 @@ const ServiceGrid = styled(TGrid)`
     `}
 `
 
-const ServiceStage = styled.div `
-    h1, h2, h3 {
-        ${(props) =>
-            props.theme.projectColors.gradient
-                ? getGradientAnimation(props.theme.projectColors.green)
-                : `color: ${props.theme.projectColors.green};`}
-        font-size: ${(props) => props.theme.fontSize.s};
-        font-weight: ${(props) => props.theme.fontWeight.light};
-        text-transform: uppercase;
-        letter-spacing: 2px;
+const ServiceStage = styled.div`
+    p {
+        color: ${(props) => props.theme.projectColors.grey70};
     }
-    ${media.maxWidth("md")`
-        h1, h2, h3 {
-            font-size: ${(props) => props.theme.fontSize.xs};
-        }
-    `}
 `
 
-const ServiceContent = styled.div `
-    h1, h2, h3 {
-        font-size: ${(props) => props.theme.fontSize.l};
-        font-weight: ${(props) => props.theme.fontWeight.light};
-        letter-spacing: 1px;
-        margin-bottom: ${(props) => props.theme.spacing.xs};
-        margin-top: ${(props) => props.theme.spacing.xs};
-        text-transform: uppercase;
+const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string }>`
+padding: 0;
+margin-left: 15px;
+margin-right: 15px;
+overflow: hidden;
+background-color: white;
+
+    ${(props) =>
+        props.background
+            ? `background-color: ${props.theme.projectColors[props.background]};
+    color: white;`
+            : null}
+
+    ${(props) =>
+        props.singleCol
+            ? `padding-top: ${props.theme.spacing.l};
+                    padding-bottom: ${props.theme.spacing.l};
+                    text-align: center;
+                    
+                    p, ul {
+                        max-width: 60%;
+                        margin: 0 auto !important;
+                    };`
+            : `p {color: ${props.theme.projectColors.grey70}}`}
+
+    box-shadow: 0px 1px 16px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+
+    h1, h2, h3, h4, h5 {
+        font-size: ${props => props.theme.fontSize.xl};
+        margin-left: 0;
     }
 
-    p {
-        font-size: ${(props) => props.theme.fontSize.s};
+    p:not(.block-img), h1, h2, h3, h4, h5 {
         line-height: 1.5;
+        margin-left: ${(props) => props.theme.spacing.s};
+        margin-right: ${(props) => props.theme.spacing.s};
+    }
+
+    .block-img {
+        margin-top: 0;
     }
 
     .icon img {
         height: 50px;
         display: block;
         margin: 0 auto;
+    }
+
+    ul {
+        margin-top: ${(props) => props.theme.spacing.m};
+        text-align: left;
+        line-height: 2;
     }
 
     ${media.maxWidth("md")`
@@ -110,7 +129,6 @@ const ServiceContent = styled.div `
             font-size: ${(props) => props.theme.fontSize.xs};
         }
     `}
-
 `
 
 export default Service

@@ -1,8 +1,6 @@
-import { isUndefinedOrNullOrEmpty } from "../../utils/object-utils"
 import { media } from "../style/tukan"
 import { TGrid, TCol } from "../style/sc-grid"
 import parse from "html-react-parser"
-import Project from "../../models/config/project"
 import styled from "styled-components"
 
 export interface ICallToActionProps {

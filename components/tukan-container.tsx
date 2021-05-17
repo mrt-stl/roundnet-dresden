@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import Action from "./pattern/action"
 import TukanModel from "../models/tukan/tukan-model"
 import ActionModel from "../models/tukan/action-model"
@@ -60,18 +59,13 @@ interface ITukanWrapperProps {
     tukanModels: TukanModel[]
 }
 
-// margin-top to move entire page content unter fixed nav
-const ComponentsContainer = styled.div`
-    margin-top: 108px;
-`
-
 const TukanContainer = (props: ITukanWrapperProps) => {
     const models = props.tukanModels
     const components = models.map((model, index) => {
         return matchComponent(model, index)
     })
 
-    return <ComponentsContainer className="tukan-container">{components}</ComponentsContainer>
+    return <div className="tukan-container">{components}</div>
 }
 
 const matchComponent = (model: TukanModel, index: number) => {

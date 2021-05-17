@@ -36,13 +36,12 @@ const StyledNavLinks = styled.div`
     a {
         color: ${(props) =>  props.theme.projectColors.onBackground};
         background-image: none;
-        transition: all 0.15s ease-in-out;
+        transition: all 0.25s ease-in-out;
     }
 
     a:hover {
-        opacity: 0.6;
-        transition: 0.2s;
-        transition: all 0.15s ease-in-out;
+        color: ${(props) =>  props.theme.projectColors.blue};
+        transition: all 0.25s ease-in-out;
     }
 
     :first-child {

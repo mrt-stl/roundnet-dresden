@@ -152,8 +152,11 @@ export const media = breakpoints({
 export const theme: DefaultTheme = {
     projectColors: {
         yellow: "#fdc300", //yellow
-        blue: "#65c5f0", //blue
+        blue: "#00A3EF", //blue
         green: "#70b638", //green
+        darkGray: "#414A53",
+        lightGray: "#A6B5C3",
+        lighterGray: "#F4F6F9",
         grey10: "#7E8082",
         grey20: "#C8CBCE",
         grey30: "#ECEDEE",
@@ -164,17 +167,21 @@ export const theme: DefaultTheme = {
         grey80: "#4b4d4e",
         grey90: "#4b4d4e",
         background: "#ffffff",
-        onBackground: "#000000",
+        onBackground: "#414A53",
         gradient: false,
     },
 
     primaryFont: {
         name: "Open Sans",
-        url: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
+        url: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap"
     },
     secondaryFont: {
         name: "Playfair Display",
         url: "https://fonts.googleapis.com/css2?family=Playfair&display=swap"
+    },
+    shadow: {
+        standard: "0  5px 10px rgba(154,160,185,0.05), 0 15px 40px rgba(166,173,201,0.1);",
+        onHover: "0  5px 10px rgba(154,160,185,0.15), 0 15px 40px rgba(166,173,201,0.2);",
     },
     gridConfig: {
         gridWidth: "1024px",
@@ -193,17 +200,18 @@ export const theme: DefaultTheme = {
     },
     spacing: {
         none: "0",
-        xxs: "5px",
-        xs: "10px",
+        xxs: "4px",
+        xs: "8px",
         s: "20px",
-        m: "30px",
+        m: "28px", // setup
         l: "40px",
         xl: "60px",
-        xxl: "80px"
+        xxl: "120px"
     },
     fontWeight: {
         light: "300",
         regular: "400",
+        semibold: "600",
         bold: "700"
     }
 }

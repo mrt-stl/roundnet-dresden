@@ -85,14 +85,14 @@ const NavContainer = styled.div`
     background-color: white;
 
     // .tukan-container gets nav-height applied as margin-top
-    height: 108px;
+    height: 118px;
     overflow: hidden;
     width: 100%;
     z-index: 100;
     position: fixed;
     top: 0;
     left: 0;
-    box-shadow: 0px -30px 60px;
+    box-shadow: 0px -30px 60px rgba(0, 0, 0, 0.1);
 
     @media only screen and (max-width: 768px) {
         display: none;
@@ -122,13 +122,13 @@ const BannerGrid = styled(TGrid)`
 
 const NavGrid = styled(TGrid)`
     max-width: 1024px;
-    height: 70px;
+    height: 80px;
 `
 
 const Branding = styled.a<{ halign: boolean }>`
     margin-right: ${(props) => (props.halign ? "auto" : "20px")};
     width: auto;
-    max-height: 48px;
+    max-height: 40px;
 
     img {
         height: auto;

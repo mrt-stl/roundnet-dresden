@@ -347,6 +347,7 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             for (const item of serviceItems) {
                 const col = {
                     data: asHtml(item.service_col),
+                    link: linkResolver(item.service_link),
                     background: item.service_col_background
                 }
                 serviceCols.push(col)

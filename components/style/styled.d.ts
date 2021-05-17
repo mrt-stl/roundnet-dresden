@@ -6,6 +6,9 @@ declare module 'styled-components' {
         yellow: string
         green: string
         blue: string
+        darkGray: string
+        lightGray: string
+        lighterGray: string
         grey10: string
         grey20: string
         grey30: string
@@ -26,6 +29,10 @@ declare module 'styled-components' {
     secondaryFont: {
         name?: string
         url?: string
+    },
+    shadow: {
+        standard: string
+        onHover: string
     },
     gridConfig: {
         gridWidth?: string
@@ -55,6 +62,7 @@ declare module 'styled-components' {
     fontWeight: {
         light: string
         regular: string
+        semibold: string
         bold: string
     }
    }

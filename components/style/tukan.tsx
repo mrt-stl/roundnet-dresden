@@ -13,7 +13,8 @@ html, body {
     margin: 0 auto;
     width: 100%;
     height: 100%;
-    background-color: ${({ theme }) => theme.projectColors.background}
+    background-color: ${({ theme }) => theme.projectColors.background};
+    scroll-behavior: smooth;
 }
 h1 {
     line-height: 1.5;
@@ -137,6 +138,10 @@ iframe {
 .center-align {
     display: block;
     text-align: center;
+}
+
+.tukan-container {
+    margin-top: 108px;
 }
 `
 

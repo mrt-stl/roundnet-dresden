@@ -54,7 +54,8 @@ module.exports = withBundleAnalyzer({
                                 "'unsafe-eval'",
                                 "https://api.rollbar.com/api/1/item/",
                                 "https://maps.googleapis.com/",
-                                "http://www.instagram.com/"
+                                "http://www.instagram.com/",
+                                "https://www.googletagmanager.com/gtag/"
                             ],
                             fontSrc: ["'self'", "https://fonts.googleapis.com/", "https://use.typekit.net/", "https://fonts.gstatic.com/"],
                             styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com/"],

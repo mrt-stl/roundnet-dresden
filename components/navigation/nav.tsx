@@ -55,12 +55,16 @@ const Nav = (props: INavProps) => {
 
                 <NavContainer>
 
-                    <BannerGrid halign="space-around" valign="center">
-                        <TCol size={1 / 3}>{parse(asHtml(nav_address))}</TCol>
-                        <TCol size={1 / 3} talign="right">
+                <BannerContainer>
+                    <BannerGrid valign="center">
+                        <TCol size={1 / 2}>
+                            {parse(asHtml(nav_address))}
+                        </TCol>
+                        <TCol size={1 / 2} talign="right">
                             {parse(asHtml(nav_phone))}
                         </TCol>
                     </BannerGrid>
+                </BannerContainer>
 
                     <NavGrid halign={nav_alignment ? "right" : "left"} valign="center">
                         <Branding href="/" halign={nav_alignment}>
@@ -99,12 +103,18 @@ const NavContainer = styled.div`
     }
 `
 
-const BannerGrid = styled(TGrid)`
+const BannerContainer = styled.div `
     max-width: 100%;
     background-color: ${(props) => props.theme.projectColors.blue};
+    font-size: 14px;
+`
+
+const BannerGrid = styled(TGrid)`
+    max-width: 1024px;
     color: white;
     height: 38px;
     overflow: hidden;
+    justify-content: space-between;
 
     * {
         color: white;

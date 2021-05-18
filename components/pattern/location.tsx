@@ -43,7 +43,7 @@ const Location = (props: ILocationProps) => {
 }
 
 const LocationContainer = styled.div`
-    height: 480px;
+    height: 200px;
     width: 100%;
 
     ${media.maxWidth("md")`

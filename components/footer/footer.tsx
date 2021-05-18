@@ -13,13 +13,14 @@ const Footer = (props: IFooterProps) => {
         const { footer_partners, footer_content_left, footer_content_right, footer_links, footer_links_bottom } = props.data
         return (
             <>
-                <PartnersContainer>
-                    <TGrid valign="center">
+                <PartnerContainer>
+                    <PartnerGrid valign="center">
                         {footer_partners.map((element, index) => {
-                            return <TCol key={index}>{parse(asHtml(element.content))}</TCol>
+                            return <PartnerCol key={index}>{parse(asHtml(element.content))}</PartnerCol>
                         })}
-                    </TGrid>
-                </PartnersContainer>
+                    </PartnerGrid>
+                </PartnerContainer>
+
                 <footer>
                     <FooterContainer>
                         <FooterGrid valign="top" halign="center">
@@ -59,14 +60,22 @@ const Footer = (props: IFooterProps) => {
     return null
 }
 
-const PartnersContainer = styled.div`
+const PartnerContainer = styled.div`
     background-color: ${(props) => props.theme.projectColors.grey30};
-    padding-top: ${(props) => props.theme.spacing.m};
-    padding-bottom: ${(props) => props.theme.spacing.s};
+    padding-top: ${(props) => props.theme.spacing.l};
+    padding-bottom: ${(props) => props.theme.spacing.l};
+    justify-content: space-between;
 
     img {
         filter: grayscale(100%);
     }
+`
+
+const PartnerGrid = styled(TGrid)`
+    justify-content: space-between;
+`
+
+const PartnerCol = styled(TCol)`
 `
 
 const FooterContainer = styled.div`

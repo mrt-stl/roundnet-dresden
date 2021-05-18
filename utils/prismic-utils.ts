@@ -35,7 +35,7 @@ export const linkResolver = (doc: any): string | null => {
             link = doc.url
             break
 
-        case doc.type?.toLowerCase() === "standard":
+        case doc.type?.toLowerCase() === "standard" || doc.type?.toLowerCase() === "faqs":
             link += doc.uid
             break
 

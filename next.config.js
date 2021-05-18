@@ -42,6 +42,23 @@ module.exports = withBundleAnalyzer({
         )
         return config
     },
+    async redirects() {
+        return [
+          {
+            source: '/ansprechpartner',
+            destination: '/kontakt',
+            permanent: true,
+          },
+        ]
+      },
+      async rewrites() {
+        return [
+          {
+            source: '/haeufige-fragen',
+            destination: '/list/haeufige-fragen',
+          }
+        ]
+      },
     async headers() {
         return [
             {

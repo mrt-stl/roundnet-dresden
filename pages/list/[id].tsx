@@ -1,23 +1,22 @@
-import Meta from "../components/meta"
-import Nav from "../components/navigation/nav"
-import Footer from "../components/footer/footer"
-import Stage from "../components/pattern/stage"
-import Richtext from "../components/pattern/richtext"
-import Accordion from "../components/pattern/accordion"
-import { getByUid } from "../networking/prismic-api"
-import CookieNotification from "../components/pattern/cookie-notification"
-import { asText, asHtml } from "../utils/prismic-utils"
-import { cacheControlHeader, createEtag } from "../utils/cache-utils"
-import Error from "./_error"
-import Project from "../models/config/project"
+import { useState, useEffect } from "react"
+import Meta from "../../components/meta"
+import Nav from "../../components/navigation/nav"
+import Footer from "../../components/footer/footer"
+import Stage from "../../components/pattern/stage"
+import Richtext from "../../components/pattern/richtext"
+import Accordion from "../../components/pattern/accordion"
+import { getByUid } from "../../networking/prismic-api"
+import CookieNotification from "../../components/pattern/cookie-notification"
+import { asText, asHtml } from "../../utils/prismic-utils"
+import { cacheControlHeader, createEtag } from "../../utils/cache-utils"
+import Error from "../_error"
+import Project from "../../models/config/project"
 import { Document } from "prismic-javascript/d.ts/documents"
-import TukanModel from "../models/tukan/tukan-model"
-import { IMetaData } from "../models/config/meta-data"
-import { TGrid, TCol } from "../components/style/sc-grid"
+import TukanModel from "../../models/tukan/tukan-model"
+import { IMetaData } from "../../models/config/meta-data"
+import { TGrid, TCol } from "../../components/style/sc-grid"
 import styled from "styled-components"
-import { useInView } from "react-hook-inview"
-
-
+import { media } from "../../components/style/tukan"
 interface IIndexProps {
     data?: any
     meta?: IMetaData
@@ -30,16 +29,46 @@ interface IIndexProps {
 const FAQ = (props: IIndexProps) => {
     const { data, meta, footerData, error, navData } = props
 
-    
+    const [scrollState, setScrollState] = useState("")
+
+    let domHeadingList = []
+    useEffect(() => {
+        headingList.map((item) => {
+            const element = document.getElementById(item.toLowerCase())
+            domHeadingList.push(element.offsetTop)
+        })
+    }, [])
+
+    let listener = null
+
+    useEffect(() => {
+        if (window.innerWidth > 768) {
+            listener = document.addEventListener("scroll", () => {
+                const scrolled = document.scrollingElement.scrollTop + 250
+                if (domHeadingList[0]) {
+                    let i = 0
+                    while (domHeadingList[i] < scrolled) {
+                        i++
+                    }
+                    const newScrollState = i === 0 ? headingList[0] : headingList[i - 1]
+                    setScrollState(newScrollState.toLowerCase())
+                }
+            })
+            return () => {
+                document.removeEventListener("scroll", listener)
+            }
+        }
+    }, [scrollState])
+
     const stageImg = data.data.hero_img
     const content = asHtml(data.data.content)
     const accordionList = data.data.body
-    
+
     let headingList = []
     accordionList.map((item) => {
         headingList.push(asText(item.primary.accordion_title))
     })
-    
+
     if (error) {
         return <Error />
     }
@@ -59,25 +88,20 @@ const FAQ = (props: IIndexProps) => {
                 <Richtext content={content} />
 
                 <TGrid>
-                    <SideNavCol size={1 / 4}>
+                    <SideNavCol size={1 / 4} collapse="md">
                         {headingList.map((item, index) => {
-                            const relativeLink = `#${item.toLowerCase()}`
+                            const itemId = item.toLowerCase()
+                            const relativeLink = `#${itemId}`
                             return (
-                                <a key={index} href={relativeLink}>
+                                <StyledLink key={index} isActive={scrollState === itemId} href={relativeLink}>
                                     {item}
-                                </a>
+                                </StyledLink>
                             )
                         })}
                     </SideNavCol>
-                    <TCol size={3 / 4}>
+                    <TCol size={3 / 4} collapse="md">
                         {accordionList.map((item, index) => {
-                            const [ref, isVisible] = useInView({
-                                unobserveOnEnter: true,
-                                threshold: 0.2,
-                              })
-
-                              isVisible ? console.log(item.primary.accordion_headline + " is in view") : null
-                            return <span ref={ref}><Accordion key={index} headline={item.primary.accordion_title} items={item.items} /></span>
+                            return <Accordion key={index} headline={item.primary.accordion_title} items={item.items} />
                         })}
                     </TCol>
                 </TGrid>
@@ -95,14 +119,24 @@ const SideNavCol = styled(TCol)`
     padding-top: 200px;
     position: sticky;
     top: 0;
-    a {
-        display: block;
-        margin-bottom: ${(props) => props.theme.spacing.m};
-    }
+
+    ${media.maxWidth("md")`
+        padding-top: ${(props) => props.theme.spacing.s};
+        position: static;
+    `}
 `
 
-FAQ.getInitialProps = async ({ res }) => {
-    const queryId = "faq"
+const StyledLink = styled.a<{ isActive: boolean }>`
+    display: block;
+    margin-bottom: ${(props) => props.theme.spacing.m};
+
+    font-weight: ${(props) => (props.isActive ? "bold" : null)};
+`
+
+FAQ.getInitialProps = async ({ query, res }) => {
+
+    console.log(query.id)
+    const queryId = query.id ? query.id : ""
     const docType = "faqs"
 
     const prismicRes = await getByUid(docType, queryId)

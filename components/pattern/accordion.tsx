@@ -2,14 +2,13 @@ import { TGrid, TCol } from "../style/sc-grid"
 import { asHtml, asText } from "../../utils/prismic-utils"
 import parse from "html-react-parser"
 import styled, { keyframes } from "styled-components"
-export interface IStageProps {
+export interface IAccordionProps {
     headline: string
     items: any
-    ref?: any
 }
 
-const Accordion = (props: IStageProps) => {
-    const { headline, items, ref } = props
+const Accordion = (props: IAccordionProps) => {
+    const { headline, items } = props
 
     const handleClick = (e) => {
         if (e.target.parentNode.open || e.target.parentNode.parentNode.open) {
@@ -25,7 +24,7 @@ const Accordion = (props: IStageProps) => {
 
     return (
         <>
-            <Anchor id={asText(headline).toLowerCase()} ref={ref} />
+            <Anchor id={asText(headline).toLowerCase()} />
             <AccordionContainer>
                 <TGrid valign="top" halign="space-around">
                     <AccordionTitle size={1} collapse="md" talign="left">

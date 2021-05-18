@@ -15,8 +15,20 @@ export interface IStageProps {
 const Stage = (props: IStageProps) => {
     const { headline, content, btnLabel, btnLink, backgroundImage } = props
 
+    const calcHeight = () => {
+        if (!content && !btnLink) {
+            return {height: "360px"}
+        } else {
+            return {height: "100vh"}
+        }
+    }
+
+    const stageHeight = calcHeight()
+
+    const stageStyle = { ...stageHeight }
+
     return (
-        <StageContainer background={backgroundImage.url}>
+        <StageContainer background={backgroundImage.url} style={stageStyle}>
             <StageGrid>
                 <TCol size={1 / 2}>
                     <StageContent>

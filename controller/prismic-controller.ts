@@ -29,6 +29,7 @@ import SliderModel from "../models/tukan/slider-model"
 import CompositionModel from "../models/tukan/composition-model"
 import CallToActionModel from "../models/tukan/call-to-action-model"
 import InstagramModel from "../models/tukan/instagram-model"
+import AccordionModel from "../models/tukan/accordion-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -118,6 +119,15 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const focus = new FocusModel(focusContent)
             return focus
+
+        case "accordion":
+            const accordionPrimary = slice.primary
+            const accordionItems: any = slice.items
+
+            const accordionHeadline = accordionPrimary.accordion_title
+
+            const accordion = new AccordionModel(accordionHeadline, accordionItems)
+            return accordion
 
         case "instagram":
             const instagramItems = slice.items

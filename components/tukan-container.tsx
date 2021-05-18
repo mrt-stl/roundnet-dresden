@@ -54,6 +54,8 @@ import CallToActionModel from "../models/tukan/call-to-action-model"
 import CallToAction from "./pattern/call-to-action"
 import InstagramModel from "../models/tukan/instagram-model"
 import Instagram from "./pattern/instagram"
+import AccordionModel from "../models/tukan/accordion-model"
+import Accordion from "./pattern/accordion"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -123,6 +125,11 @@ const matchComponent = (model: TukanModel, index: number) => {
         case TukanType.Instagram:
             const instagramModel = model as InstagramModel
             component = <Instagram key={index} links={instagramModel.links} />
+            break
+
+        case TukanType.Accordion:
+            const accordionModel = model as AccordionModel
+            component = <Accordion key={index} headline={accordionModel.headline} items={accordionModel.items} />
             break
 
         case TukanType.Focus:

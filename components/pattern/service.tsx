@@ -98,7 +98,7 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string }
 
         box-shadow: ${(props) => props.theme.shadow.standard};
     border-radius: 8px;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.25s ease-in-out;
 
     h1, h2, h3, h4, h5 {
         font-size: ${props => props.theme.fontSize.m};
@@ -140,7 +140,7 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string }
     }
 
     :hover {
-        margin-top: -10px;
+        transform: translate(0px,-10px);
         box-shadow: ${(props) => props.theme.shadow.onHover};
         transition: all 0.15s ease-in-out;
     }

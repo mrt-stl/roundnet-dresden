@@ -16,6 +16,11 @@ html, body {
     background-color: ${({ theme }) => theme.projectColors.background};
     scroll-behavior: smooth;
 }
+
+* {
+    box-sizing: border-box;
+}
+
 h1 {
     line-height: 1.5;
     margin-bottom: 0.5em;

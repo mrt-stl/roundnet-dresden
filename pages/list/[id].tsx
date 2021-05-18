@@ -135,7 +135,6 @@ const StyledLink = styled.a<{ isActive: boolean }>`
 
 FAQ.getInitialProps = async ({ query, res }) => {
 
-    console.log(query.id)
     const queryId = query.id ? query.id : ""
     const docType = "faqs"
 

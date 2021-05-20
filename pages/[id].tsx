@@ -8,6 +8,7 @@ import { Document } from "prismic-javascript/d.ts/documents"
 import TukanModel from "../models/tukan/tukan-model"
 import { IMetaData } from "../models/config/meta-data"
 import Index from "./index"
+import Nav from "../components/navigation/nav"
 
 interface IIndexProps {
     docId?: string
@@ -22,7 +23,7 @@ const Page = (props: IIndexProps) => {
     const { docId, meta, componentModels, footerData, error, navData } = props
 
     if (error) {
-        return (<Error />)
+        return (<Error navData={navData} />)
     }
 
     return (
@@ -46,7 +47,8 @@ Page.getInitialProps = async ({ query, res }) => {
     
     if (prismicRes.error || docs?.results?.length < 1) {
         return {
-            error: "Page not found"
+            error: "Page not found",
+            navData
         }
     }
 

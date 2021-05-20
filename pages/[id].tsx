@@ -8,7 +8,6 @@ import { Document } from "prismic-javascript/d.ts/documents"
 import TukanModel from "../models/tukan/tukan-model"
 import { IMetaData } from "../models/config/meta-data"
 import Index from "./index"
-import Nav from "../components/navigation/nav"
 
 interface IIndexProps {
     docId?: string

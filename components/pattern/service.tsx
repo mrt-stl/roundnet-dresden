@@ -7,7 +7,7 @@ export interface IServiceProps {
     headline?: string
     content?: string
     background?: boolean
-    cols?: { data; link?, background? }[]
+    cols?: { data; link?; background? }[]
 }
 
 const Service = (props: IServiceProps) => {
@@ -25,7 +25,7 @@ const Service = (props: IServiceProps) => {
                 <ServiceGrid halign="center">
                     <TCol size={2 / 3} talign="center" collapse="md">
                         <ServiceStage>
-                           {parse(props.headline)}
+                            {parse(props.headline)}
                             {parse(props.content)}
                         </ServiceStage>
                     </TCol>
@@ -39,12 +39,12 @@ const Service = (props: IServiceProps) => {
     )
 }
 
-const ServiceContainer = styled.div<{background?: boolean}>`
+const ServiceContainer = styled.div<{ background?: boolean }>`
     margin-bottom: ${(props) => props.theme.spacing.xxl};
     margin-top: ${(props) => props.theme.spacing.xl};
     padding-bottom: ${(props) => props.theme.spacing.xxl};
     padding-top: ${(props) => props.theme.spacing.xxl};
-    background-color: ${props => props.background ? props.theme.projectColors.lighterGray : null};
+    background-color: ${(props) => (props.background ? props.theme.projectColors.lighterGray : null)};
 
     ${media.maxWidth("md")`
         margin-bottom: ${(props) => props.theme.spacing.l};
@@ -60,7 +60,6 @@ const ServiceGrid = styled(TGrid)`
 
 const ServiceStage = styled.div`
     margin-bottom: ${(props) => props.theme.spacing.xl};
-
 
     h1 {
         color: ${(props) => props.theme.projectColors.darkGray};
@@ -93,22 +92,35 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string }
                     p, ul {
                         max-width: 60%;
                         margin: 0 auto !important;
-                    };`
+                    };
+                    * {
+                        color: white !important;
+                    }
+                    `
             : `p {color: ${props.theme.projectColors.grey70}}`}
 
         box-shadow: ${(props) => props.theme.shadow.standard};
     border-radius: 8px;
     transition: all 0.25s ease-in-out;
 
-    h1, h2, h3, h4, h5 {
-        font-size: ${props => props.theme.fontSize.m};
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        font-size: ${(props) => props.theme.fontSize.m};
         margin-left: 0;
         color: ${(props) => props.theme.projectColors.darkGray};
         font-weight: ${(props) => props.theme.fontWeight.bold};
         margin-top: ${(props) => props.theme.spacing.s};
     }
 
-    p:not(.block-img), h1, h2, h3, h4, h5 {
+    p:not(.block-img),
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
         line-height: 1.5;
         margin-left: ${(props) => props.theme.spacing.m};
         margin-right: ${(props) => props.theme.spacing.m};
@@ -123,9 +135,10 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string }
         margin-top: 0;
     }
 
-    b, strong {
+    b,
+    strong {
         color: ${(props) => props.theme.projectColors.blue};
-    } 
+    }
 
     .icon img {
         height: 50px;
@@ -139,11 +152,14 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string }
         line-height: 2;
     }
 
-    :hover {
-        transform: translate(0px,-10px);
-        box-shadow: ${(props) => props.theme.shadow.onHover};
-        transition: all 0.15s ease-in-out;
-    }
+    ${(props) =>
+        props.singleCol
+            ? null
+            : `:hover {
+            transform: translate(0px, -10px);
+            box-shadow: ${(props) => props.theme.shadow.onHover};
+            transition: all 0.15s ease-in-out;
+        }`}
 
     ${media.maxWidth("md")`
         margin-bottom: ${(props) => props.theme.spacing.s};

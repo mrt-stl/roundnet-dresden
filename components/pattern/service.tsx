@@ -13,7 +13,7 @@ export interface IServiceProps {
 const Service = (props: IServiceProps) => {
     const contentCols = props.cols.map((col, index) => {
         return (
-            <ServiceContent collapse="md" key={index} singleCol={props.cols.length === 1} background={col.background}>
+            <ServiceContent collapse="md" key={index} singleCol={props.cols.length === 1} link={col.link} background={col.background}>
                 <a href={col.link}>{parse(col.data)}</a>
             </ServiceContent>
         )
@@ -70,7 +70,7 @@ const ServiceStage = styled.div`
     }
 `
 
-const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string }>`
+const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string, link?: boolean }>`
     padding: 0;
     margin-left: 15px;
     margin-right: 15px;
@@ -153,7 +153,7 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string }
     }
 
     ${(props) =>
-        props.singleCol
+        !props.link
             ? null
             : `:hover {
             transform: translate(0px, -10px);

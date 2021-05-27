@@ -48,7 +48,7 @@ const CallToActionContainer = styled.div`
 
 const CallToActionGrid = styled(TGrid)`
     p {
-        color: ${(props) => props.theme.projectColors.grey70};
+        color: ${(props) => props.theme.projectColors.darkGray};
     }
     ${media.maxWidth("md")`
         margin-left: 40px;

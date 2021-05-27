@@ -129,7 +129,7 @@ const matchComponent = (model: TukanModel, index: number) => {
 
         case TukanType.Accordion:
             const accordionModel = model as AccordionModel
-            component = <Accordion key={index} headline={accordionModel.headline} items={accordionModel.items} />
+            component = <Accordion key={index} headline={accordionModel.headline} showMoreBtn={accordionModel.showMoreBtn} items={accordionModel.items} />
             break
 
         case TukanType.Focus:

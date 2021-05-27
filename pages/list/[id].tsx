@@ -89,15 +89,20 @@ const FAQ = (props: IIndexProps) => {
 
                 <TGrid>
                     <SideNavCol size={1 / 4} collapse="md">
-                        {headingList.map((item, index) => {
-                            const itemId = item.toLowerCase()
-                            const relativeLink = `#${itemId}`
-                            return (
-                                <StyledLink key={index} isActive={scrollState === itemId} href={relativeLink}>
-                                    {item}
-                                </StyledLink>
-                            )
-                        })}
+                        <TGrid>
+                            <TCol collapse="md">
+
+                            {headingList.map((item, index) => {
+                                const itemId = item.toLowerCase()
+                                const relativeLink = `#${itemId}`
+                                return (
+                                    <StyledLink key={index} isActive={scrollState === itemId} href={relativeLink}>
+                                        {item}
+                                    </StyledLink>
+                                )
+                            })}
+                            </TCol>
+                        </TGrid>
                     </SideNavCol>
                     <TCol size={3 / 4} collapse="md">
                         {accordionList.map((item, index) => {
@@ -121,7 +126,7 @@ const SideNavCol = styled(TCol)`
     top: 0;
 
     ${media.maxWidth("md")`
-        padding-top: ${(props) => props.theme.spacing.s};
+        padding-top: 0;
         position: static;
     `}
 `
@@ -129,8 +134,11 @@ const SideNavCol = styled(TCol)`
 const StyledLink = styled.a<{ isActive: boolean }>`
     display: block;
     margin-bottom: ${(props) => props.theme.spacing.m};
-
     font-weight: ${(props) => (props.isActive ? "bold" : null)};
+
+    :last-child {
+        margin-bottom: 0;
+    }
 `
 
 FAQ.getInitialProps = async ({ query, res }) => {

@@ -2,7 +2,7 @@ import { isUndefinedOrNullOrEmpty } from "../../utils/object-utils"
 import { linkResolver } from "../../utils/prismic-utils"
 import { media } from "../style/tukan"
 import { TCol, TGrid } from "../style/sc-grid"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import parse from "html-react-parser"
 import { asHtml } from "../../utils/prismic-utils"
 import NavLink from "./nav-link"
@@ -21,6 +21,17 @@ const Nav = (props: INavProps) => {
 
     const [open, setOpen] = useState(false)
 
+    useEffect(() => {
+        const body = document.querySelector("body")
+        if (open) {
+            body.style.height = "100vh"
+            body.style.overflow = "hidden"
+        } else {
+            body.style.height = null
+            body.style.overflow = null
+        }
+    }, [open])
+
     const handleClick = () => {
         setOpen(!open)
     }
@@ -29,13 +40,15 @@ const Nav = (props: INavProps) => {
         const { nav_alignment, nav_links, nav_logo, nav_address, nav_phone } = props.data
         return (
             <nav>
-                <Branding1 href="/">
-                    <TukanImage src={nav_logo.url} alt={nav_logo.alt} height="auto" width="auto" />
-                </Branding1>
-                <StyledBurger open={open} onClick={handleClick}>
-                    <span />
-                    <span />
-                </StyledBurger>
+                <MobileHeader>
+                    <Branding1 href="/">
+                        <TukanImage src={nav_logo.url} alt={nav_logo.alt} height="auto" width="auto" />
+                    </Branding1>
+                    <StyledBurger open={open} onClick={handleClick}>
+                        <span />
+                        <span />
+                    </StyledBurger>
+                </MobileHeader>
                 <MenuContainer
                     open={open}
                     background={"https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + projectId + "/assets/" + "menu-background.svg"}
@@ -54,17 +67,14 @@ const Nav = (props: INavProps) => {
                 </MenuContainer>
 
                 <NavContainer>
-
-                <BannerContainer>
-                    <BannerGrid valign="center">
-                        <TCol size={1 / 2}>
-                            {parse(asHtml(nav_address))}
-                        </TCol>
-                        <TCol size={1 / 2} talign="right">
-                            {parse(asHtml(nav_phone))}
-                        </TCol>
-                    </BannerGrid>
-                </BannerContainer>
+                    <BannerContainer>
+                        <BannerGrid valign="center">
+                            <TCol size={1 / 2}>{parse(asHtml(nav_address))}</TCol>
+                            <TCol size={1 / 2} talign="right">
+                                {parse(asHtml(nav_phone))}
+                            </TCol>
+                        </BannerGrid>
+                    </BannerContainer>
 
                     <NavGrid halign={nav_alignment ? "right" : "left"} valign="center">
                         <Branding href="/" halign={nav_alignment}>
@@ -103,7 +113,7 @@ const NavContainer = styled.div`
     }
 `
 
-const BannerContainer = styled.div `
+const BannerContainer = styled.div`
     max-width: 100%;
     background-color: ${(props) => props.theme.projectColors.blue};
     font-size: 14px;
@@ -126,7 +136,7 @@ const BannerGrid = styled(TGrid)`
 
     div {
         padding-top: 0;
-        padding-bottom: 0
+        padding-bottom: 0;
     }
 `
 
@@ -147,15 +157,28 @@ const Branding = styled.a<{ halign: boolean }>`
     }
 `
 
+const MobileHeader = styled.div`
+    ${media.minWidth("md")`
+        display: none;
+    `};
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    height: 85px;
+    z-index: 11;
+`
+
 const Branding1 = styled.a`
     ${media.minWidth("md")`
         display: none;
     `};
 
     position: absolute;
-    top: 62px;
+    top: 33px;
     left: 60px;
-    z-index: 10;
 
     img {
         height: 32px;
@@ -179,12 +202,12 @@ const StyledBurger = styled.button<{ open: boolean }>`
     padding-left: 16px;
     padding-right: 16px;
     padding-top: 20px;
-    position: fixed;
+    position: absolute;
     right: 0px;
-    top: ${(props) => props.theme.spacing.m};
+    top: ${(props) => props.theme.spacing.s};
     transition: all 0.3s linear;
     width: 60px;
-    z-index: 11;
+    z-index: 100;
 
     &:focus {
         outline: none;
@@ -201,12 +224,12 @@ const StyledBurger = styled.button<{ open: boolean }>`
         :first-child {
             transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
             width: ${({ open }) => (open ? "24px" : "24px")};
-            background-color: ${(props) => (props.open ? props.theme.projectColors.background : props.theme.projectColors.onBackground)};
+            background-color: ${(props) => props.theme.projectColors.onBackground};
         }
         :nth-child(2) {
             transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
             width: ${({ open }) => (open ? "24px" : "24px")};
-            background-color: ${(props) => (props.open ? props.theme.projectColors.background : props.theme.projectColors.onBackground)};
+            background-color: ${(props) => props.theme.projectColors.onBackground};
         }
     }
 `
@@ -228,8 +251,8 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     z-index: 10;
+    width: 100%;
     align-items: center;
     display: flex;
     visibility: ${({ open }) => (open ? "visible" : "hidden")};

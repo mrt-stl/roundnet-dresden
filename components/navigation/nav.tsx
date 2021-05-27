@@ -17,7 +17,7 @@ interface INavProps {
 const Nav = (props: INavProps) => {
     const project = Project.getInstance()
 
-    const projectId = !isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "standard"
+    const projectId = !isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "dresdenhilfe"
 
     const [open, setOpen] = useState(false)
 
@@ -139,6 +139,7 @@ const Branding = styled.a<{ halign: boolean }>`
     margin-right: ${(props) => (props.halign ? "auto" : "20px")};
     width: auto;
     max-height: 40px;
+    padding-left: 20px;
 
     img {
         height: auto;
@@ -215,6 +216,10 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
         display: none;
     `};
 
+    a {
+        color: ${(props) => props.theme.projectColors.background};
+    }
+
     background: ${(props) => props.theme.projectColors.grey10};
     background-image: url(${(props) => props.background});
     background-size: cover;
@@ -230,7 +235,6 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
     visibility: ${({ open }) => (open ? "visible" : "hidden")};
 
     .menu-title {
-        color: ${(props) => props.theme.projectColors.background};
         font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -238,7 +242,7 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
     }
 
     .menu-item {
-        color: ${(props) => props.theme.projectColors.background};
+        color: ${(props) => props.theme.projectColors.blue};
         font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 2px;

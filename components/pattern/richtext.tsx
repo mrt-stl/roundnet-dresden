@@ -13,8 +13,8 @@ const Richtext = (props: IRichtextProps) => {
 
     return (
         <RichtextContainer index={index}>
-            <RichtextGrid>
-                <TCol size={1}>
+            <RichtextGrid halign="center">
+                <TCol size={4/5}>
                     <RichtextContent>
                         {parse(content)}
                     </RichtextContent>
@@ -25,8 +25,8 @@ const Richtext = (props: IRichtextProps) => {
 }
 
 const RichtextContainer = styled.div<{index: number}>`
-    margin-top: ${(props) => props.index === 0 ? "240px" : props.theme.spacing.s};
-    margin-bottom: ${(props) => props.theme.spacing.m};
+    margin-top: ${(props) => props.index === 0 ? "240px" : props.theme.spacing.xl};
+    margin-bottom: ${(props) => props.theme.spacing.xl};
 `
 
 const RichtextGrid = styled(TGrid)`

@@ -4,54 +4,33 @@ import styled from "styled-components"
 interface IButtonProps {
     href: string
     label: string
-    color?: string
+    invert?: boolean
     bgColor?: string
 }
 
 const Button = (props: IButtonProps) => {
-    const { href, label, color, bgColor } = props
+    const { href, label, invert, bgColor } = props
 
     return (
-        <StyledButton href={href} bgColor={bgColor} color={color}>
+        <StyledButton href={href} bgColor={bgColor} invert={invert}>
             {label}
         </StyledButton>
     )
 }
 
-const StyledButton = styled.a<{ bgColor?: string, color?: string }>`
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-    border: 1px solid ${(props) => (props.color ? props.color : props.theme.projectColors.onBackground)};
+const StyledButton = styled.a<{ bgColor?: string; invert?: boolean }>`
     display: inline-block;
-    padding-left: ${(props) => props.theme.spacing.s};
-    padding-right: ${(props) => props.theme.spacing.s};
-    padding-top: 20px;
-    padding-bottom: 21px;
-    color: ${(props) => props.color ? props.color : props.theme.projectColors.onBackground};
-    transition: all 0.15s ease-in-out;
+    border-radius: 8px;
+    height: fit-content;
+    padding: ${(props) => props.theme.spacing.xs} ${(props) => props.theme.spacing.s};
+    background-color: ${(props) => (props.invert ? props.theme.projectColors.blue : "white")};
+    color: ${(props) => (props.invert ? "white" : props.theme.projectColors.blue)};
+    box-shadow: ${(props) => props.theme.shadow.standard};
 
-    background-image: none;
-    line-height: default;
     :hover {
-        padding-left: calc(${(props) => props.theme.spacing.m});
-        padding-right: calc(${(props) => props.theme.spacing.m});
-        transition: all 0.25s ease-in-out;
-        backdrop-filter: blur(10px);
+        box-shadow: ${(props) => props.theme.shadow.onHover};
+        transition: all 0.15s ease-in-out;
     }
-
-    ${media.maxWidth("md")`
-
-        padding-top: 16px;
-        padding-bottom: 16px;
-        font-size: 14px;
-        background-position: center;
-        transition: background 0.3s;
-
-        :hover {
-            padding-left: 36px;
-            padding-right: 36px;
-        }
-    `};
 `
 
 export default Button

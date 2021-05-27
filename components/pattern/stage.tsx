@@ -16,7 +16,7 @@ const Stage = (props: IStageProps) => {
     const { headline, content, btnLabel, btnLink, backgroundImage } = props
 
     const calcHeight = () => {
-        if (!content && !btnLink) {
+        if ((!content || content.length < 10) && !btnLink) {
             return {height: "360px"}
         } else {
             return {height: "100vh"}
@@ -36,7 +36,7 @@ const Stage = (props: IStageProps) => {
                             <h1>{headline}</h1>
                         </div>
                         <div>{parse(content)}</div>
-                        {btnLink ? <Button href={btnLink} label={btnLabel} color="white" /> : null}
+                        {btnLink ? <Button href={btnLink} label={btnLabel} /> : null}
                     </StageContent>
                 </TCol>
             </StageGrid>

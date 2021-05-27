@@ -101,7 +101,7 @@ const FAQ = (props: IIndexProps) => {
                     </SideNavCol>
                     <TCol size={3 / 4} collapse="md">
                         {accordionList.map((item, index) => {
-                            return <Accordion key={index} headline={item.primary.accordion_title} items={item.items} />
+                            return <Accordion key={index} headline={item.primary.accordion_title} items={item.items} showMoreBtn={false} />
                         })}
                     </TCol>
                 </TGrid>
@@ -134,7 +134,6 @@ const StyledLink = styled.a<{ isActive: boolean }>`
 `
 
 FAQ.getInitialProps = async ({ query, res }) => {
-
     const queryId = query.id ? query.id : ""
     const docType = "faqs"
 

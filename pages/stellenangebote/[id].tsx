@@ -15,6 +15,8 @@ import { TGrid, TCol } from "../../components/style/sc-grid"
 import styled from "styled-components"
 import parse from "html-react-parser"
 import Location from "../../components/pattern/location"
+import Button from "../../components/elements/button"
+
 interface IIndexProps {
     data?: any
     meta?: IMetaData
@@ -71,15 +73,13 @@ const Job = (props: IIndexProps) => {
 
                         <StyledHeading>Kontakt</StyledHeading>
                         {parse(kontakt)}
-                        <StyledLink href="mailto:info@dresdenhilfe.de" invert>
-                            Jetzt bewerben
-                        </StyledLink>
+                        <Button href="mailto:info@dresdenhilfe.de" label="Jetzt bewerben" invert/>
                     </TCol>
 
                     <TCol size={3 / 9} collapse="md">
                         <StyledLinkWrapper>
                             <p>Wir freuen uns über Ihre Bewerbung</p>
-                            <StyledLink href="mailto:info@dresdenhilfe.de">Jetzt bewerben</StyledLink>
+                            <Button href="mailto:info@dresdenhilfe.de" label="Jetzt bewerben"/>
                         </StyledLinkWrapper>
 
                         <ShadowWrapper>
@@ -136,21 +136,6 @@ const StyledLinkWrapper = styled.div`
 
     p {
         color: white;
-    }
-`
-
-const StyledLink = styled.a<{ invert?: boolean }>`
-    display: inline-block;
-    border-radius: 8px;
-    height: fit-content;
-    padding: ${(props) => props.theme.spacing.xs} ${(props) => props.theme.spacing.s};
-    background-color: ${(props) => (props.invert ? props.theme.projectColors.blue : "white")};
-    color: ${(props) => (props.invert ? "white" : props.theme.projectColors.blue)};
-    box-shadow: ${(props) => props.theme.shadow.standard};
-
-    :hover {
-        box-shadow: ${(props) => props.theme.shadow.onHover};
-        transition: all 0.15s ease-in-out;
     }
 `
 

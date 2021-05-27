@@ -23,9 +23,9 @@ const CallToAction = (props: ICallToActionProps) => {
                     {parse(headline)}
                     {parse(subtitle)}
                 </TCol>
-                <CallToActionCard size={3 / 4}>
-                    <TCol size={1 / 3}>{parse(contentLeft)}</TCol>
-                    <TCol size={1 / 3}>{parse(contentRight)}</TCol>
+                <CallToActionCard size={3 / 4} collapse="md">
+                    <TCol size={1 / 3} collapse="md">{parse(contentLeft)}</TCol>
+                    <TCol size={1 / 3} collapse="md">{parse(contentRight)}</TCol>
                 </CallToActionCard>
             </CallToActionGrid>
         </CallToActionContainer>
@@ -50,10 +50,6 @@ const CallToActionGrid = styled(TGrid)`
     p {
         color: ${(props) => props.theme.projectColors.darkGray};
     }
-    ${media.maxWidth("md")`
-        margin-left: 40px;
-        margin-right: 40px;
-    `}
 `
 
 const CallToActionCard = styled(TCol)`
@@ -63,6 +59,7 @@ const CallToActionCard = styled(TCol)`
     padding-top: ${(props) => props.theme.spacing.m};
     box-shadow: 0px 1px 16px 2px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
+    flex-wrap: wrap;
 `
 
 export default CallToAction

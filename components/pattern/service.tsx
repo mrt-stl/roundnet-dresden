@@ -49,10 +49,6 @@ const ServiceContainer = styled.div<{ background?: boolean }>`
 `
 
 const ServiceGrid = styled(TGrid)`
-    ${media.maxWidth("md")`
-        margin-left: 40px;
-        margin-right: 40px;
-    `}
 `
 
 const ServiceStage = styled.div`
@@ -67,7 +63,7 @@ const ServiceStage = styled.div`
     }
 `
 
-const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string, link?: boolean }>`
+const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string; link?: boolean }>`
     span.contact {
         display: inline-block;
         width: 20px;
@@ -90,12 +86,21 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string, 
                     padding-bottom: ${props.theme.spacing.l};
                     text-align: center;
                     
-                    p, ul {
-                        max-width: 60%;
-                        margin: 0 auto !important;
+                    p:not(.block-img), ul {
+                        max-width: 90%;
+                        column-count: 2;
+                        column-gap: 80px;
+                        text-align: left;
+                        margin: ${props.theme.spacing.m} auto !important;
                     };
                     * {
                         color: white !important;
+                    }
+
+                    @media only screen and (max-width: 768px) {
+                        p:not(.block-img), ul {
+                            column-count: 1;
+                        };
                     }
                     `
             : `p {color: ${props.theme.projectColors.mediumGray}}`}

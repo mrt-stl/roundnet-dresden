@@ -1,7 +1,6 @@
 import parse from "html-react-parser"
 import styled from "styled-components"
 import { TGrid, TCol } from "../style/sc-grid"
-import { media } from "../style/tukan"
 
 export interface IRichtextProps {
     content: string
@@ -14,7 +13,7 @@ const Richtext = (props: IRichtextProps) => {
     return (
         <RichtextContainer index={index}>
             <RichtextGrid halign="center">
-                <TCol size={4/5}>
+                <TCol size={4/5} collapse="md">
                     <RichtextContent>
                         {parse(content)}
                     </RichtextContent>
@@ -30,20 +29,10 @@ const RichtextContainer = styled.div<{index: number}>`
 `
 
 const RichtextGrid = styled(TGrid)`
-    ${media.maxWidth("md")`
-        margin-left: 40px;
-        margin-right: 40px;
-    `}
 `
 
 const RichtextContent = styled.div `
     color: ${(props) => props.theme.projectColors.onBackground};
-
-    ${media.maxWidth("md")`
-        p {
-            font-size: ${(props) => props.theme.fontSize.xs};
-        }
-    `}
 `
 
 export default Richtext

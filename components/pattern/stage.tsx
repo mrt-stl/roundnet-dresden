@@ -71,10 +71,6 @@ const StageContainer = styled.div<{ background: string }>`
 `
 
 const StageGrid = styled(TGrid)`
-    ${media.maxWidth("md")`
-        margin-left: 40px;
-        margin-right: 40px;
-    `}
 `
 
 const StageContent = styled.div`

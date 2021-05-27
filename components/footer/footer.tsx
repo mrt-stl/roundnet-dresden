@@ -118,11 +118,6 @@ const FooterContainer = styled.div`
 
 const FooterGrid = styled(TGrid)`
     height: 100%;
-
-    ${media.maxWidth("md")`
-        margin-left: 40px;
-        margin-right: 40px;
-    `}
 `
 
 const LinkList = styled(TCol)`

@@ -148,6 +148,16 @@ iframe {
 .tukan-container {
     margin-top: 108px;
 }
+
+@media (max-width: 768px) {
+    .tukan-container {
+        margin-top: 80px;
+    }
+
+    html, body {
+        font-size: 18px;
+    }
+}
 `
 
 export const media = breakpoints({

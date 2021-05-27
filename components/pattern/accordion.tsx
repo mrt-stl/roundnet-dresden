@@ -3,6 +3,7 @@ import { asHtml, asText } from "../../utils/prismic-utils"
 import parse from "html-react-parser"
 import styled, { keyframes } from "styled-components"
 import Button from "../elements/button"
+import {media} from "../style/tukan"
 export interface IAccordionProps {
     headline: string
     showMoreBtn: boolean
@@ -148,12 +149,16 @@ const AccordionCol = styled(TCol)`
         margin-top: 10px;
     }
 
-    @media only screen and (max-width: 768px) {
-        .block-img {
-            width: 100%;
-            margin-right: 0;
-        }
+    ${media.maxWidth("md")`
+    .block-img {
+        width: 100%;
+        margin-right: 0;
     }
+
+    summary:before {
+        right: 10px;
+    }
+    `}
 `
 
 export default Accordion

@@ -1,4 +1,3 @@
-import { media } from "../style/tukan"
 import styled from "styled-components"
 
 interface IButtonProps {

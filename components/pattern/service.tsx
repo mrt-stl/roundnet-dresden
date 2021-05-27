@@ -40,14 +40,11 @@ const Service = (props: IServiceProps) => {
 }
 
 const ServiceContainer = styled.div<{ background?: boolean }>`
-    margin-bottom: ${(props) => props.theme.spacing.xxl};
-    margin-top: ${(props) => props.theme.spacing.xl};
     padding-bottom: ${(props) => props.theme.spacing.xxl};
-    padding-top: ${(props) => props.theme.spacing.xxl};
+    padding-top: ${(props) => props.theme.spacing.xl};
     background-color: ${(props) => (props.background ? props.theme.projectColors.lighterGray : null)};
 
     ${media.maxWidth("md")`
-        margin-bottom: ${(props) => props.theme.spacing.l};
     `}
 `
 
@@ -66,11 +63,15 @@ const ServiceStage = styled.div`
     }
 
     p {
-        color: ${(props) => props.theme.projectColors.lightGray};
+        color: ${(props) => props.theme.projectColors.mediumGray};
     }
 `
 
 const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string, link?: boolean }>`
+    span.contact {
+        display: inline-block;
+        width: 20px;
+    }
     padding: 0;
     margin-left: 15px;
     margin-right: 15px;
@@ -127,7 +128,7 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string, 
     }
 
     p:not(.block-img) {
-        color: ${(props) => props.theme.projectColors.lightGray};
+        color: ${(props) => props.theme.projectColors.mediumGray};
         margin-bottom: ${(props) => props.theme.spacing.m};
     }
 

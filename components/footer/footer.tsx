@@ -24,11 +24,11 @@ const Footer = (props: IFooterProps) => {
                 <footer>
                     <FooterContainer>
                         <FooterGrid valign="top" halign="center">
-                            <TCol size={1 / 3} collapse="md" talign="left">
+                            <TCol size={1 / 2} collapse="md" talign="left">
                                 {parse(asHtml(footer_content_left))}
                             </TCol>
 
-                            <LinkList size={1 / 3} collapse="md" talign="left">
+                            <LinkList size={1 / 4} collapse="md" talign="left">
                                 {footer_links.map((element, index) => {
                                     return (
                                         <a href={linkResolver(element.footer_link)} key={index}>
@@ -38,7 +38,7 @@ const Footer = (props: IFooterProps) => {
                                 })}
                             </LinkList>
 
-                            <TCol size={1 / 3} collapse="md" talign="left">
+                            <TCol size={1 / 4} collapse="md" talign="left">
                                 {parse(asHtml(footer_content_right))}
                             </TCol>
 
@@ -80,10 +80,14 @@ const PartnerCol = styled(TCol)`
 
 const FooterContainer = styled.div`
     padding-top: ${(props) => props.theme.spacing.xl};
-    background-color: ${(props) => props.theme.projectColors.grey90};
+    padding-bottom: ${(props) => props.theme.spacing.xl};
+    background-color: ${(props) => props.theme.projectColors.darkGray};
     height: auto;
+
     font-size: ${(props) => props.theme.fontSize.xs};
-    color: white;
+    color: ${(props) => props.theme.projectColors.white};
+    font-weight: ${(props) => props.theme.fontWeight.bold};
+    line-height: 1.5;
 
     a {
         transition: 0.15s ease-in-out;

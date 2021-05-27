@@ -7,6 +7,7 @@ declare module 'styled-components' {
         green: string
         blue: string
         darkGray: string
+        mediumGray: string
         lightGray: string
         lighterGray: string
         grey10: string
@@ -20,6 +21,7 @@ declare module 'styled-components' {
         grey90: string
         background?: string
         onBackground?: string
+        white: string
         gradient?: boolean
     },
     primaryFont: {

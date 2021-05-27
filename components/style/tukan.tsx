@@ -165,6 +165,7 @@ export const theme: DefaultTheme = {
         blue: "#00A3EF", //blue
         green: "#70b638", //green
         darkGray: "#414A53",
+        mediumGray: "#5D768F",
         lightGray: "#A6B5C3",
         lighterGray: "#F4F6F9",
         grey10: "#7E8082",
@@ -178,7 +179,8 @@ export const theme: DefaultTheme = {
         grey90: "#4b4d4e",
         background: "#ffffff",
         onBackground: "#414A53",
-        gradient: false,
+        white: "#ffffff",
+        gradient: false
     },
 
     primaryFont: {

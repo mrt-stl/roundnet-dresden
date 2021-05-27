@@ -62,6 +62,7 @@ const Footer = (props: IFooterProps) => {
 
 const PartnerContainer = styled.div`
     background-color: ${(props) => props.theme.projectColors.grey30};
+    margin-top: ${(props) => props.theme.spacing.xxl};
     padding-top: ${(props) => props.theme.spacing.l};
     padding-bottom: ${(props) => props.theme.spacing.l};
     justify-content: space-between;

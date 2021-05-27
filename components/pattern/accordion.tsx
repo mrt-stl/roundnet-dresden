@@ -24,8 +24,8 @@ const Accordion = (props: IAccordionProps) => {
 
     return (
         <>
-            <Anchor id={asText(headline).toLowerCase()} />
             <AccordionContainer>
+            <Anchor id={asText(headline).toLowerCase()} />
                 <TGrid valign="top" halign="space-around">
                     <AccordionTitle size={1} collapse="md" talign="left">
                         {parse(asHtml(headline))}
@@ -48,10 +48,12 @@ const Accordion = (props: IAccordionProps) => {
 
 const Anchor = styled.span`
     position: absolute;
-    transform: translateY(-30vh);
+    transform: translateY(-20vh);
 `
 
-const AccordionContainer = styled.div``
+const AccordionContainer = styled.div`
+    margin-bottom: ${(props) => props.theme.spacing.xl};
+`
 
 const AccordionTitle = styled(TCol)`
     margin-top: ${(props) => props.theme.spacing.m};

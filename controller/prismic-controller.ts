@@ -125,8 +125,9 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const accordionItems: any = slice.items
 
             const accordionHeadline = accordionPrimary.accordion_title
+            const showMoreBtn = accordionPrimary.accordion_btn_more
 
-            const accordion = new AccordionModel(accordionHeadline, accordionItems)
+            const accordion = new AccordionModel(accordionHeadline, showMoreBtn, accordionItems)
             return accordion
 
         case "instagram":

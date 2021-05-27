@@ -2,13 +2,15 @@ import { TGrid, TCol } from "../style/sc-grid"
 import { asHtml, asText } from "../../utils/prismic-utils"
 import parse from "html-react-parser"
 import styled, { keyframes } from "styled-components"
+import Button from "../elements/button"
 export interface IAccordionProps {
     headline: string
+    showMoreBtn: boolean
     items: any
 }
 
 const Accordion = (props: IAccordionProps) => {
-    const { headline, items } = props
+    const { headline, showMoreBtn, items } = props
 
     const handleClick = (e) => {
         if (e.target.parentNode.open || e.target.parentNode.parentNode.open) {
@@ -40,6 +42,7 @@ const Accordion = (props: IAccordionProps) => {
                             )
                         })}
                     </AccordionCol>
+                    {showMoreBtn ? <TCol><Button href="/haeufige-fragen" label="Alle häufigen Fragen" invert/></TCol> : null}
                 </TGrid>
             </AccordionContainer>
         </>
@@ -78,9 +81,10 @@ const AccordionCol = styled(TCol)`
     }
 
     summary {
-        display: block;
+        display: list-item;
         cursor: pointer;
-        border-bottom: 1px solid ${(props) => props.theme.projectColors.grey20};
+        border-bottom: 1px solid ${(props) => props.theme.projectColors.lightGray};
+        list-style: none;
     }
 
     summary:before {
@@ -93,9 +97,9 @@ const AccordionCol = styled(TCol)`
         transform: rotate(-45deg);
         transform-origin: center;
         transition: 0.2s transform ease;
-        top: 1.2rem;
+        top: 25px;
         left: unset;
-        right: 0.6rem;
+        right: 40px;
     }
 
     summary:focus {
@@ -113,13 +117,17 @@ const AccordionCol = styled(TCol)`
         transition: transform ease 0.5s;
     }
 
-    details summary::marker {
+    summary::-webkit-details-marker {
         display: none;
     }
 
     details {
         position: relative;
         padding-right: 2em;
+    }
+
+    details > p {
+        color: ${props => props.theme.projectColors.darkGray};
     }
 
     details[open] summary ~ * {

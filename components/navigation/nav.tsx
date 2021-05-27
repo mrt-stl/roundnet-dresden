@@ -220,7 +220,7 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
         color: ${(props) => props.theme.projectColors.background};
     }
 
-    background: ${(props) => props.theme.projectColors.grey10};
+    background: ${(props) => props.theme.projectColors.lighterGray};
     background-image: url(${(props) => props.background});
     background-size: cover;
     background-position: center center;

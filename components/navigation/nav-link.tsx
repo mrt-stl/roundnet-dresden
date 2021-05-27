@@ -35,6 +35,7 @@ const StyledNavLinks = styled.div`
 
     a {
         color: ${(props) =>  props.theme.projectColors.onBackground};
+        padding: 28px 0;
         background-image: none;
         transition: all 0.25s ease-in-out;
     }
@@ -57,6 +58,7 @@ const StyledNavLinks = styled.div`
         font-weight: light;
         a {
             color: ${(props) => props.theme.projectColors[props.navColor]};
+            padding: 0;
         }
     `};
 `

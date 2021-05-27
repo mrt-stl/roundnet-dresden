@@ -14,7 +14,7 @@ const Service = (props: IServiceProps) => {
     const contentCols = props.cols.map((col, index) => {
         return (
             <ServiceContent collapse="md" key={index} singleCol={props.cols.length === 1} link={col.link} background={col.background}>
-                <a href={col.link}>{parse(col.data)}</a>
+                {col.link ? <a href={col.link}>{parse(col.data)}</a> : <div>{parse(col.data)}</div>}
             </ServiceContent>
         )
     })
@@ -98,7 +98,7 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string, 
                         color: white !important;
                     }
                     `
-            : `p {color: ${props.theme.projectColors.grey70}}`}
+            : `p {color: ${props.theme.projectColors.mediumGray}}`}
 
         box-shadow: ${(props) => props.theme.shadow.standard};
     border-radius: 8px;

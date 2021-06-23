@@ -85,7 +85,12 @@ const StageContent = styled.div`
         ${(props) =>
             props.theme.projectColors.gradient
                 ? getGradientAnimation(props.theme.projectColors.green)
-                : `color: ${props.theme.projectColors.background};`}
+                : `color: ${props.theme.projectColors.background};
+                display: inline;
+                background-color: ${props.theme.projectColors.blue};
+                box-decoration-break: clone;
+                padding-left: 10px;
+                padding-right: 10px;`}
     }
 
     ${media.maxWidth("md")`

@@ -24,8 +24,12 @@ const CallToAction = (props: ICallToActionProps) => {
                     {parse(subtitle)}
                 </TCol>
                 <CallToActionCard size={3 / 4} collapse="md">
-                    <TCol size={1 / 3} collapse="md">{parse(contentLeft)}</TCol>
-                    <TCol size={1 / 3} collapse="md">{parse(contentRight)}</TCol>
+                    <TCol size={1 / 3} collapse="md">
+                        {parse(contentLeft)}
+                    </TCol>
+                    <TCol size={1 / 3} collapse="md">
+                        {parse(contentRight)}
+                    </TCol>
                 </CallToActionCard>
             </CallToActionGrid>
         </CallToActionContainer>
@@ -60,6 +64,11 @@ const CallToActionCard = styled(TCol)`
     box-shadow: 0px 1px 16px 2px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     flex-wrap: wrap;
+
+    ${media.maxWidth("md")`
+    margin-left: ${(props) => props.theme.spacing.s};
+    margin-right: ${(props) => props.theme.spacing.s};
+    `};
 `
 
 export default CallToAction

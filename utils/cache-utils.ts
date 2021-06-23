@@ -2,7 +2,7 @@ import crypto from "crypto"
 
 export const cacheControlHeader = () => {
 
-    return "s-maxage=604800, stale-while-revalidate"
+    return "s-maxage=0, stale-while-revalidate"
 }
 
 // Create etag from json

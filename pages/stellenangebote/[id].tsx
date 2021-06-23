@@ -73,17 +73,17 @@ const Job = (props: IIndexProps) => {
 
                         <StyledHeading>Kontakt</StyledHeading>
                         {parse(kontakt)}
-                        <Button href="mailto:info@dresdenhilfe.de" label="Jetzt bewerben" invert/>
+                        <Button href="mailto:info@dresdenhilfe.de" label="Jetzt bewerben" invert />
                     </TCol>
 
                     <TCol size={3 / 9} collapse="md">
                         <StyledLinkWrapper>
                             <p>Wir freuen uns über Ihre Bewerbung</p>
-                            <Button href="mailto:info@dresdenhilfe.de" label="Jetzt bewerben"/>
+                            <Button href="mailto:info@dresdenhilfe.de" label="Jetzt bewerben" />
                         </StyledLinkWrapper>
 
                         <ShadowWrapper>
-                            <StyledImage src="https://images.prismic.io/dresdenhilfe/9b11371d-c0b7-4d4a-8e42-47c0990aa5e8_placeholder2.png?auto=compress,format" />
+                            <StyledImage src="https://images.prismic.io/dresdenhilfe/77e75431-5889-413d-8aa8-4e5d34e5eb8f_dresdenhilfe-06.jpg?auto=compress,format" />
                             <StyledHeading>Arbeitgeber</StyledHeading>
                             <p>{stellenangebot_arbeitgeber}</p>
                             <StyledHeading>Arbeitszeit</StyledHeading>
@@ -140,7 +140,8 @@ const StyledLinkWrapper = styled.div`
 `
 
 const StyledImage = styled.img`
-    border-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 `
 
 const ShadowWrapper = styled.div`

@@ -17,18 +17,16 @@ const Stage = (props: IStageProps) => {
 
     const calcHeight = () => {
         if ((!content || content.length < 10) && !btnLink) {
-            return {height: "360px"}
+            return true
         } else {
-            return {height: "100vh"}
+            return false
         }
     }
 
-    const stageHeight = calcHeight()
-
-    const stageStyle = { ...stageHeight }
+    const isNarrow = calcHeight()
 
     return (
-        <StageContainer background={backgroundImage.url} style={stageStyle}>
+        <StageContainer background={backgroundImage.url} isNarrow={isNarrow}>
             <StageGrid>
                 <TCol size={1 / 2}>
                     <StageContent>
@@ -44,10 +42,10 @@ const Stage = (props: IStageProps) => {
     )
 }
 
-const StageContainer = styled.div<{ background: string }>`
+const StageContainer = styled.div<{ background: string, isNarrow: boolean }>`
     background-image: url(${(props) => props.background});
     background-position: center center;
-    height: 90vh;
+    height: ${props => props.isNarrow ? "360px" : "100vh"};
     background-size: cover;
     display: flex;
     color: #ffffff;
@@ -62,7 +60,7 @@ const StageContainer = styled.div<{ background: string }>`
     ${media.maxWidth("md")`
             padding-top: 3em;
             padding-bottom: 1em;
-            height: 440px;
+            height: ${props => props.isNarrow ? "240px" : "100vh"};
 
         p {
             font-size: ${(props) => props.theme.fontSize.xl};

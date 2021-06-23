@@ -48,8 +48,7 @@ const ServiceContainer = styled.div<{ background?: boolean }>`
     `}
 `
 
-const ServiceGrid = styled(TGrid)`
-`
+const ServiceGrid = styled(TGrid)``
 
 const ServiceStage = styled.div`
     margin-bottom: ${(props) => props.theme.spacing.xl};
@@ -108,6 +107,11 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string; 
         box-shadow: ${(props) => props.theme.shadow.standard};
     border-radius: 8px;
     transition: all 0.25s ease-in-out;
+
+    a {
+        display: block;
+        height: 100%;
+    }
 
     h1,
     h2,

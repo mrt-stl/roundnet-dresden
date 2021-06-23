@@ -101,7 +101,8 @@ const FooterContainer = styled.div`
     }
 
     img {
-        max-height: 120px;
+        height: 40px;
+        width: auto;
         margin-bottom: ${(props) => props.theme.spacing.m};
     }
 

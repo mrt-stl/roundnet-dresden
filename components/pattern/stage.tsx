@@ -33,7 +33,7 @@ const Stage = (props: IStageProps) => {
                         <div>
                             <h1>{headline}</h1>
                         </div>
-                        <div>{parse(content)}</div>
+                        {content && content.length > 7 ? <div>{parse(content)}</div> : null}
                         {btnLink ? <Button href={btnLink} label={btnLabel} /> : null}
                     </StageContent>
                 </TCol>
@@ -42,10 +42,10 @@ const Stage = (props: IStageProps) => {
     )
 }
 
-const StageContainer = styled.div<{ background: string, isNarrow: boolean }>`
+const StageContainer = styled.div<{ background: string; isNarrow: boolean }>`
     background-image: url(${(props) => props.background});
     background-position: center center;
-    height: ${props => props.isNarrow ? "360px" : "100vh"};
+    height: ${(props) => (props.isNarrow ? "360px" : "100vh")};
     background-size: cover;
     display: flex;
     color: #ffffff;
@@ -60,7 +60,7 @@ const StageContainer = styled.div<{ background: string, isNarrow: boolean }>`
     ${media.maxWidth("md")`
             padding-top: 3em;
             padding-bottom: 1em;
-            height: ${props => props.isNarrow ? "240px" : "100vh"};
+            height: ${(props) => (props.isNarrow ? "240px" : "100vh")};
 
         p {
             font-size: ${(props) => props.theme.fontSize.xl};
@@ -68,8 +68,7 @@ const StageContainer = styled.div<{ background: string, isNarrow: boolean }>`
     `};
 `
 
-const StageGrid = styled(TGrid)`
-`
+const StageGrid = styled(TGrid)``
 
 const StageContent = styled.div`
     h1 {

@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Marker component Matches the snapshot 1`] = `
-<div
-  className="edit-button"
-  data-wio-id="test doc id"
-/>
-`;

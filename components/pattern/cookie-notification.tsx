@@ -5,7 +5,7 @@ interface ICookieNotificationProps {
     link: string
 }
 
-class CookieNotification extends Component<ICookieNotificationProps, {}> {
+class CookieNotification extends Component<ICookieNotificationProps, {acceptedCookie: boolean}> {
 
     public state = {
         acceptedCookie: true

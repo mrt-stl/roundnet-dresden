@@ -22,5 +22,5 @@ module.exports = {
         "react/prop-types": "off",
         "react/require-default-props": "off",
         "@typescript-eslint/no-var-requires": "off"
-    },
+    }
 }

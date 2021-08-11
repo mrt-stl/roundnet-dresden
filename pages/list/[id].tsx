@@ -31,7 +31,7 @@ const FAQ = (props: IIndexProps) => {
 
     const [scrollState, setScrollState] = useState("")
 
-    let domHeadingList = []
+    const domHeadingList = []
     useEffect(() => {
         headingList.map((item) => {
             const element = document.getElementById(item.toLowerCase())
@@ -64,7 +64,7 @@ const FAQ = (props: IIndexProps) => {
     const content = asHtml(data.data.content)
     const accordionList = data.data.body
 
-    let headingList = []
+    const headingList = []
     accordionList.map((item) => {
         headingList.push(asText(item.primary.accordion_title))
     })

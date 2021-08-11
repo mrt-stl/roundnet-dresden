@@ -1,4 +1,3 @@
-import { isUndefinedOrNullOrEmpty } from "../../utils/object-utils"
 import { linkResolver } from "../../utils/prismic-utils"
 import { media } from "../style/tukan"
 import { TCol, TGrid } from "../style/sc-grid"
@@ -6,7 +5,6 @@ import { useState, useEffect } from "react"
 import parse from "html-react-parser"
 import { asHtml } from "../../utils/prismic-utils"
 import NavLink from "./nav-link"
-import Project from "../../models/config/project"
 import styled from "styled-components"
 import TukanImage from "../elements/tukan-image"
 
@@ -15,9 +13,8 @@ interface INavProps {
 }
 
 const Nav = (props: INavProps) => {
-    const project = Project.getInstance()
 
-    const projectId = !isUndefinedOrNullOrEmpty(project.projectId) ? project.projectId : "dresdenhilfe"
+    const projectId =  "dresdenhilfe"
 
     const [open, setOpen] = useState(false)
 

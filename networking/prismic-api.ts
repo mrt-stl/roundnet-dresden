@@ -1,9 +1,8 @@
 import Prismic from "prismic-javascript"
 import { Document } from "prismic-javascript/types/documents"
-import { config } from "../config"
 
-const endpoint = config.PRISMIC_ENDPOINT
-const accessToken = config.ACCESS_TOKEN
+const endpoint = process.env.PRISMIC_ENDPOINT
+const accessToken = process.env.PRISMIC_ACCESS_TOKEN
 
 /**
  * Prepare prismic API

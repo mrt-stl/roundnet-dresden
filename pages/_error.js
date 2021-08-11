@@ -1,11 +1,9 @@
 import Meta from "../components/meta"
 import Nav from "../components/navigation/nav"
-import Project from "../models/config/project"
 import { TGrid, TCol } from "../components/style/sc-grid"
 import styled, { keyframes } from "styled-components"
 
 const Error = (props) => {
-    const project = Project.getInstance()
 
     const meta = {
         metaTitle: "404",
@@ -14,7 +12,7 @@ const Error = (props) => {
 
     return (
         <div>
-            <Meta project={project} data={meta} />
+            <Meta data={meta} />
             <Nav data={props.navData} />
 
             <div className="tukan-container">

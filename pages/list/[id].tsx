@@ -10,7 +10,6 @@ import CookieNotification from "../../components/pattern/cookie-notification"
 import { asText, asHtml } from "../../utils/prismic-utils"
 import { cacheControlHeader, createEtag } from "../../utils/cache-utils"
 import Error from "../_error"
-import Project from "../../models/config/project"
 import { Document } from "prismic-javascript/types/documents"
 import TukanModel from "../../models/tukan/tukan-model"
 import { IMetaData } from "../../models/config/meta-data"
@@ -73,9 +72,8 @@ const FAQ = (props: IIndexProps) => {
         return <Error />
     }
 
-    const project = Project.getInstance()
 
-    const showCookieNotification = project.cookieLink !== null
+    const showCookieNotification = process.env.cookie !== null
 
     return (
         <div className="tukan">
@@ -114,7 +112,7 @@ const FAQ = (props: IIndexProps) => {
 
             <Footer data={footerData} />
 
-            {showCookieNotification ? <CookieNotification link={project.cookieLink} /> : <div />}
+            {showCookieNotification ? <CookieNotification link={process.env.cookie} /> : <div />}
         </div>
     )
 }

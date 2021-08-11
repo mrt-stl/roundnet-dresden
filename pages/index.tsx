@@ -9,7 +9,6 @@ import EditButton from "../components/elements/edit-button"
 import { cacheControlHeader, createEtag } from "../utils/cache-utils"
 import Error from "./_error"
 import { prismicPageToComponentModels } from "../controller/prismic-controller"
-import Project from "../models/config/project"
 import { Document } from "prismic-javascript/types/documents"
 import TukanModel from "../models/tukan/tukan-model"
 import { IMetaData } from "../models/config/meta-data"
@@ -36,9 +35,7 @@ const Index = (props: IIndexProps) => {
 
     const componentModels: TukanModel[] = prismicPageToComponentModels(doc)
 
-    const project = Project.getInstance()
-
-    const showCookieNotification = project.cookieLink !== null
+    const showCookieNotification = process.env.cookie !== null
 
     return (
         <div className="tukan">
@@ -59,7 +56,7 @@ const Index = (props: IIndexProps) => {
 
                 {showCookieNotification ?
                     <CookieNotification
-                        link={project.cookieLink} /> :
+                        link={process.env.cookie} /> :
                     <div />
                 }
 
@@ -79,7 +76,7 @@ export async function getServerSideProps({ query, res,locale, locales, previewDa
     const doc = prismicRes.data ? prismicRes.data : null
     const navData = prismicRes.navigation ? prismicRes.navigation : null
     const footerData = prismicRes.footer ? prismicRes.footer : null
-    
+
     if (prismicRes.error || !doc) {
         return {
             props: {

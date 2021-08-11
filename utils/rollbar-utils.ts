@@ -1,5 +1,4 @@
 import Rollbar from "rollbar"
-import Project from "../models/config/project"
 
 const rollbar = new Rollbar({
     accessToken: "bb675fb694fc463abf4f20791ff396da",
@@ -8,9 +7,8 @@ const rollbar = new Rollbar({
 })
 
 export const log = (msg: any) => {
-    const project = Project.getInstance()
 
-    if (project.isProduction()) {
+    if (process.env.NODE_ENV === "production") {
         rollbar.log(msg)
 
     } else {
@@ -20,9 +18,8 @@ export const log = (msg: any) => {
 }
 
 export const logError = (error: any) => {
-    const project = Project.getInstance()
 
-    if (project.isProduction()) {
+    if (process.env.NODE_ENV === "production") {
         rollbar.error(error)
 
     } else {

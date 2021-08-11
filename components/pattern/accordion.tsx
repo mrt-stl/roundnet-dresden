@@ -17,8 +17,8 @@ const Accordion = (props: IAccordionProps) => {
         if (e.target.parentNode.open || e.target.parentNode.parentNode.open) {
             return
         }
-        let list: any = document.querySelectorAll("details")
-        for (var item of list) {
+        const list: any = document.querySelectorAll("details")
+        for (const item of list) {
             if (item.innerText !== e.target.innerText) {
                 item.removeAttribute("open")
             }

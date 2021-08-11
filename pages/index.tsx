@@ -5,12 +5,11 @@ import { getByUid } from "../networking/prismic-api"
 import TukanContainer from "../components/tukan-container"
 import CookieNotification from "../components/pattern/cookie-notification"
 import { asText } from "../utils/prismic-utils"
-import Love from "../components/pattern/love"
 import EditButton from "../components/elements/edit-button"
 import { cacheControlHeader, createEtag } from "../utils/cache-utils"
 import Error from "./_error"
 import { prismicPageToComponentModels } from "../controller/prismic-controller"
-import Project, { ShowBannerType } from "../models/config/project"
+import Project from "../models/config/project"
 import parser from "accept-language-parser"
 import { Document } from "prismic-javascript/d.ts/documents"
 import TukanModel from "../models/tukan/tukan-model"
@@ -36,7 +35,6 @@ const Index = (props: IIndexProps) => {
     const project = Project.getInstance()
 
     const showCookieNotification = project.cookieLink !== null
-    const showBanner = project.showBanner === ShowBannerType.ON
 
     return (
         <div className="tukan">
@@ -63,11 +61,6 @@ const Index = (props: IIndexProps) => {
 
                 <EditButton
                     docId={docId} />
-
-                {showBanner ?
-                    <Love /> :
-                    <div />
-                }
         </div>
     )
 }

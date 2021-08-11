@@ -2,91 +2,73 @@ import { getByUid } from "../networking/prismic-api"
 import { asText } from "../utils/prismic-utils"
 import { cacheControlHeader, createEtag } from "../utils/cache-utils"
 import Error from "./_error"
-import { prismicPageToComponentModels } from "../controller/prismic-controller"
-import parser from "accept-language-parser"
-import { Document } from "prismic-javascript/d.ts/documents"
-import TukanModel from "../models/tukan/tukan-model"
+import { Document } from "prismic-javascript/types/documents"
 import { IMetaData } from "../models/config/meta-data"
 import Index from "./index"
 
 interface IIndexProps {
     docId?: string
     meta?: IMetaData
-    componentModels?: TukanModel[]
+    doc?: Document
     footerData?: any
     error?: string
     navData: any
+    preview?: any
 }
 
 const Page = (props: IIndexProps) => {
-    const { docId, meta, componentModels, footerData, error, navData } = props
+    const { docId, meta, doc, footerData, error, navData, preview } = props
 
     if (error) {
         return (<Error navData={navData} />)
     }
 
     return (
-        <Index docId={docId} meta={meta} componentModels={componentModels} footerData={footerData} navData={navData}/>
+        <Index docId={docId} meta={meta} doc={doc} footerData={footerData} navData={navData} preview={preview}/>
     )
 }
 
-Page.getInitialProps = async ({ query, res }) => {
+export async function getServerSideProps({ query, res,locale, locales, previewData = { ref: "" } }) {
     const queryId = query.id ? query.id : "home"
     const docType = query.type ? query.type : "standard"
-    const lang = query.lang ? query.lang : "de-de"
+    const lang = locales.indexOf(locale) ? locale : "de-de"
+    const ref = previewData.ref
 
-    const prismicRes = await getByUid(docType, queryId)
-    const docs = prismicRes.data
-
-    const navRes = prismicRes.navigation.results[0]
-    const navData = navRes.data
-
-    const footerRes = prismicRes.footer.results[0]
-    const footerData = footerRes.data
+    const prismicRes = await getByUid(docType, queryId, ref, lang)
+    const doc = prismicRes.data ? prismicRes.data : null
+    const navData = prismicRes.navigation ? prismicRes.navigation : null
+    const footerData = prismicRes.footer ? prismicRes.footer : null
     
-    if (prismicRes.error || docs?.results?.length < 1) {
+    if (prismicRes.error || !doc) {
         return {
-            error: "Page not found",
-            navData
+            props: {
+                error: "Page not found",
+            },
         }
     }
 
-    const results = docs.results
     if (res) {
-        const etag = createEtag(docs.results)
+        const etag = createEtag(doc)
         res.setHeader("X-version", etag)
         res.setHeader("Cache-Control", cacheControlHeader())
     }
 
-    const docByLang = filterByLanguage(lang, results)
-    const docId = docByLang.id
+    const docId = doc?.id
 
-    const meta = createMeta(docByLang)
-    const componentModels = prismicPageToComponentModels(docByLang)
+    const meta = createMeta(doc)
 
     return {
-        docId,
-        meta,
-        componentModels,
-        footerData,
-        navData,
+        props: {
+            docId,
+            meta,
+            doc,
+            navData,
+            footerData,
+            preview: {
+                activeRef: ref
+            }
+        },
     }
-}
-
-// Filter docs by language
-const filterByLanguage = (langFilter: string, results: Document[]) => {
-    const docLangs = []
-    for (const result of results) {
-        docLangs.push(result.lang)
-    }
-
-    langFilter = parser.pick(docLangs, langFilter, { loose: true })
-    langFilter = langFilter ? langFilter : "de-de"
-
-    // Filter result for best fitting lang
-    const langResults = results.filter(result => result.lang === langFilter)
-    const filteredResult = langResults.length > 0 ? langResults[0] : results[0]
-    return filteredResult
 }
 
 // Get meta data
@@ -94,7 +76,7 @@ const createMeta = (docs: Document): IMetaData => {
     const metaTitle = asText(docs.data.meta_title)
     const metaDescription = asText(docs.data.meta_description)
     const metaAuthor = asText(docs.data.meta_author)
-    const metaOgImg = docs.data.meta_og_img ? docs.data.meta_og_img.url : docs.data.meta_og_img
+    const metaOgImg = docs.data.meta_og_img.url ? docs.data.meta_og_img.url : docs.data.meta_og_img
     const metaBanner = asText(docs.data.meta_banner)
 
     return {

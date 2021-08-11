@@ -54,6 +54,9 @@ const Meta = (props: IMetaProps) => {
         <link rel="icon" type="image/png" sizes="16x16" href={iconCDN + "favicon-16x16.png"} />
 
         <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaID} async />
+
+        <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=dresdenhilfe"/>
+
         <meta name="google-site-verification" content={gsv} />
       </Head>
     </div>

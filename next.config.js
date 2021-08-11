@@ -7,6 +7,11 @@ module.exports = withBundleAnalyzer({
     poweredByHeader: false,
     target: "serverless",
     webpack5: false,
+    i18n: {
+      // two digit locales are custom locales made in prismic. de-de has to remain because it's the default in prismic
+      locales: ["de-de"],
+      defaultLocale: "de-de",
+    },
     env: {
         project_id: process.env.project_id,
         url: process.env.url,
@@ -55,10 +60,15 @@ module.exports = withBundleAnalyzer({
                             defaultSrc: [
                                 "'self'",
                                 "'unsafe-eval'",
+                                "'unsafe-inline'",
                                 "https://api.rollbar.com/api/1/item/",
                                 "https://maps.googleapis.com/",
                                 "http://www.instagram.com/",
-                                "https://www.googletagmanager.com/gtag/"
+                                "https://www.googletagmanager.com/gtag/",
+                                "https://static.cdn.prismic.io/",
+                                "https://*.prismic.io/",
+                                "https://prismic.io/prismic-toolbar/",
+                                "https://html2canvas.hertzen.com/dist/"
                             ],
                             fontSrc: ["'self'", "https://fonts.googleapis.com/", "https://use.typekit.net/", "https://fonts.gstatic.com/"],
                             styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com/"],

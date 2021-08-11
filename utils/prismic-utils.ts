@@ -1,6 +1,9 @@
 import PrismicDOM from "prismic-dom"
 import { isNullOrUndefined } from "util"
 import { getLanguageCode } from "./lang-utils"
+import { useRouter } from "next/router"
+import Cookies from "js-cookie"
+import { useEffect } from "react"
 
 export const asHtml = (richtext: any): string | null => {
     if (!richtext) {
@@ -48,4 +51,24 @@ export const linkResolver = (doc: any): string | null => {
     }
 
     return link
+}
+
+export function useUpdatePreviewRef(preview, documentId) {
+    const router = useRouter()
+    useEffect((): any => {
+        if (router.isPreview) {
+            const rawPreviewCookie = Cookies.get("io.prismic.preview")
+            if (rawPreviewCookie) {
+                const previewCookie = JSON.parse(rawPreviewCookie)
+                const previewCookieObject = previewCookie[`dresdenhilfe.prismic.io`]
+                const previewCookieRef = previewCookieObject && previewCookieObject.preview ? previewCookieObject.preview : null
+                if (previewCookieRef && preview.activeRef !== previewCookieRef) {
+                    return router.push(`/api/preview?token=${previewCookieRef}&documentId=${documentId}`)
+                }
+            } else {
+                return router.push("/api/exit-preview")
+            }
+        }
+        return undefined
+    }, [])
 }

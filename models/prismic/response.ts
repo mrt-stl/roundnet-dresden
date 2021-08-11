@@ -1,4 +1,4 @@
-import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
+import ApiSearchResponse from "prismic-javascript/types/ApiSearchResponse"
 
 export default class PrismicResponse {
     public data?: ApiSearchResponse

@@ -1,22 +1,30 @@
 import Prismic from "prismic-javascript"
-import { logError } from "../utils/rollbar-utils"
+import { Document } from "prismic-javascript/types/documents"
 import { config } from "../config"
-import PrismicResponse from "../models/prismic/response"
-import ResolvedApi from "prismic-javascript/d.ts/ResolvedApi"
-import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
+
+const endpoint = config.PRISMIC_ENDPOINT
+const accessToken = config.ACCESS_TOKEN
 
 /**
  * Prepare prismic API
  */
 const prismicApi = async () => {
-
-    const endpoint = config.PRISMIC_ENDPOINT
-    const accessToken = config.ACCESS_TOKEN
-
-    const api = await Prismic.api(endpoint, {
-        accessToken
+    const api = await Prismic.client(endpoint, {
+        accessToken,
     })
     return api
+}
+
+// Client method to query documents from the Prismic repo
+export const Client = (req = null) => Prismic.client(endpoint, createClientOptions(req, accessToken))
+
+const createClientOptions = (req = null, prismicAccessToken = null) => {
+    const reqOption = req ? { req } : {}
+    const accessTokenOption = prismicAccessToken ? { accessToken: prismicAccessToken } : {}
+    return {
+        ...reqOption,
+        ...accessTokenOption,
+    }
 }
 
 /**
@@ -24,62 +32,41 @@ const prismicApi = async () => {
  * @param type of document
  * @param uid to indentify page
  */
-export const getByUid = async (type: string, uid: string) => {
-    const api = await prismicApi()
+export const getByUid = async (type: string, uid: string, ref?: string, lang?: string) => {
+    const client = await Client()
 
-    const prismicRes = new PrismicResponse()
+    const queryOptions: any = {
+        ref,
+        lang
+    }
+
+    const prismicRes = <PrismicDocumentQueryResponse>{}
     try {
-        const res: IPrismicQueryPromise[] = await getDataFromPrismic(api, type, uid)
+        const doc: Document = await client.getByUID(type, uid, queryOptions)
+        prismicRes.data = doc
 
-        const content = res.find(result => result?.value?.key === "content")
-        prismicRes.data = content?.value?.data
+        const navigation: Document = await client.getSingle("navigation", queryOptions)
+        prismicRes.navigation = navigation.data
 
-        const footer = res.find(result => result?.value?.key === "footer")
-        prismicRes.footer = footer?.value?.data
-
-        const navigation = res.find(result => result?.value?.key === "navigation")
-        prismicRes.navigation = navigation?.value?.data
-
+        const footer: Document = await client.getSingle("footer", queryOptions)
+        prismicRes.footer = footer.data
     } catch (e) {
-        logError(e)
+        console.error(e)
         prismicRes.error = "Could not get data"
     }
 
     return prismicRes
 }
 
-/**
- * Create promises for getting data.
- */
-const getDataFromPrismic = (api: ResolvedApi, type: string, uid: string): any => {
-    const queries: Array<Promise<IPrismicQueryResponse>> = []
+export const getByType = async (type: string) => {
 
-    // Query for content
-    const prismicFragment: string = "my." + type + ".uid"
-    const uidPredicate = Prismic.Predicates.at(prismicFragment, uid)
-    queries.push(performPrismicRequest(api, "content", uidPredicate))
+    const api = await prismicApi()
 
-    // Query for footer
-    const footerPredicate = Prismic.Predicates.at("document.type", "footer")
-    queries.push(performPrismicRequest(api, "footer", footerPredicate))
-
-    // Query for nav
-    const navPredicate = Prismic.Predicates.at("document.type", "navigation")
-    queries.push(performPrismicRequest(api, "navigation", navPredicate))
-
-    const promise = Promise.allSettled(queries)
-    return promise
-}
-
-/**
- * Perform request for getting data from prismic.
- */
-const performPrismicRequest = async (api: ResolvedApi, key: string, predicate: string): Promise<IPrismicQueryResponse> => {
-    const res = await api.query(predicate, { lang: "*" })
-
-    return {
-        key,
-        data: res
+    try {
+        const res = await api.query(Prismic.Predicates.at("document.type", type), { lang: "*" })
+        return res
+    } catch (e) {
+        return null
     }
 }
 
@@ -89,21 +76,13 @@ const performPrismicRequest = async (api: ResolvedApi, key: string, predicate: s
 export const getAll = async () => {
     const api = await prismicApi()
 
-    const res = await api.query("", {})
+    const res = await api.query("", {pageSize: 100})
     return res
 }
 
-enum AllSettledStatus {
-    FULFILLED = "fulfilled",
-    REJECTED = "rejected"
-}
-
-interface IPrismicQueryPromise {
-    status: AllSettledStatus
-    value?: IPrismicQueryResponse
-}
-
-interface IPrismicQueryResponse {
-    key: string
-    data: ApiSearchResponse
+interface PrismicDocumentQueryResponse {
+    error: string
+    data: Document
+    navigation: Document
+    footer: Document
 }

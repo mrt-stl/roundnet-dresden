@@ -1,6 +1,6 @@
 import { NextApiResponse } from "next"
 import { getAll } from "../../networking/prismic-api"
-import ApiSearchResponse from "prismic-javascript/d.ts/ApiSearchResponse"
+import ApiSearchResponse from "prismic-javascript/types/ApiSearchResponse"
 import { createSiteMap } from "../../utils/sitemap-utils"
 import Project from "../../models/config/project"
 

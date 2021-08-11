@@ -11,7 +11,7 @@ import { asText, asHtml } from "../../utils/prismic-utils"
 import { cacheControlHeader, createEtag } from "../../utils/cache-utils"
 import Error from "../_error"
 import Project from "../../models/config/project"
-import { Document } from "prismic-javascript/d.ts/documents"
+import { Document } from "prismic-javascript/types/documents"
 import TukanModel from "../../models/tukan/tukan-model"
 import { IMetaData } from "../../models/config/meta-data"
 import { TGrid, TCol } from "../../components/style/sc-grid"
@@ -60,9 +60,9 @@ const FAQ = (props: IIndexProps) => {
         }
     }, [scrollState])
 
-    const stageImg = data.data.hero_img
-    const content = asHtml(data.data.content)
-    const accordionList = data.data.body
+    const stageImg = data.hero_img
+    const content = asHtml(data.content)
+    const accordionList = data.body
 
     const headingList = []
     accordionList.map((item) => {
@@ -141,40 +141,48 @@ const StyledLink = styled.a<{ isActive: boolean }>`
     }
 `
 
-FAQ.getInitialProps = async ({ query, res }) => {
-    const queryId = query.id ? query.id : ""
+export async function getServerSideProps({ query, res,locale, locales, previewData = { ref: "" } }) {
+    const queryId = query.id ? query.id : "home"
     const docType = "faqs"
+    const lang = locales.indexOf(locale) ? locale : "de-de"
+    const ref = previewData.ref
 
-    const prismicRes = await getByUid(docType, queryId)
-    const docs = prismicRes.data
-
-    const navRes = prismicRes.navigation.results[0]
-    const navData = navRes.data
-
-    const footerRes = prismicRes.footer.results[0]
-    const footerData = footerRes.data
-
-    if (prismicRes.error || docs?.results?.length < 1) {
+    const prismicRes = await getByUid(docType, queryId, ref, lang)
+    const doc = prismicRes.data ? prismicRes.data : null
+    const navData = prismicRes.navigation ? prismicRes.navigation : null
+    const footerData = prismicRes.footer ? prismicRes.footer : null
+    
+    if (prismicRes.error || !doc) {
         return {
-            error: "Page not found",
+            props: {
+                error: "Page not found",
+            },
         }
     }
 
-    const results = docs.results
-    const data = results[0]
     if (res) {
-        const etag = createEtag(docs.results)
+        const etag = createEtag(doc)
         res.setHeader("X-version", etag)
         res.setHeader("Cache-Control", cacheControlHeader())
     }
 
-    const meta = createMeta(data)
+    const docId = doc?.id
+
+    const meta = createMeta(doc)
+
+    const data = doc.data
 
     return {
-        data,
-        meta,
-        footerData,
-        navData,
+        props: {
+            docId,
+            meta,
+            data,
+            navData,
+            footerData,
+            preview: {
+                activeRef: ref
+            }
+        },
     }
 }
 
@@ -183,7 +191,7 @@ const createMeta = (docs: Document): IMetaData => {
     const metaTitle = asText(docs.data.meta_title)
     const metaDescription = asText(docs.data.meta_description)
     const metaAuthor = asText(docs.data.meta_author)
-    const metaOgImg = docs.data.meta_og_img ? docs.data.meta_og_img.url : docs.data.meta_og_img
+    const metaOgImg = docs.data.meta_og_img ? docs.data.meta_og_img.url : null
     const metaBanner = asText(docs.data.meta_banner)
 
     return {

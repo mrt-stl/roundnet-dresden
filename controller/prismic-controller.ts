@@ -1,6 +1,6 @@
 
 import { asText, linkResolver, asHtml } from "../utils/prismic-utils"
-import { Document } from "prismic-javascript/d.ts/documents"
+import { Document } from "prismic-javascript/types/documents"
 import LocationModel from "../models/tukan/location-model"
 import RichtextModel from "../models/tukan/richtext-model"
 import StageModel from "../models/tukan/stage-model"

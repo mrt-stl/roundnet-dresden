@@ -6,6 +6,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 module.exports = withBundleAnalyzer({
     poweredByHeader: false,
     target: "serverless",
+    webpack5: false,
     env: {
         project_id: process.env.project_id,
         url: process.env.url,

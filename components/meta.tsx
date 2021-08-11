@@ -39,8 +39,6 @@ const Meta = (props: IMetaProps) => {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href={fontUrl} rel="stylesheet" />
 
-        <link rel="stylesheet" href="/public/css/normalize.css" />
-
         <link rel="apple-touch-icon" sizes="57x57" href={iconCDN + "apple-icon-57x57.png"} />
         <link rel="apple-touch-icon" sizes="60x60" href={iconCDN + "apple-icon-60x60.png"} />
         <link rel="apple-touch-icon" sizes="72x72" href={iconCDN + "apple-icon-72x72.png"} />

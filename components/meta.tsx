@@ -14,7 +14,7 @@ const Meta = (props: IMetaProps) => {
   const metaDescription = !isUndefinedOrNullOrEmpty(props.data.metaDescription) ? props.data.metaDescription : "Ihr Pflegedienst im Dresdner Zentrum"
 
   // Set font or go to default font
-  let fontUrl = "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
+  const fontUrl = "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
 
   const gaID = "googleAnalyticsID"
   const gsv = "googleSiteVerification"
@@ -39,7 +39,7 @@ const Meta = (props: IMetaProps) => {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href={fontUrl} rel="stylesheet" />
 
-        <link rel="stylesheet" href="/static/css/normalize.css" />
+        <link rel="stylesheet" href="/public/css/normalize.css" />
 
         <link rel="apple-touch-icon" sizes="57x57" href={iconCDN + "apple-icon-57x57.png"} />
         <link rel="apple-touch-icon" sizes="60x60" href={iconCDN + "apple-icon-60x60.png"} />

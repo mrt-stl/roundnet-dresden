@@ -1,35 +1,14 @@
-import ActionModel from "../models/tukan/action-model"
+
 import { asText, linkResolver, asHtml } from "../utils/prismic-utils"
 import { Document } from "prismic-javascript/d.ts/documents"
-import TukanModel from "../models/tukan/tukan-model"
-import AtmosphericModel from "../models/tukan/atmospheric-model"
-import ContactModel from "../models/tukan/contact-model"
-import DetailsModel from "../models/tukan/details-model"
-import CardModel from "../models/tukan/card-model"
-import FocusModel from "../models/tukan/focus-model"
-import HeroImageModel from "../models/tukan/hero-image-model"
-import ImageAndTextModel from "../models/tukan/image-and-text-model"
-import InfiniteCardsModel from "../models/tukan/infinite-cards-model"
-import LabSpotlightModel from "../models/tukan/lab-spotlight-model"
 import LocationModel from "../models/tukan/location-model"
-import PreviewModel from "../models/tukan/preview-model"
 import RichtextModel from "../models/tukan/richtext-model"
-import SelectionModel from "../models/tukan/selection-model"
 import StageModel from "../models/tukan/stage-model"
-import StageBlogModel from "../models/tukan/stage-blog-model"
-import HighlightTextModel from "../models/tukan/highlight-text-model"
-import ImageWithCaptionModel from "../models/tukan/image-with-caption-model"
-import HeadlineModel from "../models/tukan/headline-model"
-import ColRichtextModel from "../models/tukan/col-richtext-model"
-import ShopifyProductModel from "../models/tukan/shopify-product-model"
 import ServiceModel from "../models/tukan/service-model"
-import PaypalExpressProductModel from "../models/tukan/paypal-express-product-model"
-import PortfolioModel from "../models/tukan/portfolio-model"
-import SliderModel from "../models/tukan/slider-model"
-import CompositionModel from "../models/tukan/composition-model"
 import CallToActionModel from "../models/tukan/call-to-action-model"
-import InstagramModel from "../models/tukan/instagram-model"
 import AccordionModel from "../models/tukan/accordion-model"
+import TukanModel from "../models/tukan/tukan-model"
+import HeroImageModel from "../models/tukan/hero-image-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -51,75 +30,6 @@ export const prismicPageToComponentModels = (result: Document) => {
 
 const mapResultToModel = (slice: any): TukanModel | null => {
     switch (slice.slice_type) {
-        case "action":
-            const actionPrimary = slice.primary
-
-            const actionContent = asText(actionPrimary.action_content)
-            const actionBackgroundColor = actionPrimary.action_color
-            const actionLink = linkResolver(actionPrimary.action_link)
-            const actionLinkIsBlank = actionPrimary.action_link ? actionPrimary.action_link.target === "_blank" : false
-            const actionLinkContent = actionPrimary.action_link_text ? asText(actionPrimary.action_link_text) : null
-
-            const action = new ActionModel(actionContent, actionBackgroundColor, actionLink, actionLinkIsBlank, actionLinkContent)
-            return action
-
-        case "atmospheric":
-            const atmoPrimary = slice.primary
-
-            const atmoSrc = atmoPrimary.atmospheric_img ? atmoPrimary.atmospheric_img.url : ""
-            const atmoAlt = atmoPrimary.atmospheric_img ? atmoPrimary.atmospheric_img.alt : null
-
-            const atmospheric = new AtmosphericModel(atmoSrc, atmoAlt)
-            return atmospheric
-
-        case "contact":
-            const contactPrimary = slice.primary
-
-            const contactMail = contactPrimary.contact_targetmail
-            const contactTitle = asHtml(contactPrimary.contact_title)
-            const contactContent = asHtml(contactPrimary.contact_content)
-
-            const contact = new ContactModel(contactMail, contactTitle, contactContent)
-            return contact
-
-        case "slider":
-            const sliderPrimary = slice.primary
-
-            const autoPlay = sliderPrimary.slider_autoplay
-            const randomStart = sliderPrimary.slider_random_start
-            const data = slice.items
-            const fullsize = sliderPrimary.slider_fullsize
-            const transitionDuration = sliderPrimary.slider_transition
-
-            const slider = new SliderModel(autoPlay, randomStart, data, fullsize, transitionDuration)
-            return slider
-
-        case "details":
-            const detailsPrimary = slice.primary
-            const detailsItems: any[] = slice.items
-
-            const detailsCards: CardModel[] = []
-            for (const detailsItem of detailsItems) {
-                const detailsCardTitle = asHtml(detailsItem.detail_title)
-                const detailsCardContent = asHtml(detailsItem.detail_content)
-
-                const detailsCard = new CardModel(detailsCardTitle, detailsCardContent)
-                detailsCards.push(detailsCard)
-            }
-
-            const backgroundColor: string = detailsPrimary.detail_background
-
-            const details = new DetailsModel(detailsCards, backgroundColor)
-            return details
-
-        case "focus":
-            const focusPrimary = slice.primary
-
-            const focusContent = asHtml(focusPrimary.focus_content)
-
-            const focus = new FocusModel(focusContent)
-            return focus
-
         case "accordion":
             const accordionPrimary = slice.primary
             const accordionItems: any = slice.items
@@ -130,14 +40,6 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const accordion = new AccordionModel(accordionHeadline, showMoreBtn, accordionItems)
             return accordion
 
-        case "instagram":
-            const instagramItems = slice.items
-
-            const links = instagramItems
-
-            const instagram = new InstagramModel(links)
-            return instagram
-
         case "startbild":
             const heroImagePrimary = slice.primary
 
@@ -146,9 +48,18 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const heroImageTitle = asText(heroImagePrimary.hero_image_title)
             const heroImageLink = linkResolver(heroImagePrimary.hero_image_link)
             const heroImageLinkContent = asText(heroImagePrimary.hero_image_link_content)
-            const heroImageLinkIsBlank = heroImagePrimary.hero_image_link ? heroImagePrimary.hero_image_link.target === "_blank" : false
+            const heroImageLinkIsBlank = heroImagePrimary.hero_image_link
+                ? heroImagePrimary.hero_image_link.target === "_blank"
+                : false
 
-            const heroImage = new HeroImageModel(heroImageImgSrc, heroImageImgAlt, heroImageTitle, heroImageLink, heroImageLinkContent, heroImageLinkIsBlank)
+            const heroImage = new HeroImageModel(
+                heroImageImgSrc,
+                heroImageImgAlt,
+                heroImageTitle,
+                heroImageLink,
+                heroImageLinkContent,
+                heroImageLinkIsBlank
+            )
             return heroImage
 
         case "call_to_action":
@@ -159,66 +70,13 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const contentLeft = asHtml(callToActionPrimary.cta_content_left)
             const contentRight = asHtml(callToActionPrimary.cta_content_right)
 
-            const callToAction = new CallToActionModel(headline, subtitle, contentLeft, contentRight)
+            const callToAction = new CallToActionModel(
+                headline,
+                subtitle,
+                contentLeft,
+                contentRight
+            )
             return callToAction
-
-        case "composition":
-            const compositionPrimary = slice.primary
-
-            const compositionBackground1 = compositionPrimary.composition_background_1
-            const compositionBackground2 = compositionPrimary.composition_background_2
-            const compositionGallery1 = compositionPrimary.composition_gallery_1
-            const compositionGallery2 = compositionPrimary.composition_gallery_2
-            const compositionGallery3 = compositionPrimary.composition_gallery_3
-            const compositionHeadline = asHtml(compositionPrimary.composition_headline)
-            const compositionSubtitle = asHtml(compositionPrimary.composition_subtitle)
-            const compositionContent = asHtml(compositionPrimary.composition_content)
-            const compositionStatement = asHtml(compositionPrimary.composition_statement)
-            const compositionStatementContent = asHtml(compositionPrimary.composition_statement_content)
-
-            const composition = new CompositionModel(compositionBackground1, compositionBackground2, compositionGallery1, compositionGallery2, compositionGallery3, compositionHeadline, compositionSubtitle, compositionContent, compositionStatement, compositionStatementContent)
-            return composition
-
-        case "image_and_text":
-            const iatPrimary = slice.primary
-
-            const iatImgSrc: string = iatPrimary.image.url
-            const iatImgAlt: string = iatPrimary.image.alt
-            const iatImgHeight = iatPrimary.image.dimensions.height.toString() + "px"
-            const iatContent: string = asHtml(iatPrimary.content)
-
-            const imageAndText = new ImageAndTextModel(iatImgSrc, iatContent, iatImgAlt, iatImgHeight)
-            return imageAndText
-
-        case "karte":
-            const infiniteCardsItems = slice.items
-            const infiniteCards: CardModel[] = []
-            for (const cardsItem of infiniteCardsItems) {
-
-                const itemTitle: string = asHtml(cardsItem.card_title)
-                const itemContent: string = asHtml(cardsItem.card_content)
-                const itemImgSrc: string = cardsItem.card_img.url
-                const itemImgAlt: string = cardsItem.card_img.alt
-                const itemLink: string = linkResolver(cardsItem.card_link)
-                const itemLinkIsBlank = cardsItem.card_link ? cardsItem.card_link.target === "_blank" : false
-
-                const infiniteCard = new CardModel(itemTitle, itemContent, itemImgSrc, itemImgAlt, itemLink, itemLinkIsBlank)
-                infiniteCards.push(infiniteCard)
-            }
-
-            const infiniteCardsModel = new InfiniteCardsModel(infiniteCards)
-            return infiniteCardsModel
-
-        case "lab_spotlight":
-            const labSpotlightPrimary = slice.primary
-
-            const labSpotlightContent = asHtml(labSpotlightPrimary.lab_spotlight_content)
-            const labSpotlightLink = linkResolver(labSpotlightPrimary.lab_spotlight_link)
-            const labSpotlightImgSrc = labSpotlightPrimary.lab_spotlight_image.url
-            const labSpotlightImgAlt = labSpotlightPrimary.lab_spotlight_image.alt
-
-            const labSpotlightModel = new LabSpotlightModel(labSpotlightContent, labSpotlightLink, labSpotlightImgSrc, labSpotlightImgAlt)
-            return labSpotlightModel
 
         case "location":
             const locationPrimary = slice.items
@@ -227,17 +85,6 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const location = new LocationModel(items)
             return location
-
-        case "preview":
-            const previewPrimary = slice.primary
-
-            const previewTitle = asText(previewPrimary.preview_title)
-            const previewContent = asHtml(previewPrimary.preview_content)
-            const previewImgSrc = previewPrimary.preview_image.url
-            const previewImgAlt = previewPrimary.preview_image.alt
-
-            const preview = new PreviewModel(previewTitle, previewContent, previewImgSrc, previewImgAlt)
-            return preview
 
         case "richtext":
             const richtextPrimary = slice.primary
@@ -256,95 +103,14 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const stageBtnLink = linkResolver(stagePrimary.stage_btn_link)
             const stageBackgroundImage = stagePrimary.stage_background_image
 
-            const stageModel = new StageModel(stageHeadline, stageContent, stageBtnLabel, stageBtnLink, stageBackgroundImage)
+            const stageModel = new StageModel(
+                stageHeadline,
+                stageContent,
+                stageBtnLabel,
+                stageBtnLink,
+                stageBackgroundImage
+            )
             return stageModel
-
-        case "stage_blog":
-            const stageBlogPrimary = slice.primary
-
-            const stageBlogTitle = asText(stageBlogPrimary.stage_blog_title)
-            const stageBlogContent = asHtml(stageBlogPrimary.stage_blog_sub_title)
-            const stageBlogImgSrc = stageBlogPrimary.stage_blog_image.url
-            const stageBlogImgAlt = stageBlogPrimary.stage_blog_image.alt
-
-            const stageBlogModel = new StageBlogModel(stageBlogTitle, stageBlogContent, stageBlogImgSrc, stageBlogImgAlt)
-            return stageBlogModel
-
-        case "portfolio":
-            const portfolioPrimary = slice.primary
-
-            const portfolioTitle = asText(portfolioPrimary.portfolio_title)
-            const portfolioImgSrc01 = portfolioPrimary.portfolio_image_01.url
-            const portfolioImgAlt01 = portfolioPrimary.portfolio_image_01.alt
-            const portfolioImgSrc02 = portfolioPrimary.portfolio_image_02.url
-            const portfolioImgAlt02 = portfolioPrimary.portfolio_image_02.alt
-            const portfolioImgSrc03 = portfolioPrimary.portfolio_image_03.url
-            const portfolioImgAlt03 = portfolioPrimary.portfolio_image_03.alt
-            const portfolioImgSrc04 = portfolioPrimary.portfolio_image_04.url
-            const portfolioImgAlt04 = portfolioPrimary.portfolio_image_04.alt
-            const portfolioImgSrc05 = portfolioPrimary.portfolio_image_05.url
-            const portfolioImgAlt05 = portfolioPrimary.portfolio_image_05.alt
-            const portfolioImgSrc06 = portfolioPrimary.portfolio_image_06.url
-            const portfolioImgAlt06 = portfolioPrimary.portfolio_image_06.alt
-            const portfolioImgSrc07 = portfolioPrimary.portfolio_image_07.url
-            const portfolioImgAlt07 = portfolioPrimary.portfolio_image_07.alt
-            const portfolioImgSrc08 = portfolioPrimary.portfolio_image_08.url
-            const portfolioImgAlt08 = portfolioPrimary.portfolio_image_08.alt
-
-            const portfolioModel = new PortfolioModel(portfolioTitle, portfolioImgSrc01, portfolioImgAlt01, portfolioImgSrc02, portfolioImgAlt02, portfolioImgSrc03, portfolioImgAlt03, portfolioImgSrc04, portfolioImgAlt04, portfolioImgSrc05, portfolioImgAlt05, portfolioImgSrc06, portfolioImgAlt06, portfolioImgSrc07, portfolioImgAlt07, portfolioImgSrc08, portfolioImgAlt08)
-            return portfolioModel
-
-        case "highlight":
-            const highlightPrimary = slice.primary
-
-            const highlightContent = asHtml(highlightPrimary.highlight_content)
-
-            const highlightModel = new HighlightTextModel(highlightContent)
-            return highlightModel
-
-        case "image_with_caption":
-            const iwcPrimary = slice.primary
-
-            const iwcVideoSrc = iwcPrimary.iwc_video?.url
-            const iwcImgSrc = iwcPrimary.iwc_img?.url
-            const iwcImgAlt = iwcPrimary.iwc_img?.alt
-            const iwcCaption = asText(iwcPrimary.iwc_caption)
-            const iwcBgColor = iwcPrimary.iwc_color
-
-            const iwcModel = new ImageWithCaptionModel(iwcVideoSrc, iwcImgSrc, iwcImgAlt, iwcCaption, iwcBgColor)
-            return iwcModel
-
-        case "headline":
-            const headlinePrimary = slice.primary
-
-            const headlineContent = asHtml(headlinePrimary.headline_content)
-            const headlineModel = new HeadlineModel(headlineContent)
-
-            return headlineModel
-
-        case "spalten":
-            const colRichtextItems = slice.items
-
-            const colRichtextRows: string[] = []
-            for (const item of colRichtextItems) {
-                const itemContent = asHtml(item.col)
-                colRichtextRows.push(itemContent)
-            }
-
-            const colRichtextModel = new ColRichtextModel(colRichtextRows)
-            return colRichtextModel
-
-        case "catalog":
-            const catalogPrimary = slice.primary
-
-            const productName = catalogPrimary.shopify_catalogue.title
-            const productPrice = catalogPrimary.shopify_catalogue.variants[0].price
-            const productImgSrc = catalogPrimary.shopify_catalogue.image.src
-            const productVariantID = catalogPrimary.shopify_catalogue.variants[0].admin_graphql_api_id
-            const productDescription = catalogPrimary.shopify_catalogue.body_html
-
-            const productModel = new ShopifyProductModel(productName, productPrice, productImgSrc, productVariantID, productDescription)
-            return productModel
 
         case "service":
             const servicePrimary = slice.primary
@@ -359,43 +125,19 @@ const mapResultToModel = (slice: any): TukanModel | null => {
                 const col = {
                     data: asHtml(item.service_col),
                     link: linkResolver(item.service_link),
-                    background: item.service_col_background
+                    background: item.service_col_background,
                 }
                 serviceCols.push(col)
             }
 
-            const serviceModel = new ServiceModel(serviceHeadline, serviceContent, serviceBackground, serviceCols)
+            const serviceModel = new ServiceModel(
+                serviceHeadline,
+                serviceContent,
+                serviceBackground,
+                serviceCols
+            )
 
             return serviceModel
-
-            case "selection":
-                const selectionItems = slice.items
-
-                const selectionCols = []
-
-                for (const item of selectionItems) {
-                    const ImgSrc = item.selection_image.url
-                    const ImgAlt = item.selection_image.alt
-                    const content = asHtml(item.selection_content)
-                    const link = linkResolver(item.selection_link)
-                    const col = {  ImgSrc, ImgAlt, content, link }
-                    selectionCols.push(col)
-                }
-
-                const selectionModel = new SelectionModel(selectionCols)
-
-                return selectionModel
-
-        case "paypal_product":
-            const paypalProductPrimary = slice.primary
-
-            const paypalProductName = asText(paypalProductPrimary.product_name)
-            const paypalProductPrice = asText(paypalProductPrimary.product_price)
-            const paypalProductImgSrc = paypalProductPrimary.product_image?.url
-            const paypalProductDescription = asHtml(paypalProductPrimary.product_description)
-
-            const paypalExpressProductModel = new PaypalExpressProductModel(paypalProductName, paypalProductPrice, paypalProductImgSrc, paypalProductDescription)
-            return paypalExpressProductModel
 
         default:
             return null

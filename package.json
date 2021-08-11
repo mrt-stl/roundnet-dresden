@@ -6,10 +6,10 @@
         "node": ">=10.0.0"
     },
     "scripts": {
-        "local": "next dev",
+        "dev": "next dev",
         "build": "next build",
         "start": "next start -p $PORT",
-        "lint": "yarn eslint -c .eslintrc.js",
+        "lint": "yarn run eslint .",
         "test": "jest --verbose && yarn test-e2e",
         "test-build": "COOKIE=\"{\"link\": \"https://stadtteilliebe.de/datenschutz\"}\" USE_SHOP_VIEW=\"true\" next build",
         "test-server": "next start -p 8080",
@@ -33,7 +33,7 @@
         "google-map-react": "^2.1.9",
         "html-react-parser": "^1.2.4",
         "local-storage": "^2.0.0",
-        "next": "^9.3.1",
+        "next": "^11.0.1",
         "next-secure-headers": "^2.2.0",
         "nodemailer": "^6.3.0",
         "prismic-dom": "^2.1.0",
@@ -67,16 +67,15 @@
         "cypress": "^6.6.0",
         "enzyme": "^3.10.0",
         "enzyme-adapter-react-16": "^1.15.1",
-        "eslint": "^7.21.0",
-        "eslint-plugin-react": "^7.17.0",
-        "eslint-plugin-security": "^1.4.0",
-        "firebase-admin": "^9.5.0",
+        "eslint": "^7.31.0",
+        "eslint-config-next": "^11.0.1",
+        "eslint-plugin-react": "^7.24.0",
         "jest": "^26.6.3",
         "now": "^19.2.0",
         "react-addons-test-utils": "^15.6.2",
         "react-test-renderer": "^17.0.1",
         "start-server-and-test": "^1.10.11",
         "ts-jest": "^26.5.3",
-        "typescript": "^4.2.3"
+        "typescript": "^4.3.5"
     }
 }

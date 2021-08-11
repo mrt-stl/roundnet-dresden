@@ -1,4 +1,3 @@
-const SriPlugin = require("webpack-subresource-integrity")
 const { createSecureHeaders } = require("next-secure-headers")
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
     enabled: process.env.ANALYZE === "true",
@@ -27,20 +26,6 @@ module.exports = withBundleAnalyzer({
         use_shop_view: process.env.use_shop_view,
         META_TITLE: process.env.META_TITLE,
         META_DESCRIPTION: process.env.META_DESCRIPTION,
-    },
-    webpack: (config) => {
-        config.node = {
-            fs: "empty",
-        }
-
-        config.output.crossOriginLoading = "anonymous"
-        config.plugins.push(
-            new SriPlugin({
-                hashFuncNames: ["sha256", "sha384"],
-                enabled: true,
-            })
-        )
-        return config
     },
     async redirects() {
         return [

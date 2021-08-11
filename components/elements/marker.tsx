@@ -11,7 +11,7 @@ const Marker = (_props: IMarkerProps) => {
     return (
         <MarkerContainer>
             <div className="shadow" />
-            <img src="/static/icon/marker.svg" />
+            <img src="/icon/marker.svg" />
         </MarkerContainer>
     )
 }

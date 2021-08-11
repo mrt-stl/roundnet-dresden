@@ -12,8 +12,8 @@ const Location = (props: ILocationProps) => {
     
     const locationCount = items.length
     const zoom = locationCount === 1 ? 15 : 9.5
-    let sumLat: number = 0
-    let sumLng: number = 0
+    let sumLat = 0
+    let sumLng = 0
 
     items.map((item) => {
     sumLat += item.location_coords.latitude

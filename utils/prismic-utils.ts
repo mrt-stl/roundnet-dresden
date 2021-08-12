@@ -59,8 +59,9 @@ export function useUpdatePreviewRef(preview, documentId) {
         if (router.isPreview) {
             const rawPreviewCookie = Cookies.get("io.prismic.preview")
             if (rawPreviewCookie) {
+                const previewCookieName = (process.env.NEXT_PUBLIC_PROJECT_NAME ? process.env.NEXT_PUBLIC_PROJECT_NAME : null) + ".prismic.io"
                 const previewCookie = JSON.parse(rawPreviewCookie)
-                const previewCookieObject = previewCookie[`dresdenhilfe.prismic.io`]
+                const previewCookieObject = previewCookie[previewCookieName]
                 const previewCookieRef = previewCookieObject && previewCookieObject.preview ? previewCookieObject.preview : null
                 if (previewCookieRef && preview.activeRef !== previewCookieRef) {
                     return router.push(`/api/preview?token=${previewCookieRef}&documentId=${documentId}`)

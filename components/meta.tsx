@@ -8,16 +8,17 @@ interface IMetaProps {
 
 const Meta = (props: IMetaProps) => {
   // Icon urls
-  const iconCDN = "https://s3.eu-central-1.amazonaws.com/tukan-frontend/dresdenhilfe/favicon/"
+  const iconCDN = "https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + (process.env.NEXT_PUBLIC_PROJECT_NAME ? process.env.NEXT_PUBLIC_PROJECT_NAME : null) + "/favicon/"
 
-  const metaTitle = !isUndefinedOrNullOrEmpty(props.data.metaTitle) ? props.data.metaTitle : "Dresdenhilfe"
+  const metaTitle = !isUndefinedOrNullOrEmpty(props.data.metaTitle) ? props.data.metaTitle : process.env.PROJECT_NAME
   const metaDescription = !isUndefinedOrNullOrEmpty(props.data.metaDescription) ? props.data.metaDescription : "Ihr Pflegedienst im Dresdner Zentrum"
 
   // Set font or go to default font
   const fontUrl = "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
 
-  const gaID = "googleAnalyticsID"
-  const gsv = "googleSiteVerification"
+  const gaID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID ? process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID : null
+  const gsv = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION : null
+
   return (
     <div>
       <Head>
@@ -55,7 +56,7 @@ const Meta = (props: IMetaProps) => {
 
         <script src={"https://www.googletagmanager.com/gtag/js?id=" + gaID} async />
 
-        <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=dresdenhilfe"/>
+        <script async defer src={"https://static.cdn.prismic.io/prismic.js?new=true&repo=" + (process.env.NEXT_PUBLIC_PROJECT_NAME ? process.env.NEXT_PUBLIC_PROJECT_NAME : null)}/>
 
         <meta name="google-site-verification" content={gsv} />
       </Head>

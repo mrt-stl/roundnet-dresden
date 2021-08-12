@@ -14,8 +14,6 @@ interface INavProps {
 
 const Nav = (props: INavProps) => {
 
-    const projectId =  "dresdenhilfe"
-
     const [open, setOpen] = useState(false)
 
     useEffect(() => {
@@ -48,7 +46,7 @@ const Nav = (props: INavProps) => {
                 </MobileHeader>
                 <MenuContainer
                     open={open}
-                    background={"https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + projectId + "/assets/" + "menu-background.svg"}
+                    background={"https://s3.eu-central-1.amazonaws.com/tukan-frontend/" + (process.env.NEXT_PUBLIC_PROJECT_NAME ? process.env.NEXT_PUBLIC_PROJECT_NAME : null) + "/assets/" + "menu-background.svg"}
                 >
                     <MenuContent>
                         <p className="menu-title">Übersicht</p>

@@ -84,7 +84,7 @@ const AccordionCol = styled(TCol)`
     summary {
         display: list-item;
         cursor: pointer;
-        border-bottom: 1px solid ${(props) => props.theme.projectColors.lightGray};
+        border-bottom: 1px solid ${(props) => props.theme.color.lightGray};
         list-style: none;
     }
 
@@ -109,7 +109,7 @@ const AccordionCol = styled(TCol)`
 
     details[open] > summary:before {
         transform: rotate(90deg);
-        color: ${(props) => props.theme.projectColors.blue} !important;
+        color: ${(props) => props.theme.color.blue} !important;
         transition: color ease 2s, transform ease 1s;
     }
 
@@ -128,7 +128,7 @@ const AccordionCol = styled(TCol)`
     }
 
     details > p {
-        color: ${props => props.theme.projectColors.darkGray};
+        color: ${props => props.theme.color.darkGray};
     }
 
     details[open] summary ~ * {

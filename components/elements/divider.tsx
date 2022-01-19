@@ -7,7 +7,7 @@ const Divider = styled.span<{width?: string, height?: string, marginTop?: string
     margin-bottom: ${(props) => props.marginBottom ? props.marginBottom : "0"};
     margin-top: ${(props) => props.marginTop ? props.marginTop : "0"};
     margin-left: ${(props) => props.marginLeft ? props.marginLeft : "0"};
-    background-color: ${(props) => props.color ? props.color : props.theme.projectColors.green};
+    background-color: ${(props) => props.color ? props.color : props.theme.color.green};
 `
 
 export default Divider

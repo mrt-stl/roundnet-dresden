@@ -28,20 +28,19 @@ const NavLink = (props: INavLinkProps) => {
 }
 
 const StyledNavLinks = styled.div`
-    font-family: ${(props) => props.theme.primaryFont.name}, sans-serif;
     padding-left: ${(props) => props.theme.spacing.s};
     padding-right: ${(props) => props.theme.spacing.s};
     font-size: ${(props) => props.theme.fontSize.s};
 
     a {
-        color: ${(props) =>  props.theme.projectColors.onBackground};
+        color: ${(props) =>  props.theme.color.blackCoral};
         padding: 28px 0;
         background-image: none;
         transition: all 0.25s ease-in-out;
     }
 
     a:hover {
-        color: ${(props) =>  props.theme.projectColors.blue};
+        color: ${(props) =>  props.theme.color.bitterlemon};
         transition: all 0.25s ease-in-out;
     }
 
@@ -57,7 +56,7 @@ const StyledNavLinks = styled.div`
         font-size: 16px;
         font-weight: light;
         a {
-            color: ${(props) => props.theme.projectColors[props.navColor]};
+            color: ${(props) => props.theme.color[props.navColor]};
             padding: 0;
         }
     `};

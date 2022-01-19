@@ -3,7 +3,6 @@ import { TGrid, TCol } from "../style/sc-grid"
 import Button from "../elements/button"
 import parse from "html-react-parser"
 import styled from "styled-components"
-import { getGradientAnimation } from "../../utils/color-utils"
 export interface IStageProps {
     headline: string
     content: string
@@ -81,15 +80,6 @@ const StageContent = styled.div`
 
     p {
         font-weight: 300 !important;
-        ${(props) =>
-            props.theme.projectColors.gradient
-                ? getGradientAnimation(props.theme.projectColors.green)
-                : `color: ${props.theme.projectColors.background};
-                display: inline;
-                background-color: ${props.theme.projectColors.blue};
-                box-decoration-break: clone;
-                padding-left: 10px;
-                padding-right: 10px;`}
     }
 
     ${media.maxWidth("md")`

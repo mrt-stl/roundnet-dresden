@@ -22,8 +22,8 @@ const StyledButton = styled.a<{ bgColor?: string; invert?: boolean }>`
     border-radius: 8px;
     height: fit-content;
     padding: ${(props) => props.theme.spacing.xs} ${(props) => props.theme.spacing.s};
-    background-color: ${(props) => (props.invert ? props.theme.projectColors.blue : "white")};
-    color: ${(props) => (props.invert ? "white" : props.theme.projectColors.blue)};
+    background-color: ${(props) => (props.invert ? props.theme.color.blue : "white")};
+    color: ${(props) => (props.invert ? "white" : props.theme.color.blue)};
     box-shadow: ${(props) => props.theme.shadow.standard};
 
     :hover {

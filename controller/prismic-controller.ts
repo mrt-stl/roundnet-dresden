@@ -1,7 +1,6 @@
 
 import { asText, linkResolver, asHtml } from "../utils/prismic-utils"
 import { Document } from "prismic-javascript/types/documents"
-import LocationModel from "../models/tukan/location-model"
 import RichtextModel from "../models/tukan/richtext-model"
 import StageModel from "../models/tukan/stage-model"
 import ServiceModel from "../models/tukan/service-model"
@@ -77,14 +76,6 @@ const mapResultToModel = (slice: any): TukanModel | null => {
                 contentRight
             )
             return callToAction
-
-        case "location":
-            const locationPrimary = slice.items
-
-            const items: any = locationPrimary
-
-            const location = new LocationModel(items)
-            return location
 
         case "richtext":
             const richtextPrimary = slice.primary

@@ -1,9 +1,7 @@
 import { linkResolver } from "../../utils/prismic-utils"
 import { media } from "../style/tukan"
-import { TCol, TGrid } from "../style/sc-grid"
+import { TGrid } from "../style/sc-grid"
 import { useState, useEffect } from "react"
-import parse from "html-react-parser"
-import { asHtml } from "../../utils/prismic-utils"
 import NavLink from "./nav-link"
 import styled from "styled-components"
 import TukanImage from "../elements/tukan-image"
@@ -32,7 +30,7 @@ const Nav = (props: INavProps) => {
     }
 
     if (props.data) {
-        const { nav_alignment, nav_links, nav_logo, nav_address, nav_phone } = props.data
+        const { nav_alignment, nav_links, nav_logo } = props.data
         return (
             <nav>
                 <MobileHeader>
@@ -62,15 +60,6 @@ const Nav = (props: INavProps) => {
                 </MenuContainer>
 
                 <NavContainer>
-                    <BannerContainer>
-                        <BannerGrid valign="center">
-                            <TCol size={1 / 2}>{parse(asHtml(nav_address))}</TCol>
-                            <TCol size={1 / 2} talign="right">
-                                {parse(asHtml(nav_phone))}
-                            </TCol>
-                        </BannerGrid>
-                    </BannerContainer>
-
                     <NavGrid halign={nav_alignment ? "right" : "left"} valign="center">
                         <Branding href="/" halign={nav_alignment}>
                             <TukanImage src={nav_logo.url} alt={nav_logo.alt} height="100px" width="auto" />
@@ -108,32 +97,7 @@ const NavContainer = styled.div`
     }
 `
 
-const BannerContainer = styled.div`
-    max-width: 100%;
-    background-color: ${(props) => props.theme.projectColors.blue};
-    font-size: 14px;
-`
 
-const BannerGrid = styled(TGrid)`
-    max-width: 1024px;
-    color: white;
-    height: 38px;
-    overflow: hidden;
-    justify-content: space-between;
-
-    * {
-        color: white;
-    }
-
-    p {
-        margin: 0;
-    }
-
-    div {
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-`
 
 const NavGrid = styled(TGrid)`
     max-width: 1024px;
@@ -219,12 +183,12 @@ const StyledBurger = styled.button<{ open: boolean }>`
         :first-child {
             transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
             width: ${({ open }) => (open ? "24px" : "24px")};
-            background-color: ${(props) => props.theme.projectColors.onBackground};
+            background-color: ${(props) => props.theme.color.blackCoral};
         }
         :nth-child(2) {
             transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
             width: ${({ open }) => (open ? "24px" : "24px")};
-            background-color: ${(props) => props.theme.projectColors.onBackground};
+            background-color: ${(props) => props.theme.color.blackCoral};
         }
     }
 `
@@ -235,10 +199,10 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
     `};
 
     a {
-        color: ${(props) => props.theme.projectColors.background};
+        color: ${(props) => props.theme.color.white};
     }
 
-    background: ${(props) => props.theme.projectColors.lighterGray};
+    background: ${(props) => props.theme.color.morningBlue};
     background-image: url(${(props) => props.background});
     background-size: cover;
     background-position: center center;
@@ -260,7 +224,7 @@ const MenuContainer = styled.nav<{ background: string; open?: boolean }>`
     }
 
     .menu-item {
-        color: ${(props) => props.theme.projectColors.blue};
+        color: ${(props) => props.theme.color.blackCoral};
         font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 2px;

@@ -80,9 +80,9 @@ const HeroImageContentContainer = styled.div`
 
   h1 {
     ${(props) =>
-      props.theme.projectColors.gradient
-        ? getGradientAnimation(props.theme.projectColors.green)
-        : `color: ${props.theme.projectColors.green};`}
+      props.theme.color.gradient
+        ? getGradientAnimation(props.theme.color.green)
+        : `color: ${props.theme.color.green};`}
     font-weight: ${(props) => props.theme.fontWeight.light};
   }
 `

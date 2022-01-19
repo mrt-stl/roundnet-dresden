@@ -61,10 +61,10 @@ const Typewriter = (props: ITypewriterProps) => {
 }
 
 const STLBanner = styled.a`
-    color: ${(props) => props.theme.projectColors.yellow};
+    color: ${(props) => props.theme.color.yellow};
     margin: 0 auto;
     padding-right: 0.1em;
-    border-right: 0.08em solid ${(props) => props.theme.projectColors.yellow};
+    border-right: 0.08em solid ${(props) => props.theme.color.yellow};
 `
 
 export default Typewriter

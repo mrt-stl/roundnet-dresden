@@ -2,8 +2,6 @@ import TukanModel from "../models/tukan/tukan-model"
 import { TukanType } from "../models/tukan/tukan-types"
 import HeroImageModel from "../models/tukan/hero-image-model"
 import HeroImage from "./pattern/hero-image"
-import LocationModel from "../models/tukan/location-model"
-import Location from "./pattern/location"
 import ServiceModel from "../models/tukan/service-model"
 import Service from "./pattern/service"
 import StageModel from "../models/tukan/stage-model"
@@ -70,11 +68,6 @@ const matchComponent = (model: TukanModel, index: number) => {
                     linkIsBlank={heroImageModel.linkIsBlank}
                 />
             )
-            break
-
-        case TukanType.Location:
-            const locationModel = model as LocationModel
-            component = <Location key={index} items={locationModel.items} />
             break
 
         case TukanType.Service:

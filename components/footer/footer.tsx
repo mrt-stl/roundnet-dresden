@@ -10,22 +10,15 @@ interface IFooterProps {
 
 const Footer = (props: IFooterProps) => {
     if (props.data) {
-        const { footer_partners, footer_content_left, footer_content_right, footer_links, footer_links_bottom } = props.data
+        const { footer_content_col_1, footer_content_col_2, footer_links, social_links } =
+            props.data
         return (
             <>
-                <PartnerContainer>
-                    <PartnerGrid valign="center">
-                        {footer_partners.map((element, index) => {
-                            return <PartnerCol key={index}>{parse(asHtml(element.content))}</PartnerCol>
-                        })}
-                    </PartnerGrid>
-                </PartnerContainer>
-
                 <footer>
                     <FooterContainer>
                         <FooterGrid valign="top" halign="center">
                             <TCol size={1 / 2} collapse="md" talign="left">
-                                {parse(asHtml(footer_content_left))}
+                                {parse(asHtml(footer_content_col_1))}
                             </TCol>
 
                             <LinkList size={1 / 4} collapse="md" talign="left">
@@ -39,17 +32,19 @@ const Footer = (props: IFooterProps) => {
                             </LinkList>
 
                             <TCol size={1 / 4} collapse="md" talign="left">
-                                {parse(asHtml(footer_content_right))}
+                                {parse(asHtml(footer_content_col_2))}
                             </TCol>
 
                             <LinkListBottom size={1}>
-                                {footer_links_bottom.map((element, index) => {
-                                    return (
-                                        <a href={linkResolver(element.link)} key={index}>
-                                            {element.label}
-                                        </a>
-                                    )
-                                })}
+                                {social_links
+                                    ? social_links.map((element, index) => {
+                                          return (
+                                              <a href={linkResolver(element.link)} key={index}>
+                                                  {element.label}
+                                              </a>
+                                          )
+                                      })
+                                    : null}
                             </LinkListBottom>
                         </FooterGrid>
                     </FooterContainer>
@@ -60,32 +55,14 @@ const Footer = (props: IFooterProps) => {
     return null
 }
 
-const PartnerContainer = styled.div`
-    background-color: ${(props) => props.theme.projectColors.lighterGray};
-    padding-top: ${(props) => props.theme.spacing.l};
-    padding-bottom: ${(props) => props.theme.spacing.l};
-    justify-content: space-between;
-
-    img {
-        filter: grayscale(100%);
-    }
-`
-
-const PartnerGrid = styled(TGrid)`
-    justify-content: space-between;
-`
-
-const PartnerCol = styled(TCol)`
-`
-
 const FooterContainer = styled.div`
     padding-top: ${(props) => props.theme.spacing.xl};
     padding-bottom: ${(props) => props.theme.spacing.xl};
-    background-color: ${(props) => props.theme.projectColors.darkGray};
+    background-color: ${(props) => props.theme.color.blackCoral};
     height: auto;
 
-    font-size: ${(props) => props.theme.fontSize.xs};
-    color: ${(props) => props.theme.projectColors.white};
+    font-size: ${(props) => props.theme.fontSize.s};
+    color: ${(props) => props.theme.color.white};
     font-weight: ${(props) => props.theme.fontWeight.bold};
     line-height: 1.5;
 
@@ -129,7 +106,7 @@ const LinkList = styled(TCol)`
 
 const LinkListBottom = styled(TCol)`
     a {
-        color: ${(props) => props.theme.projectColors.lighterGray};
+        color: ${(props) => props.theme.color.morningBlue};
         margin-right: ${(props) => props.theme.spacing.m};
     }
 `

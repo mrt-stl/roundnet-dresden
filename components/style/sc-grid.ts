@@ -21,7 +21,7 @@ export const TCol = styled.div<{ collapse?: string, size?: number, talign?: stri
     ${(props) => props.collapse && Tutils.media[props.collapse](`
         flex-basis: 100%;
         max-width: 100%`)};
-    padding: 12px ${(props) => props.theme.gridConfig.gridPadding};
+    padding: 12px ${(props) => props.theme.spacing.m};
     min-height: 1px;
     box-sizing: border-box;
     text-align: ${(props) => props.talign ? props.talign : null };

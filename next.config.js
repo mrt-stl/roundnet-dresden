@@ -40,7 +40,6 @@ module.exports = withBundleAnalyzer({
                                 "'self'",
                                 "'unsafe-eval'",
                                 "'unsafe-inline'",
-                                "https://api.rollbar.com/api/1/item/",
                                 "https://maps.googleapis.com/",
                                 "http://www.instagram.com/",
                                 "https://www.googletagmanager.com/gtag/",

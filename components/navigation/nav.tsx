@@ -46,7 +46,7 @@ const Nav = (props: INavProps) => {
     if (props.data) {
         const { nav_language_switch, nav_links, nav_logo } = props.data
         return (
-            <header>
+            <header style={{height: "80px"}}>
                 <NavContainer>
                     <NavGrid valign="center" halign="space-between">
                         <Link href="/" passHref>

@@ -4,19 +4,14 @@ import { IStageProps } from "../../components/pattern/stage"
 
 export default class StageModel extends TukanModel implements IStageProps {
 
-    public headline: string
-    public content: string
-    public btnLabel: string
-    public btnLink: string
-    public backgroundImage: any
+    public image: any
+    public parallax: boolean
 
-    constructor(title: string, content: string, btnLabel: string, btnLink: string, backgroundImage: any) {
+    constructor(image: any, parallax: boolean) {
         super(TukanType.Stage)
 
-        this.headline = title
-        this.content = content
-        this.btnLabel = btnLabel
-        this.btnLink = btnLink
-        this.backgroundImage = backgroundImage
+        this.image = image
+        this.parallax = parallax
+
     }
 }

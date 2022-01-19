@@ -1,5 +1,5 @@
 
-import { asText, linkResolver, asHtml } from "../utils/prismic-utils"
+import { linkResolver, asHtml } from "../utils/prismic-utils"
 import { Document } from "prismic-javascript/types/documents"
 import RichtextModel from "../models/tukan/richtext-model"
 import StageModel from "../models/tukan/stage-model"
@@ -65,18 +65,12 @@ const mapResultToModel = (slice: any): TukanModel | null => {
         case "stage":
             const stagePrimary = slice.primary
 
-            const stageHeadline = asText(stagePrimary.stage_headline)
-            const stageContent = asHtml(stagePrimary.stage_content)
-            const stageBtnLabel = stagePrimary.stage_btn_label
-            const stageBtnLink = linkResolver(stagePrimary.stage_btn_link)
-            const stageBackgroundImage = stagePrimary.stage_background_image
+            const image = stagePrimary.stage_image
+            const parallax = stagePrimary.stage_parallax
 
             const stageModel = new StageModel(
-                stageHeadline,
-                stageContent,
-                stageBtnLabel,
-                stageBtnLink,
-                stageBackgroundImage
+                image,
+                parallax,
             )
             return stageModel
 

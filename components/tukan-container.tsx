@@ -76,11 +76,8 @@ const matchComponent = (model: TukanModel, index: number) => {
             component = (
                 <Stage
                     key={index}
-                    headline={stageModel.headline}
-                    content={stageModel.content}
-                    btnLabel={stageModel.btnLabel}
-                    btnLink={stageModel.btnLink}
-                    backgroundImage={stageModel.backgroundImage}
+                    image={stageModel.image}
+                    parallax={stageModel.parallax}
                 />
             )
             break

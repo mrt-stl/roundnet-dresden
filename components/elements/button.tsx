@@ -22,12 +22,10 @@ const StyledButton = styled.a<{ bgColor?: string; invert?: boolean }>`
     border-radius: 8px;
     height: fit-content;
     padding: ${(props) => props.theme.spacing.xs} ${(props) => props.theme.spacing.s};
-    background-color: ${(props) => (props.invert ? props.theme.color.blue : "white")};
-    color: ${(props) => (props.invert ? "white" : props.theme.color.blue)};
-    box-shadow: ${(props) => props.theme.shadow.standard};
+    background-color: ${(props) => (props.invert ? props.theme.color.bitterlemon : "white")};
+    color: ${(props) => (props.invert ? "white" : props.theme.color.bitterlemon)};
 
     :hover {
-        box-shadow: ${(props) => props.theme.shadow.onHover};
         transition: all 0.15s ease-in-out;
     }
 `

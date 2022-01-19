@@ -32,7 +32,7 @@ const RichtextGrid = styled(TGrid)`
 `
 
 const RichtextContent = styled.div `
-    color: ${(props) => props.theme.color.onBackground};
+    color: ${(props) => props.theme.color.blackCoral};
 `
 
 export default Richtext

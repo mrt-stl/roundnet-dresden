@@ -52,7 +52,7 @@ const CallToActionContainer = styled.div`
 
 const CallToActionGrid = styled(TGrid)`
     p {
-        color: ${(props) => props.theme.color.darkGray};
+        color: ${(props) => props.theme.color.blackCoral};
     }
 `
 

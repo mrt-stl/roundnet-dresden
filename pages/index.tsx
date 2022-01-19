@@ -29,6 +29,7 @@ const Index = (props: IIndexProps) => {
         return (<Error />)
     }
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useUpdatePreviewRef(preview, docId)
 
     const componentModels: TukanModel[] = prismicPageToComponentModels(doc)

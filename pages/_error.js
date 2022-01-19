@@ -2,6 +2,7 @@ import Meta from "../components/meta"
 import Nav from "../components/navigation/nav"
 import { TGrid, TCol } from "../components/style/sc-grid"
 import styled, { keyframes } from "styled-components"
+import Link from "next/link"
 
 const Error = (props) => {
 
@@ -39,9 +40,11 @@ const Error = (props) => {
                         </p>
                     </TCol>
                     <TCol size={1} talign="center">
-                        <a href="/" className="link-content">
+                        <Link href="/" passHref>
+                        <a className="link-content">
                             Zurück zur Startseite
                         </a>
+                        </Link>
                     </TCol>
                 </ErrorGrid>
             </div>

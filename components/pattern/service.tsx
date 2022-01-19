@@ -42,7 +42,7 @@ const Service = (props: IServiceProps) => {
 const ServiceContainer = styled.div<{ background?: boolean }>`
     padding-bottom: ${(props) => props.theme.spacing.xxl};
     padding-top: ${(props) => props.theme.spacing.xl};
-    background-color: ${(props) => (props.background ? props.theme.color.lighterGray : null)};
+    background-color: ${(props) => (props.background ? props.theme.color.morningBlue : null)};
 
     ${media.maxWidth("md")`
     `}
@@ -54,11 +54,11 @@ const ServiceStage = styled.div`
     margin-bottom: ${(props) => props.theme.spacing.xl};
 
     h1 {
-        color: ${(props) => props.theme.color.darkGray};
+        color: ${(props) => props.theme.color.blackCoral};
     }
 
     p {
-        color: ${(props) => props.theme.color.mediumGray};
+        color: ${(props) => props.theme.color.blackCoral};
     }
 `
 
@@ -102,9 +102,8 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string; 
                         };
                     }
                     `
-            : `p {color: ${props.theme.color.mediumGray}}`}
+            : `p {color: ${props.theme.color.morningBlue}}`}
 
-        box-shadow: ${(props) => props.theme.shadow.standard};
     border-radius: 8px;
     transition: all 0.25s ease-in-out;
 
@@ -120,7 +119,7 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string; 
     h5 {
         font-size: ${(props) => props.theme.fontSize.m};
         margin-left: 0;
-        color: ${(props) => props.theme.color.darkGray};
+        color: ${(props) => props.theme.color.blackCoral};
         font-weight: ${(props) => props.theme.fontWeight.bold};
         margin-top: ${(props) => props.theme.spacing.s};
     }
@@ -137,7 +136,7 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string; 
     }
 
     p:not(.block-img) {
-        color: ${(props) => props.theme.color.mediumGray};
+        color: ${(props) => props.theme.color.morningBlue};
         margin-bottom: ${(props) => props.theme.spacing.m};
     }
 
@@ -147,7 +146,7 @@ const ServiceContent = styled(TCol)<{ singleCol?: boolean; background?: string; 
 
     b,
     strong {
-        color: ${(props) => props.theme.color.blue};
+        color: ${(props) => props.theme.color.bitterlemon};
     }
 
     .icon img {

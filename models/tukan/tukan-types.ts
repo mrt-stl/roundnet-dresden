@@ -1,5 +1,4 @@
 export enum TukanType {
-    HeroImage = "hero-image",
     Service = "service",
     Richtext = "richtext",
     Stage = "stage",

@@ -1,7 +1,5 @@
 import TukanModel from "../models/tukan/tukan-model"
 import { TukanType } from "../models/tukan/tukan-types"
-import HeroImageModel from "../models/tukan/hero-image-model"
-import HeroImage from "./pattern/hero-image"
 import ServiceModel from "../models/tukan/service-model"
 import Service from "./pattern/service"
 import StageModel from "../models/tukan/stage-model"
@@ -51,21 +49,6 @@ const matchComponent = (model: TukanModel, index: number) => {
                     subtitle={callToActionModel.subtitle}
                     contentLeft={callToActionModel.contentLeft}
                     contentRight={callToActionModel.contentRight}
-                />
-            )
-            break
-
-        case TukanType.HeroImage:
-            const heroImageModel = model as HeroImageModel
-            component = (
-                <HeroImage
-                    key={index}
-                    imgSrc={heroImageModel.imgSrc}
-                    imgAlt={heroImageModel.imgAlt}
-                    title={heroImageModel.title}
-                    link={heroImageModel.link}
-                    linkContent={heroImageModel.linkContent}
-                    linkIsBlank={heroImageModel.linkIsBlank}
                 />
             )
             break

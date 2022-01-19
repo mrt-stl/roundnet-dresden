@@ -6,29 +6,14 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 module.exports = withBundleAnalyzer({
     poweredByHeader: false,
     target: "serverless",
-    webpack5: false,
     i18n: {
       // two digit locales are custom locales made in prismic. de-de has to remain because it's the default in prismic
       locales: ["de-de"],
       defaultLocale: "de-de",
     },
-    async redirects() {
-        return [
-          {
-            source: '/ansprechpartner',
-            destination: '/kontakt',
-            permanent: true,
-          },
-        ]
-      },
-      async rewrites() {
-        return [
-          {
-            source: '/haeufige-fragen',
-            destination: '/list/haeufige-fragen',
-          }
-        ]
-      },
+    images: {
+      domains: ["localhost", "images.prismic.io"],
+  },
     async headers() {
         return [
             {

@@ -4,8 +4,7 @@ import { TGrid } from "../style/sc-grid"
 import { useState, useEffect } from "react"
 import NavLink from "./nav-link"
 import styled from "styled-components"
-import TukanImage from "../elements/tukan-image"
-
+import Image from "next/image"
 interface INavProps {
     data: any
 }
@@ -35,7 +34,7 @@ const Nav = (props: INavProps) => {
             <nav>
                 <MobileHeader>
                     <Branding1 href="/">
-                        <TukanImage src={nav_logo.url} alt={nav_logo.alt} height="auto" width="auto" />
+                        <Image src={nav_logo.url} alt={nav_logo.alt} height="100px" width="100px" />
                     </Branding1>
                     <StyledBurger open={open} onClick={handleClick}>
                         <span />
@@ -62,7 +61,7 @@ const Nav = (props: INavProps) => {
                 <NavContainer>
                     <NavGrid halign={nav_alignment ? "right" : "left"} valign="center">
                         <Branding href="/" halign={nav_alignment}>
-                            <TukanImage src={nav_logo.url} alt={nav_logo.alt} height="100px" width="auto" />
+                            <Image src={nav_logo.url} alt={nav_logo.alt} height="100px" width="100px" />
                         </Branding>
                         {nav_links.map((element, index) => {
                             return (

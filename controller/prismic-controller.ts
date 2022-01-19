@@ -7,7 +7,6 @@ import ServiceModel from "../models/tukan/service-model"
 import CallToActionModel from "../models/tukan/call-to-action-model"
 import AccordionModel from "../models/tukan/accordion-model"
 import TukanModel from "../models/tukan/tukan-model"
-import HeroImageModel from "../models/tukan/hero-image-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -38,28 +37,6 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const accordion = new AccordionModel(accordionHeadline, showMoreBtn, accordionItems)
             return accordion
-
-        case "startbild":
-            const heroImagePrimary = slice.primary
-
-            const heroImageImgSrc = heroImagePrimary.hero_image_img.url
-            const heroImageImgAlt = heroImagePrimary.hero_image_img.alt
-            const heroImageTitle = asText(heroImagePrimary.hero_image_title)
-            const heroImageLink = linkResolver(heroImagePrimary.hero_image_link)
-            const heroImageLinkContent = asText(heroImagePrimary.hero_image_link_content)
-            const heroImageLinkIsBlank = heroImagePrimary.hero_image_link
-                ? heroImagePrimary.hero_image_link.target === "_blank"
-                : false
-
-            const heroImage = new HeroImageModel(
-                heroImageImgSrc,
-                heroImageImgAlt,
-                heroImageTitle,
-                heroImageLink,
-                heroImageLinkContent,
-                heroImageLinkIsBlank
-            )
-            return heroImage
 
         case "call_to_action":
             const callToActionPrimary = slice.primary

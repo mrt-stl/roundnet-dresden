@@ -12,8 +12,6 @@ import { prismicPageToComponentModels } from "../controller/prismic-controller"
 import { Document } from "prismic-javascript/types/documents"
 import TukanModel from "../models/tukan/tukan-model"
 import { IMetaData } from "../models/config/meta-data"
-import Banner from "../components/navigation/banner"
-
 interface IIndexProps {
     docId?: string
     meta?: IMetaData
@@ -43,11 +41,6 @@ const Index = (props: IIndexProps) => {
                     data={meta} />
 
                     <Nav data={navData}/>
-
-                    {meta.metaBanner ?
-                        <Banner content={meta.metaBanner} /> :
-                        <></>
-                    }
 
                     <TukanContainer
                         tukanModels={componentModels} />

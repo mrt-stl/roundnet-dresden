@@ -18,7 +18,9 @@ export const TCol = styled.div<{ collapse?: string, size?: number, talign?: stri
     flex-basis: ${(props) => props.size ? Math.round((props.size) * 100 * 10000) / 10000 + "%" : "0"};
     max-width: ${(props) => props.size ? Math.round((props.size) * 100 * 10000) / 10000 + "%" : "100%"};
     flex-grow: 1;
-    ${(props) => props.collapse && Tutils.media[props.collapse](`
+    ${(props) => props.collapse ? Tutils.media[props.collapse](`
+        flex-basis: 100%;
+        max-width: 100%`) : Tutils.media["md"](`
         flex-basis: 100%;
         max-width: 100%`)};
     padding: 12px ${(props) => props.theme.spacing.m};

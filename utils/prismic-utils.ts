@@ -71,5 +71,5 @@ export function useUpdatePreviewRef(preview, documentId) {
             }
         }
         return undefined
-    }, [])
+    }, [documentId, preview, router])
 }

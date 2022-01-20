@@ -7,9 +7,9 @@ import Stage from "./pattern/stage"
 import RichtextModel from "../models/tukan/richtext-model"
 import Richtext from "./pattern/richtext"
 import CallToActionModel from "../models/tukan/call-to-action-model"
-import CallToAction from "./pattern/call-to-action"
-import AccordionModel from "../models/tukan/accordion-model"
-import Accordion from "./pattern/accordion"
+import CallToAction from "./pattern/cal-to-action"
+import AccordionModel from "../models/tukan/connections-model"
+import Accordion from "./pattern/connections"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -70,6 +70,7 @@ const matchComponent = (model: TukanModel, index: number) => {
                     content={richtextModel.content}
                     multiColumns={richtextModel.multiColumns}
                     headline={richtextModel.headline}
+                    imageSize={richtextModel.imageSize}
                 />
             )
             break

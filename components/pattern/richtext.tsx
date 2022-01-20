@@ -6,13 +6,14 @@ export interface IRichtextProps {
     content: { content }[]
     headline: string
     multiColumns: boolean
+    imageSize: boolean
 }
 
 const Richtext = (props: IRichtextProps) => {
-    const { content, headline, multiColumns } = props
+    const { content, headline, multiColumns, imageSize } = props
 
     return (
-        <RichtextContainer>
+        <RichtextContainer imageSize={imageSize}>
             <TGrid halign="center">
                 <TCol size={1}>
                     <Headline>{headline}</Headline>
@@ -27,9 +28,10 @@ const Richtext = (props: IRichtextProps) => {
     )
 }
 
-const RichtextContainer = styled.div`
+const RichtextContainer = styled.div<{ imageSize: boolean }>`
     margin-top: ${(props) => props.theme.spacing.xl};
     margin-bottom: ${(props) => props.theme.spacing.xl};
+    line-height: ${props => props.theme.lineHeight.l};
 
     .button {
         padding: ${(props) => props.theme.spacing.s} ${(props) => props.theme.spacing.m};
@@ -38,6 +40,12 @@ const RichtextContainer = styled.div`
         display: block;
         width: fit-content;
         margin-top: ${(props) => props.theme.spacing.m};
+    }
+
+    img {
+        width: ${(props) => (props.imageSize ? "100px" : "100%")};
+        margin-top: ${(props) => props.theme.spacing.s};
+        margin-bottom: ${(props) => props.theme.spacing.s};
     }
 `
 

@@ -4,7 +4,7 @@ import RichtextModel from "../models/tukan/richtext-model"
 import StageModel from "../models/tukan/stage-model"
 import ListModel from "../models/tukan/list-model"
 import CallToActionModel from "../models/tukan/call-to-action-model"
-import AccordionModel from "../models/tukan/accordion-model"
+import AccordionModel from "../models/tukan/connections-model"
 import TukanModel from "../models/tukan/tukan-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
@@ -62,6 +62,7 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const richtextHeadline = richtextPrimary.richtext_headline
             const multiColumns = richtextPrimary.multi_columns
+            const imageSize = richtextPrimary.image_size
             const richtextContent = []
 
             for (const item of richtextItems) {
@@ -71,7 +72,12 @@ const mapResultToModel = (slice: any): TukanModel | null => {
                 richtextContent.push(text)
             }
 
-            const richtext = new RichtextModel(richtextHeadline, multiColumns, richtextContent)
+            const richtext = new RichtextModel(
+                richtextHeadline,
+                multiColumns,
+                imageSize,
+                richtextContent
+            )
             return richtext
 
         case "stage":

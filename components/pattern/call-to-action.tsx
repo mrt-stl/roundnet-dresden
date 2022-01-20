@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { media } from "../style/tukan"
 import { TGrid, TCol } from "../style/sc-grid"
 import styled from "styled-components"
 

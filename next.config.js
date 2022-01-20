@@ -7,13 +7,13 @@ module.exports = withBundleAnalyzer({
     poweredByHeader: false,
     target: "serverless",
     i18n: {
-      // two digit locales are custom locales made in prismic. de-de has to remain because it's the default in prismic
-      locales: ["de-de", "en"],
-      defaultLocale: "de-de",
+        // two digit locales are custom locales made in prismic. de-de has to remain because it's the default in prismic
+        locales: ["de-de", "en"],
+        defaultLocale: "de-de",
     },
     images: {
-      domains: ["localhost", "images.prismic.io", "tf-ventures.cdn.prismic.io"],
-  },
+        domains: ["localhost", "images.prismic.io", "tf-ventures.cdn.prismic.io"],
+    },
     async headers() {
         return [
             {
@@ -25,25 +25,18 @@ module.exports = withBundleAnalyzer({
                                 "'self'",
                                 "'unsafe-eval'",
                                 "'unsafe-inline'",
-                                "https://maps.googleapis.com/",
-                                "http://www.instagram.com/",
-                                "https://www.googletagmanager.com/gtag/",
                                 "https://static.cdn.prismic.io/",
                                 "https://*.prismic.io/",
                                 "https://prismic.io/prismic-toolbar/",
-                                "https://html2canvas.hertzen.com/dist/"
                             ],
-                            fontSrc: ["'self'", "https://fonts.googleapis.com/", "https://use.typekit.net/", "https://fonts.gstatic.com/"],
-                            styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com/"],
+                            fontSrc: ["'self'"],
+                            styleSrc: ["'self'", "'unsafe-inline'"],
                             imgSrc: [
                                 "'self'",
-                                "https://s3.eu-central-1.amazonaws.com/",
-                                "https://www.youtube.com/",
                                 "https://images.prismic.io/",
+                                "https://prismic-io.s3.amazonaws.com/",
                                 "https://*.cdn.prismic.io/",
-                                "https://maps.gstatic.com/",
-                                "https://maps.googleapis.com/",
-                                "data:"
+                                "data:",
                             ],
                             objectSrc: "'none'",
                             baseURI: "'self'",
@@ -55,7 +48,10 @@ module.exports = withBundleAnalyzer({
                     noopen: "noopen",
                     nosniff: "nosniff",
                     xssProtection: "sanitize",
-                    forceHTTPSRedirect: [true, { maxAge: 60 * 60 * 24 * 360, includeSubDomains: true }],
+                    forceHTTPSRedirect: [
+                        true,
+                        { maxAge: 60 * 60 * 24 * 360, includeSubDomains: true },
+                    ],
                     referrerPolicy: "same-origin",
                 }),
             },

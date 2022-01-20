@@ -19,13 +19,6 @@ export const NavContainer = styled.div<{ mobile?: boolean }>`
     top: 0;
     left: 0;
 
-    :after {
-        content: "";
-        display: block;
-        height: 80px;
-        width: 100%;
-    }
-
     @media only screen and (max-width: 768px) {
         display: ${(props) => (props.mobile ? "block" : "none")};
         ${Branding} {

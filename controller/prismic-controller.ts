@@ -39,18 +39,21 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
         case "call_to_action":
             const callToActionPrimary = slice.primary
+            const ctaItems = slice.items
 
-            const headline = asHtml(callToActionPrimary.cta_headline)
-            const subtitle = asHtml(callToActionPrimary.cta_subtitle)
-            const contentLeft = asHtml(callToActionPrimary.cta_content_left)
-            const contentRight = asHtml(callToActionPrimary.cta_content_right)
+            const ctaHeadline = callToActionPrimary.headline
+            const btns = []
 
-            const callToAction = new CallToActionModel(
-                headline,
-                subtitle,
-                contentLeft,
-                contentRight
-            )
+            for (const item of ctaItems) {
+                const btn = {
+                    label: item.btn_label,
+                    link: linkResolver(item.btn_label),
+                    target: item.target
+                }
+                btns.push(btn)
+            }
+
+            const callToAction = new CallToActionModel(ctaHeadline, btns)
             return callToAction
 
         case "richtext":

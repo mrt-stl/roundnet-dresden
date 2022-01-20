@@ -1,74 +1,55 @@
+import Link from "next/link"
 import { media } from "../style/tukan"
 import { TGrid, TCol } from "../style/sc-grid"
-import parse from "html-react-parser"
 import styled from "styled-components"
 
 export interface ICallToActionProps {
-    headline: string
-    subtitle: string
-    contentLeft: string
-    contentRight: string
+    ctaHeadline: string
+    btns: { label: string; link: string; target: string }[]
 }
 
 const CallToAction = (props: ICallToActionProps) => {
-    const headline = props.headline
-    const subtitle = props.subtitle
-    const contentLeft = props.contentLeft
-    const contentRight = props.contentRight
+    const { ctaHeadline, btns } = props
 
     return (
-        <CallToActionContainer>
-            <CallToActionGrid valign="center" halign="center">
-                <TCol size={3 / 4} collapse="md" talign="center">
-                    {parse(headline)}
-                    {parse(subtitle)}
+        <CtaContainer>
+            <TGrid>
+                <TCol size={1 / 2}>
+                    <h3>{ctaHeadline}</h3>
                 </TCol>
-                <CallToActionCard size={3 / 4} collapse="md">
-                    <TCol size={1 / 3} collapse="md">
-                        {parse(contentLeft)}
-                    </TCol>
-                    <TCol size={1 / 3} collapse="md">
-                        {parse(contentRight)}
-                    </TCol>
-                </CallToActionCard>
-            </CallToActionGrid>
-        </CallToActionContainer>
+                <TCol size={1 / 2}>
+                    {btns.map((btn, index) => (
+                        <Link href={btn.link} passHref key={index}>
+                            <CtaLink target={btn.target}>{btn.label}</CtaLink>
+                        </Link>
+                    ))}
+                </TCol>
+            </TGrid>
+        </CtaContainer>
     )
 }
 
-const CallToActionContainer = styled.div`
-    margin-top: ${(props) => props.theme.spacing.xl};
-    margin-bottom: ${(props) => props.theme.spacing.xxl};
+const CtaLink = styled.a`
+    padding: ${(props) => props.theme.spacing.s} ${(props) => props.theme.spacing.m};
+    background-color: ${(props) => props.theme.color.white};
+    margin-right: ${(props) => props.theme.spacing.m};
+`
 
-    ${media.maxWidth("md")`
-        padding-top: ${(props) => props.theme.spacing.xl};
-        padding-bottom: ${(props) => props.theme.spacing.xl};
+const CtaContainer = styled.section`
+    background-color: ${(props) => props.theme.color.cultured};
+    padding-top: ${(props) => props.theme.spacing.l};
+    padding-bottom: ${(props) => props.theme.spacing.l};
 
-        p {
-            font-size: ${(props) => props.theme.fontSize.s};
+    @media only screen and (max-width: 786px) {
+        text-align: center;
+        h3 {
+            margin-bottom: ${(props) => props.theme.spacing.m};
         }
-`};
-`
-
-const CallToActionGrid = styled(TGrid)`
-    p {
-        color: ${(props) => props.theme.color.blackCoral};
+        ${CtaLink} {
+            margin-right: ${(props) => props.theme.spacing.m};
+            margin-left: ${(props) => props.theme.spacing.m};
+        }
     }
-`
-
-const CallToActionCard = styled(TCol)`
-    display: flex;
-    justify-content: space-around;
-    margin-top: ${(props) => props.theme.spacing.m};
-    padding-top: ${(props) => props.theme.spacing.m};
-    box-shadow: 0px 1px 16px 2px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    flex-wrap: wrap;
-
-    ${media.maxWidth("md")`
-    margin-left: ${(props) => props.theme.spacing.s};
-    margin-right: ${(props) => props.theme.spacing.s};
-    `};
 `
 
 export default CallToAction

@@ -4,17 +4,13 @@ import { ICallToActionProps } from "../../components/pattern/call-to-action"
 
 export default class CallToActionModel extends TukanModel implements ICallToActionProps {
 
-    public headline: string
-    public subtitle: string
-    public contentLeft: string
-    public contentRight: string
+    public ctaHeadline: string
+    public btns: {label: string, link: string, target: string}[]
 
-    constructor(headline: string, subtitle: string, contentLeft: string, contentRight: string) {
+    constructor(ctaHeadline: string, btns: {label: string, link: string, target: string}[]) {
         super(TukanType.CallToAction)
 
-        this.headline = headline
-        this.subtitle = subtitle
-        this.contentLeft = contentLeft
-        this.contentRight = contentRight
+        this.ctaHeadline = ctaHeadline
+        this.btns = btns
     }
 }

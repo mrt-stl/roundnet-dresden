@@ -46,7 +46,7 @@ const Nav = (props: INavProps) => {
     if (props.data) {
         const { nav_language_switch, nav_links, nav_logo } = props.data
         return (
-            <header style={{height: "80px"}}>
+            <header style={{ height: "80px" }}>
                 <NavContainer>
                     <NavGrid valign="center" halign="space-between">
                         <Link href="/" passHref>
@@ -81,9 +81,8 @@ const Nav = (props: INavProps) => {
                     </NavGrid>
                 </NavContainer>
 
-
-                 {/* START MOBILE NAV */}
-                 <NavContainer mobile>
+                {/* START MOBILE NAV */}
+                <NavContainer mobile>
                     <Link href="/" passHref>
                         <Branding>
                             <Image
@@ -98,9 +97,7 @@ const Nav = (props: INavProps) => {
                         <span />
                         <span />
                     </StyledBurger>
-                </NavContainer>
-                <MenuContainer open={open}>
-
+                    <MenuContainer open={open}>
                         {nav_links.map((element, index) => {
                             return (
                                 <Link href={linkResolver(element.nav_link)} passHref key={index}>
@@ -113,9 +110,9 @@ const Nav = (props: INavProps) => {
                                 {locale === "de-de" ? "EN" : "DE"}
                             </LanguageSwitch>
                         ) : null}
-                </MenuContainer>
+                    </MenuContainer>
+                </NavContainer>
                 {/* END MOBILE NAV */}
-
             </header>
         )
     }

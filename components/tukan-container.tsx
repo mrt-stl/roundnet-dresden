@@ -1,7 +1,7 @@
 import TukanModel from "../models/tukan/tukan-model"
 import { TukanType } from "../models/tukan/tukan-types"
-import ServiceModel from "../models/tukan/service-model"
-import Service from "./pattern/service"
+import ListModel from "../models/tukan/list-model"
+import List from "./pattern/list"
 import StageModel from "../models/tukan/stage-model"
 import Stage from "./pattern/stage"
 import RichtextModel from "../models/tukan/richtext-model"
@@ -53,15 +53,13 @@ const matchComponent = (model: TukanModel, index: number) => {
             )
             break
 
-        case TukanType.Service:
-            const serviceModel = model as ServiceModel
+        case TukanType.List:
+            const listModel = model as ListModel
             component = (
-                <Service
+                <List
                     key={index}
-                    headline={serviceModel.headline}
-                    content={serviceModel.content}
-                    background={serviceModel.background}
-                    cols={serviceModel.cols}
+                    listHeadline={listModel.listHeadline}
+                    content={listModel.content}
                 />
             )
             break

@@ -1,5 +1,5 @@
 export enum TukanType {
-    Service = "service",
+    List = "List",
     Richtext = "richtext",
     Stage = "stage",
     CallToAction = "call-to-action",

@@ -1,9 +1,8 @@
-
 import { linkResolver, asHtml } from "../utils/prismic-utils"
 import { Document } from "prismic-javascript/types/documents"
 import RichtextModel from "../models/tukan/richtext-model"
 import StageModel from "../models/tukan/stage-model"
-import ServiceModel from "../models/tukan/service-model"
+import ListModel from "../models/tukan/list-model"
 import CallToActionModel from "../models/tukan/call-to-action-model"
 import AccordionModel from "../models/tukan/accordion-model"
 import TukanModel from "../models/tukan/tukan-model"
@@ -68,36 +67,24 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             const image = stagePrimary.stage_image
             const parallax = stagePrimary.stage_parallax
 
-            const stageModel = new StageModel(
-                image,
-                parallax,
-            )
+            const stageModel = new StageModel(image, parallax)
             return stageModel
 
-        case "service":
+        case "list":
             const servicePrimary = slice.primary
-            const serviceItems = slice.items
+            const listItems = slice.items
 
-            const serviceHeadline = asHtml(servicePrimary.service_headline)
-            const serviceContent = asHtml(servicePrimary.service_content)
-            const serviceBackground = servicePrimary.service_background
-            const serviceCols = []
+            const listHeadline = servicePrimary.headline
+            const content = []
 
-            for (const item of serviceItems) {
+            for (const item of listItems) {
                 const col = {
-                    data: asHtml(item.service_col),
-                    link: linkResolver(item.service_link),
-                    background: item.service_col_background,
+                    content: asHtml(item.content),
                 }
-                serviceCols.push(col)
+                content.push(col)
             }
 
-            const serviceModel = new ServiceModel(
-                serviceHeadline,
-                serviceContent,
-                serviceBackground,
-                serviceCols
-            )
+            const serviceModel = new ListModel(listHeadline, content)
 
             return serviceModel
 

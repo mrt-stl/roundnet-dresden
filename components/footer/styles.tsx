@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { TCol, TGrid } from "../style/sc-grid"
+import { TCol } from "../style/sc-grid"
 
 export const FooterContainer = styled.footer`
     height: 480px;

@@ -64,17 +64,20 @@ const matchComponent = (model: TukanModel, index: number) => {
 
         case TukanType.Richtext:
             const richtextModel = model as RichtextModel
-            component = <Richtext key={index} content={richtextModel.content} index={index} />
+            component = (
+                <Richtext
+                    key={index}
+                    content={richtextModel.content}
+                    multiColumns={richtextModel.multiColumns}
+                    headline={richtextModel.headline}
+                />
+            )
             break
 
         case TukanType.Stage:
             const stageModel = model as StageModel
             component = (
-                <Stage
-                    key={index}
-                    image={stageModel.image}
-                    parallax={stageModel.parallax}
-                />
+                <Stage key={index} image={stageModel.image} parallax={stageModel.parallax} />
             )
             break
     }

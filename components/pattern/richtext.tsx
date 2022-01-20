@@ -3,36 +3,48 @@ import styled from "styled-components"
 import { TGrid, TCol } from "../style/sc-grid"
 
 export interface IRichtextProps {
-    content: string
-    index?: number
+    content: { content }[]
+    headline: string
+    multiColumns: boolean
 }
 
 const Richtext = (props: IRichtextProps) => {
-    const {content, index} = props
+    const { content, headline, multiColumns } = props
 
     return (
-        <RichtextContainer index={index}>
-            <RichtextGrid halign="center">
-                <TCol size={4/5} collapse="md">
-                    <RichtextContent>
-                        {parse(content)}
-                    </RichtextContent>
+        <RichtextContainer>
+            <TGrid halign="center">
+                <TCol size={1}>
+                    <Headline>{headline}</Headline>
                 </TCol>
-            </RichtextGrid>
+                {content.map((col, index) => (
+                    <TCol size={multiColumns ? 1 / 2 : 1} key={index}>
+                        {parse(col.content)}
+                    </TCol>
+                ))}
+            </TGrid>
         </RichtextContainer>
     )
 }
 
-const RichtextContainer = styled.div<{index: number}>`
-    margin-top: ${(props) => props.index === 0 ? "240px" : props.theme.spacing.xl};
+const RichtextContainer = styled.div`
+    margin-top: ${(props) => props.theme.spacing.xl};
     margin-bottom: ${(props) => props.theme.spacing.xl};
+
+    .button {
+        padding: ${(props) => props.theme.spacing.s} ${(props) => props.theme.spacing.m};
+        background-color: ${(props) => props.theme.color.blackCoral};
+        color: ${(props) => props.theme.color.white};
+        display: block;
+        width: fit-content;
+        margin-top: ${(props) => props.theme.spacing.m};
+    }
 `
 
-const RichtextGrid = styled(TGrid)`
-`
-
-const RichtextContent = styled.div `
-    color: ${(props) => props.theme.color.blackCoral};
+const Headline = styled.p<{ accent?: boolean }>`
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: ${(props) => props.theme.fontSize.s};
 `
 
 export default Richtext

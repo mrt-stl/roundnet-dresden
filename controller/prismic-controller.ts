@@ -48,7 +48,7 @@ const mapResultToModel = (slice: any): TukanModel | null => {
                 const btn = {
                     label: item.btn_label,
                     link: linkResolver(item.btn_label),
-                    target: item.target
+                    target: item.target,
                 }
                 btns.push(btn)
             }
@@ -58,10 +58,20 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
         case "richtext":
             const richtextPrimary = slice.primary
+            const richtextItems = slice.items
 
-            const richtextContent = asHtml(richtextPrimary.richtext_content)
+            const richtextHeadline = richtextPrimary.richtext_headline
+            const multiColumns = richtextPrimary.multi_columns
+            const richtextContent = []
 
-            const richtext = new RichtextModel(richtextContent)
+            for (const item of richtextItems) {
+                const text = {
+                    content: asHtml(item.content),
+                }
+                richtextContent.push(text)
+            }
+
+            const richtext = new RichtextModel(richtextHeadline, multiColumns, richtextContent)
             return richtext
 
         case "stage":

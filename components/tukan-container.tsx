@@ -10,6 +10,8 @@ import CallToActionModel from "../models/tukan/call-to-action-model"
 import CallToAction from "./pattern/call-to-action"
 import ConnectionsModel from "../models/tukan/connections-model"
 import Connections from "./pattern/connections/connections"
+import ContactModel from "../models/tukan/contact-model"
+import Contact from "./pattern/contact/contact"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -36,6 +38,18 @@ const matchComponent = (model: TukanModel, index: number) => {
                     connectionsHeadline={connectionsModel.connectionsHeadline}
                     connectionsContent={connectionsModel.connectionsContent}
                     connectionsCards={connectionsModel.connectionsCards}
+                />
+            )
+            break
+
+        case TukanType.Contact:
+            const contactModel = model as ContactModel
+            component = (
+                <Contact
+                    key={index}
+                    contactHeadline={contactModel.contactHeadline}
+                    contactContent={contactModel.contactContent}
+                    privacyContent={contactModel.privacyContent}
                 />
             )
             break

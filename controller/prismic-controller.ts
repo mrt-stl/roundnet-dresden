@@ -5,6 +5,7 @@ import StageModel from "../models/tukan/stage-model"
 import ListModel from "../models/tukan/list-model"
 import CallToActionModel from "../models/tukan/call-to-action-model"
 import ConnectionModel from "../models/tukan/connections-model"
+import ContactModel from "../models/tukan/contact-model"
 import TukanModel from "../models/tukan/tukan-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
@@ -101,6 +102,16 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const stageModel = new StageModel(image, parallax)
             return stageModel
+
+        case "contact":
+            const contactPrimary = slice.primary
+
+            const contactHeadline = contactPrimary.headline
+            const contactContent = asHtml(contactPrimary.content)
+            const privacyContent = asHtml(contactPrimary.privacy_content)
+
+            const contactModel = new ContactModel(contactHeadline, contactContent, privacyContent)
+            return contactModel
 
         case "list":
             const servicePrimary = slice.primary

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { useRouter } from "next/router"
 import parse from "html-react-parser"
 import {
@@ -11,6 +11,7 @@ import {
     Message,
 } from "./styles"
 import { TGrid, TCol } from "../../style/sc-grid"
+import HCaptcha from "@hcaptcha/react-hcaptcha"
 
 export interface IContactProps {
     contactHeadline: string
@@ -34,6 +35,10 @@ const CONTENTS = {
         "de-de": "Bitte akzeptieren Sie die Datenschutzerklärung",
         er: "Please check checkbox to accept terms of privacy",
     },
+    missingCaptcha: {
+        "de-de": "Die hCaptcha Validierung hat sie nicht als Mensch erkannt",
+        er: "The hCaptcha validation didn't recognize you as a human",
+    },
     generell: {
         "de-de": "Etwas ist schiefgegangen, bitte versuchen Sie es später erneut",
         en: "Something went wrong, please try again later",
@@ -47,6 +52,7 @@ const CONTENTS = {
 const Contact = (props: IContactProps) => {
     const { contactHeadline, contactContent, privacyContent } = props
 
+    const { locale } = useRouter()
     const [status, setStatus] = useState("")
     const [form, setForm] = useState<IContactState>({
         name: "",
@@ -54,7 +60,8 @@ const Contact = (props: IContactProps) => {
         content: "",
         privacy: false,
     })
-    const { locale } = useRouter()
+    const [token, setToken] = useState(null)
+    const captchaRef = useRef(null)
 
     const handleChange = (e) => {
         const target = e.target
@@ -73,25 +80,34 @@ const Contact = (props: IContactProps) => {
         if (!form.privacy) {
             return setStatus("missingPrivacy")
         }
-        const res = await fetch("/api/contact", {
-            method: "POST",
-            headers: {
-                Accept: "application/json, text/plain, */*",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(form),
-        })
-        if (res.ok) {
-            setForm({
-                name: "",
-                email: "",
-                content: "",
-                privacy: false,
+
+        captchaRef.current
+            .execute({ async: true })
+            .then(async () => {
+                const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json, text/plain, */*",
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(form),
+                })
+                if (res.ok) {
+                    setForm({
+                        name: "",
+                        email: "",
+                        content: "",
+                        privacy: false,
+                    })
+                    setStatus("success")
+                } else {
+                    setStatus("error")
+                }
             })
-            setStatus("success")
-        } else {
-            setStatus("error")
-        }
+            .catch((err) => {
+                console.error(err)
+                return setStatus("missingCaptcha")
+            })
     }
 
     return (
@@ -142,6 +158,14 @@ const Contact = (props: IContactProps) => {
                             onChange={handleChange}
                         />
                         {parse(privacyContent)}
+                    </TCol>
+                    <TCol size={1}>
+                        <HCaptcha
+                            sitekey="b686418b-20fa-43a2-9426-311bb8f19c53"
+                            onVerify={setToken}
+                            ref={captchaRef}
+                            size="invisible"
+                        />
                     </TCol>
                     <TCol>
                         <SubmitButton type="submit">Senden</SubmitButton>

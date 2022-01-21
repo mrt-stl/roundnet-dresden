@@ -12,6 +12,7 @@
         "lint": "yarn run eslint ."
     },
     "dependencies": {
+        "@hcaptcha/react-hcaptcha": "^1.0.0",
         "@types/styled-components": "^5.1.12",
         "accept-language-parser": "^1.5.0",
         "axios": "^0.21.1",

@@ -28,6 +28,8 @@ module.exports = withBundleAnalyzer({
                                 "https://static.cdn.prismic.io/",
                                 "https://*.prismic.io/",
                                 "https://prismic.io/prismic-toolbar/",
+                                "https://js.hcaptcha.com/",
+                                "https://newassets.hcaptcha.com/"
                             ],
                             fontSrc: ["'self'"],
                             styleSrc: ["'self'", "'unsafe-inline'"],

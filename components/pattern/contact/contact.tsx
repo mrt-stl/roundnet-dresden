@@ -1,7 +1,15 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
 import parse from "html-react-parser"
-import { ContactContainer, Headline, Input, TextArea, Checkbox, SubmitButton } from "./styles"
+import {
+    ContactContainer,
+    Headline,
+    Input,
+    TextArea,
+    Checkbox,
+    SubmitButton,
+    Message,
+} from "./styles"
 import { TGrid, TCol } from "../../style/sc-grid"
 
 export interface IContactProps {
@@ -17,9 +25,29 @@ export interface IContactState {
     privacy: boolean
 }
 
+const CONTENTS = {
+    placeholder: {
+        en: "Content of your message*",
+        "de-de": "Ihre persönliche Nachricht*",
+    },
+    missingPrivacy: {
+        "de-de": "Bitte akzeptieren Sie die Datenschutzerklärung",
+        er: "Please check checkbox to accept terms of privacy",
+    },
+    generell: {
+        "de-de": "Etwas ist schiefgegangen, bitte versuchen Sie es später erneut",
+        en: "Something went wrong, please try again later",
+    },
+    success: {
+        "de-de": "Ihre Nachricht wurde erfolgreich versendet",
+        en: "Message sent successfully",
+    },
+}
+
 const Contact = (props: IContactProps) => {
     const { contactHeadline, contactContent, privacyContent } = props
 
+    const [status, setStatus] = useState("")
     const [form, setForm] = useState<IContactState>({
         name: "",
         email: "",
@@ -33,13 +61,37 @@ const Contact = (props: IContactProps) => {
         const name = target.name
         const value = name === "privacy" ? target.checked : target.value
 
+        if (status) {
+            setStatus("")
+        }
+
         setForm({ ...form, [name]: value })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-
-        console.log(form)
+        if (!form.privacy) {
+            return setStatus("missingPrivacy")
+        }
+        const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: {
+                Accept: "application/json, text/plain, */*",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(form),
+        })
+        if (res.ok) {
+            setForm({
+                name: "",
+                email: "",
+                content: "",
+                privacy: false,
+            })
+            setStatus("success")
+        } else {
+            setStatus("error")
+        }
     }
 
     return (
@@ -58,8 +110,9 @@ const Contact = (props: IContactProps) => {
                             type="text"
                             name="name"
                             value={form.name}
-                            placeholder="Name"
+                            placeholder="Name*"
                             onChange={handleChange}
+                            required
                         />
                     </TCol>
                     <TCol size={1 / 2}>
@@ -67,16 +120,18 @@ const Contact = (props: IContactProps) => {
                             type="text"
                             name="email"
                             value={form.email}
-                            placeholder="E-Mail"
+                            placeholder="E-Mail*"
                             onChange={handleChange}
+                            required
                         />
                     </TCol>
                     <TCol size={1}>
                         <TextArea
                             name="content"
                             value={form.content}
-                            placeholder="Ihre persönliche Nachricht"
+                            placeholder={CONTENTS.placeholder[locale]}
                             onChange={handleChange}
+                            required
                         />
                     </TCol>
                     <TCol size={1} style={{ display: "flex", alignItems: "center" }}>
@@ -90,6 +145,9 @@ const Contact = (props: IContactProps) => {
                     </TCol>
                     <TCol>
                         <SubmitButton type="submit">Senden</SubmitButton>
+                        {status ? (
+                            <Message status={status}>{CONTENTS[status][locale]}</Message>
+                        ) : null}
                     </TCol>
                 </form>
             </TGrid>

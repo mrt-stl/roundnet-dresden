@@ -45,3 +45,13 @@ export const SubmitButton = styled.button`
     border: 0px;
     cursor: pointer;
 `
+
+export const Message = styled.p<{status: string}>`
+    width: fit-content;
+    display: inline-block;
+    padding-left: ${(props) => props.theme.spacing.xs};
+    padding-top: ${(props) => props.theme.spacing.xs};
+    padding-bottom: ${(props) => props.theme.spacing.xs};
+    margin-left: ${(props) => props.theme.spacing.xs};
+    border-left: 2px solid ${props => props.status === "success" ? props.theme.color.bitterlemon : "red"}
+`

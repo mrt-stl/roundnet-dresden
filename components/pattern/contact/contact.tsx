@@ -60,7 +60,6 @@ const Contact = (props: IContactProps) => {
         content: "",
         privacy: false,
     })
-    const [token, setToken] = useState(null)
     const captchaRef = useRef(null)
 
     const handleChange = (e) => {
@@ -162,7 +161,6 @@ const Contact = (props: IContactProps) => {
                     <TCol size={1}>
                         <HCaptcha
                             sitekey="b686418b-20fa-43a2-9426-311bb8f19c53"
-                            onVerify={setToken}
                             ref={captchaRef}
                             size="invisible"
                         />

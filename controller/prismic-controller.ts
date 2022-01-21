@@ -4,7 +4,7 @@ import RichtextModel from "../models/tukan/richtext-model"
 import StageModel from "../models/tukan/stage-model"
 import ListModel from "../models/tukan/list-model"
 import CallToActionModel from "../models/tukan/call-to-action-model"
-import AccordionModel from "../models/tukan/connections-model"
+import ConnectionModel from "../models/tukan/connections-model"
 import TukanModel from "../models/tukan/tukan-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
@@ -27,15 +27,28 @@ export const prismicPageToComponentModels = (result: Document) => {
 
 const mapResultToModel = (slice: any): TukanModel | null => {
     switch (slice.slice_type) {
-        case "accordion":
-            const accordionPrimary = slice.primary
-            const accordionItems: any = slice.items
+        case "connections":
+            const connectionsPrimary = slice.primary
+            const connectionsItems: any = slice.items
 
-            const accordionHeadline = accordionPrimary.accordion_title
-            const showMoreBtn = accordionPrimary.accordion_btn_more
+            const connectionsHeadline = connectionsPrimary.headline
+            const connectionsContent = asHtml(connectionsPrimary.content)
 
-            const accordion = new AccordionModel(accordionHeadline, showMoreBtn, accordionItems)
-            return accordion
+            const connectionsCards = []
+
+            for (const item of connectionsItems) {
+                const connection = {
+                    status: item.status,
+                    link: linkResolver(item.link),
+                    linkTarget: item.link_target ?? "self",
+                    details: asHtml(item.details),
+                    img: item.image.url
+                }
+                connectionsCards.push(connection)
+            }
+
+            const connections = new ConnectionModel(connectionsHeadline, connectionsContent, connectionsCards)
+            return connections
 
         case "call_to_action":
             const callToActionPrimary = slice.primary

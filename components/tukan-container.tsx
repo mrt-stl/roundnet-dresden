@@ -7,9 +7,9 @@ import Stage from "./pattern/stage"
 import RichtextModel from "../models/tukan/richtext-model"
 import Richtext from "./pattern/richtext"
 import CallToActionModel from "../models/tukan/call-to-action-model"
-import CallToAction from "./pattern/cal-to-action"
-import AccordionModel from "../models/tukan/connections-model"
-import Accordion from "./pattern/connections"
+import CallToAction from "./pattern/call-to-action"
+import ConnectionsModel from "../models/tukan/connections-model"
+import Connections from "./pattern/connections/connections"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -29,13 +29,13 @@ const matchComponent = (model: TukanModel, index: number) => {
 
     switch (model.type) {
         case TukanType.Accordion:
-            const accordionModel = model as AccordionModel
+            const connectionsModel = model as ConnectionsModel
             component = (
-                <Accordion
+                <Connections
                     key={index}
-                    headline={accordionModel.headline}
-                    showMoreBtn={accordionModel.showMoreBtn}
-                    items={accordionModel.items}
+                    connectionsHeadline={connectionsModel.connectionsHeadline}
+                    connectionsContent={connectionsModel.connectionsContent}
+                    connectionsCards={connectionsModel.connectionsCards}
                 />
             )
             break

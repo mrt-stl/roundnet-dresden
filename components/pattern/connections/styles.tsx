@@ -35,7 +35,7 @@ export const CardContainer = styled.div`
 export const ImageWrapper = styled.div<{ isActive: boolean }>`
     border: ${(props) => (props.isActive ? `2px solid ${props.theme.color.bitterlemon}` : "0px")};
     width: calc(25% - 2 * ${(props) => props.theme.spacing.s});
-    min-width: 250px;
+    min-width: 210px;
     margin-top: ${(props) => props.theme.spacing.m};
     margin-left: ${(props) => props.theme.spacing.s};
     margin-right: ${(props) => props.theme.spacing.s};

@@ -44,6 +44,7 @@ export const ImageWrapper = styled.div<{ isActive: boolean }>`
     height: 174px;
     background-color: ${(props) => props.theme.color.white};
     cursor: pointer;
+    position: relative;
     span {
         position: relative;
         display: block;
@@ -66,4 +67,14 @@ export const Details = styled(TCol)<{ isActive: boolean }>`
     a {
         color: ${(props) => props.theme.color.bitterlemon};
     }
+`
+
+export const StatusBadge = styled.p`
+    position: absolute;
+    top: ${props => props.theme.spacing.xs};
+    left: ${props => props.theme.spacing.xs};
+    background-color: ${props => props.theme.color.cultured};
+    padding: 3px 10px;
+    z-index: 1;
+    font-size: ${props => props.theme.fontSize.s};
 `

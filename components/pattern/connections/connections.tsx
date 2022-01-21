@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { TGrid, TCol } from "../../style/sc-grid"
 import parse from "html-react-parser"
-import { ConnectionsContainer, Headline, ImageWrapper, Details, CardContainer } from "./styles"
+import { ConnectionsContainer, Headline, ImageWrapper, Details, CardContainer, StatusBadge } from "./styles"
 
 export interface IConnectionsProps {
     connectionsHeadline: string
@@ -44,6 +44,7 @@ const Connections = (props: IConnectionsProps) => {
                                 onClick={handleClick}
                                 isActive={index === activeCard}
                             >
+                                <StatusBadge>{card.status}</StatusBadge>
                                 <span>
                                     <Image
                                         src={card.img}

@@ -185,7 +185,7 @@ const Contact = (props: IContactProps) => {
                             sitekey="b686418b-20fa-43a2-9426-311bb8f19c53"
                             ref={captchaRef}
                             size="invisible"
-                            onVerify={() => console.log("validation successful, you're not a bot!")}
+                            onVerify={setToken}
                         />
                     </TCol>
                     <TCol>

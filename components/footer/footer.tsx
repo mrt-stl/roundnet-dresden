@@ -26,7 +26,7 @@ const Footer = (props: IFooterProps) => {
                 <FooterContainer>
                     <TGrid style={{ height: "100%" }}>
                         {/* START NEWS SECTION */}
-                        <TCol size={1 / 2}>
+                        <TCol size={1 / 2} collapse="lg">
                             <Headline>{news_headline}</Headline>
                             {news.map((article, index) => (
                                 <News key={index}>{parse(asHtml(article.news_content))}</News>
@@ -35,9 +35,7 @@ const Footer = (props: IFooterProps) => {
                         {/* END NEW SECTION */}
 
                         {/* START FOOTER MAIN CONTENT */}
-                        <FooterMainContentCol
-                            size={1 / 2}
-                        >
+                        <FooterMainContentCol size={1 / 2} collapse="lg">
                             {/* CONTACT */}
                             <TCol size={1 / 2}>
                                 <Headline accent={true}>{contact_headline}</Headline>
@@ -68,23 +66,19 @@ const Footer = (props: IFooterProps) => {
                             {/* COPYRIGHT & LINKS */}
                             <TCol
                                 size={1}
-                                style={{ padding: 0, display: "flex", flexWrap: "wrap" }}
+                                style={{ padding: 0, display: "flex" }}
                             >
-                                <TCol size={1 / 2} style={{ paddingRight: 0 }}>
-                                    <Content>
-                                        <p>{copyright}</p>
-                                    </Content>
-                                </TCol>
+                                <Content style={{width: "50%", paddingLeft: "40px"}}>
+                                    <p style={{whiteSpace: "nowrap"}}>{copyright}</p>
+                                </Content>
 
-                                <TCol size={1 / 2}>
-                                    <Content>
-                                        {footer_links.map((link, index) => (
-                                            <Link href={linkResolver(link.footer_link)} key={index}>
-                                                {link.footer_link_label}
-                                            </Link>
-                                        ))}
-                                    </Content>
-                                </TCol>
+                                <Content style={{width: "50%", paddingLeft: "40px"}}>
+                                    {footer_links.map((link, index) => (
+                                        <Link href={linkResolver(link.footer_link)} key={index}>
+                                            {link.footer_link_label}
+                                        </Link>
+                                    ))}
+                                </Content>
                             </TCol>
                         </FooterMainContentCol>
                     </TGrid>

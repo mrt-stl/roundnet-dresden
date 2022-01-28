@@ -1,8 +1,9 @@
 import styled from "styled-components"
 import { TCol } from "../style/sc-grid"
+import { media } from "../style/tukan"
 
 export const FooterContainer = styled.footer`
-    height: 480px;
+    height: 440px;
     position: relative;
     padding-top: ${(props) => props.theme.spacing.xl};
 
@@ -18,12 +19,13 @@ export const FooterContainer = styled.footer`
         z-index: -1;
     }
 
-    @media only screen and (max-width: 786px) {
+    ${media.maxWidth("lg")`
         height: fit-content;
+        padding-top: ${(props) => props.theme.spacing.s};
         :after {
             display: none;
         }
-    }
+    `}
 `
 
 export const Headline = styled.p<{ accent?: boolean }>`
@@ -37,6 +39,7 @@ export const News = styled.div`
     margin-top: ${(props) => props.theme.spacing.s};
     padding-left: ${(props) => props.theme.spacing.s};
     font-size: ${(props) => props.theme.fontSize.s};
+    line-height: ${(props) => props.theme.lineHeight.l};
 `
 
 export const FooterMainContentCol = styled(TCol)`
@@ -45,8 +48,12 @@ export const FooterMainContentCol = styled(TCol)`
     flex-wrap: wrap;
     align-content: space-between;
 
-    @media only screen and (max-width: 786px) {
+    ${media.maxWidth("lg")`
         height: fit-content;
+        padding-left: 0;
+        margin-top: ${(props) => props.theme.spacing.m};
+        padding-top: ${(props) => props.theme.spacing.m};
+        padding-bottom: ${(props) => props.theme.spacing.m};
         :after {
             content: "";
             display: block;
@@ -58,7 +65,7 @@ export const FooterMainContentCol = styled(TCol)`
             right: 0;
             z-index: -1;
         }
-    }
+    `}
 `
 
 export const Content = styled.div`

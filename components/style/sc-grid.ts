@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const TGrid = styled.div<{ valign?: string, halign?: string }>`
     display: flex;
     flex-wrap: wrap;
-    max-width: 1024px;
+    max-width: 1200px;
     margin-right: auto;
     margin-left: auto;
     ${(props) => props.halign && Tutils.halign[props.halign](`
@@ -41,11 +41,11 @@ const Tutils  = {
             ${styles}
         }`,
         lg: (styles) => `
-        @media only screen and (max-width: 992px) {
+        @media only screen and (max-width: 930px) {
             ${styles}
         }`,
         xl: (styles) => `
-        @media only screen and (max-width: 1200px) {
+        @media only screen and (max-width: 1010px) {
             ${styles}
         }`
     },

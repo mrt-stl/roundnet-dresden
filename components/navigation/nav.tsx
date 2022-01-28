@@ -11,6 +11,7 @@ import {
     Branding,
     NavLink,
     LanguageSwitch,
+    Headline
 } from "./styles"
 interface INavProps {
     data: any
@@ -98,6 +99,7 @@ const Nav = (props: INavProps) => {
                         <span />
                     </StyledBurger>
                     <MenuContainer open={open}>
+                        <Headline>MENU</Headline>
                         {nav_links.map((element, index) => {
                             return (
                                 <Link href={linkResolver(element.nav_link)} passHref key={index}>

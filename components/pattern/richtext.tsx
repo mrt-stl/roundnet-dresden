@@ -40,6 +40,12 @@ const RichtextContainer = styled.div<{ imageSize: boolean }>`
         display: block;
         width: fit-content;
         margin-top: ${(props) => props.theme.spacing.m};
+        transition: all .2s linear;
+
+        :hover {
+            transition: all .1s linear;
+            background-color: ${(props) => props.theme.color.bitterlemon};
+        }
     }
 
     img {
@@ -52,7 +58,6 @@ const RichtextContainer = styled.div<{ imageSize: boolean }>`
 const Headline = styled.p<{ accent?: boolean }>`
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: ${(props) => props.theme.fontSize.s};
 `
 
 export default Richtext

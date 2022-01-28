@@ -19,23 +19,32 @@ export const NavContainer = styled.div<{ mobile?: boolean }>`
     top: 0;
     left: 0;
 
-    @media only screen and (max-width: 768px) {
-        display: ${(props) => (props.mobile ? "block" : "none")};
+    ${media.maxWidth("lg")`
+        display: ${(props) => (props.mobile ? "flex" : "none")};
+        align-items: center;
         ${Branding} {
-            transform: translate(20px, 20px);
+            margin-left: ${(props) => props.theme.spacing.m};
+            transform: translateY(5px);
         }
-    }
+    `}
 `
 
 export const NavGrid = styled(TGrid)`
-    max-width: 1024px;
     height: 80px;
+    padding-right: ${(props) => props.theme.spacing.m};
+    padding-left: ${(props) => props.theme.spacing.m};
 `
 
 export const NavLink = styled.a`
     text-transform: uppercase;
     margin-right: ${(props) => props.theme.spacing.m};
     letter-spacing: 1px;
+    transition: all 0.2s linear;
+
+    :hover {
+        transition: all 0.1s linear;
+        opacity: 0.5;
+    }
 `
 
 export const LanguageSwitch = styled.button`
@@ -45,10 +54,17 @@ export const LanguageSwitch = styled.button`
     height: 40px;
     color: ${(props) => props.theme.color.white};
     cursor: pointer;
+    transition: all 0.2s linear;
+
+    :hover {
+        transition: all 0.1s linear;
+        background-color: ${(props) => props.theme.color.blackCoral};
+        color: ${(props) => props.theme.color.white};
+    }
 `
 
 export const StyledBurger = styled.button<{ open: boolean }>`
-    ${media.minWidth("md")`
+    ${media.minWidth("ls")`
         display: none;
     `};
 
@@ -100,14 +116,14 @@ export const MenuContainer = styled.nav<{ open?: boolean }>`
         margin-top: ${(props) => props.theme.spacing.s};
         margin-right: 0;
         text-align: center;
-        font-size: ${props => props.theme.fontSize.l};
+        font-size: ${(props) => props.theme.fontSize.l};
         width: 100%;
     }
 
     ${LanguageSwitch} {
         margin-left: auto;
         margin-right: auto;
-        margin-top: ${(props) => props.theme.spacing.xl};
+        margin-top: ${(props) => props.theme.spacing.s};
     }
 
     background: ${(props) => props.theme.color.blackCoral};
@@ -121,5 +137,11 @@ export const MenuContainer = styled.nav<{ open?: boolean }>`
     padding-bottom: ${(props) => props.theme.spacing.s};
     flex-wrap: wrap;
     align-content: center;
-
+`
+export const Headline = styled.p`
+    color: ${(props) => props.theme.color.bitterlemon};
+    padding-bottom: ${(props) => props.theme.spacing.s};
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 auto;
 `

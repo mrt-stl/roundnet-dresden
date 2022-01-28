@@ -12,11 +12,11 @@ const CallToAction = (props: ICallToActionProps) => {
 
     return (
         <CtaContainer>
-            <TGrid>
+            <TGrid halign="center">
                 <TCol size={1 / 2}>
                     <h3>{ctaHeadline}</h3>
                 </TCol>
-                <TCol size={1 / 2}>
+                <TCol size={1 / 2} collapse="xl" talign="center">
                     {btns.map((btn, index) => (
                         <Link href={btn.link} passHref key={index}>
                             <CtaLink target={btn.target}>{btn.label}</CtaLink>
@@ -29,9 +29,18 @@ const CallToAction = (props: ICallToActionProps) => {
 }
 
 const CtaLink = styled.a`
+    display: inline-block;
+    width: fit-content;
     padding: ${(props) => props.theme.spacing.s} ${(props) => props.theme.spacing.m};
     background-color: ${(props) => props.theme.color.white};
     margin-right: ${(props) => props.theme.spacing.m};
+    transition: all 0.2s linear;
+
+    :hover {
+        transition: all 0.1s linear;
+        background-color: ${(props) => props.theme.color.blackCoral};
+        color: ${(props) => props.theme.color.white};
+    }
 `
 
 const CtaContainer = styled.section`
@@ -41,10 +50,9 @@ const CtaContainer = styled.section`
 
     @media only screen and (max-width: 786px) {
         text-align: center;
-        h3 {
-            margin-bottom: ${(props) => props.theme.spacing.m};
-        }
         ${CtaLink} {
+            margin-top: ${(props) => props.theme.spacing.xs};
+            margin-bottom: ${(props) => props.theme.spacing.xs};
             margin-right: ${(props) => props.theme.spacing.m};
             margin-left: ${(props) => props.theme.spacing.m};
         }

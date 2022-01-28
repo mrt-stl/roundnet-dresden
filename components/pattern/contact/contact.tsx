@@ -85,7 +85,7 @@ const Contact = (props: IContactProps) => {
             // user gets validated with captcha
             const captchaRes = await captchaRef.current.execute({ async: true })
 
-            if (!captchaRes.response || !token) {
+            if (!captchaRes.response) {
                 throw new Error("Failed to validate captcha")
             }
 
@@ -100,6 +100,7 @@ const Contact = (props: IContactProps) => {
             })
 
             if (!verifyRes.ok) {
+                console.log(token)
                 throw new Error("Failed to validate captcha on server")
             }
 

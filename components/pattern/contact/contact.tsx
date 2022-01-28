@@ -36,7 +36,7 @@ const CONTENTS = {
         er: "Please check checkbox to accept terms of privacy",
     },
     missingCaptcha: {
-        "de-de": "Die hCaptcha Validierung hat sie nicht als Mensch erkannt",
+        "de-de": "Die hCaptcha Validierung hat Sie nicht als Mensch erkannt",
         er: "The hCaptcha validation didn't recognize you as a human",
     },
     generell: {
@@ -54,6 +54,7 @@ const Contact = (props: IContactProps) => {
 
     const { locale } = useRouter()
     const [status, setStatus] = useState("")
+    const [token, setToken] = useState("")
     const [form, setForm] = useState<IContactState>({
         name: "",
         email: "",
@@ -184,6 +185,7 @@ const Contact = (props: IContactProps) => {
                             sitekey="b686418b-20fa-43a2-9426-311bb8f19c53"
                             ref={captchaRef}
                             size="invisible"
+                            onVerify={() => console.log("validation successful, you're not a bot!")}
                         />
                     </TCol>
                     <TCol>

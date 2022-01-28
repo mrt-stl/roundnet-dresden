@@ -80,33 +80,54 @@ const Contact = (props: IContactProps) => {
             return setStatus("missingPrivacy")
         }
 
-        captchaRef.current
-            .execute({ async: true })
-            .then(async () => {
-                const res = await fetch("/api/contact", {
-                    method: "POST",
-                    headers: {
-                        Accept: "application/json, text/plain, */*",
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(form),
+        try {
+            // user gets validated with captcha
+            const captchaRes = await captchaRef.current.execute({ async: true })
+
+            if (!captchaRes.response) {
+                throw new Error("Failed to validate captcha")
+            }
+
+            // response token gets validate serverside
+            const verifyRes = await fetch("/api/verify", {
+                method: "POST",
+                headers: {
+                    Accept: "application/json, text/plain, */*",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(captchaRes.response),
+            })
+
+            if (!verifyRes.ok) {
+                throw new Error("Failed to validate captcha on server")
+            }
+
+            // if captcha token is valid, send mail
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    Accept: "application/json, text/plain, */*",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(form),
+            })
+
+            // reset form state and inform user about success
+            if (res.ok) {
+                setForm({
+                    name: "",
+                    email: "",
+                    content: "",
+                    privacy: false,
                 })
-                if (res.ok) {
-                    setForm({
-                        name: "",
-                        email: "",
-                        content: "",
-                        privacy: false,
-                    })
-                    setStatus("success")
-                } else {
-                    setStatus("error")
-                }
-            })
-            .catch((err) => {
-                console.error(err)
-                return setStatus("missingCaptcha")
-            })
+                setStatus("success")
+            } else {
+                setStatus("error")
+            }
+        } catch (err) {
+            console.error(err)
+            return setStatus("missingCaptcha")
+        }
     }
 
     return (

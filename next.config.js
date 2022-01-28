@@ -28,11 +28,26 @@ module.exports = withBundleAnalyzer({
                                 "https://static.cdn.prismic.io/",
                                 "https://*.prismic.io/",
                                 "https://prismic.io/prismic-toolbar/",
-                                "https://js.hcaptcha.com/",
-                                "https://newassets.hcaptcha.com/"
+                            ],
+                            scriptSrc: [
+                                "'unsafe-eval'",
+                                "'self'",
+                                "https://hcaptcha.com",
+                                "https://*.hcaptcha.com",
+                            ],
+                            frameSrc: ["https://hcaptcha.com", "https://*.hcaptcha.com"],
+                            connectSrc: [
+                                "'self'",
+                                "https://hcaptcha.com",
+                                "https://*.hcaptcha.com",
                             ],
                             fontSrc: ["'self'"],
-                            styleSrc: ["'self'", "'unsafe-inline'"],
+                            styleSrc: [
+                                "'self'",
+                                "'unsafe-inline'",
+                                "https://hcaptcha.com",
+                                "https://*.hcaptcha.com",
+                            ],
                             imgSrc: [
                                 "'self'",
                                 "https://images.prismic.io/",

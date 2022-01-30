@@ -6,6 +6,17 @@ export const FooterContainer = styled.footer`
     height: 440px;
     position: relative;
     padding-top: ${(props) => props.theme.spacing.xl};
+    padding-bottom: ${(props) => props.theme.spacing.m};
+
+    a {
+        transition: all 0.2s linear;
+    } 
+
+    a:hover {
+        transition: all 0.1s linear;
+        color: ${(props) => props.theme.color.bitterlemon};
+    }
+
 
     :after {
         content: "";
@@ -40,6 +51,10 @@ export const News = styled.div`
     padding-left: ${(props) => props.theme.spacing.s};
     font-size: ${(props) => props.theme.fontSize.s};
     line-height: ${(props) => props.theme.lineHeight.l};
+
+    ${media.minWidth("lg")`
+    padding-right: ${(props) => props.theme.spacing.s};
+    `}
 `
 
 export const FooterMainContentCol = styled(TCol)`

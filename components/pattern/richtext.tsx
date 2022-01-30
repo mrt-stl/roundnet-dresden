@@ -33,6 +33,11 @@ const RichtextContainer = styled.div<{ imageSize: boolean }>`
     margin-bottom: ${(props) => props.theme.spacing.xl};
     line-height: ${props => props.theme.lineHeight.l};
 
+    p {
+        padding-top:${(props) => props.theme.spacing.xs};
+        padding-bottom:${(props) => props.theme.spacing.xs};
+    }
+
     .button {
         padding: ${(props) => props.theme.spacing.s} ${(props) => props.theme.spacing.m};
         background-color: ${(props) => props.theme.color.blackCoral};
@@ -50,8 +55,8 @@ const RichtextContainer = styled.div<{ imageSize: boolean }>`
 
     img {
         width: ${(props) => (props.imageSize ? "100px" : "100%")};
-        margin-top: ${(props) => props.theme.spacing.s};
-        margin-bottom: ${(props) => props.theme.spacing.s};
+        margin-top: ${(props) => props.theme.spacing.m};
+        margin-bottom: ${(props) => props.theme.spacing.m};
     }
 `
 

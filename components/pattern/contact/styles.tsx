@@ -4,6 +4,15 @@ export const ContactContainer = styled.section`
     background-color: ${(props) => props.theme.color.cultured};
     padding-top: ${(props) => props.theme.spacing.xl};
     padding-bottom: ${(props) => props.theme.spacing.xxl};
+
+    a {
+        transition: all 0.2s linear;
+    } 
+
+    a:hover {
+        transition: all 0.1s linear;
+        color: ${(props) => props.theme.color.bitterlemon};
+    }
 `
 
 export const Headline = styled.h1`

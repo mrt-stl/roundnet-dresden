@@ -44,7 +44,8 @@ const Connections = (props: IConnectionsProps) => {
                                 onClick={handleClick}
                                 isActive={index === activeCard}
                             >
-                                <StatusBadge>{card.status}</StatusBadge>
+                                {/* hide card.status for real estate */}
+                               { card.status === "Kein Status" ? <></> : <StatusBadge>{card.status}</StatusBadge> }
                                 <span>
                                     <Image
                                         src={card.img}

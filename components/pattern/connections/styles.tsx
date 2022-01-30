@@ -48,7 +48,7 @@ export const ImageWrapper = styled.div<{ isActive: boolean }>`
     margin-right: ${(props) => props.theme.spacing.s};
     padding-left: ${(props) => props.theme.spacing.s};
     padding-right: ${(props) => props.theme.spacing.s};
-    height: 174px;
+    height: 180px;
     background-color: ${(props) => props.theme.color.white};
     cursor: pointer;
     position: relative;
@@ -62,7 +62,7 @@ export const ImageWrapper = styled.div<{ isActive: boolean }>`
     :first-child {
         margin-left: 0;
     }
-    :first-child {
+    :last-child {
         margin-right: 0;
     }
 `

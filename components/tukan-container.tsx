@@ -49,6 +49,9 @@ const matchComponent = (model: TukanModel, index: number) => {
                     key={index}
                     contactHeadline={contactModel.contactHeadline}
                     contactContent={contactModel.contactContent}
+                    contactPlaceholderName={contactModel.contactPlaceholderName}
+                    contactPlaceholderEmail={contactModel.contactPlaceholderEmail}
+                    contactPlaceholderContent={contactModel.contactPlaceholderContent}
                     privacyContent={contactModel.privacyContent}
                 />
             )

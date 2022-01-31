@@ -16,6 +16,9 @@ import HCaptcha from "@hcaptcha/react-hcaptcha"
 export interface IContactProps {
     contactHeadline: string
     contactContent: string
+    contactPlaceholderName: string
+    contactPlaceholderEmail: string
+    contactPlaceholderContent: string
     privacyContent: string
 }
 
@@ -27,10 +30,6 @@ export interface IContactState {
 }
 
 const CONTENTS = {
-    placeholder: {
-        en: "Content of your message*",
-        "de-de": "Ihre persönliche Nachricht*",
-    },
     missingPrivacy: {
         "de-de": "Bitte akzeptieren Sie die Datenschutzerklärung",
         er: "Please check checkbox to accept terms of privacy",
@@ -50,7 +49,14 @@ const CONTENTS = {
 }
 
 const Contact = (props: IContactProps) => {
-    const { contactHeadline, contactContent, privacyContent } = props
+    const {
+        contactHeadline,
+        contactContent,
+        privacyContent,
+        contactPlaceholderName,
+        contactPlaceholderEmail,
+        contactPlaceholderContent,
+    } = props
 
     const { locale } = useRouter()
     const [status, setStatus] = useState("")
@@ -148,7 +154,7 @@ const Contact = (props: IContactProps) => {
                             type="text"
                             name="name"
                             value={form.name}
-                            placeholder="Name*"
+                            placeholder={contactPlaceholderName}
                             onChange={handleChange}
                             required
                         />
@@ -158,7 +164,7 @@ const Contact = (props: IContactProps) => {
                             type="text"
                             name="email"
                             value={form.email}
-                            placeholder="E-Mail*"
+                            placeholder={contactPlaceholderEmail}
                             onChange={handleChange}
                             required
                         />
@@ -167,7 +173,7 @@ const Contact = (props: IContactProps) => {
                         <TextArea
                             name="content"
                             value={form.content}
-                            placeholder={CONTENTS.placeholder[locale]}
+                            placeholder={contactPlaceholderContent}
                             onChange={handleChange}
                             required
                         />

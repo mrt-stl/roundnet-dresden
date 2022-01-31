@@ -41,14 +41,18 @@ const mapResultToModel = (slice: any): TukanModel | null => {
                 const connection = {
                     status: item.status,
                     link: linkResolver(item.link),
-                    linkTarget: item.link_target ?? "self",
+                    linkTarget: item.link.target,
                     details: asHtml(item.details),
-                    img: item.image.url
+                    img: item.image.url,
                 }
                 connectionsCards.push(connection)
             }
 
-            const connections = new ConnectionModel(connectionsHeadline, connectionsContent, connectionsCards)
+            const connections = new ConnectionModel(
+                connectionsHeadline,
+                connectionsContent,
+                connectionsCards
+            )
             return connections
 
         case "call_to_action":
@@ -108,9 +112,19 @@ const mapResultToModel = (slice: any): TukanModel | null => {
 
             const contactHeadline = contactPrimary.headline
             const contactContent = asHtml(contactPrimary.content)
+            const contactPlaceholderName = contactPrimary.placeholder_name
+            const contactPlaceholderEmail = contactPrimary.placeholder_email
+            const contactPlaceholderContent = contactPrimary.placeholder_content
             const privacyContent = asHtml(contactPrimary.privacy_content)
 
-            const contactModel = new ContactModel(contactHeadline, contactContent, privacyContent)
+            const contactModel = new ContactModel(
+                contactHeadline,
+                contactContent,
+                contactPlaceholderName,
+                contactPlaceholderEmail,
+                contactPlaceholderContent,
+                privacyContent
+            )
             return contactModel
 
         case "list":

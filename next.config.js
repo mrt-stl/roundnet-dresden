@@ -40,6 +40,7 @@ module.exports = withBundleAnalyzer({
                                 "'self'",
                                 "https://hcaptcha.com",
                                 "https://*.hcaptcha.com",
+                                "ws:"
                             ],
                             fontSrc: ["'self'"],
                             styleSrc: [

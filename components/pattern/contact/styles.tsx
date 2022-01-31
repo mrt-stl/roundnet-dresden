@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { media } from "../../style/tukan"
 
 export const ContactContainer = styled.section`
     background-color: ${(props) => props.theme.color.cultured};
@@ -7,7 +8,7 @@ export const ContactContainer = styled.section`
 
     a {
         transition: all 0.2s linear;
-    } 
+    }
 
     a:hover {
         transition: all 0.1s linear;
@@ -70,4 +71,9 @@ export const Message = styled.p<{ status: string }>`
     margin-left: ${(props) => props.theme.spacing.xs};
     border-left: 2px solid
         ${(props) => (props.status === "success" ? props.theme.color.bitterlemon : "red")};
+
+    ${media.maxWidth("lg")`
+        margin-top: ${(props) => props.theme.spacing.s};
+        margin-left: 0;
+    `}
 `

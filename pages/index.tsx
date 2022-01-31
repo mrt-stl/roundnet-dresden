@@ -26,7 +26,7 @@ const Index = (props: IIndexProps) => {
     const { docId, meta, doc, footerData, error, navData, preview } = props
 
     if (error) {
-        return (<Error />)
+        return (<Error navData={navData}/>)
     }
 
     // eslint-disable-next-line react-hooks/rules-of-hooks

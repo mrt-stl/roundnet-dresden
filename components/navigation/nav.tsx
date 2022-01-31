@@ -11,7 +11,7 @@ import {
     Branding,
     NavLink,
     LanguageSwitch,
-    Headline
+    Headline,
 } from "./styles"
 interface INavProps {
     data: any
@@ -21,7 +21,7 @@ const Nav = (props: INavProps) => {
     const [open, setOpen] = useState(false)
 
     const router = useRouter()
-    const { locale, query, asPath, pathname } = router
+    const { locale, query, asPath, pathname, events } = router
 
     useEffect(() => {
         const body = document.querySelector("body")
@@ -33,6 +33,10 @@ const Nav = (props: INavProps) => {
             body.style.overflow = null
         }
     }, [open])
+
+    useEffect(() => {
+        events.on("routeChangeStart", () => setOpen(false))
+    }, [events])
 
     const handleClick = () => {
         setOpen(!open)

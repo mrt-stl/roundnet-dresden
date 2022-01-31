@@ -61,8 +61,8 @@ const mapResultToModel = (slice: any): TukanModel | null => {
             for (const item of ctaItems) {
                 const btn = {
                     label: item.btn_label,
-                    link: linkResolver(item.btn_label),
-                    target: item.target,
+                    link: linkResolver(item.btn_link),
+                    target: item.btn_link.target,
                 }
                 btns.push(btn)
             }

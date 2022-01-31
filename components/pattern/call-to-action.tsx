@@ -13,7 +13,7 @@ const CallToAction = (props: ICallToActionProps) => {
     return (
         <CtaContainer>
             <TGrid halign="center">
-                <TCol size={1 / 2}>
+                <TCol size={1 / 2} style={{display: "flex", alignItems: "center"}}>
                     <h3>{ctaHeadline}</h3>
                 </TCol>
                 <TCol size={1 / 2} collapse="xl" talign="center">

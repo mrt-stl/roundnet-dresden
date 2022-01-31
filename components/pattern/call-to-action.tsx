@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { TGrid, TCol } from "../style/sc-grid"
 import styled from "styled-components"
+import { media } from "../style/tukan"
 
 export interface ICallToActionProps {
     ctaHeadline: string
@@ -13,7 +14,7 @@ const CallToAction = (props: ICallToActionProps) => {
     return (
         <CtaContainer>
             <TGrid halign="center">
-                <TCol size={1 / 2} talign="center" style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                <TCol size={1 / 2} style={{ display: "flex", alignItems: "center" }}>
                     <h3>{ctaHeadline}</h3>
                 </TCol>
                 <TCol size={1 / 2} collapse="xl" talign="center">
@@ -48,7 +49,7 @@ const CtaContainer = styled.section`
     padding-top: ${(props) => props.theme.spacing.l};
     padding-bottom: ${(props) => props.theme.spacing.l};
 
-    @media only screen and (max-width: 786px) {
+    ${media.maxWidth("xl")`
         text-align: center;
         ${CtaLink} {
             margin-top: ${(props) => props.theme.spacing.xs};
@@ -56,7 +57,10 @@ const CtaContainer = styled.section`
             margin-right: ${(props) => props.theme.spacing.m};
             margin-left: ${(props) => props.theme.spacing.m};
         }
-    }
+        ${TCol} {
+            justify-content: center;
+        }
+    `}
 `
 
 export default CallToAction

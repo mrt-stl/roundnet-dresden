@@ -88,7 +88,7 @@ export const media = breakpoints({
     sm: 576,
     md: 768,
     lg: 930,
-    xl: 1200,
+    xl: 1010,
   })
 
 export const theme: DefaultTheme = {

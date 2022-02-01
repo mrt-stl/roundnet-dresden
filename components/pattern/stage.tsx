@@ -16,7 +16,7 @@ const StageContainer = styled.div<{ background: string; parallax: boolean }>`
     background-image: url(${(props) => props.background});
     background-position: center center;
     min-height: 480px;
-    height: 60vh;
+    height: 80vh;
     background-size: cover;
     background-attachment: ${(props) => (props.parallax ? "fixed" : "initial")};
 

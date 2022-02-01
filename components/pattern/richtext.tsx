@@ -31,11 +31,20 @@ const Richtext = (props: IRichtextProps) => {
 const RichtextContainer = styled.div<{ imageSize: boolean }>`
     margin-top: ${(props) => props.theme.spacing.xl};
     margin-bottom: ${(props) => props.theme.spacing.xl};
-    line-height: ${props => props.theme.lineHeight.l};
+    line-height: ${(props) => props.theme.lineHeight.l};
 
     p {
-        padding-top:${(props) => props.theme.spacing.xs};
-        padding-bottom:${(props) => props.theme.spacing.xs};
+        padding-top: ${(props) => props.theme.spacing.xs};
+        padding-bottom: ${(props) => props.theme.spacing.xs};
+    }
+
+    a {
+        color: ${(props) => props.theme.color.bitterlemon};
+        transition: all 0.2s linear;
+        :hover {
+            color: ${(props) => props.theme.color.blackCoral};
+            transition: all 0.1s linear;
+        }
     }
 
     .button {
@@ -45,16 +54,17 @@ const RichtextContainer = styled.div<{ imageSize: boolean }>`
         display: block;
         width: fit-content;
         margin-top: ${(props) => props.theme.spacing.m};
-        transition: all .2s linear;
+        transition: all 0.2s linear;
 
         :hover {
-            transition: all .1s linear;
+            transition: all 0.1s linear;
             background-color: ${(props) => props.theme.color.bitterlemon};
         }
     }
 
     img {
-        width: ${(props) => (props.imageSize ? "100px" : "100%")};
+        width: ${(props) => (props.imageSize ? "auto" : "100%")};
+        height: ${(props) => (props.imageSize ? "100px" : "auto")};
         margin-top: ${(props) => props.theme.spacing.m};
         margin-bottom: ${(props) => props.theme.spacing.m};
     }

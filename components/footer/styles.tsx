@@ -10,13 +10,12 @@ export const FooterContainer = styled.footer`
 
     a {
         transition: all 0.2s linear;
-    } 
+    }
 
     a:hover {
         transition: all 0.1s linear;
         color: ${(props) => props.theme.color.bitterlemon};
     }
-
 
     :after {
         content: "";
@@ -33,6 +32,7 @@ export const FooterContainer = styled.footer`
     ${media.maxWidth("lg")`
         height: fit-content;
         padding-top: ${(props) => props.theme.spacing.s};
+        padding-bottom:0;
         :after {
             display: none;
         }
@@ -83,7 +83,7 @@ export const FooterMainContentCol = styled(TCol)`
     `}
 `
 
-export const Content = styled.div`
+export const Content = styled.div<{ social?: boolean }>`
     margin-top: ${(props) => props.theme.spacing.s};
     p,
     a {
@@ -92,8 +92,9 @@ export const Content = styled.div`
     }
 
     a {
-        display: flex;
-        align-items: center;
+        display: ${(props) => (props.social ? "flex" : "initial")};
+        align-items: ${(props) => (props.social ? "center" : null)};
+        margin-right: ${(props) => (props.social ? "inherit" : props.theme.spacing.s)};
         width: fit-content;
 
         span {

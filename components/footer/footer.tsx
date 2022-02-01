@@ -46,9 +46,9 @@ const Footer = (props: IFooterProps) => {
                             <TCol size={1 / 2}>
                                 <Headline accent={true}>{social_headline}</Headline>
                                 {social_links.map((link, index) => (
-                                    <Content key={index}>
+                                    <Content key={index} social={true}>
                                         <Link href={linkResolver(link.social_link)}>
-                                            <a>
+                                            <a target={link.social_link.target}>
                                                 <Image
                                                     src={link.social_icon.url}
                                                     width="28px"

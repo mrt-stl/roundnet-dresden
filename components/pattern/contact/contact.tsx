@@ -130,7 +130,7 @@ const Contact = (props: IContactProps) => {
                 })
                 setStatus("success")
             } else {
-                setStatus("error")
+                setStatus("generell")
             }
         } catch (err) {
             console.error(err)

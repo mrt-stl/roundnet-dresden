@@ -1,9 +1,16 @@
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
 import { TGrid, TCol } from "../../style/sc-grid"
 import parse from "html-react-parser"
-import { ConnectionsContainer, Headline, ImageWrapper, Details, CardContainer, StatusBadge } from "./styles"
+import {
+    ConnectionsContainer,
+    Headline,
+    ImageWrapper,
+    Details,
+    CardContainer,
+    StatusBadge,
+} from "./styles"
 
 export interface IConnectionsProps {
     connectionsHeadline: string
@@ -21,6 +28,10 @@ const Connections = (props: IConnectionsProps) => {
     const { connectionsHeadline, connectionsContent, connectionsCards } = props
 
     const [activeCard, setActiveCard] = useState(0)
+
+    useEffect(() => {
+        setActiveCard(0)
+    }, [props])
 
     const handleClick = (e) => {
         const target = e.currentTarget
@@ -45,7 +56,11 @@ const Connections = (props: IConnectionsProps) => {
                                 isActive={index === activeCard}
                             >
                                 {/* hide card.status for real estate */}
-                               { card.status === "Kein Status" ? <></> : <StatusBadge>{card.status}</StatusBadge> }
+                                {card.status === "Kein Status" ? (
+                                    <></>
+                                ) : (
+                                    <StatusBadge>{card.status}</StatusBadge>
+                                )}
                                 <span>
                                     <Image
                                         src={card.img}
@@ -61,9 +76,11 @@ const Connections = (props: IConnectionsProps) => {
                     {connectionsCards.map((card, index) => (
                         <Details size={1} key={index} isActive={index === activeCard}>
                             {parse(card.details)}
-                            <Link href={card.link} passHref>
-                                <a target={card.linkTarget}>{card.link}</a>
-                            </Link>
+                            {card.link ? (
+                                <Link href={card.link} passHref>
+                                    <a target={card.linkTarget}>{card.link}</a>
+                                </Link>
+                            ) : null}
                         </Details>
                     ))}
                 </TGrid>

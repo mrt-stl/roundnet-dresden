@@ -15,7 +15,6 @@ import {
 } from "./styles"
 import { TGrid, TCol } from "../../style/sc-grid"
 import HCaptcha from "@hcaptcha/react-hcaptcha"
-import { relative } from "path/posix"
 
 export interface IContactProps {
     contactHeadline: string

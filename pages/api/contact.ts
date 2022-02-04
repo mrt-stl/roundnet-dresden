@@ -23,11 +23,11 @@ export default async function (req, res) {
 
     const mailData = {
         from: "tf-ventures-mailing@stlb.me",
-        to: "martin@stadtteilliebe.de",
+        to: "franke@tf-ventures.ch",
         replyTo: req.body.email,
         subject: `Message From ${req.body.name}`,
         text: req.body.content + " | Sent from: " + req.body.email,
-        html: `<p>Name: ${req.body.email}</p><div>Message: ${req.body.content}</div><p>Reply to:
+        html: `<p>Name: ${req.body.name}</p><div>Message: ${req.body.content}</div><p>Reply to:
       ${req.body.email}</p>`,
     }
 

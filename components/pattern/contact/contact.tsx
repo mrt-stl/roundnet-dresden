@@ -1,5 +1,6 @@
 import { useState, useRef } from "react"
 import { useRouter } from "next/router"
+import Image from "next/image"
 import parse from "html-react-parser"
 import {
     ContactContainer,
@@ -9,9 +10,12 @@ import {
     Checkbox,
     SubmitButton,
     Message,
+    Tooltip,
+    TooltipWrapper,
 } from "./styles"
 import { TGrid, TCol } from "../../style/sc-grid"
 import HCaptcha from "@hcaptcha/react-hcaptcha"
+import { relative } from "path/posix"
 
 export interface IContactProps {
     contactHeadline: string
@@ -178,7 +182,7 @@ const Contact = (props: IContactProps) => {
                             required
                         />
                     </TCol>
-                    <TCol size={1} style={{ display: "flex", alignItems: "center" }}>
+                    <TCol size={2 / 3} style={{ display: "flex", alignItems: "center" }}>
                         <Checkbox
                             type="checkbox"
                             checked={form.privacy}
@@ -186,6 +190,30 @@ const Contact = (props: IContactProps) => {
                             onChange={handleChange}
                         />
                         {parse(privacyContent)}
+                    </TCol>
+
+                    <TCol
+                        size={1 / 3}
+                        style={{
+                            display: "flex",
+                            alignItems: "center",
+                            position: "relative",
+                        }}
+                    >
+                        <TooltipWrapper>
+                            <Image
+                                src="/icon-tooltip.svg"
+                                alt="information icon"
+                                layout="fill"
+                                objectFit="contain"
+                            />
+                            <Tooltip>
+                                This site is protected by{" "}
+                                <a href="https://www.hCaptcha.com" target="_blank" rel="noreferrer"> hCaptcha </a> and its
+                                <a href="https://www.hcaptcha.com/privacy" target="_blank" rel="noreferrer"> Privacy Policy </a> and
+                                <a href="https://www.hcaptcha.com/terms" target="_blank" rel="noreferrer"> Terms of Service </a> apply.
+                            </Tooltip>
+                        </TooltipWrapper>
                     </TCol>
                     <TCol size={1}>
                         <HCaptcha

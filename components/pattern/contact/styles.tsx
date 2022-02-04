@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Image from "next/image"
 import { media } from "../../style/tukan"
 
 export const ContactContainer = styled.section`
@@ -7,11 +8,11 @@ export const ContactContainer = styled.section`
     padding-bottom: ${(props) => props.theme.spacing.xxl};
 
     a {
-        transition: all 0.2s linear;
+        transition: color 0.2s linear;
     }
 
     a:hover {
-        transition: all 0.1s linear;
+        transition: color 0.1s linear;
         color: ${(props) => props.theme.color.bitterlemon};
     }
 `
@@ -76,4 +77,47 @@ export const Message = styled.p<{ status: string }>`
         margin-top: ${(props) => props.theme.spacing.s};
         margin-left: 0;
     `}
+`
+
+export const Tooltip = styled.span`
+    visibility: hidden;
+    width: 300px;
+    position: absolute;
+    top: -8px;
+    right: 24px;
+    font-size: ${(props) => props.theme.fontSize.s};
+    transform: translateX(20px);
+    transition: all 0.3s linear;
+
+    ${media.maxWidth("lg")`
+        transform: translateX(-20px);
+        transition: all 0s linear;
+    `}
+`
+
+export const TooltipWrapper = styled.div`
+    position: relative;
+    cursor: help;
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+
+    ${media.maxWidth("lg")`
+        margin-left: 0;
+        margin-right: auto;
+    `}
+
+    :hover {
+        ${Tooltip} {
+            visibility: visible;
+            transform: translateX(0);
+            transition: all 0.3s linear;
+
+            ${media.maxWidth("lg")`
+                transition: all 0s linear;
+                transform: translateX(calc(100% + 24px));
+                padding-left: 15px;
+            `}
+        }
+    }
 `

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { media } from "../../style/tukan"
 
 export const ContactContainer = styled.section`
@@ -8,6 +8,7 @@ export const ContactContainer = styled.section`
 
     a {
         transition: color 0.2s linear;
+        text-decoration: underline;
     }
 
     a:hover {
@@ -62,6 +63,12 @@ export const SubmitButton = styled.button`
     }
 `
 
+const fadeIn = keyframes`
+    from {transform: translateX(-30px);
+        opacity: 0;}
+    to: {transform: translateX(0);
+        opacity:1;}`
+
 export const Message = styled.p<{ status: string }>`
     width: fit-content;
     display: inline-block;
@@ -69,6 +76,7 @@ export const Message = styled.p<{ status: string }>`
     padding-top: ${(props) => props.theme.spacing.xs};
     padding-bottom: ${(props) => props.theme.spacing.xs};
     margin-left: ${(props) => props.theme.spacing.xs};
+    animation: ${fadeIn} .3s;
     border-left: 2px solid
         ${(props) => (props.status === "success" ? props.theme.color.bitterlemon : "red")};
 

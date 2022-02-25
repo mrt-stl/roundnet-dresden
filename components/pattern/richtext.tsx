@@ -41,6 +41,8 @@ const RichtextContainer = styled.div<{ imageSize: boolean }>`
     a {
         color: ${(props) => props.theme.color.bitterlemon};
         transition: all 0.2s linear;
+        width: fit-content;
+        display: inline-block;
         :hover {
             color: ${(props) => props.theme.color.blackCoral};
             transition: all 0.1s linear;

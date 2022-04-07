@@ -12,7 +12,7 @@ const Meta = (props: IMetaProps) => {
         : "TF Ventures"
     const metaDescription = !isUndefinedOrNullOrEmpty(props.data.metaDescription)
         ? props.data.metaDescription
-        : "Ihr Pflegedienst im Dresdner Zentrum"
+        : "Wir sind ein Beratungsunternehmen mit spezieller Expertise im Bereich Private Equity und Real Estate. Im Rahmen von Beratungs- oder Transaktionsmandaten gehen wir zusammen mit Partnern äußerst selektiv auch eigene Beteiligungen ein."
 
     return (
         <div>

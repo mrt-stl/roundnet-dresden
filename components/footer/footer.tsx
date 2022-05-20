@@ -45,34 +45,33 @@ const Footer = (props: IFooterProps) => {
                             {/* SOCIAL MEDIA */}
                             <TCol size={1 / 2}>
                                 <Headline accent={true}>{social_headline}</Headline>
-                                {social_links.map((link, index) => (
-                                    <Content key={index} social={true}>
-                                        <Link href={linkResolver(link.social_link)}>
-                                            <a target={link.social_link.target}>
-                                                <Image
-                                                    src={link.social_icon.url}
-                                                    width="28px"
-                                                    height="28px"
-                                                    alt="social media icon"
-                                                    className="icon"
-                                                />
-                                                <span>{link.social_link_label}</span>
-                                            </a>
-                                        </Link>
-                                    </Content>
-                                ))}
+                                {social_links
+                                    ? social_links.map((link, index) => (
+                                          <Content key={index} social={true}>
+                                              <Link href={linkResolver(link.social_link)}>
+                                                  <a target={link.social_link.target}>
+                                                      <Image
+                                                          src={link.social_icon.url}
+                                                          width="28px"
+                                                          height="28px"
+                                                          alt="social media icon"
+                                                          className="icon"
+                                                      />
+                                                      <span>{link.social_link_label}</span>
+                                                  </a>
+                                              </Link>
+                                          </Content>
+                                      ))
+                                    : null}
                             </TCol>
 
                             {/* COPYRIGHT & LINKS */}
-                            <TCol
-                                size={1}
-                                style={{ padding: 0, display: "flex" }}
-                            >
-                                <Content style={{width: "50%", paddingLeft: "40px"}}>
-                                    <p style={{whiteSpace: "nowrap"}}>{copyright}</p>
+                            <TCol size={1} style={{ padding: 0, display: "flex" }}>
+                                <Content style={{ width: "50%", paddingLeft: "40px" }}>
+                                    <p style={{ whiteSpace: "nowrap" }}>{copyright}</p>
                                 </Content>
 
-                                <Content style={{width: "50%", paddingLeft: "40px"}}>
+                                <Content style={{ width: "50%", paddingLeft: "40px" }}>
                                     {footer_links.map((link, index) => (
                                         <Link href={linkResolver(link.footer_link)} key={index}>
                                             {link.footer_link_label}

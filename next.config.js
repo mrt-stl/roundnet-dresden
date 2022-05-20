@@ -12,7 +12,7 @@ module.exports = withBundleAnalyzer({
         defaultLocale: "de-de",
     },
     images: {
-        domains: ["localhost", "images.prismic.io", "tf-ventures.cdn.prismic.io"],
+        domains: ["localhost", "images.prismic.io", "roundnet-dresden-ev.cdn.prismic.io"],
     },
     async headers() {
         return [

@@ -97,7 +97,7 @@ export const theme: DefaultTheme = {
         platinum: "#EBEBEB",
         cultured: "#F7F7F8",
         morningBlue: "#83A0A0",
-        bitterlemon: "#C1D72E",
+        bitterlemon: "#CDAB54",
         white: "#ffffff"
     },
     fontSize: {

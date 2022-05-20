@@ -14,7 +14,7 @@ import {
     TooltipWrapper,
 } from "./styles"
 import { TGrid, TCol } from "../../style/sc-grid"
-import HCaptcha from "@hcaptcha/react-hcaptcha"
+// import HCaptcha from "@hcaptcha/react-hcaptcha"
 
 export interface IContactProps {
     contactHeadline: string
@@ -63,7 +63,7 @@ const Contact = (props: IContactProps) => {
 
     const { locale } = useRouter()
     const [status, setStatus] = useState("")
-    const [token, setToken] = useState("")
+    // const [token, setToken] = useState("")
     const [form, setForm] = useState<IContactState>({
         name: "",
         email: "",
@@ -109,7 +109,7 @@ const Contact = (props: IContactProps) => {
             })
 
             if (!verifyRes.ok) {
-                console.log(token)
+                // console.log(token)
                 throw new Error("Failed to validate captcha on server")
             }
 
@@ -215,12 +215,12 @@ const Contact = (props: IContactProps) => {
                         </TooltipWrapper>
                     </TCol>
                     <TCol size={1}>
-                        <HCaptcha
+                        {/* <HCaptcha
                             sitekey="b686418b-20fa-43a2-9426-311bb8f19c53"
                             ref={captchaRef}
                             size="invisible"
                             onVerify={setToken}
-                        />
+                        /> */}
                     </TCol>
                     <TCol>
                         <SubmitButton type="submit">Senden</SubmitButton>

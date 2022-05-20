@@ -70,6 +70,10 @@ const RichtextContainer = styled.div<{ imageSize: boolean }>`
         margin-top: ${(props) => props.theme.spacing.m};
         margin-bottom: ${(props) => props.theme.spacing.m};
     }
+
+    iframe {
+        width: min(300px, 100%) !important;
+    }
 `
 
 const Headline = styled.p<{ accent?: boolean }>`

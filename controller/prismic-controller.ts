@@ -7,6 +7,7 @@ import CallToActionModel from "../models/tukan/call-to-action-model"
 import ConnectionModel from "../models/tukan/connections-model"
 import ContactModel from "../models/tukan/contact-model"
 import TukanModel from "../models/tukan/tukan-model"
+import SliderModel from "../models/tukan/slider-model"
 
 export const prismicPageToComponentModels = (result: Document) => {
     if (!result) {
@@ -54,6 +55,19 @@ const mapResultToModel = (slice: any): TukanModel | null => {
                 connectionsCards
             )
             return connections
+
+        case "slider":
+            const data = slice.items.map((item) => {
+                return {
+                    content: asHtml(item.content),
+                    imgUrl: item.image.url,
+                    imgAlt: item.image.alt,
+                    link: linkResolver(item.link),
+                }
+            })
+
+            const slider = new SliderModel(data)
+            return slider
 
         case "call_to_action":
             const callToActionPrimary = slice.primary

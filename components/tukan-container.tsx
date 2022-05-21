@@ -12,6 +12,8 @@ import ConnectionsModel from "../models/tukan/connections-model"
 import Connections from "./pattern/connections/connections"
 import ContactModel from "../models/tukan/contact-model"
 import Contact from "./pattern/contact/contact"
+import Slider from "./pattern/slider/slider"
+import SliderModel from "../models/tukan/slider-model"
 
 interface ITukanWrapperProps {
     tukanModels: TukanModel[]
@@ -40,6 +42,11 @@ const matchComponent = (model: TukanModel, index: number) => {
                     connectionsCards={connectionsModel.connectionsCards}
                 />
             )
+            break
+
+        case TukanType.Slider:
+            const sliderModel = model as SliderModel
+            component = <Slider key={index} data={sliderModel.data} project={false} />
             break
 
         case TukanType.Contact:

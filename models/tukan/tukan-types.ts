@@ -4,5 +4,6 @@ export enum TukanType {
     Richtext = "richtext",
     Stage = "stage",
     CallToAction = "call-to-action",
-    Accordion = "accordion"
+    Accordion = "accordion",
+    Slider = "slider",
 }

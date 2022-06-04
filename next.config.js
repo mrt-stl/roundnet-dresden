@@ -8,7 +8,7 @@ module.exports = withBundleAnalyzer({
     target: "serverless",
     i18n: {
         // two digit locales are custom locales made in prismic. de-de has to remain because it's the default in prismic
-        locales: ["de-de", "en"],
+        locales: ["de-de"],
         defaultLocale: "de-de",
     },
     images: {

@@ -72,7 +72,7 @@ const Nav = (props: INavProps) => {
                                         passHref
                                         key={index}
                                     >
-                                        <NavLink>{element.nav_label}</NavLink>
+                                        <NavLink target={element.nav_link.target ?? null}>{element.nav_label}</NavLink>
                                     </Link>
                                 )
                             })}

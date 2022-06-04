@@ -69,6 +69,7 @@ export const IconArrow = styled(Icon)<{ left?: boolean }>`
 `
 
 export const SliderContainer = styled.div`
+    margin-top: ${(props) => props.theme.spacing.l};
     display: flex;
     overflow-x: scroll;
     overflow: auto;

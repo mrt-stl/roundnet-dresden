@@ -46,8 +46,7 @@ export const ImageWrapper = styled.div<{ isActive: boolean }>`
     margin-top: ${(props) => props.theme.spacing.m};
     margin-left: ${(props) => props.theme.spacing.s};
     margin-right: ${(props) => props.theme.spacing.s};
-    padding-left: ${(props) => props.theme.spacing.s};
-    padding-right: ${(props) => props.theme.spacing.s};
+    padding: ${(props) => props.theme.spacing.m};
     height: 180px;
     background-color: ${(props) => props.theme.color.white};
     cursor: pointer;

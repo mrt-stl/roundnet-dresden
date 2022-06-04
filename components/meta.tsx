@@ -9,10 +9,10 @@ interface IMetaProps {
 const Meta = (props: IMetaProps) => {
     const metaTitle = !isUndefinedOrNullOrEmpty(props.data.metaTitle)
         ? props.data.metaTitle
-        : "TF Ventures"
+        : "1. Roundnet Club Dresden e.V."
     const metaDescription = !isUndefinedOrNullOrEmpty(props.data.metaDescription)
         ? props.data.metaDescription
-        : "Wir sind ein Beratungsunternehmen mit spezieller Expertise im Bereich Private Equity und Real Estate. Im Rahmen von Beratungs- oder Transaktionsmandaten gehen wir zusammen mit Partnern äußerst selektiv auch eigene Beteiligungen ein."
+        : "Wir spielen Roundnet in Dresden. Lass uns gemeinsam spielen, trainieren und Spaß haben!"
 
     return (
         <div>
